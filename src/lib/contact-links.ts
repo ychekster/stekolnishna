@@ -7,14 +7,23 @@ export function telHref(phoneE164: string): string {
   return `tel:${phoneE164}`;
 }
 
+/** Characters Telegram allows in a bot deep-link `start` parameter (max 64 of them). */
+const TELEGRAM_START_PARAM = /^[A-Za-z0-9_-]{1,64}$/;
+
 /**
- * WhatsApp chat link (`wa.me`). An optional message is prefilled — used on product cards
- * to send the product name and chosen options (spec §4.3).
+ * Link to the company Telegram bot (replaces WhatsApp — docs/decisions/0003).
+ *
+ * `startParam` becomes a deep link (`?start=…`): the bot receives it on /start, so it can
+ * tell where the visitor came from — e.g. a product slug from a product card. Telegram
+ * only accepts `A–Z a–z 0–9 _ -` up to 64 chars; anything else is a programming error.
  */
-export function whatsappHref(number: string, message?: string): string {
-  const digits = number.replace(/\D/g, "");
-  const query = message ? `?text=${encodeURIComponent(message)}` : "";
-  return `https://wa.me/${digits}${query}`;
+export function telegramHref(botUsername: string, startParam?: string): string {
+  const username = botUsername.replace(/^@/, "");
+  if (startParam === undefined) return `https://t.me/${username}`;
+  if (!TELEGRAM_START_PARAM.test(startParam)) {
+    throw new Error(`Invalid Telegram start parameter: "${startParam}"`);
+  }
+  return `https://t.me/${username}?start=${startParam}`;
 }
 
 /** `mailto:` link. */

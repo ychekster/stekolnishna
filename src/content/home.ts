@@ -8,6 +8,7 @@
  * src/lib/content.
  */
 import type { HomePage } from "@/lib/content/types";
+import { routes } from "@/lib/routes";
 
 const REVIEW_PLACEHOLDER =
   "[Настоящий отзыв клиента: что заказывали, как прошли замер и монтаж, что понравилось. 2–4 предложения.]";
@@ -20,7 +21,7 @@ export const homePageContent: HomePage = {
       src: "/images/hero-glass.jpg",
       alt: "Стеклянный фасад и стопка листов закалённого стекла на фоне неба",
     },
-    cta: { label: "Оставить заявку", href: "#form" },
+    cta: { label: "Оставить заявку", href: routes.leadForm },
   },
 
   about: {
@@ -70,25 +71,25 @@ export const homePageContent: HomePage = {
     items: [
       {
         title: "Душевые ограждения",
-        href: "#",
+        href: routes.catalogCategory("dushevye-peregorodki"),
         image: null,
         price: { kind: "from", amount: null, unit: "piece" },
       },
       {
         title: "Стеклянные перегородки",
-        href: "#",
+        href: routes.catalogCategory("peregorodki"),
         image: null,
         price: { kind: "from", amount: null, unit: "m2" },
       },
       {
         title: "Зеркала",
-        href: "#",
+        href: routes.catalogCategory("zerkala"),
         image: null,
         price: { kind: "from", amount: null, unit: "m2" },
       },
       {
         title: "Ограждения лестниц и балконов",
-        href: "#",
+        href: routes.catalogCategory("steklyannye-ograzhdeniya"),
         image: null,
         price: { kind: "from", amount: null, unit: "linear-m" },
       },
@@ -128,7 +129,7 @@ export const homePageContent: HomePage = {
   projects: {
     title: "Выполненные проекты",
     lead: "Несколько работ последних месяцев",
-    allProjectsLink: { label: "Смотреть все проекты", href: "#" },
+    allProjectsLink: { label: "Смотреть все проекты", href: routes.portfolio },
     items: [
       { caption: "Офисные перегородки · БЦ, [район]", href: null, image: null },
       { caption: "Душевая · квартира", href: null, image: null },
@@ -148,7 +149,7 @@ export const homePageContent: HomePage = {
         icon: "chat",
         title: "Заявка и консультация",
         description:
-          "Расскажите о задаче по телефону, в WhatsApp или через форму — подскажем подходящее стекло и фурнитуру",
+          "Расскажите о задаче по телефону, в Telegram или через форму — подскажем подходящее стекло и фурнитуру",
       },
       {
         icon: "pin",

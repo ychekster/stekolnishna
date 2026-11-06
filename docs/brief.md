@@ -16,10 +16,9 @@
 
 1. Present the company, its services and production capabilities.
 2. Show the product range and real completed projects (portfolio).
-3. Collect leads: order requests, callback requests, WhatsApp chats.
-4. Give a preliminary price via an online calculator.
-5. Accept custom orders with the customer's own sizes, photos or drawings.
-6. Bring in organic traffic from Google and Yandex (local SEO, Almaty).
+3. Collect leads: order requests, callback requests, Telegram bot chats.
+4. Accept custom orders with the customer's own sizes, photos or drawings.
+5. Bring in organic traffic from Google and Yandex (local SEO, Almaty).
 
 ## The one hard requirement
 
@@ -27,14 +26,16 @@
 
 Everything a non-technical person would want to change lives in the admin panel, not in code.
 
+> **Changed by the customer** ([decisions/0003](decisions/0003-telegram-instead-of-whatsapp-no-calculator.md)): WhatsApp → Telegram bot, no price calculator.
+
 ## Customer journey
 
 ```
 Search (Google/Yandex) or ad
   → Landing / SEO page / homepage
   → Catalog category or Portfolio
-  → Product card  ──or──  Calculator
-  → Order form / Callback / WhatsApp
+  → Product card
+  → Order form / Callback / Telegram bot
   → Manager confirms final price → order
 ```
 
@@ -45,8 +46,7 @@ The site does **not** sell online with checkout in v1 — every order is a lead 
 ### v1 (this contract)
 
 - Pages: Home, Catalog (12 categories → category pages → product cards), Services, Portfolio with filters + project pages, About, Contacts, SEO landing pages, legal pages.
-- Price calculator with admin-managed tariffs.
-- Order form with file upload (JPG/JPEG/PNG/PDF), callback form, floating WhatsApp button with prefilled messages.
+- Order form with file upload (JPG/JPEG/PNG/PDF), callback form, floating Telegram button; product cards open the Telegram bot with a deep link to the product.
 - Admin panel: products, categories, prices, photos, portfolio, reviews, news/articles, contacts, homepage, leads with statuses and search.
 - New-lead notifications to the owner.
 - SEO basics, GA4 + Yandex Metrica with event tracking.
@@ -54,7 +54,7 @@ The site does **not** sell online with checkout in v1 — every order is a lead 
 
 ### Phase 2 (not now, but architecture must allow it)
 
-Client accounts, order history, online payment, auto-generated PDF quotes, CRM integration, 1C integration, automatic order-status notifications to clients, advanced calculator for complex structures.
+Client accounts, order history, online payment, auto-generated PDF quotes, CRM integration, 1C integration, automatic order-status notifications to clients.
 
 ## Visual direction
 
@@ -62,4 +62,4 @@ Modern, minimal, "premium interior" feel. Light backgrounds (white / light grey)
 
 ## Acceptance criteria (summary of spec §12)
 
-All pages work; catalog shows categories and products with photos and specs; calculator computes correctly with agreed tariffs; forms submit and save leads; file upload works; WhatsApp opens with the correct number; admin can change prices, texts, contacts and add products and photos; correct on smartphones; SEO and analytics configured; deployed on the agreed domain and hosting; all accesses and docs handed over.
+All pages work; catalog shows categories and products with photos and specs; forms submit and save leads; file upload works; Telegram opens the correct bot; admin can change prices, texts, contacts and add products and photos; correct on smartphones; SEO and analytics configured; deployed on the agreed domain and hosting; all accesses and docs handed over.

@@ -10,7 +10,7 @@ export function HeroSection({ hero }: { hero: HomePage["hero"] }) {
   return (
     <section
       aria-labelledby="hero-title"
-      className="relative mt-2 flex min-h-85 items-start overflow-hidden rounded-md md:min-h-105 md:items-center md:rounded-lg"
+      className="relative mt-4 flex min-h-85 items-start overflow-hidden rounded-md md:mt-6 md:min-h-105 md:items-center md:rounded-lg"
     >
       <MediaFrame image={hero.image} sizes="(min-width: 1200px) 1136px, 100vw" preload cover />
       <div className="absolute inset-0 bg-scrim" aria-hidden="true" />

@@ -26,14 +26,16 @@ The homepage is prerendered as static HTML at build time; only the lead form, th
 ```
 src/
   app/
-    layout.tsx            Root layout: <html lang="ru">, Manrope font, metadata
-    page.tsx              Homepage — only composition, no content
+    layout.tsx            Root layout for every page: <html lang="ru">, font, metadata,
+                          sticky SiteHeader, <main> container, SiteFooter, FloatingTelegram
+    page.tsx              Homepage — only composition of sections, no content
+    not-found.tsx         404 — "Раздел скоро появится" while sitemap pages are planned
     globals.css           Design tokens (@theme) + base styles
   components/
     ui/                   Generic building blocks from the design system
       Button, IconButton, Icon, Container, Section, SectionHeading,
       MediaFrame (image or placeholder), AccentBadge, Brand, TextField, Carousel
-    layout/               SiteHeader (burger), SiteFooter, FloatingWhatsApp
+    layout/               SiteHeader (sticky, burger below xl), SiteFooter, FloatingTelegram
     home/                 Homepage sections and their cards
       HeroSection, AboutSection+Stat, ServicesSection+ServiceCard,
       CatalogSection+CatalogCard, AdvantagesSection+AdvantageItem,
@@ -46,7 +48,8 @@ src/
     content/              Content types + getters (the only content entry point)
     leads/                Lead form: schema, rate limit, repository, server action
     format/               price.ts (₸ labels), phone.ts (KZ normalization)
-    contact-links.ts      tel: / wa.me / mailto: builders
+    routes.ts             All internal URLs (sitemap slugs) + active-link matching
+    contact-links.ts      tel: / t.me (Telegram bot, deep links) / mailto: builders
     cn.ts                 className joiner
 public/images/            Static images (hero photo)
 docs/design/              Design handoff: HANDOFF.md, tokens.json, screenshots, reference.html
@@ -56,6 +59,8 @@ docs/design/              Design handoff: HANDOFF.md, tokens.json, screenshots, 
 
 - **Server components by default.** `"use client"` only where there is state or browser APIs: `SiteHeader`, `Carousel`, `LeadForm`.
 - **Sections receive their slice of content as props** (`<HeroSection hero={home.hero} />`), so each is independent and reorderable — matching the future CMS "blocks".
+- **Internal links only via `routes`** (`src/lib/routes.ts`), never string literals. Navigation points to the sitemap pages (Каталог, Услуги, Наши работы, О компании, Контакты); until a page exists its link renders `not-found.tsx`. "Оставить заявку" everywhere → `routes.leadForm` (`/#form`).
+- **Sticky header height** is the CSS variable `--header-height` (64px, 76px from xl) in `globals.css`; it also drives `scroll-padding-top`, so anchor jumps land below the header.
 - **Icons are keys** (`IconName` in content), mapped to Lucide in `components/ui/Icon.tsx`, so editors pick icons by name.
 - **Images**: `MediaFrame` renders `next/image` when an image exists and the turquoise placeholder pattern otherwise. Every image has alt text.
 
@@ -75,7 +80,8 @@ Tokens are transcribed from `docs/design/tokens.json` (theme "Стекло") int
 Deviations from the mockup, intentional:
 
 - **Consent checkbox** in the lead form (mockup had only text) — required by KZ personal data law / spec §9.
-- **Floating WhatsApp button** — not in the mockup, required by spec §4.3.
+- **Telegram instead of WhatsApp** everywhere (header, floating button, contacts) — customer decision, [decisions/0003](decisions/0003-telegram-instead-of-whatsapp-no-calculator.md).
+- **Floating Telegram button** — not in the mockup, required by spec §4.3 (originally WhatsApp).
 
 ## Lead form flow
 
@@ -103,4 +109,4 @@ Deviations from the mockup, intentional:
 
 1. Install PostgreSQL (or Docker) → add Payload CMS; move `src/content/*` into CMS globals/collections; implement `getHomePage()`/`getSiteSettings()` via Payload; `saveLead()` → `leads` collection + notification.
 2. Remaining pages from [sitemap.md](sitemap.md): catalog, product card, services, portfolio, about, contacts, legal.
-3. Price calculator (blocked on tariffs — [open-questions.md](open-questions.md)).
+3. Telegram bot — separate project; the site only links to it.

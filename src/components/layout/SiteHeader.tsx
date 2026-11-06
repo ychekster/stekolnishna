@@ -1,25 +1,39 @@
 "use client";
 
 /**
- * Site header (design: Header): logo, anchor menu, phone with working hours,
- * WhatsApp and "Оставить заявку" buttons. Below 768px the menu collapses into a burger
- * dropdown. Client component only because of the burger toggle state.
+ * Site header (design: Header), sticky at the top of every page.
+ *
+ * Desktop (≥ xl): logo · page navigation · phone with hours · Telegram · "Оставить заявку".
+ * Below xl: logo · call button · burger. Phone, Telegram and the CTA move into the burger
+ * panel — a sticky header must stay one compact row, or it eats half a phone screen.
+ *
+ * Deviations from the mockup: Telegram replaces WhatsApp (docs/decisions/0003), and the
+ * burger is used up to xl (1280px) instead of md (768px) because page links plus contacts
+ * do not fit in one row on tablets.
+ *
+ * Client component because of the burger state and active-link highlighting.
  */
-import { Menu, MessageCircle, X } from "lucide-react";
+import { Menu, Phone, Send, X } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
 
 import { Brand } from "@/components/ui/Brand";
 import { Button } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
 import { ICON_STROKE } from "@/components/ui/Icon";
 import { cn } from "@/lib/cn";
-import { telHref, whatsappHref } from "@/lib/contact-links";
+import { telegramHref, telHref } from "@/lib/contact-links";
 import type { SiteSettings } from "@/lib/content/types";
+import { isActiveRoute, routes } from "@/lib/routes";
 
 export function SiteHeader({ settings }: { settings: SiteSettings }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
   const menuId = useId();
+  const closeMenu = () => setMenuOpen(false);
 
-  // Close the dropdown with Escape — expected keyboard behavior for disclosure menus.
+  // Close the panel with Escape — expected keyboard behavior for disclosure menus.
   useEffect(() => {
     if (!isMenuOpen) return;
     const onKeyDown = (event: KeyboardEvent) => {
@@ -29,68 +43,110 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isMenuOpen]);
 
+  const navLinks = settings.navigation.map((item) => {
+    const isActive = isActiveRoute(item.href, pathname);
+    return (
+      <Link
+        key={item.href}
+        href={item.href}
+        onClick={closeMenu}
+        aria-current={isActive ? "page" : undefined}
+        className={cn(
+          "py-3 text-label whitespace-nowrap hover:text-accent-strong xl:py-0 xl:text-nav",
+          isActive ? "text-accent-strong" : "text-ink",
+        )}
+      >
+        {item.label}
+      </Link>
+    );
+  });
+
+  const telegramButton = (
+    <Button
+      href={telegramHref(settings.telegramBot)}
+      variant="outline"
+      size="sm"
+      target="_blank"
+      rel="noopener noreferrer"
+      icon={<Send size={18} strokeWidth={ICON_STROKE} aria-hidden="true" />}
+    >
+      Telegram
+    </Button>
+  );
+
   return (
-    <header className="flex flex-wrap items-center gap-x-6 gap-y-3 py-2">
-      <div className="relative flex min-w-0 flex-[1_1_560px] items-center justify-between gap-8 py-2 md:py-4">
+    <header className="sticky top-0 z-40 border-b border-line bg-surface">
+      <Container className="relative flex h-(--header-height) items-center justify-between gap-6">
         <Brand name={settings.companyName} tagline={settings.tagline} />
 
-        <nav
-          id={menuId}
-          aria-label="Основное меню"
-          className={cn(
-            // Desktop: inline row. Mobile: dropdown card under the header, shown when open.
-            "md:flex md:gap-8",
-            isMenuOpen
-              ? "absolute inset-x-0 top-full z-20 flex flex-col rounded-md bg-surface py-2 shadow-pop"
-              : "hidden",
-          )}
-        >
-          {settings.navigation.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={() => setMenuOpen(false)}
-              className="px-4 py-3 text-label text-ink hover:text-accent-strong md:p-0 md:text-nav"
-            >
-              {item.label}
-            </a>
-          ))}
+        {/* Desktop navigation */}
+        <nav aria-label="Основное меню" className="hidden gap-6 xl:flex">
+          {navLinks}
         </nav>
 
-        <button
-          type="button"
-          className="cursor-pointer rounded-sm border-0 bg-transparent p-2 text-ink md:hidden"
-          aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
-          aria-expanded={isMenuOpen}
-          aria-controls={menuId}
-          onClick={() => setMenuOpen((open) => !open)}
-        >
-          {isMenuOpen ? (
-            <X size={22} strokeWidth={ICON_STROKE} aria-hidden="true" />
-          ) : (
-            <Menu size={22} strokeWidth={ICON_STROKE} aria-hidden="true" />
-          )}
-        </button>
-      </div>
+        {/* Desktop contacts and actions */}
+        <div className="hidden items-center gap-3 xl:flex">
+          <a href={telHref(settings.phoneE164)} className="mr-1 flex flex-col text-ink">
+            <span className="text-label font-semibold whitespace-nowrap">
+              {settings.phoneDisplay}
+            </span>
+            <span className="text-small text-ink-muted">{settings.workingHours}</span>
+          </a>
+          {telegramButton}
+          <Button href={routes.leadForm} size="sm">
+            Оставить заявку
+          </Button>
+        </div>
 
-      <div className="flex flex-wrap items-center gap-3">
-        <a href={telHref(settings.phoneE164)} className="mr-2 flex flex-col text-ink">
-          <span className="text-label font-semibold">{settings.phoneDisplay}</span>
-          <span className="text-small text-ink-muted">{settings.workingHours}</span>
-        </a>
-        <Button
-          href={whatsappHref(settings.whatsappNumber)}
-          variant="outline"
-          size="sm"
-          target="_blank"
-          rel="noopener noreferrer"
-          icon={<MessageCircle size={18} strokeWidth={ICON_STROKE} aria-hidden="true" />}
-        >
-          WhatsApp
-        </Button>
-        <Button href="#form" size="sm">
-          Оставить заявку
-        </Button>
+        {/* Mobile: call + burger */}
+        <div className="flex items-center gap-1 xl:hidden">
+          <a
+            href={telHref(settings.phoneE164)}
+            aria-label={`Позвонить: ${settings.phoneDisplay}`}
+            className="grid size-10 place-items-center rounded-full text-ink"
+          >
+            <Phone size={20} strokeWidth={ICON_STROKE} aria-hidden="true" />
+          </a>
+          <button
+            type="button"
+            className="grid size-10 cursor-pointer place-items-center rounded-full border-0 bg-transparent text-ink"
+            aria-label={isMenuOpen ? "Закрыть меню" : "Открыть меню"}
+            aria-expanded={isMenuOpen}
+            aria-controls={menuId}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {isMenuOpen ? (
+              <X size={22} strokeWidth={ICON_STROKE} aria-hidden="true" />
+            ) : (
+              <Menu size={22} strokeWidth={ICON_STROKE} aria-hidden="true" />
+            )}
+          </button>
+        </div>
+      </Container>
+
+      {/* Mobile panel: navigation, then contacts and actions */}
+      <div
+        id={menuId}
+        hidden={!isMenuOpen}
+        className="absolute inset-x-0 top-full max-h-[calc(100dvh-var(--header-height))] overflow-y-auto border-b border-line bg-surface shadow-pop xl:hidden"
+      >
+        <Container className="flex flex-col pt-2 pb-6">
+          <nav aria-label="Основное меню" className="flex flex-col divide-y divide-line">
+            {navLinks}
+          </nav>
+          <div className="mt-4 flex flex-col gap-3 border-t border-line pt-4">
+            <a href={telHref(settings.phoneE164)} className="flex flex-col text-ink">
+              <span className="text-title">{settings.phoneDisplay}</span>
+              <span className="text-caption text-ink-muted">{settings.workingHours}</span>
+            </a>
+            <div className="flex flex-wrap gap-3">
+              {telegramButton}
+              <Button href={routes.leadForm} size="sm" onClick={closeMenu}>
+                Оставить заявку
+              </Button>
+            </div>
+          </div>
+        </Container>
       </div>
     </header>
   );

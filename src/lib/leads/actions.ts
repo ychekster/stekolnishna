@@ -63,7 +63,7 @@ export async function submitLead(_prev: LeadFormState, formData: FormData): Prom
     return {
       status: "error",
       fieldErrors: {},
-      formError: "Не удалось отправить заявку. Позвоните нам или напишите в WhatsApp.",
+      formError: "Не удалось отправить заявку. Позвоните нам или напишите в Telegram.",
       values,
     };
   }

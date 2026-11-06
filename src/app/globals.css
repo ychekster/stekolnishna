@@ -107,10 +107,18 @@
 }
 
 @layer base {
+  :root {
+    /* Height of the sticky header; shared by the header and anchor scroll offset. */
+    --header-height: 64px;
+    @variant xl {
+      --header-height: 76px;
+    }
+  }
+
   html {
     scroll-behavior: smooth;
-    /* Anchor jumps should not land under the top edge. */
-    scroll-padding-top: --spacing(4);
+    /* Anchor jumps must land below the sticky header, with a little air. */
+    scroll-padding-top: calc(var(--header-height) + --spacing(4));
   }
 
   body {

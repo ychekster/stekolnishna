@@ -1,8 +1,8 @@
 /**
- * "Контакты": phone, WhatsApp, email, address with hours on the left, map on the right.
+ * "Контакты": phone, Telegram, email, address with hours on the left, map on the right.
  */
 import { Section } from "@/components/ui/Section";
-import { mailtoHref, telHref, whatsappHref } from "@/lib/contact-links";
+import { mailtoHref, telegramHref, telHref } from "@/lib/contact-links";
 import type { HomePage, SiteSettings } from "@/lib/content/types";
 
 import { ContactItem } from "./ContactItem";
@@ -27,10 +27,10 @@ export function ContactsSection({ contacts, settings }: ContactsSectionProps) {
           href={telHref(settings.phoneE164)}
         />
         <ContactItem
-          icon="chat"
-          label="WhatsApp"
-          value="Написать в WhatsApp"
-          href={whatsappHref(settings.whatsappNumber)}
+          icon="telegram"
+          label="Telegram"
+          value="Написать в Telegram"
+          href={telegramHref(settings.telegramBot)}
           external
         />
         <ContactItem

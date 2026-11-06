@@ -9,6 +9,7 @@ import {
   MapPin,
   MessageCircle,
   Phone,
+  Send,
   SlidersVertical,
   type LucideIcon,
 } from "lucide-react";
@@ -26,6 +27,8 @@ const icons: Record<IconName, LucideIcon> = {
   chat: MessageCircle,
   phone: Phone,
   mail: Mail,
+  // Lucide has no brand logos; the paper plane is the conventional Telegram glyph.
+  telegram: Send,
 };
 
 interface IconProps {

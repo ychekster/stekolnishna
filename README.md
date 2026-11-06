@@ -1,6 +1,6 @@
 # Steklo&Center website
 
-Corporate website for a glass and mirror workshop in Almaty: product catalog, portfolio, price calculator, lead forms, WhatsApp integration and an admin panel for the owner.
+Corporate website for a glass and mirror workshop in Almaty: product catalog, portfolio, lead forms, Telegram bot link and an admin panel for the owner.
 
 **Status:** homepage implemented (frontend only, placeholder content). CMS, database and other pages are next — see [docs/architecture.md](docs/architecture.md).
 

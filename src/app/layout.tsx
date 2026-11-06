@@ -1,9 +1,16 @@
 /**
- * Root layout: Russian document, Manrope font (Latin + Cyrillic, self-hosted by next/font),
- * default metadata.
+ * Root layout shared by every page: Russian document, Manrope font (Latin + Cyrillic,
+ * self-hosted by next/font), default metadata, sticky header, footer and the floating
+ * Telegram button. Pages render only their own content inside <main>.
  */
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
+
+import { FloatingTelegram } from "@/components/layout/FloatingTelegram";
+import { SiteFooter } from "@/components/layout/SiteFooter";
+import { SiteHeader } from "@/components/layout/SiteHeader";
+import { Container } from "@/components/ui/Container";
+import { getSiteSettings } from "@/lib/content";
 
 import "./globals.css";
 
@@ -15,7 +22,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Стеклянные конструкции под ключ в Алматы — стекольная мастерская",
+  title: "Стекло&Центр — стеклянные конструкции под ключ в Алматы",
   description:
     "Изготовление и монтаж изделий из стекла и зеркал в Алматы: перегородки, душевые, зеркала, ограждения. Собственное производство, бесплатный замер.",
   // Pre-launch: keep the preview (e.g. via tunnel) out of search engines.
@@ -27,10 +34,19 @@ export const viewport: Viewport = {
   themeColor: "#ffffff",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default async function RootLayout({ children }: LayoutProps<"/">) {
+  const settings = await getSiteSettings();
+
   return (
     <html lang="ru" className={manrope.variable}>
-      <body>{children}</body>
+      <body>
+        <SiteHeader settings={settings} />
+        <Container>
+          <main>{children}</main>
+        </Container>
+        <SiteFooter settings={settings} />
+        <FloatingTelegram botUsername={settings.telegramBot} />
+      </body>
     </html>
   );
 }

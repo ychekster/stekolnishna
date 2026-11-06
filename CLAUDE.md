@@ -1,6 +1,8 @@
 # Steklo&Center — corporate website
 
-Website for a glass & mirror workshop in Almaty, Kazakhstan: catalog, portfolio, price calculator, lead forms, WhatsApp, admin panel.
+Website for a glass & mirror workshop in Almaty, Kazakhstan: catalog, portfolio, lead forms, Telegram bot link, admin panel.
+
+**Customer changes to the spec** (docs/decisions/0003): no WhatsApp anywhere — Telegram bot instead; no price calculator. Never re-add either.
 
 - Architecture & code map: @docs/architecture.md
 - Brief: @docs/brief.md
@@ -33,7 +35,8 @@ npm run format       # Prettier
 ## Rules
 
 - **No hard-coded content.** Texts, prices, contacts, photos come from the content layer (`getHomePage()`, `getSiteSettings()` in `src/lib/content`). Pages/components never import `src/content/*` directly.
-- Placeholders in `[square brackets]` stay visible until the customer provides data. Never invent data, never write fake reviews.
+- Placeholders in `[square brackets]` stay visible until the customer provides data. Never invent data, never write fake reviews. Exception agreed with the user: contacts use neat template values (`+7 (700) 000-00-00`, listed in docs/open-questions.md).
+- Internal URLs only from `src/lib/routes.ts`. Header/footer live in the root layout — pages render only their content.
 - **Do not hand-roll** auth, admin UI or file uploads — they come with Payload.
 - No `any`. Business logic in `src/lib/` (pure, unit-tested), not in components.
 - Components: `src/components/ui/` (generic), `layout/` (header/footer), `<page>/` (sections). One component per file, PascalCase.

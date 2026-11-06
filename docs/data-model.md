@@ -18,7 +18,7 @@
 - available sizes and glass thicknesses
 - available colors / glass types and processing options
 - price: either a fixed price (₸, with unit — per piece / per m²) **or** the flag "price calculated individually" (then no number is shown)
-- links to the calculator with this product preselected
+- Telegram bot deep link with this product (start parameter = product slug)
 - SEO: title, meta description
 - published / draft
 
@@ -36,19 +36,6 @@
 - optional: date, location/district
 - SEO fields, published / draft
 
-## Calculator tariffs (admin-managed, never hard-coded)
-
-Inputs the client chooses: product type, length (mm), width (mm), thickness, glass type, processing options, quantity.
-
-- **Area:** `area_m2 = length_mm × width_mm / 1_000_000`
-- **Material price** — per m², depends on product type × glass type × thickness.
-- **Processing price** — per operation; unit varies (per linear metre of edge, per hole, per m², flat fee).
-- **Extra services** — delivery, installation (flat or rule-based).
-- **Minimum order / minimum billable area** — likely needed, to be confirmed.
-- Some product types are flagged "individual calculation only" → calculator shows a request form instead of a price.
-
-Result is always labelled _preliminary_; the manager confirms the final price. Exact pricing formula is an **open question** — see [open-questions.md](open-questions.md).
-
 ## Leads (requests from the site)
 
 **Order request**
@@ -56,7 +43,7 @@ Result is always labelled _preliminary_; the manager confirms the final price. E
 - client name, phone (required)
 - product type, dimensions, quantity, comment
 - attachments: JPG/JPEG/PNG/PDF, size-limited, validated
-- source: which form / page / product, calculator snapshot (inputs + computed price) if it came from the calculator
+- source: which form / page / product
 - UTM / referrer for analytics
 - personal-data consent: given (bool) + timestamp
 - status (see below), manager notes, created/updated timestamps
@@ -70,7 +57,7 @@ New → In progress → Awaiting calculation → Offer sent to client → Order 
 
 Admin needs: list with filters by status, search by name and phone, status change, notes.
 
-**On a new lead:** save to DB, then notify the owner. Channel (email / Telegram / WhatsApp) is an **open question**.
+**On a new lead:** save to DB, then notify the owner. Channel (email / Telegram) is an **open question**.
 
 ## Content
 
@@ -81,7 +68,7 @@ Admin needs: list with filters by status, search by name and phone, status chang
 
 ## Global settings (single editable records)
 
-- **Site settings** — company name, logo, phones, WhatsApp number, email, address, working hours, map coordinates, social links, analytics IDs, default SEO.
+- **Site settings** — company name, logo, phones, Telegram bot username, email, address, working hours, map coordinates, social links, analytics IDs, default SEO.
 - **Homepage** — hero (image, headline, subtext, CTA), about block, advantages, steps, featured categories/projects/reviews.
 
 ## Users

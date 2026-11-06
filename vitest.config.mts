@@ -1,6 +1,6 @@
 /**
  * Vitest config — unit tests for pure logic in src/lib (formatters, validation,
- * later the price calculator). Tests live next to the code as *.test.ts.
+ * pricing). Tests live next to the code as *.test.ts.
  */
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "vitest/config";

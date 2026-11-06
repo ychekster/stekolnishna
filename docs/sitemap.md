@@ -4,6 +4,8 @@
 
 ## Public pages
 
+No price calculator page — removed by the customer ([decisions/0003](decisions/0003-telegram-instead-of-whatsapp-no-calculator.md)).
+
 | Page                    | Proposed URL                                         | Content source        | Spec |
 | ----------------------- | ---------------------------------------------------- | --------------------- | ---- |
 | Home                    | `/`                                                  | CMS (homepage global) | §3.1 |
@@ -14,7 +16,6 @@
 | Service page            | `/uslugi/[service]` _(CMS)_                          | CMS                   | §3.3 |
 | Portfolio               | `/nashi-raboty` (filter by category via query param) | CMS (projects)        | §3.4 |
 | Project page            | `/nashi-raboty/[project]` _(CMS)_                    | CMS                   | §3.4 |
-| Calculator              | `/kalkulyator` (also embeddable as a block)          | CMS (tariffs)         | §4.1 |
 | About                   | `/o-kompanii`                                        | CMS                   | §3.5 |
 | Contacts                | `/kontakty`                                          | CMS (site settings)   | §3.6 |
 | News / articles         | `/stati`, `/stati/[slug]`                            | CMS                   | §5   |
@@ -26,7 +27,7 @@
 
 ### Homepage blocks (in order, spec §3.1)
 
-Header (logo, menu, phone, WhatsApp, "Leave a request") → hero banner → short about → main directions / popular categories → advantages → portfolio gallery → how we work (steps) → reviews → feedback form → contacts + map → footer.
+Header (logo, menu, phone, Telegram, "Leave a request") → hero banner → short about → main directions / popular categories → advantages → portfolio gallery → how we work (steps) → reviews → feedback form → contacts + map → footer.
 
 Blocks should be reorderable/editable in the CMS.
 
@@ -55,7 +56,7 @@ Glass manufacturing in Almaty · glass cutting to order · mirror manufacturing 
 
 ## Global UI elements
 
-- Floating WhatsApp button on all main pages (spec §4.3).
+- Floating Telegram button on all main pages (spec §4.3, WhatsApp replaced by Telegram — [decisions/0003](decisions/0003-telegram-instead-of-whatsapp-no-calculator.md)).
 - "Request a callback" button → modal form (spec §4.4).
 - "Leave a request" / order form → modal or page (spec §4.2).
 - Cookie consent banner (spec §9).

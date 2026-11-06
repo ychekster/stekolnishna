@@ -8,7 +8,8 @@
  */
 
 /** Keys of icons available to editors. Mapped to actual SVGs in components/ui/Icon.tsx. */
-export type IconName = "sliders" | "check" | "document" | "pin" | "chat" | "phone" | "mail";
+export type IconName =
+  "sliders" | "check" | "document" | "pin" | "chat" | "phone" | "mail" | "telegram";
 
 /** An image with mandatory alt text (SEO + accessibility requirement from the spec). */
 export interface ImageAsset {
@@ -39,8 +40,8 @@ export interface SiteSettings {
   phoneDisplay: string;
   /** Phone in E.164 (`+77011234567`) for `tel:` links. */
   phoneE164: string;
-  /** WhatsApp number, digits only with country code (`77011234567`). */
-  whatsappNumber: string;
+  /** Username of the company Telegram bot, without `@` (`steklo_center_bot`). */
+  telegramBot: string;
   email: string;
   address: string;
   workingHours: string;

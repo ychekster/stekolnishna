@@ -29,7 +29,8 @@ What becomes easier, what becomes harder, what we must now keep in mind.
 
 ## Index
 
-| #                              | Title                                  | Status   |
-| ------------------------------ | -------------------------------------- | -------- |
-| [0001](0001-tech-stack.md)     | Tech stack                             | Proposed |
-| [0002](0002-frontend-first.md) | Frontend first, behind a content layer | Accepted |
+| #                                                          | Title                                                 | Status   |
+| ---------------------------------------------------------- | ----------------------------------------------------- | -------- |
+| [0001](0001-tech-stack.md)                                 | Tech stack                                            | Proposed |
+| [0002](0002-frontend-first.md)                             | Frontend first, behind a content layer                | Accepted |
+| [0003](0003-telegram-instead-of-whatsapp-no-calculator.md) | Telegram bot instead of WhatsApp; no price calculator | Accepted |

@@ -11,27 +11,26 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
 
 ## Blocking for content
 
-- [ ] Real company data: address, phones, WhatsApp number, email, working hours, map location.
+- [ ] Real company data: address, phones, email, working hours, map location.
+      Currently **template values** on the site (src/content/site-settings.ts): phone
+      `+7 (700) 000-00-00`, Telegram bot `@steklo_center_bot`, email `info@steklo-center.kz`, address "г. Алматы", hours "Пн–Сб, 9:00–19:00".
+      Company name "Стекло&Центр" / ТОО «Стекло&Центр» is taken from the project — confirm spelling.
 - [ ] Texts: company history, equipment, team, delivery and installation terms, service area.
 - [ ] 10–20 real products with photos, specs and prices to fill the catalog for design and testing.
 - [ ] Real customer reviews (with permission to publish).
 - [ ] Is glass **tempering** offered in-house? (Spec §3.3 says "if the service is provided".)
 
-## Blocking for the calculator
+## Telegram bot
 
-- [ ] Full tariff table: price per m² by product type × glass type × thickness.
-- [ ] Processing prices and their units (per linear metre of edge? per hole? per m²?).
-- [ ] Delivery and installation pricing rules.
-- [ ] Minimum order amount / minimum billable area?
-- [ ] Which product types are "individual calculation only"?
-- [ ] Is edge processing calculated from the perimeter automatically?
+- [ ] **Bot username** — the real `@…_bot` (the template `@steklo_center_bot` is a placeholder and may belong to someone else).
+- [ ] Bot spec (separate project): what it does on `/start`, how it receives the product from a deep link, how it hands requests to managers.
 
 ## Blocking for backend / infrastructure
 
 - [ ] **Stack approval** by the customer (spec §7) — see [decisions/0001-tech-stack.md](decisions/0001-tech-stack.md).
 - [ ] **Domain** — exists? Which one?
 - [ ] **Hosting** — preference / budget? Must it be in Kazakhstan (personal data localisation)?
-- [ ] **New-lead notification channel** — email, Telegram bot, WhatsApp? To whom?
+- [ ] **New-lead notification channel** — email or the Telegram bot? To whom?
 - [ ] Admin users — how many people, which roles?
 - [ ] Max upload file size for drawings/photos.
 - [ ] Email for transactional mail (domain mailbox?).

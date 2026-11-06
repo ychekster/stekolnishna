@@ -1,20 +1,27 @@
 import { describe, expect, it } from "vitest";
 
-import { mailtoHref, telHref, whatsappHref } from "./contact-links";
+import { mailtoHref, telegramHref, telHref } from "./contact-links";
 
 describe("contact links", () => {
   it("builds tel links", () => {
     expect(telHref("+77011234567")).toBe("tel:+77011234567");
   });
 
-  it("builds WhatsApp links without a message", () => {
-    expect(whatsappHref("+7 701 123 45 67")).toBe("https://wa.me/77011234567");
+  it("builds Telegram bot links, with or without a leading @", () => {
+    expect(telegramHref("steklo_center_bot")).toBe("https://t.me/steklo_center_bot");
+    expect(telegramHref("@steklo_center_bot")).toBe("https://t.me/steklo_center_bot");
   });
 
-  it("encodes a prefilled WhatsApp message", () => {
-    expect(whatsappHref("77011234567", "Зеркало 600×800")).toBe(
-      "https://wa.me/77011234567?text=%D0%97%D0%B5%D1%80%D0%BA%D0%B0%D0%BB%D0%BE%20600%C3%97800",
+  it("adds a deep-link start parameter", () => {
+    expect(telegramHref("steklo_center_bot", "zerkala-600x800")).toBe(
+      "https://t.me/steklo_center_bot?start=zerkala-600x800",
     );
+  });
+
+  it("rejects start parameters Telegram does not accept", () => {
+    expect(() => telegramHref("bot", "Зеркало")).toThrow();
+    expect(() => telegramHref("bot", "a b")).toThrow();
+    expect(() => telegramHref("bot", "x".repeat(65))).toThrow();
   });
 
   it("builds mailto links", () => {
