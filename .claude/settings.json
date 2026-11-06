@@ -1,0 +1,9 @@
+{
+  "enabledPlugins": {
+    "frontend-design@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true
+  },
+  "env": {
+    "PLAYWRIGHT_MCP_BROWSER": "msedge"
+  }
+}

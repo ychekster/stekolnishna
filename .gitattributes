@@ -1,0 +1,10 @@
+# Normalize line endings: LF everywhere (matches Prettier), regardless of OS settings.
+* text=auto eol=lf
+
+# Binary assets
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.pdf binary

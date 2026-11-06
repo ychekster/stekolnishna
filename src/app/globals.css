@@ -1,0 +1,158 @@
+/*
+ * Global styles and design tokens.
+ *
+ * Source of truth for values: docs/design/tokens.json (theme "glass" — the only theme of
+ * this site). Tokens are exposed as Tailwind theme variables, so components use utilities
+ * like `bg-surface-alt`, `text-ink-muted`, `text-h1`, `rounded-lg` — never raw values.
+ *
+ * Tailwind's default palette, radii and font sizes are reset (`initial`) on purpose:
+ * only design-system values are available, which keeps the UI consistent.
+ * Spacing uses Tailwind's default 4px step, which matches the design scale
+ * (4, 8, 12, 16, 24, 32, 48, 64, 96 → 1, 2, 3, 4, 6, 8, 12, 16, 24).
+ */
+@import "tailwindcss";
+
+@theme {
+  /* ---- Colors ---- */
+  --color-*: initial;
+  --color-surface: #ffffff; /* page and card background */
+  --color-surface-alt: #f1f5f5; /* tinted blocks: cards, plates, photo placeholders */
+  --color-surface-inverse: #22302f; /* dark block: lead form, icon circles */
+  --color-line: #e2e8e8; /* decorative dividers */
+  --color-line-strong: #808b8b; /* control borders, ≥3:1 against surface */
+  --color-ink: #182221; /* main text */
+  --color-ink-muted: #5a6665; /* secondary text */
+  --color-ink-inverse: #ffffff; /* text on surface-inverse and on photos */
+  --color-ink-inverse-muted: #b3c2c1; /* secondary text on surface-inverse */
+  --color-accent: #6fbab7; /* brand fill — text on it must be on-accent */
+  --color-accent-strong: #1e6b69; /* accent as text/line: links, active menu, focus */
+  --color-accent-soft: #e2f2f1; /* soft fill: tags, placeholders, hover */
+  --color-on-accent: #182221; /* text on accent (white fails contrast) */
+  --color-scrim: rgba(14, 32, 32, 0.38); /* overlay on hero photo */
+  --color-success: #2c6e4a;
+  --color-danger: #b3261e;
+  --color-focus: var(--color-accent-strong);
+
+  /* ---- Typography ---- */
+  --font-sans: var(--font-manrope), "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --text-*: initial;
+  --text-display: 64px; /* hero title, desktop */
+  --text-display--line-height: 68px;
+  --text-display--letter-spacing: -0.02em;
+  --text-display--font-weight: 600;
+  --text-display-sm: 34px; /* hero title, mobile */
+  --text-display-sm--line-height: 38px;
+  --text-display-sm--letter-spacing: -0.015em;
+  --text-display-sm--font-weight: 600;
+  --text-h1: 40px; /* section title, desktop */
+  --text-h1--line-height: 44px;
+  --text-h1--letter-spacing: -0.015em;
+  --text-h1--font-weight: 600;
+  --text-h2: 24px; /* section title, mobile */
+  --text-h2--line-height: 30px;
+  --text-h2--letter-spacing: -0.01em;
+  --text-h2--font-weight: 600;
+  --text-form-title: 32px; /* title inside the dark lead-form block */
+  --text-form-title--line-height: 38px;
+  --text-form-title--letter-spacing: -0.015em;
+  --text-form-title--font-weight: 600;
+  --text-stat: 44px; /* big numbers, desktop */
+  --text-stat--line-height: 48px;
+  --text-stat--letter-spacing: -0.02em;
+  --text-stat--font-weight: 600;
+  --text-stat-sm: 28px; /* big numbers, mobile */
+  --text-stat-sm--line-height: 32px;
+  --text-stat-sm--letter-spacing: -0.02em;
+  --text-stat-sm--font-weight: 600;
+  --text-title: 17px; /* card / step titles, reviewer name */
+  --text-title--line-height: 24px;
+  --text-title--font-weight: 600;
+  --text-lead: 19px; /* hero subtitle */
+  --text-lead--line-height: 28px;
+  --text-body: 15px; /* main text */
+  --text-body--line-height: 23px;
+  --text-label: 15px; /* buttons */
+  --text-label--line-height: 20px;
+  --text-label--font-weight: 500;
+  --text-nav: 14px; /* menu items, small buttons */
+  --text-nav--line-height: 20px;
+  --text-nav--font-weight: 500;
+  --text-caption: 13px; /* captions under numbers and cards */
+  --text-caption--line-height: 18px;
+  --text-small: 12px; /* consent line, footer legal row */
+  --text-small--line-height: 16px;
+  --text-brand: 19px; /* text logo */
+  --text-brand--line-height: 22px;
+  --text-brand--letter-spacing: -0.01em;
+  --text-brand--font-weight: 700;
+  --text-micro: 11px; /* logo tagline */
+  --text-micro--line-height: 14px;
+  --text-quote-mark: 56px; /* decorative quotation mark in reviews */
+  --text-quote-mark--line-height: 32px;
+  --text-quote-mark--font-weight: 700;
+
+  /* ---- Radii ---- */
+  --radius-*: initial;
+  --radius-sm: 8px; /* inputs, small previews */
+  --radius-md: 12px; /* cards */
+  --radius-lg: 20px; /* hero, large blocks */
+
+  /* ---- Shadows (flat design: only for pop-ups) ---- */
+  --shadow-*: initial;
+  --shadow-pop: 0 8px 24px rgba(20, 24, 30, 0.1);
+
+  /* ---- Layout ---- */
+  --container-content: 1200px; /* max content width → `max-w-content` */
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    /* Anchor jumps should not land under the top edge. */
+    scroll-padding-top: --spacing(4);
+  }
+
+  body {
+    @apply bg-surface font-sans text-ink antialiased;
+  }
+
+  /* Keyboard focus: solid 2px ring with 2px offset (design spec). */
+  :focus-visible {
+    outline: 2px solid var(--color-focus);
+    outline-offset: 2px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /*
+   * Photo placeholder: grey-turquoise grid shown until the customer provides real photos.
+   * Kept as CSS (not utilities) because of the layered background pattern.
+   */
+  .photo-placeholder {
+    background-color: var(--color-accent-soft);
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0 22px, var(--color-line) 22px 23px),
+      repeating-linear-gradient(0deg, transparent 0 30px, var(--color-line) 30px 31px);
+  }
+}
+
+@utility scrollbar-none {
+  /* Hide the scrollbar on carousels while keeping them scrollable. */
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

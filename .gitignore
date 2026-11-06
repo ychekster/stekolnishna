@@ -1,0 +1,44 @@
+# Dependencies
+node_modules/
+
+# Next.js / build output
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment — secrets live only in .env*, commit .env.example instead
+.env
+.env.*
+!.env.example
+
+# Uploaded media (product photos, order attachments) — stored outside git
+media/
+uploads/
+
+# Testing
+coverage/
+playwright-report/
+test-results/
+.playwright-mcp/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# Claude Code — personal settings stay local, shared settings are committed
+.claude/settings.local.json
+
+# Misc
+*.pem
+.vercel

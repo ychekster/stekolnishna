@@ -1,0 +1,6 @@
+# Tools are called via `node` directly instead of npx/npm: npm's cmd.exe shims break when
+# the project path contains "&". `--relative` keeps lint-staged command lines short enough
+# for the Windows command-line limit.
+node node_modules/lint-staged/bin/lint-staged.js --relative
+node node_modules/next/dist/bin/next typegen
+node node_modules/typescript/bin/tsc --noEmit

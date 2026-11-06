@@ -1,0 +1,61 @@
+# Steklo&Center — corporate website
+
+Website for a glass & mirror workshop in Almaty, Kazakhstan: catalog, portfolio, price calculator, lead forms, WhatsApp, admin panel.
+
+- Architecture & code map: @docs/architecture.md
+- Brief: @docs/brief.md
+- Open questions (check before starting a stage): @docs/open-questions.md
+- Sitemap: docs/sitemap.md · Data model: docs/data-model.md · Decisions: docs/decisions/
+- Homepage design handoff (source of truth for the UI): docs/design/ (HANDOFF.md, tokens.json, screenshots)
+- Customer's original spec: tz-original.md — **read-only, never edit**. Changes go to docs/.
+- Next.js 16 has breaking changes vs. older versions — see AGENTS.md; check `node_modules/next/dist/docs/` before using an unfamiliar API.
+
+## Language
+
+- Code, comments, docs, commit messages: **English**.
+- All site UI and content: **Russian**. Currency ₸ (KZT). Phone format +7.
+- Chat with the user: Russian.
+
+## Stack
+
+Next.js 16 (App Router, Cache Components) · TypeScript strict · Tailwind CSS v4 · zod · lucide-react · Vitest.
+Planned, not yet installed: Payload CMS + PostgreSQL (docs/decisions/0001, 0002). Until then content comes from `src/content/` via `src/lib/content/`.
+
+## Commands
+
+```
+npm run dev          # dev server, http://localhost:3000
+npm run check        # lint + typecheck + unit tests — must pass before a task is done
+npm run build && npm run start   # production build/serve
+npm run format       # Prettier
+```
+
+## Rules
+
+- **No hard-coded content.** Texts, prices, contacts, photos come from the content layer (`getHomePage()`, `getSiteSettings()` in `src/lib/content`). Pages/components never import `src/content/*` directly.
+- Placeholders in `[square brackets]` stay visible until the customer provides data. Never invent data, never write fake reviews.
+- **Do not hand-roll** auth, admin UI or file uploads — they come with Payload.
+- No `any`. Business logic in `src/lib/` (pure, unit-tested), not in components.
+- Components: `src/components/ui/` (generic), `layout/` (header/footer), `<page>/` (sections). One component per file, PascalCase.
+- Every file starts with a short comment on its purpose. Comments explain **why**, not what.
+- **Design tokens only** (`src/app/globals.css` `@theme`): `bg-surface-alt`, `text-ink-muted`, `text-h1`, `rounded-md`… Tailwind's default colors/font sizes/radii are disabled on purpose. No raw hex.
+- Don't put two utilities for the same property on one element (e.g. `relative` + `absolute`, two border colors) — Tailwind resolves by CSS order, not class order. Use variant props instead.
+- Forms: server-side zod validation, honeypot, rate limit; required personal-data consent checkbox (Kazakhstan law).
+- Secrets only in `.env.local`; when adding a variable, update `.env.example`.
+- Phase-2 features (client accounts, payments, CRM, 1C) are out of scope — don't build them, don't design them out.
+- After an architectural change update docs/architecture.md; for a significant choice add an ADR in docs/decisions/.
+
+## Workflow
+
+- New stage → plan first (plan mode), then code, `npm run check`, verify in the browser, commit.
+- UI work: use the `frontend-design` skill; verify with Playwright MCP at 1440px and 390px against docs/design/screenshot-\*.png.
+- Pre-commit hook (husky + lint-staged) runs ESLint, Prettier and typecheck.
+
+## Environment gotchas
+
+- **The project path contains `&`** ("ТОО Стекло&Центр"). npm on Windows runs scripts through cmd.exe, which treats `&` as a command separator → every `npm run …` fails with "Cannot find module …\husky\bin.js" or similar. Workaround until the folder is renamed: run npm with `npm_config_script_shell="C:/Program Files/Git/bin/bash.exe"`, or call binaries directly (`node node_modules/next/dist/bin/next dev`).
+- Path also has Cyrillic and spaces — always quote paths.
+- Project lives inside OneDrive: if git or `node_modules` misbehave, suspect OneDrive sync first.
+- No Google Chrome; Playwright uses Edge (`PLAYWRIGHT_MCP_BROWSER=msedge` in .claude/settings.json, `--channel msedge` for the CLI).
+- Preview for phones: `cloudflared tunnel --url http://localhost:3000` (quick tunnel, random `*.trycloudflare.com` URL). `ALLOWED_ORIGINS=*.trycloudflare.com` in `.env.local` is required, otherwise Next.js rejects Server Actions from the tunnel host.
+- Stopping a background `npm run start` may leave the `node` process holding port 3000 — kill it by PID (`netstat -ano | grep :3000`).
