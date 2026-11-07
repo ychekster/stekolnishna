@@ -10,6 +10,8 @@ Website for a glass & mirror workshop in Almaty, Kazakhstan: catalog, portfolio,
 - Sitemap: docs/sitemap.md · Data model: docs/data-model.md · Decisions: docs/decisions/
 - Homepage design handoff (source of truth for the UI): docs/design/ (HANDOFF.md, tokens.json, screenshots)
 - Customer's original spec: tz-original.md — **read-only, never edit**. Changes go to docs/.
+- **Spec with our decisions and status per section: docs/tz-annotated.md. Deferred work: @docs/backlog.md.** For "what's left / is X done" questions answer from these two — don't re-raise decided items. Record every new decision or deferral there.
+- Agreed order of work: build all pages first → customer review → admin (Payload) + lead email notifications → launch checklist (SEO, analytics, legal, real data). Details in docs/backlog.md.
 - Next.js 16 has breaking changes vs. older versions — see AGENTS.md; check `node_modules/next/dist/docs/` before using an unfamiliar API.
 
 ## Language
