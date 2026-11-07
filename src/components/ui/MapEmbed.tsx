@@ -1,15 +1,28 @@
 /**
  * Map block. Renders the 2GIS / Yandex Maps embed when the owner has set its URL,
- * otherwise a placeholder with a pin, as in the design.
+ * otherwise a placeholder with a pin, as in the design. Used on the homepage and the
+ * Contacts page; the caller sets the size and rounding via `className`.
  */
 import { MapPin } from "lucide-react";
 
 import { ICON_STROKE } from "@/components/ui/Icon";
+import { cn } from "@/lib/cn";
 import type { SiteSettings } from "@/lib/content/types";
 
-export function MapEmbed({ map }: { map: SiteSettings["map"] }) {
+interface MapEmbedProps {
+  map: SiteSettings["map"];
+  /** Size, flex and rounding of the block. */
+  className?: string;
+  /**
+   * Where the placeholder pin stands. `right` (from md) keeps it clear of a panel laid
+   * over the left part of the map, as on the Contacts page.
+   */
+  pin?: "center" | "right";
+}
+
+export function MapEmbed({ map, className, pin = "center" }: MapEmbedProps) {
   return (
-    <div className="relative min-h-80 min-w-0 flex-[999_1_480px] overflow-hidden rounded-lg md:min-h-105">
+    <div className={cn("relative overflow-hidden", className)}>
       {map.embedUrl ? (
         <iframe
           src={map.embedUrl}
@@ -20,7 +33,12 @@ export function MapEmbed({ map }: { map: SiteSettings["map"] }) {
       ) : (
         <>
           <div className="photo-placeholder absolute inset-0" />
-          <div className="absolute top-1/2 left-1/2 flex -translate-x-1/2 -translate-y-full flex-col items-center gap-2">
+          <div
+            className={cn(
+              "absolute top-1/2 flex -translate-x-1/2 -translate-y-full flex-col items-center gap-2",
+              pin === "right" ? "left-1/2 md:left-[62%]" : "left-1/2",
+            )}
+          >
             <span className="rounded-full bg-surface px-4 py-2 text-caption font-semibold shadow-pop">
               {map.label}
             </span>

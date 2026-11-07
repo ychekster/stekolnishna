@@ -1,12 +1,12 @@
 /**
  * "Контакты": phone, Telegram, email, address with hours on the left, map on the right.
  */
+import { MapEmbed } from "@/components/ui/MapEmbed";
 import { Section } from "@/components/ui/Section";
 import { mailtoHref, telegramHref, telHref } from "@/lib/contact-links";
 import type { HomePage, SiteSettings } from "@/lib/content/types";
 
 import { ContactItem } from "./ContactItem";
-import { MapEmbed } from "./MapEmbed";
 
 interface ContactsSectionProps {
   contacts: HomePage["contacts"];
@@ -46,7 +46,10 @@ export function ContactsSection({ contacts, settings }: ContactsSectionProps) {
           note={settings.workingHours}
         />
       </address>
-      <MapEmbed map={settings.map} />
+      <MapEmbed
+        map={settings.map}
+        className="min-h-80 min-w-0 flex-[999_1_480px] rounded-lg md:min-h-105"
+      />
     </Section>
   );
 }

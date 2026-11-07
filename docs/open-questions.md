@@ -26,6 +26,12 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
       names, roles and portraits of 3–4 key people (and consent to publish them), the owner's
       role title; delivery prices (free-delivery threshold, city fee, ₸/km in the region),
       installation radius and towns, warranty period, installers' experience.
+- [ ] **Contacts page facts** (`src/content/contacts.ts`, everything in `[brackets]`): second
+      phone (production / pickup) or drop it; Telegram response time; hours per department
+      (office/showroom, production/pickup, measurer) and Sunday; is there a showroom; how to
+      drive in and park; works with VAT or without.
+- [ ] **Legal details** for the Contacts page and the privacy policy: BIN, bank, IIK, legal
+      address (director: Абылгазиев Сакен Берикович, from the spec).
 - [ ] Photos for the About page: workshop areas (cutting, edge processing, tempering furnace,
       glass storage); optionally a picture of the service-area map.
 

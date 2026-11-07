@@ -17,7 +17,7 @@ export const routes = {
   portfolio: "/nashi-raboty",
   /** About the company — src/app/o-kompanii. */
   about: "/o-kompanii",
-  /** Contacts (planned). */
+  /** Contacts — src/app/kontakty. */
   contacts: "/kontakty",
   /** Privacy policy (planned). */
   privacyPolicy: "/politika-konfidencialnosti",

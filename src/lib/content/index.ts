@@ -7,10 +7,11 @@
  * components must not import from src/content directly.
  */
 import { aboutPageContent } from "@/content/about";
+import { contactsPageContent } from "@/content/contacts";
 import { homePageContent } from "@/content/home";
 import { siteSettingsContent } from "@/content/site-settings";
 
-import type { AboutPage, HomePage, SiteSettings } from "./types";
+import type { AboutPage, ContactsPage, HomePage, SiteSettings } from "./types";
 
 /** Global settings: company name, contacts, navigation, map. */
 export async function getSiteSettings(): Promise<SiteSettings> {
@@ -25,6 +26,11 @@ export async function getHomePage(): Promise<HomePage> {
 /** All blocks of the About page (/o-kompanii). */
 export async function getAboutPage(): Promise<AboutPage> {
   return aboutPageContent;
+}
+
+/** All blocks of the Contacts page (/kontakty). */
+export async function getContactsPage(): Promise<ContactsPage> {
+  return contactsPageContent;
 }
 
 export type * from "./types";

@@ -143,7 +143,10 @@
 
 ### 3.6. Страница «Контакты»
 
-> 📝 **Status: not started.** "WhatsApp" → Telegram. Reuse homepage contacts/map/form blocks.
+> 📝 **Status: built** — `/kontakty`, from the mockup "Контакты — десктоп" (mobile layout ours). Contact cards (phones, Telegram bot instead of WhatsApp, email, address), map with "Как добраться" panel and route buttons to 2GIS / Yandex Maps (search by address), schedule table, lead form (`source: contacts`), legal details (реквизиты).
+>
+> - Phone, email, address, hours, bot come from site settings (one place for the whole site). Page facts from the mockup (second phone, response time, department hours, showroom, driving directions, BIN/bank/IIK) are in `[brackets]` — list in open-questions.md. Director's name is from the spec.
+> - The mockup's full order form (product type, sizes, quantity, file upload) and the "Заказать звонок" mini-form are **not** built — same decision as §4.2/§4.4 (backlog: "only if the customer asks"); the shared short lead form is used.
 
 Разместить адрес мастерской, телефоны, WhatsApp, электронную почту, график работы, карту Google или Яндекс и форму обратной связи.
 

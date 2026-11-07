@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { mailtoHref, telegramHref, telHref } from "./contact-links";
+import { mailtoHref, mapRouteHrefs, telegramHref, telHref } from "./contact-links";
 
 describe("contact links", () => {
   it("builds tel links", () => {
@@ -26,5 +26,21 @@ describe("contact links", () => {
 
   it("builds mailto links", () => {
     expect(mailtoHref("info@example.kz")).toBe("mailto:info@example.kz");
+  });
+
+  it("builds map route links from the address", () => {
+    const links = mapRouteHrefs("г. Алматы, ул. Абая, 10");
+    expect(links.twoGis).toBe(
+      `https://2gis.kz/almaty/search/${encodeURIComponent("г. Алматы, ул. Абая, 10")}`,
+    );
+    expect(links.yandex).toBe(
+      `https://yandex.kz/maps/?text=${encodeURIComponent("г. Алматы, ул. Абая, 10")}`,
+    );
+  });
+
+  it("drops [placeholder] parts of the address from map searches", () => {
+    expect(mapRouteHrefs("г. Алматы, [улица, дом]").yandex).toBe(
+      `https://yandex.kz/maps/?text=${encodeURIComponent("г. Алматы")}`,
+    );
   });
 });

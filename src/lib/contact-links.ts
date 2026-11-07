@@ -30,3 +30,23 @@ export function telegramHref(botUsername: string, startParam?: string): string {
 export function mailtoHref(email: string): string {
   return `mailto:${email}`;
 }
+
+/**
+ * Route links to the workshop in 2GIS and Yandex Maps, built from the address text.
+ *
+ * Map search by address works without coordinates, so the buttons are usable before the
+ * owner sets exact map links, and follow the address once it is edited. Unconfirmed
+ * `[placeholder]` parts are dropped: searching for "[улица, дом]" would find nothing.
+ */
+export function mapRouteHrefs(address: string): { twoGis: string; yandex: string } {
+  const query = address
+    .replace(/\[[^\]]*\]/g, "")
+    .replace(/[\s,]+$/, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+  const encoded = encodeURIComponent(query);
+  return {
+    twoGis: `https://2gis.kz/almaty/search/${encoded}`,
+    yandex: `https://yandex.kz/maps/?text=${encoded}`,
+  };
+}

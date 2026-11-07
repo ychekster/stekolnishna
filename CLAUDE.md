@@ -37,7 +37,7 @@ npm run format       # Prettier
 
 ## Rules
 
-- **No hard-coded content.** Texts, prices, contacts, photos come from the content layer (`getHomePage()`, `getAboutPage()`, `getSiteSettings()` in `src/lib/content`); per-page SEO title/description too (`seo` field + `generateMetadata`). Pages/components never import `src/content/*` directly.
+- **No hard-coded content.** Texts, prices, contacts, photos come from the content layer (`getHomePage()`, `getAboutPage()`, `getContactsPage()`, `getSiteSettings()` in `src/lib/content`); per-page SEO title/description too (`seo` field + `generateMetadata`). Pages/components never import `src/content/*` directly.
 - Placeholders in `[square brackets]` stay visible until the customer provides data. Never invent data, never write fake reviews. Exception agreed with the user: contacts use neat template values (`+7 (700) 000-00-00`, listed in docs/open-questions.md).
 - Internal URLs only from `src/lib/routes.ts`. Header/footer live in the root layout — pages render only their content.
 - **Do not hand-roll** auth, admin UI or file uploads — they come with Payload.

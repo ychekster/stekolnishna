@@ -43,7 +43,7 @@
 - client name, phone (required)
 - product type, dimensions, quantity, comment
 - attachments: JPG/JPEG/PNG/PDF, size-limited, validated
-- source: which form / page / product (today: `homepage`, `about-visit`; the free-text field `details` means "what to make" or "convenient visit time" depending on the source)
+- source: which form / page / product (today: `homepage`, `about-visit`, `contacts`; the free-text field `details` means "what to make" or "convenient visit time" depending on the source)
 - UTM / referrer for analytics
 - personal-data consent: given (bool) + timestamp
 - status (see below), manager notes, created/updated timestamps

@@ -273,3 +273,70 @@ export interface AboutPage {
   };
   leadForm: LeadFormContent;
 }
+
+// ---------------------------------------------------------------------------
+// Contacts page (spec §3.6)
+// ---------------------------------------------------------------------------
+
+/** An extra phone line on the Contacts page. `e164: null` → shown as text, not a link. */
+export interface ExtraPhone {
+  display: string;
+  e164: string | null;
+  note: string;
+}
+
+/** One row of the schedule table: department and its hours on weekdays and Saturday. */
+export interface ScheduleRow {
+  department: string;
+  weekdays: string;
+  saturday: string;
+}
+
+/** A label/value pair, e.g. a line of the company's legal details. */
+export interface DetailItem {
+  label: string;
+  value: string;
+}
+
+/**
+ * Contacts page. Phone, email, address and the Telegram bot themselves come from
+ * SiteSettings (one source for the whole site); this holds only the page's own copy.
+ */
+export interface ContactsPage {
+  seo: PageSeo;
+  /** Short page name for breadcrumbs. */
+  name: string;
+  hero: {
+    title: string;
+    lead: string;
+  };
+  cards: {
+    phone: { label: string; mainNote: string; extraPhones: ExtraPhone[] };
+    /** The dark card that invites to write to the Telegram bot. */
+    telegram: { label: string; title: string; text: string; buttonLabel: string };
+    email: { label: string; note: string };
+    address: { label: string; note: string };
+  };
+  directions: {
+    label: string;
+    /** How to find the entrance, parking etc. */
+    text: string;
+    twoGisLabel: string;
+    yandexLabel: string;
+  };
+  schedule: {
+    title: string;
+    lead: string;
+    columns: { department: string; weekdays: string; saturday: string };
+    rows: ScheduleRow[];
+    /** Highlighted pill under the table ("Воскресенье выходной"). */
+    dayOff: string;
+    note: string;
+  };
+  leadForm: LeadFormContent;
+  requisites: {
+    title: string;
+    lead: string;
+    items: DetailItem[];
+  };
+}
