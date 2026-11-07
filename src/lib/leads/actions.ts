@@ -1,7 +1,7 @@
 "use server";
 
 /**
- * Server Action for the homepage lead form.
+ * Server Action for the short lead form (homepage, About page — see schema.ts).
  *
  * Order of checks: honeypot → rate limit → validation → save. Spam paths return the
  * normal success state so bots get no signal about what was detected.
@@ -21,7 +21,7 @@ export type LeadFormState =
       fieldErrors: Partial<Record<LeadFormField, string>>;
       formError?: string;
       /** Echo of entered values, so the form is not wiped on a validation error. */
-      values: { name: string; phone: string; task: string };
+      values: { name: string; phone: string; details: string };
     };
 
 const RATE_LIMIT = { limit: 5, windowMs: 10 * 60 * 1000 };
@@ -32,7 +32,7 @@ export async function submitLead(_prev: LeadFormState, formData: FormData): Prom
   }
 
   const raw = readLeadForm(formData);
-  const values = { name: raw.name, phone: raw.phone, task: raw.task };
+  const values = { name: raw.name, phone: raw.phone, details: raw.details };
 
   const clientIp = await getClientIp();
   if (!consumeRateLimit(`lead:${clientIp}`, RATE_LIMIT)) {

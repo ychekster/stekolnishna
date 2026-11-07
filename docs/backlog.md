@@ -47,7 +47,8 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 
 - [ ] Replace every placeholder with real data in one pass: contacts and Telegram bot
       (`src/content/site-settings.ts`), homepage numbers, prices, photos, reviews
-      (`src/content/home.ts`), map embed. List of what to request: open-questions.md.
+      (`src/content/home.ts`), About page facts, team and workshop photos, service-area map
+      (`src/content/about.ts`), map embed. List of what to request: open-questions.md.
 
 ### Infrastructure (spec §7, §11)
 
@@ -66,3 +67,4 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 ## Done
 
 - Homepage — commits `dc4e780`, `a51636a`.
+- About page `/o-kompanii` (2026-11-07). Lead form made reusable (copy + `source` per page).

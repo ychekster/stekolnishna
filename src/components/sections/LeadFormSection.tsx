@@ -1,19 +1,23 @@
 /**
- * "Рассчитаем стоимость вашего проекта": dark block with intro on the left and the form
- * on the right. Anchor `#form` — target of every "Оставить заявку" button.
+ * Dark lead-form block (design: ContactSection): intro on the left, the form on the right.
+ * Placed on several pages with different copy — homepage "Рассчитаем стоимость вашего
+ * проекта", About page "Приезжайте посмотреть производство". Anchor `#form`: on the
+ * homepage it is the target of every "Оставить заявку" button.
  * On mobile the block goes full-bleed (edge to edge, no rounding), as in the design.
  */
 import { Section } from "@/components/ui/Section";
-import type { HomePage, SiteSettings } from "@/lib/content/types";
+import type { LeadFormContent, SiteSettings } from "@/lib/content/types";
+import type { LeadSource } from "@/lib/leads/schema";
 
 import { LeadForm } from "./LeadForm";
 
 interface LeadFormSectionProps {
-  leadForm: HomePage["leadForm"];
+  leadForm: LeadFormContent;
+  source: LeadSource;
   privacyPolicyHref: SiteSettings["privacyPolicyHref"];
 }
 
-export function LeadFormSection({ leadForm, privacyPolicyHref }: LeadFormSectionProps) {
+export function LeadFormSection({ leadForm, source, privacyPolicyHref }: LeadFormSectionProps) {
   return (
     <Section
       id="form"
@@ -29,6 +33,8 @@ export function LeadFormSection({ leadForm, privacyPolicyHref }: LeadFormSection
         </p>
       </div>
       <LeadForm
+        source={source}
+        detailsLabel={leadForm.detailsLabel}
         submitLabel={leadForm.submitLabel}
         successMessage={leadForm.successMessage}
         privacyPolicyHref={privacyPolicyHref}

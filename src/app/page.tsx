@@ -8,11 +8,11 @@ import { AdvantagesSection } from "@/components/home/AdvantagesSection";
 import { CatalogSection } from "@/components/home/CatalogSection";
 import { ContactsSection } from "@/components/home/ContactsSection";
 import { HeroSection } from "@/components/home/HeroSection";
-import { LeadFormSection } from "@/components/home/LeadFormSection";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { ProjectsSection } from "@/components/home/ProjectsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";
+import { LeadFormSection } from "@/components/sections/LeadFormSection";
 import { getHomePage, getSiteSettings } from "@/lib/content";
 
 export default async function HomePage() {
@@ -28,7 +28,11 @@ export default async function HomePage() {
       <ProjectsSection projects={home.projects} />
       <ProcessSection process={home.process} />
       <TestimonialsSection testimonials={home.testimonials} />
-      <LeadFormSection leadForm={home.leadForm} privacyPolicyHref={settings.privacyPolicyHref} />
+      <LeadFormSection
+        leadForm={home.leadForm}
+        source="homepage"
+        privacyPolicyHref={settings.privacyPolicyHref}
+      />
       <ContactsSection contacts={home.contacts} settings={settings} />
     </>
   );

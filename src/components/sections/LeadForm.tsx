@@ -2,6 +2,8 @@
 
 /**
  * Lead form fields (design: ContactForm, right column of the dark block).
+ * Shared by every page with a lead form; each placement sets the label of the free-text
+ * field and its `source` (see src/lib/leads/schema.ts).
  *
  * Submits to the `submitLead` Server Action via useActionState: works without JS
  * (progressive enhancement) and shows field errors as text and a success message.
@@ -17,17 +19,26 @@ import { Button } from "@/components/ui/Button";
 import { ICON_STROKE } from "@/components/ui/Icon";
 import { TextField } from "@/components/ui/TextField";
 import { submitLead, type LeadFormState } from "@/lib/leads/actions";
-import { HONEYPOT_FIELD } from "@/lib/leads/schema";
+import { HONEYPOT_FIELD, type LeadSource } from "@/lib/leads/schema";
 
 const initialState: LeadFormState = { status: "idle" };
 
 interface LeadFormProps {
+  source: LeadSource;
+  /** Label of the free-text field: "Что нужно изготовить", "Удобный день и время"… */
+  detailsLabel: string;
   submitLabel: string;
   successMessage: string;
   privacyPolicyHref: string;
 }
 
-export function LeadForm({ submitLabel, successMessage, privacyPolicyHref }: LeadFormProps) {
+export function LeadForm({
+  source,
+  detailsLabel,
+  submitLabel,
+  successMessage,
+  privacyPolicyHref,
+}: LeadFormProps) {
   const [state, formAction, isPending] = useActionState(submitLead, initialState);
 
   if (state.status === "success") {
@@ -44,6 +55,7 @@ export function LeadForm({ submitLabel, successMessage, privacyPolicyHref }: Lea
 
   return (
     <form action={formAction} noValidate className="flex flex-col gap-4">
+      <input type="hidden" name="source" value={source} />
       <TextField
         tone="dark"
         label="Имя"
@@ -66,10 +78,10 @@ export function LeadForm({ submitLabel, successMessage, privacyPolicyHref }: Lea
       />
       <TextField
         tone="dark"
-        label="Что нужно изготовить"
-        name="task"
-        defaultValue={values?.task}
-        error={errors.task}
+        label={detailsLabel}
+        name="details"
+        defaultValue={values?.details}
+        error={errors.details}
       />
 
       {/* Honeypot: hidden from people and screen readers, filled only by bots. */}

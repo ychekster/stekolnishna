@@ -6,10 +6,11 @@
  * bodies of these functions with CMS queries mapped to the same types. Pages and
  * components must not import from src/content directly.
  */
+import { aboutPageContent } from "@/content/about";
 import { homePageContent } from "@/content/home";
 import { siteSettingsContent } from "@/content/site-settings";
 
-import type { HomePage, SiteSettings } from "./types";
+import type { AboutPage, HomePage, SiteSettings } from "./types";
 
 /** Global settings: company name, contacts, navigation, map. */
 export async function getSiteSettings(): Promise<SiteSettings> {
@@ -19,6 +20,11 @@ export async function getSiteSettings(): Promise<SiteSettings> {
 /** All blocks of the homepage. */
 export async function getHomePage(): Promise<HomePage> {
   return homePageContent;
+}
+
+/** All blocks of the About page (/o-kompanii). */
+export async function getAboutPage(): Promise<AboutPage> {
+  return aboutPageContent;
 }
 
 export type * from "./types";

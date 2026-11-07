@@ -10,6 +10,7 @@ import {
   MessageCircle,
   Phone,
   Send,
+  ShieldCheck,
   SlidersVertical,
   type LucideIcon,
 } from "lucide-react";
@@ -29,6 +30,7 @@ const icons: Record<IconName, LucideIcon> = {
   mail: Mail,
   // Lucide has no brand logos; the paper plane is the conventional Telegram glyph.
   telegram: Send,
+  shield: ShieldCheck,
 };
 
 interface IconProps {

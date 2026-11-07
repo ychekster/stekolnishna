@@ -36,12 +36,13 @@ npm run format       # Prettier
 
 ## Rules
 
-- **No hard-coded content.** Texts, prices, contacts, photos come from the content layer (`getHomePage()`, `getSiteSettings()` in `src/lib/content`). Pages/components never import `src/content/*` directly.
+- **No hard-coded content.** Texts, prices, contacts, photos come from the content layer (`getHomePage()`, `getAboutPage()`, `getSiteSettings()` in `src/lib/content`); per-page SEO title/description too (`seo` field + `generateMetadata`). Pages/components never import `src/content/*` directly.
 - Placeholders in `[square brackets]` stay visible until the customer provides data. Never invent data, never write fake reviews. Exception agreed with the user: contacts use neat template values (`+7 (700) 000-00-00`, listed in docs/open-questions.md).
 - Internal URLs only from `src/lib/routes.ts`. Header/footer live in the root layout — pages render only their content.
 - **Do not hand-roll** auth, admin UI or file uploads — they come with Payload.
 - No `any`. Business logic in `src/lib/` (pure, unit-tested), not in components.
-- Components: `src/components/ui/` (generic), `layout/` (header/footer), `<page>/` (sections). One component per file, PascalCase.
+- Components: `src/components/ui/` (generic), `layout/` (header/footer), `sections/` (sections reused on several pages, e.g. the lead form), `<page>/` (sections of one page). One component per file, PascalCase.
+- Page mockups arrive as exported HTML zips ("<page> — десктоп-html.zip"): reference only — rebuild with our components and tokens, keep the root layout's header/footer, design mobile from homepage patterns, and put every concrete fact from their copy in [brackets].
 - Every file starts with a short comment on its purpose. Comments explain **why**, not what.
 - **Design tokens only** (`src/app/globals.css` `@theme`): `bg-surface-alt`, `text-ink-muted`, `text-h1`, `rounded-md`… Tailwind's default colors/font sizes/radii are disabled on purpose. No raw hex.
 - Don't put two utilities for the same property on one element (e.g. `relative` + `absolute`, two border colors) — Tailwind resolves by CSS order, not class order. Use variant props instead.

@@ -9,7 +9,7 @@
 
 /** Keys of icons available to editors. Mapped to actual SVGs in components/ui/Icon.tsx. */
 export type IconName =
-  "sliders" | "check" | "document" | "pin" | "chat" | "phone" | "mail" | "telegram";
+  "sliders" | "check" | "document" | "pin" | "chat" | "phone" | "mail" | "telegram" | "shield";
 
 /** An image with mandatory alt text (SEO + accessibility requirement from the spec). */
 export interface ImageAsset {
@@ -28,6 +28,22 @@ export type Price =
   { kind: "from"; amount: number | null; unit: PriceUnit } | { kind: "individual" };
 
 export type PriceUnit = "piece" | "m2" | "linear-m";
+
+/** Per-page search metadata (spec §6). Editable per page once the CMS is connected. */
+export interface PageSeo {
+  title: string;
+  description: string;
+}
+
+/** Copy of a lead-form block. The same form is placed on several pages with its own text. */
+export interface LeadFormContent {
+  title: string;
+  lead: string;
+  /** Label of the free-text field ("Что нужно изготовить", "Удобный день и время"). */
+  detailsLabel: string;
+  submitLabel: string;
+  successMessage: string;
+}
 
 // ---------------------------------------------------------------------------
 // Global site settings (one record, edited by the owner)
@@ -145,13 +161,115 @@ export interface HomePage {
     title: string;
     items: Testimonial[];
   };
-  leadForm: {
-    title: string;
-    lead: string;
-    submitLabel: string;
-    successMessage: string;
-  };
+  leadForm: LeadFormContent;
   contacts: {
     title: string;
   };
+}
+
+// ---------------------------------------------------------------------------
+// About page (spec §3.5)
+// ---------------------------------------------------------------------------
+
+export interface Milestone {
+  /** Shown as text, so a placeholder like "[2010]" works. */
+  year: string;
+  title: string;
+  description: string;
+}
+
+export interface WorkshopPhoto {
+  caption: string;
+  image: ImageAsset | null;
+}
+
+/** One production capability: muted label, big value, note ("Толщина стекла / от 4 до 19 мм"). */
+export interface Capability {
+  label: string;
+  value: string;
+  note: string;
+}
+
+export interface EquipmentItem {
+  icon: IconName;
+  title: string;
+  description: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  photo: ImageAsset | null;
+}
+
+export interface Region {
+  name: string;
+  description: string;
+}
+
+/** A line of delivery/installation terms; `highlight` is shown in bold before the text. */
+export interface TermsItem {
+  highlight?: string;
+  text: string;
+}
+
+export interface TermsCard {
+  icon: IconName;
+  title: string;
+  items: TermsItem[];
+}
+
+export interface AboutPage {
+  seo: PageSeo;
+  /** Short page name for breadcrumbs. */
+  name: string;
+  hero: {
+    title: string;
+    lead: string;
+    image: ImageAsset;
+    stats: Stat[];
+  };
+  history: {
+    title: string;
+    lead: string;
+    milestones: Milestone[];
+  };
+  production: {
+    title: string;
+    lead: string;
+    photos: WorkshopPhoto[];
+    capabilities: Capability[];
+  };
+  equipment: {
+    title: string;
+    lead: string;
+    items: EquipmentItem[];
+  };
+  team: {
+    title: string;
+    lead: string;
+    members: TeamMember[];
+  };
+  /** Dark block "Почему своё производство — это выгодно вам". */
+  ownProduction: {
+    title: string;
+    benefits: AdvantageItem[];
+  };
+  geography: {
+    title: string;
+    lead: string;
+    regions: Region[];
+    map: {
+      /** Map picture of the service area. `null` → placeholder with a dashed radius circle. */
+      image: ImageAsset | null;
+      label: string;
+      note: string;
+    };
+  };
+  delivery: {
+    title: string;
+    lead: string;
+    cards: TermsCard[];
+  };
+  leadForm: LeadFormContent;
 }

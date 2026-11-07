@@ -19,6 +19,15 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
 - [ ] 10–20 real products with photos, specs and prices to fill the catalog for design and testing.
 - [ ] Real customer reviews (with permission to publish).
 - [ ] Is glass **tempering** offered in-house? (Spec §3.3 says "if the service is provided".)
+      The About page currently assumes yes (milestone 2018, "Печь закалки", tempering size).
+- [ ] **About page facts** (`src/content/about.ts`, everything in `[brackets]`): founding year and
+      history milestones; years on market, orders count, workshop area, headcount; sheet size,
+      thickness range, tempering size, lead time; machine list and their specs/origin; team —
+      names, roles and portraits of 3–4 key people (and consent to publish them), the owner's
+      role title; delivery prices (free-delivery threshold, city fee, ₸/km in the region),
+      installation radius and towns, warranty period, installers' experience.
+- [ ] Photos for the About page: workshop areas (cutting, edge processing, tempering furnace,
+      glass storage); optionally a picture of the service-area map.
 
 ## Telegram bot
 

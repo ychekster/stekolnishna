@@ -1,5 +1,9 @@
 /**
- * Validation of the homepage lead form ("Рассчитаем стоимость вашего проекта").
+ * Validation of the short lead form (name, phone, free-text details, consent).
+ *
+ * The same form is placed on several pages (homepage "Рассчитаем стоимость", About page
+ * "Записаться на визит"); each placement has its own label for the free-text field and
+ * reports its `source`, so the manager knows what the details mean.
  *
  * Runs on the server (spec §7: validate all form input). Error messages are Russian
  * because they are shown to site visitors as-is.
@@ -7,6 +11,10 @@
 import { z } from "zod";
 
 import { normalizeKzPhone } from "@/lib/format/phone";
+
+/** Where a lead came from. Add a value when the form is placed on a new page. */
+export const LEAD_SOURCES = ["homepage", "about-visit"] as const;
+export type LeadSource = (typeof LEAD_SOURCES)[number];
 
 export const leadFormSchema = z.object({
   name: z.string().trim().max(100, "Слишком длинное имя"),
@@ -22,8 +30,12 @@ export const leadFormSchema = z.object({
       }
       return normalized;
     }),
-  task: z.string().trim().max(1000, "Слишком длинное описание"),
+  /** Free text; its meaning depends on the form (what to make, convenient visit time…). */
+  details: z.string().trim().max(1000, "Слишком длинный текст"),
   consent: z.literal(true, { error: "Нужно согласие на обработку персональных данных" }),
+  // A hidden field, so the value is client-controlled: an unknown value must not block a
+  // real person's lead — it is stored as "not reported" instead.
+  source: z.enum(LEAD_SOURCES).optional().catch(undefined),
 });
 
 /** Validated, normalized lead ready to be stored. */
@@ -47,7 +59,8 @@ export function readLeadForm(formData: FormData) {
   return {
     name: text("name"),
     phone: text("phone"),
-    task: text("task"),
+    details: text("details"),
     consent: formData.get("consent") === "on",
+    source: text("source") || undefined,
   };
 }

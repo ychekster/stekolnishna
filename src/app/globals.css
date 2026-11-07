@@ -70,6 +70,8 @@
   --text-title--font-weight: 600;
   --text-lead: 19px; /* hero subtitle */
   --text-lead--line-height: 28px;
+  --text-intro: 17px; /* page intro next to the H1 (inner pages) */
+  --text-intro--line-height: 26px;
   --text-body: 15px; /* main text */
   --text-body--line-height: 23px;
   --text-label: 15px; /* buttons */

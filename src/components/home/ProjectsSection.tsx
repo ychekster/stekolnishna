@@ -3,12 +3,11 @@
  * 4 columns on desktop with the first tile spanning 2×2, 2 columns on mobile.
  */
 import { Button } from "@/components/ui/Button";
+import { PhotoTile } from "@/components/ui/PhotoTile";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/cn";
 import type { HomePage } from "@/lib/content/types";
-
-import { ProjectTile } from "./ProjectTile";
 
 export function ProjectsSection({ projects }: { projects: HomePage["projects"] }) {
   return (
@@ -22,7 +21,12 @@ export function ProjectsSection({ projects }: { projects: HomePage["projects"] }
       <ul className="m-0 mt-6 grid list-none auto-rows-[160px] grid-cols-2 gap-3 p-0 md:mt-10 md:auto-rows-[220px] md:grid-cols-4 md:gap-4">
         {projects.items.map((project, index) => (
           <li key={project.caption} className={cn(index === 0 && "col-span-2 row-span-2")}>
-            <ProjectTile project={project} featured={index === 0} />
+            <PhotoTile
+              image={project.image}
+              caption={project.caption}
+              href={project.href}
+              featured={index === 0}
+            />
           </li>
         ))}
       </ul>

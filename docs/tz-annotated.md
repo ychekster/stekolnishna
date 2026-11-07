@@ -133,7 +133,11 @@
 
 ### 3.5. Страница «О компании»
 
-> 📝 **Status: not started.**
+> 📝 **Status: built** — `/o-kompanii`, from the mockup "О компании — десктоп" (mobile layout ours). All required topics present: history, workshop/production capabilities, equipment, team, benefits of own production, geography, delivery & installation terms, plus a "visit the workshop" lead form (`source: about-visit`).
+>
+> - Copy is the designer's draft: every concrete fact (years, m², headcount, machine specs, delivery prices, radius, warranty) is in `[brackets]` until the customer confirms — list in open-questions.md.
+> - Team: only the owner's name is known; other members are placeholders (mockup names were invented).
+> - Page assumes in-house **tempering** (open question) — drop the tempering milestone/equipment/capability if not.
 
 Разместить историю компании, информацию о мастерской, производственных возможностях, оборудовании и специалистах, преимущества собственного производства, географию работы, условия доставки и монтажа.
 

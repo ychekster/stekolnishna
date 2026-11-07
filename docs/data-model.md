@@ -43,7 +43,7 @@
 - client name, phone (required)
 - product type, dimensions, quantity, comment
 - attachments: JPG/JPEG/PNG/PDF, size-limited, validated
-- source: which form / page / product
+- source: which form / page / product (today: `homepage`, `about-visit`; the free-text field `details` means "what to make" or "convenient visit time" depending on the source)
 - UTM / referrer for analytics
 - personal-data consent: given (bool) + timestamp
 - status (see below), manager notes, created/updated timestamps
@@ -70,6 +70,8 @@ Admin needs: list with filters by status, search by name and phone, status chang
 
 - **Site settings** — company name, logo, phones, Telegram bot username, email, address, working hours, map coordinates, social links, analytics IDs, default SEO.
 - **Homepage** — hero (image, headline, subtext, CTA), about block, advantages, steps, featured categories/projects/reviews.
+- **About page** — SEO fields, intro (title, lead, photo, key numbers), history milestones (year, title, text), workshop photos with captions, production capabilities (label, value, note), equipment (icon, name, text), team members (name, role, photo), own-production benefits, regions + service-area map, delivery/installation terms, "visit the workshop" form copy. Exact shape: `AboutPage` in `src/lib/content/types.ts`.
+- **Lead form copy** — per placement: title, lead, label of the free-text field, submit label, success message.
 
 ## Users
 

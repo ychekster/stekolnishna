@@ -2,9 +2,8 @@
  * "О компании": text on the left, 2×2 grid of stats on the right.
  */
 import { Section } from "@/components/ui/Section";
+import { Stat } from "@/components/ui/Stat";
 import type { HomePage } from "@/lib/content/types";
-
-import { Stat } from "./Stat";
 
 export function AboutSection({ about }: { about: HomePage["about"] }) {
   return (

@@ -15,7 +15,7 @@ export const routes = {
   services: "/uslugi",
   /** Portfolio — "Наши работы" (planned). */
   portfolio: "/nashi-raboty",
-  /** About the company (planned). */
+  /** About the company — src/app/o-kompanii. */
   about: "/o-kompanii",
   /** Contacts (planned). */
   contacts: "/kontakty",
