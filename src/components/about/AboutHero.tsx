@@ -1,6 +1,7 @@
 /**
  * Top of the About page: H1 with an intro paragraph beside it (below it on mobile),
- * a wide photo and a row of key numbers closed by a divider.
+ * a wide photo and a row of key numbers. No divider under the numbers (user's decision;
+ * the mockup had one).
  */
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Stat } from "@/components/ui/Stat";
@@ -29,7 +30,7 @@ export function AboutHero({ hero }: { hero: AboutPage["hero"] }) {
           imageClassName="object-[70%_60%]"
         />
       </div>
-      <div className="mt-6 grid grid-cols-2 gap-6 border-b border-line pb-6 md:mt-12 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] md:gap-8 md:pb-12">
+      <div className="mt-6 grid grid-cols-2 gap-6 md:mt-12 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] md:gap-8">
         {hero.stats.map((stat) => (
           <Stat key={stat.label} stat={stat} />
         ))}
