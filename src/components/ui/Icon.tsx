@@ -1,5 +1,5 @@
 /**
- * Maps CMS-friendly icon keys (`IconName`) to Lucide icons.
+ * Maps CMS-friendly icon keys (`IconName`) to Lucide icons (and our Telegram glyph).
  * Design spec: line icons, 1.7px stroke. Decorative by default (`aria-hidden`).
  */
 import {
@@ -9,7 +9,6 @@ import {
   MapPin,
   MessageCircle,
   Phone,
-  Send,
   ShieldCheck,
   SlidersVertical,
   type LucideIcon,
@@ -17,10 +16,12 @@ import {
 
 import type { IconName } from "@/lib/content/types";
 
+import { TelegramIcon } from "./TelegramIcon";
+
 /** Stroke width from the design system — use it for any Lucide icon in the project. */
 export const ICON_STROKE = 1.7;
 
-const icons: Record<IconName, LucideIcon> = {
+const icons: Record<Exclude<IconName, "telegram">, LucideIcon> = {
   sliders: SlidersVertical,
   check: Check,
   document: FileText,
@@ -28,8 +29,6 @@ const icons: Record<IconName, LucideIcon> = {
   chat: MessageCircle,
   phone: Phone,
   mail: Mail,
-  // Lucide has no brand logos; the paper plane is the conventional Telegram glyph.
-  telegram: Send,
   shield: ShieldCheck,
 };
 
@@ -40,6 +39,8 @@ interface IconProps {
 }
 
 export function Icon({ name, size = 20, className }: IconProps) {
+  // Brand glyph: filled, not stroked, so it does not go through the Lucide map.
+  if (name === "telegram") return <TelegramIcon size={size} className={className} />;
   const Component = icons[name];
   return (
     <Component size={size} strokeWidth={ICON_STROKE} className={className} aria-hidden="true" />

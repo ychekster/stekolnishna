@@ -13,7 +13,7 @@ export function HistorySection({ history }: { history: AboutPage["history"] }) {
       <div className="max-w-90 flex-[1_1_300px]">
         <SectionHeading id="history-title" title={history.title} lead={history.lead} />
       </div>
-      <ol className="m-0 min-w-0 flex-[999_1_560px] list-none p-0">
+      <ol className="m-0 dividers-between min-w-0 flex-[999_1_560px] list-none p-0">
         {history.milestones.map((milestone) => (
           <HistoryMilestone key={milestone.title} milestone={milestone} />
         ))}

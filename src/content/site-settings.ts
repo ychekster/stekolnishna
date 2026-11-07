@@ -32,6 +32,6 @@ export const siteSettingsContent: SiteSettings = {
   copyright: "© 2026 ТОО «Стекло&Центр». Все права защищены",
   map: {
     embedUrl: null,
-    label: "Стекло&Центр · г. Алматы",
+    label: "Стекло&Центр, г. Алматы",
   },
 };

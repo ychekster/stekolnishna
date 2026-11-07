@@ -1,11 +1,12 @@
 /**
- * One advantage (design: AdvantageItem): accent number "01", title, text, line on top.
+ * One advantage (design: AdvantageItem): accent number "01", title, text.
+ * Lines between items come from the list (`dividers-between`).
  */
 import type { AdvantageItem as AdvantageData } from "@/lib/content/types";
 
 export function AdvantageItem({ advantage, index }: { advantage: AdvantageData; index: number }) {
   return (
-    <li className="flex gap-5 border-t border-line py-6">
+    <li className="flex gap-5 py-6">
       <span
         className="min-w-7 pt-0.5 text-label font-semibold text-accent-strong"
         aria-hidden="true"

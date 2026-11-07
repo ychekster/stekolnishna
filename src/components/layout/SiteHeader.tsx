@@ -11,9 +11,12 @@
  * burger is used up to xl (1280px) instead of md (768px) because page links plus contacts
  * do not fit in one row on tablets.
  *
- * Client component because of the burger state and active-link highlighting.
+ * The bottom divider is hidden while the page is at the very top and appears once it is
+ * scrolled, so the header blends into the first screen.
+ *
+ * Client component because of the burger state, scroll state and active-link highlighting.
  */
-import { Menu, Phone, Send, X } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useId, useState } from "react";
@@ -22,6 +25,7 @@ import { Brand } from "@/components/ui/Brand";
 import { Button } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { ICON_STROKE } from "@/components/ui/Icon";
+import { TelegramIcon } from "@/components/ui/TelegramIcon";
 import { cn } from "@/lib/cn";
 import { telegramHref, telHref } from "@/lib/contact-links";
 import type { SiteSettings } from "@/lib/content/types";
@@ -29,6 +33,7 @@ import { isActiveRoute, routes } from "@/lib/routes";
 
 export function SiteHeader({ settings }: { settings: SiteSettings }) {
   const [isMenuOpen, setMenuOpen] = useState(false);
+  const [isScrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const menuId = useId();
   const closeMenu = () => setMenuOpen(false);
@@ -42,6 +47,15 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [isMenuOpen]);
+
+  // Show the divider once the page leaves the top. Checked on mount too: a reload or a
+  // back navigation can restore a scrolled position without any scroll event.
+  useEffect(() => {
+    const update = () => setScrolled(window.scrollY > 0);
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    return () => window.removeEventListener("scroll", update);
+  }, []);
 
   const navLinks = settings.navigation.map((item) => {
     const isActive = isActiveRoute(item.href, pathname);
@@ -68,14 +82,19 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
       size="sm"
       target="_blank"
       rel="noopener noreferrer"
-      icon={<Send size={18} strokeWidth={ICON_STROKE} aria-hidden="true" />}
+      icon={<TelegramIcon size={16} />}
     >
       Telegram
     </Button>
   );
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-surface">
+    <header
+      className={cn(
+        "sticky top-0 z-40 border-b bg-surface transition-colors duration-200",
+        isScrolled ? "border-line" : "border-transparent",
+      )}
+    >
       <Container className="relative flex h-(--header-height) items-center justify-between gap-6">
         <Brand name={settings.companyName} tagline={settings.tagline} />
 
@@ -128,6 +147,8 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
       <div
         id={menuId}
         hidden={!isMenuOpen}
+        // Own vertical scroll: keep the site-wide smooth scrolling out of it.
+        data-lenis-prevent
         className="absolute inset-x-0 top-full max-h-[calc(100dvh-var(--header-height))] overflow-y-auto border-b border-line bg-surface shadow-pop xl:hidden"
       >
         <Container className="flex flex-col pt-2 pb-6">

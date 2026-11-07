@@ -1,13 +1,13 @@
 /**
- * One cooperation step (design: ProcessStep): dark icon circle, title, description,
- * divider line below.
+ * One cooperation step (design: ProcessStep): dark icon circle, title, description.
+ * Lines between steps come from the list (`dividers-between`).
  */
 import { Icon } from "@/components/ui/Icon";
 import type { ProcessStep as ProcessStepData } from "@/lib/content/types";
 
 export function ProcessStep({ step }: { step: ProcessStepData }) {
   return (
-    <li className="flex gap-3 border-b border-line py-3 md:gap-4 md:pt-4 md:pb-6">
+    <li className="flex gap-3 py-3 md:gap-4 md:pt-4 md:pb-6">
       <div className="grid size-8 shrink-0 place-items-center rounded-full bg-surface-inverse text-ink-inverse md:size-10">
         <Icon name={step.icon} size={18} />
       </div>

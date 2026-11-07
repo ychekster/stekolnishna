@@ -22,7 +22,7 @@ export function EquipmentSection({ equipment }: { equipment: AboutPage["equipmen
         wide
         className="max-w-80 flex-[1_1_280px]"
       />
-      <ul className="m-0 grid min-w-0 flex-[999_1_560px] list-none grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-x-8 p-0">
+      <ul className="m-0 dividers-between grid min-w-0 flex-[999_1_560px] list-none grid-cols-[repeat(auto-fit,minmax(min(240px,100%),1fr))] gap-x-8 p-0">
         {equipment.items.map((item) => (
           <EquipmentItem key={item.title} item={item} />
         ))}

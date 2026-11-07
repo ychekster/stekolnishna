@@ -23,7 +23,7 @@ export function ProcessSection({ process }: { process: HomePage["process"] }) {
           </AccentBadge>
         </div>
       </div>
-      <ol className="m-0 min-w-0 flex-[999_1_480px] list-none p-0">
+      <ol className="m-0 dividers-between min-w-0 flex-[999_1_480px] list-none p-0">
         {process.steps.map((step) => (
           <ProcessStep key={step.title} step={step} />
         ))}

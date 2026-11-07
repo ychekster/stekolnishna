@@ -4,9 +4,7 @@
  * Telegram bot (docs/decisions/0003). Styled with design tokens (dark circle like the
  * step icons).
  */
-import { Send } from "lucide-react";
-
-import { ICON_STROKE } from "@/components/ui/Icon";
+import { TelegramIcon } from "@/components/ui/TelegramIcon";
 import { telegramHref } from "@/lib/contact-links";
 
 export function FloatingTelegram({ botUsername }: { botUsername: string }) {
@@ -18,13 +16,8 @@ export function FloatingTelegram({ botUsername }: { botUsername: string }) {
       aria-label="Написать в Telegram"
       className="fixed right-4 bottom-4 z-30 grid size-14 place-items-center rounded-full bg-surface-inverse text-ink-inverse shadow-pop transition-colors hover:bg-accent-strong md:right-6 md:bottom-6"
     >
-      {/* The paper plane looks optically off-centre; nudge it toward the visual middle. */}
-      <Send
-        size={24}
-        strokeWidth={ICON_STROKE}
-        aria-hidden="true"
-        className="-translate-x-px translate-y-px"
-      />
+      {/* The plane's mass sits right of its box centre; nudge it toward the visual middle. */}
+      <TelegramIcon size={26} className="-translate-x-0.5" />
     </a>
   );
 }

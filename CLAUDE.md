@@ -18,11 +18,12 @@ Website for a glass & mirror workshop in Almaty, Kazakhstan: catalog, portfolio,
 
 - Code, comments, docs, commit messages: **English**.
 - All site UI and content: **Russian**. Currency ₸ (KZT). Phone format +7.
+- Site copy style (user's decision): **no em dashes (—) and no middle-dot separators (·)**. Rephrase with commas, colons, periods or prepositions ("Душевая в квартире", not "Душевая · квартира"). En dash in ranges stays: `Пн–Сб`, `9:00–19:00`, `4–19 мм`.
 - Chat with the user: Russian.
 
 ## Stack
 
-Next.js 16 (App Router, Cache Components) · TypeScript strict · Tailwind CSS v4 · zod · lucide-react · Vitest.
+Next.js 16 (App Router, Cache Components) · TypeScript strict · Tailwind CSS v4 · zod · lucide-react · Lenis (smooth scroll) · Vitest.
 Planned, not yet installed: Payload CMS + PostgreSQL (docs/decisions/0001, 0002). Until then content comes from `src/content/` via `src/lib/content/`.
 
 ## Commands
@@ -45,6 +46,7 @@ npm run format       # Prettier
 - Page mockups arrive as exported HTML zips ("<page> — десктоп-html.zip"): reference only — rebuild with our components and tokens, keep the root layout's header/footer, design mobile from homepage patterns, and put every concrete fact from their copy in [brackets].
 - Every file starts with a short comment on its purpose. Comments explain **why**, not what.
 - **Design tokens only** (`src/app/globals.css` `@theme`): `bg-surface-alt`, `text-ink-muted`, `text-h1`, `rounded-md`… Tailwind's default colors/font sizes/radii are disabled on purpose. No raw hex.
+- Lists separated by lines: put `dividers-between` on the list (lines only between items, none above the first row or below the last, works for grids). Don't add `border-t`/`border-b` to items.
 - Don't put two utilities for the same property on one element (e.g. `relative` + `absolute`, two border colors) — Tailwind resolves by CSS order, not class order. Use variant props instead.
 - Forms: server-side zod validation, honeypot, rate limit; required personal-data consent checkbox (Kazakhstan law).
 - Secrets only in `.env.local`; when adding a variable, update `.env.example`.

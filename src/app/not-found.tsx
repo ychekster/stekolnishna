@@ -11,8 +11,8 @@ export default function NotFound() {
     <section className="flex min-h-[60vh] flex-col items-start justify-center gap-6 py-16">
       <h1 className="m-0 text-h2 md:text-h1">Раздел скоро появится</h1>
       <p className="m-0 max-w-120 text-body text-ink-muted">
-        Мы готовим эту страницу. А пока посмотрите главную или оставьте заявку — рассчитаем
-        стоимость и ответим на вопросы.
+        Мы готовим эту страницу. А пока посмотрите главную или оставьте заявку: рассчитаем стоимость
+        и ответим на вопросы.
       </p>
       <div className="flex flex-wrap gap-3">
         <Button href={routes.home} variant="outline">
