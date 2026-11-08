@@ -30,6 +30,10 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
       phone (production / pickup) or drop it; Telegram response time; hours per department
       (office/showroom, production/pickup, measurer) and Sunday; is there a showroom; how to
       drive in and park; works with VAT or without.
+- [ ] **Services page facts** (`src/content/services.ts`, everything in `[brackets]`): prices
+      for each work (cutting, shaped cutting, grinding, polishing, drilling, bevel, tempering,
+      mirrors, installation, delivery), cutting tolerance, drill diameters, bevel widths, Telegram
+      reply time; photos for each of the 9 services.
 - [ ] **Legal details** for the Contacts page and the privacy policy: BIN, bank, IIK, legal
       address (director: Абылгазиев Сакен Берикович, from the spec).
 - [ ] Photos for the About page: workshop areas (cutting, edge processing, tempering furnace,

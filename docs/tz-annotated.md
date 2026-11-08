@@ -107,7 +107,11 @@
 
 ### 3.3. Страница «Наши услуги»
 
-> 📝 **Status: not started.**
+> 📝 **Status: built** — `/uslugi`, from the mockup "Услуги — десктоп" (mobile layout ours). All nine services from the list: cards with photo (placeholder), description, fact tags, price and a "Заказать" button to the page's lead form (`source: services`); plus "Заказ по фото или чертежу" (to the Telegram bot), a price list and the lead form "Не нашли нужную услугу?".
+>
+> - The mockup's price calculator is **not built** (ADR 0003).
+> - Every fact and price is in `[brackets]` until the customer confirms (open-questions.md). Tempering card assumes in-house tempering (open question).
+> - One page with anchors (`/uslugi#zakalka`), not separate service pages; those are in the backlog if needed for SEO.
 
 Создать отдельный раздел с описанием следующих услуг:
 

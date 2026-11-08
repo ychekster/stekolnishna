@@ -49,7 +49,7 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
       (`src/content/site-settings.ts`), homepage numbers, prices, photos, reviews
       (`src/content/home.ts`), About page facts, team and workshop photos, service-area map
       (`src/content/about.ts`), Contacts page facts and legal details (`src/content/contacts.ts`),
-      map embed. List of what to request: open-questions.md.
+      service facts and prices (`src/content/services.ts`), map embed. List of what to request: open-questions.md.
 
 ### Infrastructure (spec §7, §11)
 
@@ -61,6 +61,9 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
       form already is a callback request. Build only if the customer insists.
 - [ ] **Full order form** — product type, size, quantity, file upload JPG/PNG/PDF (spec §4.2,
       §4.5). Decision 2026-11-07: short form converts better; extend only if asked.
+- [ ] **Separate service pages** `/uslugi/[service]` (sitemap.md). Decision 2026-11-08: one
+      Services page with anchors, as in the mockup; card slugs are ready to become page slugs.
+      Build if SEO landing pages per service are wanted.
 - [ ] **Hero headline from the spec** ("Изготовление изделий из стекла и зеркал по
       индивидуальным размерам…"). Decision: keep "Стеклянные конструкции под ключ" (shorter,
       clearer); the customer saw it and had no objection.
@@ -70,3 +73,4 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 - Homepage — commits `dc4e780`, `a51636a`.
 - About page `/o-kompanii` (2026-11-07). Lead form made reusable (copy + `source` per page).
 - Contacts page `/kontakty` (2026-11-07).
+- Services page `/uslugi` (2026-11-08), without the mockup's calculator (ADR 0003).

@@ -25,6 +25,8 @@
 **Service** — e.g. cutting, edge grinding & polishing, drilling, bevelling, tempering, mirror making, structure manufacturing, installation, delivery.
 
 - name, slug, description, photos, optional price note, SEO fields
+- short fact tags ("толщина 4–19 мм"), price text ("от 300 ₸/м.п.", units vary per service)
+- Services page copy (intro, "order by photo" steps, price list rows, form copy): `ServicesPage` in `src/lib/content/types.ts`
 
 ## Portfolio
 

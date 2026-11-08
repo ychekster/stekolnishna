@@ -9,9 +9,10 @@
 import { aboutPageContent } from "@/content/about";
 import { contactsPageContent } from "@/content/contacts";
 import { homePageContent } from "@/content/home";
+import { servicesPageContent } from "@/content/services";
 import { siteSettingsContent } from "@/content/site-settings";
 
-import type { AboutPage, ContactsPage, HomePage, SiteSettings } from "./types";
+import type { AboutPage, ContactsPage, HomePage, ServicesPage, SiteSettings } from "./types";
 
 /** Global settings: company name, contacts, navigation, map. */
 export async function getSiteSettings(): Promise<SiteSettings> {
@@ -31,6 +32,11 @@ export async function getAboutPage(): Promise<AboutPage> {
 /** All blocks of the Contacts page (/kontakty). */
 export async function getContactsPage(): Promise<ContactsPage> {
   return contactsPageContent;
+}
+
+/** All blocks of the Services page (/uslugi). */
+export async function getServicesPage(): Promise<ServicesPage> {
+  return servicesPageContent;
 }
 
 export type * from "./types";

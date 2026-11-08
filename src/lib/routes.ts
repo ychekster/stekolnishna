@@ -11,7 +11,7 @@ export const routes = {
   catalog: "/katalog",
   /** Catalog category page (planned). */
   catalogCategory: (slug: string) => `/katalog/${slug}`,
-  /** Services (planned). */
+  /** Services — src/app/uslugi. */
   services: "/uslugi",
   /** Portfolio — "Наши работы" (planned). */
   portfolio: "/nashi-raboty",
@@ -23,6 +23,8 @@ export const routes = {
   privacyPolicy: "/politika-konfidencialnosti",
   /** Lead form on the homepage — target of every "Оставить заявку" button. */
   leadForm: "/#form",
+  /** Lead form on the current page, for pages that place their own `LeadFormSection`. */
+  pageLeadForm: "#form",
 } as const;
 
 /**

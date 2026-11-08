@@ -340,3 +340,65 @@ export interface ContactsPage {
     items: DetailItem[];
   };
 }
+
+// ---------------------------------------------------------------------------
+// Services page (spec §3.3)
+// ---------------------------------------------------------------------------
+
+/**
+ * One service card. `slug` is the anchor on the page (`/uslugi#rezka`) and, later, the
+ * slug of its own page `/uslugi/[service]` (docs/sitemap.md). Prices are free text,
+ * because units differ per service (per metre, per hole, per trip).
+ */
+export interface ServiceOffer {
+  slug: string;
+  title: string;
+  description: string;
+  /** Short facts shown as tags under the description. */
+  specs: string[];
+  price: string;
+  image: ImageAsset | null;
+}
+
+/** A step of the "order by photo" instruction. */
+export interface InstructionStep {
+  title: string;
+  description: string;
+}
+
+/** A row of the price list: work, unit, price (all text, may hold placeholders). */
+export interface PriceRow {
+  name: string;
+  unit: string;
+  price: string;
+}
+
+export interface ServicesPage {
+  seo: PageSeo;
+  /** Short page name for breadcrumbs. */
+  name: string;
+  hero: {
+    title: string;
+    lead: string;
+  };
+  offers: {
+    /** Accessible name of the anchor chips above the cards. */
+    navLabel: string;
+    priceLabel: string;
+    orderLabel: string;
+    items: ServiceOffer[];
+  };
+  photoOrder: {
+    title: string;
+    lead: string;
+    steps: InstructionStep[];
+    telegramLabel: string;
+  };
+  prices: {
+    title: string;
+    lead: string;
+    columns: { name: string; unit: string; price: string };
+    rows: PriceRow[];
+  };
+  leadForm: LeadFormContent;
+}
