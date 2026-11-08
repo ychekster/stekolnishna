@@ -27,6 +27,12 @@ describe("formatPrice", () => {
     );
   });
 
+  it("brackets an unconfirmed (draft) amount", () => {
+    expect(normalize(formatPrice({ kind: "from", amount: 4500, unit: "m2", draft: true }))).toBe(
+      "от [4 500] ₸/м²",
+    );
+  });
+
   it("handles individually priced items", () => {
     expect(formatPrice({ kind: "individual" })).toBe("Цена рассчитывается индивидуально");
   });

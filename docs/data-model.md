@@ -19,6 +19,8 @@
 - available colors / glass types and processing options
 - price: either a fixed price (₸, with unit — per piece / per m²) **or** the flag "price calculated individually" (then no number is shown)
 - Telegram bot deep link with this product (start parameter = product slug)
+- filter tags (home / office / with installation / tempered glass), optional badge ("Хит"), short summary line for cards
+- catalog page settings: featured categories, products per section (`CatalogPage` in `src/lib/content/types.ts`)
 - SEO: title, meta description
 - published / draft
 

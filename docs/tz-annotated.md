@@ -74,7 +74,11 @@
 
 ### 3.2. Каталог продукции
 
-> 📝 **Status: not started.** "Запрос через WhatsApp" → Telegram bot deep link (`telegramHref(bot, startParam)`). "Рассчитать стоимость" — no calculator; button should lead to the lead form (decide when building the page).
+> 📝 **Status: catalog index built** — `/katalog`, from the mockup "Каталог — десктоп" (mobile layout ours): all 12 categories (strip + "Ещё в каталоге"), filters (для дома, для офиса, с монтажом, закалённое), search, sort by price, 4 featured category sections with product cards, lead form (`source: catalog`). **Category pages and the product card: not started.**
+>
+> - "Запрос через WhatsApp" → Telegram button on every product card, deep link = product slug.
+> - "Рассчитать стоимость": no calculator (ADR 0003). On catalog cards the button is dropped ("Заказать" + Telegram are enough); on the future product card it should lead to the lead form.
+> - Products are the designer's examples; prices shown as `от [N] ₸` until the customer sends the real range.
 
 Создать каталог с отдельными страницами категорий. Предусмотреть следующие категории:
 

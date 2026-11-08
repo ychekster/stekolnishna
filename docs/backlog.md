@@ -49,7 +49,8 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
       (`src/content/site-settings.ts`), homepage numbers, prices, photos, reviews
       (`src/content/home.ts`), About page facts, team and workshop photos, service-area map
       (`src/content/about.ts`), Contacts page facts and legal details (`src/content/contacts.ts`),
-      service facts and prices (`src/content/services.ts`), map embed. List of what to request: open-questions.md.
+      service facts and prices (`src/content/services.ts`), catalog categories, products,
+      prices and photos (`src/content/catalog.ts`; drop `draft: true` once confirmed), map embed. List of what to request: open-questions.md.
 
 ### Infrastructure (spec §7, §11)
 
@@ -61,6 +62,9 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
       form already is a callback request. Build only if the customer insists.
 - [ ] **Full order form** — product type, size, quantity, file upload JPG/PNG/PDF (spec §4.2,
       §4.5). Decision 2026-11-07: short form converts better; extend only if asked.
+- [ ] **Catalog filters in the URL** (`/katalog?tag=office&q=…`) so a filtered view can be
+      shared and survives "back". Today the toolbar state lives only in the browser tab.
+      Do together with server-side filtering once products move to Payload.
 - [ ] **Separate service pages** `/uslugi/[service]` (sitemap.md). Decision 2026-11-08: one
       Services page with anchors, as in the mockup; card slugs are ready to become page slugs.
       Build if SEO landing pages per service are wanted.
@@ -74,3 +78,4 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 - About page `/o-kompanii` (2026-11-07). Lead form made reusable (copy + `source` per page).
 - Contacts page `/kontakty` (2026-11-07).
 - Services page `/uslugi` (2026-11-08), without the mockup's calculator (ADR 0003).
+- Catalog index `/katalog` (2026-11-08): filters, search, sort; calculator promo → Telegram photo order.

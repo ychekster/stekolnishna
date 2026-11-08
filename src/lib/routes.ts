@@ -7,10 +7,12 @@
  */
 export const routes = {
   home: "/",
-  /** Catalog index (planned). */
+  /** Catalog index — src/app/katalog. */
   catalog: "/katalog",
   /** Catalog category page (planned). */
   catalogCategory: (slug: string) => `/katalog/${slug}`,
+  /** Product card (planned). */
+  product: (categorySlug: string, productSlug: string) => `/katalog/${categorySlug}/${productSlug}`,
   /** Services — src/app/uslugi. */
   services: "/uslugi",
   /** Portfolio — "Наши работы" (planned). */

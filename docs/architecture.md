@@ -1,6 +1,6 @@
 # Architecture
 
-Current state: **homepage, About, Contacts and Services pages implemented, frontend only.** No database or CMS yet — see [decisions/0002-frontend-first.md](decisions/0002-frontend-first.md).
+Current state: **homepage, Catalog index, Services, About and Contacts pages implemented, frontend only.** No database or CMS yet — see [decisions/0002-frontend-first.md](decisions/0002-frontend-first.md).
 
 ## Overview
 
@@ -13,7 +13,8 @@ Next.js 16 app (App Router, React Server Components, Cache Components)
   ├─ src/app/o-kompanii/page.tsx . About page: composes sections
   ├─ src/app/kontakty/page.tsx ... Contacts page: composes sections
   ├─ src/app/uslugi/page.tsx ..... Services page: composes sections
-  │     └─ getHomePage() / getAboutPage() / getContactsPage() / getServicesPage() / getSiteSettings()  ← src/lib/content (single swap point)
+  ├─ src/app/katalog/page.tsx .... Catalog index: sections + client-side filter/search/sort
+  │     └─ getHomePage() / getAboutPage() / getContactsPage() / getServicesPage() / getCatalogPage() / getCatalogCategories() / getCatalogProducts() / getSiteSettings()  ← src/lib/content (single swap point)
   │            └─ today: src/content/*.ts placeholders
   │            └─ later: Payload CMS (Postgres)
   └─ Lead form (same component on several pages, each with its own `source`)
@@ -37,6 +38,7 @@ src/
     o-kompanii/page.tsx   About page (/o-kompanii) — breadcrumbs + sections; SEO from content
     kontakty/page.tsx     Contacts page (/kontakty) — breadcrumbs + sections; SEO from content
     uslugi/page.tsx       Services page (/uslugi) — breadcrumbs + sections; SEO from content
+    katalog/page.tsx      Catalog index (/katalog) — breadcrumbs + sections; SEO from content
     not-found.tsx         404 — "Раздел скоро появится" while sitemap pages are planned
     globals.css           Design tokens (@theme) + base styles
   components/
@@ -63,15 +65,21 @@ src/
     contacts/             Contacts page sections (spec §3.6)
       ContactsHero, ContactCards+ContactCard, LocationSection (map + directions panel),
       ScheduleSection, RequisitesSection
+    catalog/              Catalog sections (spec §3.2)
+      CatalogHero, CategoryStrip, FeaturedPromoCard, PhotoOrderPromoCard,
+      CatalogBrowser (client: toolbar state, curated sections ↔ flat results), CatalogToolbar,
+      ProductSection+ProductGrid+ProductCard (reused by future category pages),
+      MoreCategoriesSection+CategoryTile
     services/             Services page sections (spec §3.3)
       ServicesHero (H1 + anchor chips), ServiceList+ServiceCard, PhotoOrderSection+PhotoOrderStep,
       PriceListSection
   content/                TEMPORARY placeholder data (removed when CMS arrives)
-    site-settings.ts, home.ts, about.ts, contacts.ts, services.ts
+    site-settings.ts, home.ts, about.ts, contacts.ts, services.ts, catalog.ts
   lib/                    Pure logic, no JSX. Unit tests next to the code (*.test.ts)
     content/              Content types + getters (the only content entry point)
     leads/                Lead form: schema, rate limit, repository, server action
-    format/               price.ts (₸ labels), phone.ts (KZ normalization)
+    catalog/              filter.ts: filter by tag, search (case/ё-insensitive), sort by price
+    format/               price.ts (₸ labels, [draft] amounts), phone.ts (KZ normalization)
     routes.ts             All internal URLs (sitemap slugs) + active-link matching
     contact-links.ts      tel: / t.me (Telegram bot, deep links) / mailto: / 2GIS + Yandex route links
     cn.ts                 className joiner
@@ -114,12 +122,13 @@ Deviations from the mockup, intentional:
 - **Telegram instead of WhatsApp** everywhere (header, floating button, contacts) — customer decision, [decisions/0003](decisions/0003-telegram-instead-of-whatsapp-no-calculator.md).
 - **Floating Telegram button** — not in the mockup, required by spec §4.3 (originally WhatsApp).
 - **Contacts page** (mockup "Контакты — десктоп", desktop only): mobile layout ours (the "Как добраться" panel moves under the map). WhatsApp card → Telegram bot. The mockup's full order form with file upload and the callback mini-form are replaced by the shared short lead form (backlog: only if the customer asks). Route buttons search the address in 2GIS / Yandex Maps (`mapRouteHrefs`, `[placeholder]` parts dropped), so they work before exact map links exist.
+- **Catalog index** (mockup "Каталог — десктоп", desktop only): mobile layout ours (category strip and filter chips scroll sideways, products in 2 columns). The **calculator promo card is replaced** by "Пришлите фото или чертёж" → Telegram bot (`catalog_photo`), and the **"Рассчитать" button on product cards is dropped** (ADR 0003). WhatsApp icon button → Telegram with the product slug as deep-link parameter (spec §3.2). Filters, search and sort work in the browser: untouched toolbar shows the curated sections; any filter shows one flat result list across the catalog. Mockup's "Все 14" counts replaced by "Весь раздел" (counts were invented). Mockup prices are `draft` prices: stored as numbers (so sorting works) but shown as `от [4 500] ₸`. Product and category links point to planned pages (`routes.product`, `routes.catalogCategory`).
 - **Services page** (mockup "Услуги — десктоп", desktop only): mobile layout ours (anchor chips scroll sideways in one row). The mockup's **price calculator is dropped** (ADR 0003). "Заказ по фото": files go to the Telegram bot (deep link `services_photo`), since the short lead form has no upload. "Заказать" on a card goes to this page's own form (`routes.pageLeadForm`). Services are anchors on one page (`/uslugi#rezka`); the slugs are ready for separate `/uslugi/[service]` pages later. All facts and prices in `[brackets]`.
 - **About page** (mockup "О компании — десктоп", desktop only): the mobile layout is ours, following the homepage patterns. Facts from the mockup are a designer's draft — shown in `[brackets]` until the customer confirms them; invented team members replaced with placeholders. The mockup's own header/footer are not used (root layout). Added token `text-intro` (17/26, intro next to the H1).
 
 ## Lead form flow
 
-1. `LeadForm` (client) submits via `useActionState(submitLead)` — works without JS too. The same form is placed on several pages: each placement passes its copy (`LeadFormContent`, incl. the label of the free-text `details` field) and a `source` (`homepage`, `about-visit`, `contacts`, `services`), sent as a hidden field.
+1. `LeadForm` (client) submits via `useActionState(submitLead)` — works without JS too. The same form is placed on several pages: each placement passes its copy (`LeadFormContent`, incl. the label of the free-text `details` field) and a `source` (`homepage`, `about-visit`, `contacts`, `services`, `catalog`), sent as a hidden field.
 2. `submitLead` (server):
    - honeypot field `website` filled → fake success (bots get no signal);
    - `consumeRateLimit` — 5 submissions / 10 min per IP (in-memory, single server);
@@ -142,5 +151,5 @@ Deviations from the mockup, intentional:
 ## Next steps
 
 1. Install PostgreSQL (or Docker) → add Payload CMS; move `src/content/*` into CMS globals/collections; implement `getHomePage()`/`getSiteSettings()` via Payload; `saveLead()` → `leads` collection + notification.
-2. Remaining pages from [sitemap.md](sitemap.md): catalog, product card, portfolio, legal.
+2. Remaining pages from [sitemap.md](sitemap.md): category page, product card, portfolio, legal.
 3. Telegram bot — separate project; the site only links to it.

@@ -22,6 +22,8 @@ export function formatPrice(price: Price): string {
   if (price.kind === "individual") {
     return "Цена рассчитывается индивидуально";
   }
-  const amount = price.amount === null ? PRICE_PLACEHOLDER : amountFormatter.format(price.amount);
+  if (price.amount === null) return `от ${PRICE_PLACEHOLDER} ₸${UNIT_SUFFIX[price.unit]}`;
+  const number = amountFormatter.format(price.amount);
+  const amount = price.draft ? `[${number}]` : number;
   return `от ${amount} ₸${UNIT_SUFFIX[price.unit]}`;
 }

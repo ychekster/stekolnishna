@@ -23,9 +23,14 @@ export interface LinkItem {
   href: string;
 }
 
-/** Price shown on a catalog card. `amount: null` means "not provided yet" → placeholder. */
+/**
+ * Price shown on a catalog card. `amount: null` means "not provided yet" → placeholder.
+ * `draft: true` marks a number from the designer's mockup that the customer has not
+ * confirmed: it is shown in [brackets] but still sorts like a real price.
+ */
 export type Price =
-  { kind: "from"; amount: number | null; unit: PriceUnit } | { kind: "individual" };
+  | { kind: "from"; amount: number | null; unit: PriceUnit; draft?: boolean }
+  | { kind: "individual" };
 
 export type PriceUnit = "piece" | "m2" | "linear-m";
 
@@ -400,5 +405,88 @@ export interface ServicesPage {
     columns: { name: string; unit: string; price: string };
     rows: PriceRow[];
   };
+  leadForm: LeadFormContent;
+}
+
+// ---------------------------------------------------------------------------
+// Catalog (spec §3.2)
+// ---------------------------------------------------------------------------
+
+/** Filter chips on the catalog page. Keys, so editors tick them per product in the CMS. */
+export type ProductTag = "home" | "office" | "installation" | "tempered";
+
+/** A catalog category (12 from the spec; the owner can add more). */
+export interface CatalogCategory {
+  slug: string;
+  name: string;
+  /** What is inside, e.g. "Офисные и межкомнатные". */
+  description: string;
+  /** Second, muted half of the section heading: "Стекло. Листовое и закалённое." */
+  tagline: string;
+  image: ImageAsset | null;
+  /** Lowest price in the category, shown on the category tile. */
+  price: Price;
+}
+
+/** A product inside a category. The full product card (gallery, specs table) comes later. */
+export interface CatalogProduct {
+  slug: string;
+  categorySlug: string;
+  name: string;
+  /** One line of key facts under the name: "4–10 мм, резка по размеру". */
+  summary: string;
+  price: Price;
+  /** Pill on the photo ("Хит", "С монтажом"), or null. */
+  badge: string | null;
+  tags: ProductTag[];
+  image: ImageAsset | null;
+}
+
+export type CatalogSort = "popular" | "price-asc" | "price-desc";
+
+export interface CatalogPage {
+  seo: PageSeo;
+  /** Short page name for breadcrumbs. */
+  name: string;
+  hero: {
+    title: string;
+    /** Muted continuation of the H1. */
+    subtitle: string;
+    help: { title: string; linkLabel: string };
+  };
+  categoriesNavLabel: string;
+  filters: {
+    allLabel: string;
+    tags: { tag: ProductTag; label: string }[];
+    searchLabel: string;
+    sortLabel: string;
+    sorts: { value: CatalogSort; label: string }[];
+    /** "Найдено: N" — `{count}` is replaced with the number. */
+    resultsLabel: string;
+    resetLabel: string;
+    emptyTitle: string;
+    emptyText: string;
+  };
+  promos: {
+    /** Light card leading to one category. */
+    featured: {
+      categorySlug: string;
+      label: string;
+      title: string;
+      text: string;
+      price: Price;
+      linkLabel: string;
+      image: ImageAsset | null;
+    };
+    /** Dark card: send a photo or drawing to the Telegram bot (instead of the calculator). */
+    photoOrder: { label: string; title: string; text: string; buttonLabel: string };
+  };
+  /** Categories shown as product sections on the page, in this order. */
+  featuredCategorySlugs: string[];
+  /** Products per section on the catalog page. */
+  productsPerSection: number;
+  sectionLinkLabel: string;
+  productCard: { orderLabel: string; askLabel: string };
+  more: { title: string; subtitle: string };
   leadForm: LeadFormContent;
 }

@@ -17,6 +17,10 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
       Company name "Стекло&Центр" / ТОО «Стекло&Центр» is taken from the project — confirm spelling.
 - [ ] Texts: company history, equipment, team, delivery and installation terms, service area.
 - [ ] 10–20 real products with photos, specs and prices to fill the catalog for design and testing.
+- [ ] **Catalog** (`src/content/catalog.ts`): the real product range per category with prices
+      (currently the designer's 16 examples with `draft` prices), category cover photos, which
+      categories to feature on the catalog page, product badges ("Хит"), which filters make
+      sense (для дома / для офиса / с монтажом / закалённое).
 - [ ] Real customer reviews (with permission to publish).
 - [ ] Is glass **tempering** offered in-house? (Spec §3.3 says "if the service is provided".)
       The About page currently assumes yes (milestone 2018, "Печь закалки", tempering size).
