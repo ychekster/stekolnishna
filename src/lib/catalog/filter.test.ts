@@ -15,6 +15,10 @@ function product(slug: string, overrides: Partial<CatalogProduct> = {}): Catalog
     badge: null,
     tags: [],
     image: null,
+    gallery: [],
+    leadTime: null,
+    description: [],
+    seo: null,
     ...overrides,
   };
 }

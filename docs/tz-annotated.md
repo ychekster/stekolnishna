@@ -78,7 +78,8 @@
 >
 > - "Запрос через WhatsApp" → Telegram button on every product card, deep link = product slug.
 > - "Рассчитать стоимость": no calculator (ADR 0003). On catalog cards the button is dropped ("Заказать" + Telegram are enough); on the future product card it should lead to the lead form.
-> - Products are the designer's examples; prices shown as `от [N] ₸` until the customer sends the real range.
+> - **Real catalog imported (2026-11-09)** from the export of stekolni-master.kz (the user confirmed it is the customer's own catalog): 14 sections instead of the spec's 12, 72 products with photos, "from" prices, lead times, descriptions (`src/content/catalog-items.ts`, photos in `public/images/catalog/`). Rules: a product without its own price shows its parent section's "from" price (the section minimum, so still true); level-3 items are flattened into their top section; standalone top-level items (безрамное, интерьерное остекление, сауны) and Фурнитура/Рисунки are sections without products; the old brand «Стекольный мастер» in texts → «Стекло&Центр», dashes/middle dots removed (copy style). Filter tags per product are our draft. Descriptions, galleries and per-item SEO are stored for the future category/product pages. Not imported yet: the 726 glass-drawing samples (Рисунки на стекле), no page to show them.
+> - Homepage "Популярные категории" and four Services cards (резка, фацет, зеркала, конструкции) use catalog photos.
 
 Создать каталог с отдельными страницами категорий. Предусмотреть следующие категории:
 

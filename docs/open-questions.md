@@ -16,11 +16,11 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
       `+7 (700) 000-00-00`, Telegram bot `@steklo_center_bot`, email `info@steklo-center.kz`, address "г. Алматы", hours "Пн–Сб, 9:00–19:00".
       Company name "Стекло&Центр" / ТОО «Стекло&Центр» is taken from the project — confirm spelling.
 - [ ] Texts: company history, equipment, team, delivery and installation terms, service area.
-- [ ] 10–20 real products with photos, specs and prices to fill the catalog for design and testing.
-- [ ] **Catalog** (`src/content/catalog.ts`): the real product range per category with prices
-      (currently the designer's 16 examples with `draft` prices), category cover photos, which
-      categories to feature on the catalog page, product badges ("Хит"), which filters make
-      sense (для дома / для офиса / с монтажом / закалённое).
+- [x] Real catalog: imported 2026-11-09 from the customer's stekolni-master.kz export (docs/tz-annotated.md §3.2).
+- [ ] **Catalog details to confirm**: product badges ("Хит"); filter tags per product (our draft);
+      which sections to feature on the catalog page; prices for items that show their section's
+      "from" price; texts still say the old site's things like "онлайн-магазин"; photos for the 3
+      items without one.
 - [ ] Real customer reviews (with permission to publish).
 - [ ] Is glass **tempering** offered in-house? (Spec §3.3 says "if the service is provided".)
       The About page currently assumes yes (milestone 2018, "Печь закалки", tempering size).

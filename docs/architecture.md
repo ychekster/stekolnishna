@@ -74,7 +74,8 @@ src/
       ServicesHero (H1 + anchor chips), ServiceList+ServiceCard, PhotoOrderSection+PhotoOrderStep,
       PriceListSection
   content/                TEMPORARY placeholder data (removed when CMS arrives)
-    site-settings.ts, home.ts, about.ts, contacts.ts, services.ts, catalog.ts
+    site-settings.ts, home.ts, about.ts, contacts.ts, services.ts, catalog.ts (page copy),
+    catalog-items.ts (categories + products imported from the customer's catalog export)
   lib/                    Pure logic, no JSX. Unit tests next to the code (*.test.ts)
     content/              Content types + getters (the only content entry point)
     leads/                Lead form: schema, rate limit, repository, server action
@@ -83,7 +84,7 @@ src/
     routes.ts             All internal URLs (sitemap slugs) + active-link matching
     contact-links.ts      tel: / t.me (Telegram bot, deep links) / mailto: / 2GIS + Yandex route links
     cn.ts                 className joiner
-public/images/            Static images (hero photo)
+public/images/            Static images (hero photo; catalog/<slug>/ = catalog photos)
 docs/design/              Design handoff: HANDOFF.md, tokens.json, screenshots, reference.html
 ```
 
@@ -122,7 +123,7 @@ Deviations from the mockup, intentional:
 - **Telegram instead of WhatsApp** everywhere (header, floating button, contacts) — customer decision, [decisions/0003](decisions/0003-telegram-instead-of-whatsapp-no-calculator.md).
 - **Floating Telegram button** — not in the mockup, required by spec §4.3 (originally WhatsApp).
 - **Contacts page** (mockup "Контакты — десктоп", desktop only): mobile layout ours (the "Как добраться" panel moves under the map). WhatsApp card → Telegram bot. The mockup's full order form with file upload and the callback mini-form are replaced by the shared short lead form (backlog: only if the customer asks). Route buttons search the address in 2GIS / Yandex Maps (`mapRouteHrefs`, `[placeholder]` parts dropped), so they work before exact map links exist.
-- **Catalog index** (mockup "Каталог — десктоп", desktop only): mobile layout ours (category strip and filter chips scroll sideways, products in 2 columns). The **calculator promo card is replaced** by "Пришлите фото или чертёж" → Telegram bot (`catalog_photo`), and the **"Рассчитать" button on product cards is dropped** (ADR 0003). WhatsApp icon button → Telegram with the product slug as deep-link parameter (spec §3.2). Filters, search and sort work in the browser: untouched toolbar shows the curated sections; any filter shows one flat result list across the catalog. Mockup's "Все 14" counts replaced by "Весь раздел" (counts were invented). Mockup prices are `draft` prices: stored as numbers (so sorting works) but shown as `от [4 500] ₸`. Product and category links point to planned pages (`routes.product`, `routes.catalogCategory`).
+- **Catalog index** (mockup "Каталог — десктоп", desktop only): mobile layout ours (category strip and filter chips scroll sideways, products in 2 columns). The **calculator promo card is replaced** by "Пришлите фото или чертёж" → Telegram bot (`catalog_photo`), and the **"Рассчитать" button on product cards is dropped** (ADR 0003). WhatsApp icon button → Telegram with the product slug as deep-link parameter (spec §3.2). Filters, search and sort work in the browser: untouched toolbar shows the curated sections; any filter shows one flat result list across the catalog. Mockup's "Все 14" counts replaced by "Весь раздел" (counts were invented). Products and prices are the customer's real catalog (imported 2026-11-09); the category strip shares one desktop row among however many sections exist (14 today). Product and category links point to planned pages (`routes.product`, `routes.catalogCategory`).
 - **Services page** (mockup "Услуги — десктоп", desktop only): mobile layout ours (anchor chips scroll sideways in one row). The mockup's **price calculator is dropped** (ADR 0003). "Заказ по фото": files go to the Telegram bot (deep link `services_photo`), since the short lead form has no upload. "Заказать" on a card goes to this page's own form (`routes.pageLeadForm`). Services are anchors on one page (`/uslugi#rezka`); the slugs are ready for separate `/uslugi/[service]` pages later. All facts and prices in `[brackets]`.
 - **About page** (mockup "О компании — десктоп", desktop only): the mobile layout is ours, following the homepage patterns. Facts from the mockup are a designer's draft — shown in `[brackets]` until the customer confirms them; invented team members replaced with placeholders. The mockup's own header/footer are not used (root layout). Added token `text-intro` (17/26, intro next to the H1).
 

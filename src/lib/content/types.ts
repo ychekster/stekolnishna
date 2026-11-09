@@ -415,7 +415,13 @@ export interface ServicesPage {
 /** Filter chips on the catalog page. Keys, so editors tick them per product in the CMS. */
 export type ProductTag = "home" | "office" | "installation" | "tempered";
 
-/** A catalog category (12 from the spec; the owner can add more). */
+/** A block of a long description (category or product page text, rich text in the CMS). */
+export type DescriptionBlock =
+  | { kind: "heading"; text: string }
+  | { kind: "paragraph"; text: string }
+  | { kind: "list"; items: string[] };
+
+/** A catalog category (the customer's 14 sections; the owner can add more). */
 export interface CatalogCategory {
   slug: string;
   name: string;
@@ -426,9 +432,15 @@ export interface CatalogCategory {
   image: ImageAsset | null;
   /** Lowest price in the category, shown on the category tile. */
   price: Price;
+  /** "Изготовление от 7 дней", or null when unknown. */
+  leadTime: string | null;
+  /** Text of the future category page. */
+  intro: DescriptionBlock[];
+  /** Search metadata of the future category page; null → built from the name. */
+  seo: PageSeo | null;
 }
 
-/** A product inside a category. The full product card (gallery, specs table) comes later. */
+/** A product inside a category; gallery and description feed the future product page. */
 export interface CatalogProduct {
   slug: string;
   categorySlug: string;
@@ -439,7 +451,14 @@ export interface CatalogProduct {
   /** Pill on the photo ("Хит", "С монтажом"), or null. */
   badge: string | null;
   tags: ProductTag[];
+  /** Card photo. */
   image: ImageAsset | null;
+  gallery: ImageAsset[];
+  /** "Изготовление от 7 дней", or null when unknown. */
+  leadTime: string | null;
+  description: DescriptionBlock[];
+  /** Search metadata of the future product page; null → built from the name. */
+  seo: PageSeo | null;
 }
 
 export type CatalogSort = "popular" | "price-asc" | "price-desc";

@@ -39,7 +39,7 @@ export const servicesPageContent: ServicesPage = {
           "Прямая и фигурная резка по вашим размерам или чертежу. Простую резку делаем в день обращения.",
         specs: ["точность [0,5 мм]", "лист до [3210 × 2250] мм", "толщина [4–19] мм"],
         price: "от [300] ₸/м.п.",
-        image: null,
+        image: { src: "/images/catalog/steklo/cover.jpg", alt: "Листы стекла, вид на кромку" },
       },
       {
         slug: "obrabotka-kromki",
@@ -66,7 +66,10 @@ export const servicesPageContent: ServicesPage = {
           "Декоративная фаска по краю зеркала или стекла: изделие выглядит дороже и играет на свету.",
         specs: ["ширина [5–40] мм", "зеркала и стекло", "прямой контур"],
         price: "от [1 500] ₸/м.п.",
-        image: null,
+        image: {
+          src: "/images/catalog/facetnoe-zerkalo/gallery-04.jpg",
+          alt: "Фацетное зеркало из ромбов на стене",
+        },
       },
       {
         slug: "zakalka",
@@ -84,7 +87,10 @@ export const servicesPageContent: ServicesPage = {
           "Настенные, интерьерные и фигурные зеркала, панно, зеркала с подсветкой и фацетом под размер стены или мебели.",
         specs: ["серебро, графит, бронза", "подсветка", "любая форма"],
         price: "от [9 000] ₸/м²",
-        image: null,
+        image: {
+          src: "/images/catalog/zerkala-dlya-vannoj/gallery-01.jpeg",
+          alt: "Зеркало во всю стену в ванной",
+        },
       },
       {
         slug: "konstrukcii",
@@ -93,7 +99,10 @@ export const servicesPageContent: ServicesPage = {
           "Душевые, перегородки, двери, ограждения, столы и полки по вашим размерам, с фурнитурой и креплениями в комплекте.",
         specs: ["душевые", "перегородки и двери", "ограждения"],
         price: "индивидуально",
-        image: null,
+        image: {
+          src: "/images/catalog/steklyannye-konstrukcii/gallery-01.jpg",
+          alt: "Стеклянная винтовая лестница",
+        },
       },
       {
         slug: "montazh",

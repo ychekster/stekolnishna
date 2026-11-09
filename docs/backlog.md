@@ -50,11 +50,17 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
       (`src/content/home.ts`), About page facts, team and workshop photos, service-area map
       (`src/content/about.ts`), Contacts page facts and legal details (`src/content/contacts.ts`),
       service facts and prices (`src/content/services.ts`), catalog categories, products,
-      prices and photos (`src/content/catalog.ts`; drop `draft: true` once confirmed), map embed. List of what to request: open-questions.md.
+      prices and photos (imported from the customer's catalog 2026-11-09; confirm filter tags and that inherited parent prices are fine), map embed. List of what to request: open-questions.md.
 
 ### Infrastructure (spec §7, §11)
 
 - [ ] Domain, hosting, HTTPS, database backups, handover docs and accesses.
+
+- [ ] **Glass-drawing samples** ("Рисунки на стекле", 16 sets, 726 pictures without captions) from
+      the catalog export (`Downloads/stekolni-master-catalog/images/<set>/drawings`): import together with
+      the category page that shows them. 3 sets stop at exactly 99 pictures, the source site may cut them.
+- [ ] 3 products have no photo in the source: стеклянные раздвижные двери, маятниковые двери,
+      стеклянные павильоны (placeholder shown).
 
 ## Only if the customer asks (decided: not doing now)
 
@@ -79,3 +85,4 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 - Contacts page `/kontakty` (2026-11-07).
 - Services page `/uslugi` (2026-11-08), without the mockup's calculator (ADR 0003).
 - Catalog index `/katalog` (2026-11-08): filters, search, sort; calculator promo → Telegram photo order.
+- Real catalog imported (2026-11-09): 14 sections, 72 products, photos on catalog, homepage and Services.
