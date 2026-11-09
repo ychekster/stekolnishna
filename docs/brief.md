@@ -47,7 +47,7 @@ The site does **not** sell online with checkout in v1 — every order is a lead 
 
 - Pages: Home, Catalog (12 categories → category pages → product cards), Services, Portfolio with filters + project pages, About, Contacts, SEO landing pages, legal pages.
 - Order form with file upload (JPG/JPEG/PNG/PDF), callback form, floating Telegram button; product cards open the Telegram bot with a deep link to the product.
-- Admin panel: products, categories, prices, photos, portfolio, reviews, news/articles, contacts, homepage, leads with statuses and search.
+- Admin panel: products, categories, prices, photos, portfolio, reviews, contacts, homepage, leads with statuses and search.
 - New-lead notifications to the owner.
 - SEO basics, GA4 + Yandex Metrica with event tracking.
 - Compliance with Kazakhstan personal data law (consent checkbox on every form).

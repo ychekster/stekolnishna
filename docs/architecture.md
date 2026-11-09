@@ -175,5 +175,5 @@ Deviations from the mockup, intentional:
 ## Next steps
 
 1. Install PostgreSQL (or Docker) → add Payload CMS; move `src/content/*` into CMS globals/collections; implement `getHomePage()`/`getSiteSettings()` via Payload; `saveLead()` → `leads` collection + notification.
-2. Remaining pages from [sitemap.md](sitemap.md): catalog category page, product card (no mockups yet), news/articles, SEO landing pages.
+2. Remaining pages from [sitemap.md](sitemap.md): catalog category page, product card, SEO landing pages (design requested 2026-11-09). No news/articles (user's decision).
 3. Telegram bot — separate project; the site only links to it.

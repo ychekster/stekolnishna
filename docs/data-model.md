@@ -66,7 +66,6 @@ Admin needs: list with filters by status, search by name and phone, status chang
 ## Content
 
 - **Review** — author name, text, rating (optional), photo (optional), date, published flag.
-- **Article / news** — title, slug, cover, body, date, SEO fields, published flag.
 - **SEO landing page** — slug, title, body blocks, linked categories/projects, SEO fields.
 - **Legal page** — privacy policy, consent, terms, cookies.
 

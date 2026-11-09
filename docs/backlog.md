@@ -70,6 +70,8 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 
 ## Only if the customer asks (decided: not doing now)
 
+- [ ] **News / articles** (`/stati`, spec §5). Decision 2026-11-09: not needed in any form.
+
 - [ ] **Catalog filters in the URL** (`/katalog?tag=office&q=…`) so a filtered view can be
       shared and survives "back". Today the toolbar state lives only in the browser tab.
       Do together with server-side filtering once products move to Payload.
