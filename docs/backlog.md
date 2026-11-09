@@ -39,9 +39,10 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 
 - [ ] Google Analytics 4 + Yandex Metrica; events: phone clicks, Telegram clicks, lead form
       submits (no calculator, no WhatsApp — ADR 0003).
-- [ ] Cookie consent banner — together with analytics.
-- [ ] Privacy policy page `/politika-konfidencialnosti` (+ consent page). Text to be agreed with
-      the customer. Links already point there (`routes.privacyPolicy`).
+- [ ] Analytics must respect the cookie banner: load GA4/Metrica only when the
+      `cookie-consent` cookie is `all` (src/lib/cookie-consent.ts). Banner itself done 2026-11-09.
+- [ ] Legal texts on `/pravovaya-informaciya`: replace the template with the text agreed with
+      the customer's lawyer; fill the revision date, confirm the server-location sentence.
 
 ### Content swap
 
@@ -59,15 +60,16 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 - [ ] **Glass-drawing samples** ("Рисунки на стекле", 16 sets, 726 pictures without captions) from
       the catalog export (`Downloads/stekolni-master-catalog/images/<set>/drawings`): import together with
       the category page that shows them. 3 sets stop at exactly 99 pictures, the source site may cut them.
+- [ ] **Order attachments are not stored**: `/zayavka` checks files and logs their names; keep
+      them in a Payload upload collection and attach them to the lead email.
+- [ ] Show the lead number in the order confirmation once leads are stored (mockup "Заявка № …").
+- [ ] Project gallery lightbox (open all photos of a project) once real photos exist.
+- [ ] Prefill "Вид изделия" on `/zayavka` from the product/category the visitor came from.
 - [ ] 3 products have no photo in the source: стеклянные раздвижные двери, маятниковые двери,
       стеклянные павильоны (placeholder shown).
 
 ## Only if the customer asks (decided: not doing now)
 
-- [ ] **"Заказать звонок" button + callback form** (spec §4.4). Decision 2026-11-07: the lead
-      form already is a callback request. Build only if the customer insists.
-- [ ] **Full order form** — product type, size, quantity, file upload JPG/PNG/PDF (spec §4.2,
-      §4.5). Decision 2026-11-07: short form converts better; extend only if asked.
 - [ ] **Catalog filters in the URL** (`/katalog?tag=office&q=…`) so a filtered view can be
       shared and survives "back". Today the toolbar state lives only in the browser tab.
       Do together with server-side filtering once products move to Payload.
@@ -85,4 +87,7 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 - Contacts page `/kontakty` (2026-11-07).
 - Services page `/uslugi` (2026-11-08), without the mockup's calculator (ADR 0003).
 - Catalog index `/katalog` (2026-11-08): filters, search, sort; calculator promo → Telegram photo order.
+- Portfolio `/nashi-raboty` + project pages, order page `/zayavka` with uploads, "Заказать
+  звонок" dialog, legal page `/pravovaya-informaciya`, cookie banner, 404 from the mockup
+  (2026-11-09).
 - Real catalog imported (2026-11-09): 14 sections, 72 products, photos on catalog, homepage and Services.

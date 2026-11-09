@@ -15,14 +15,24 @@ export const routes = {
   product: (categorySlug: string, productSlug: string) => `/katalog/${categorySlug}/${productSlug}`,
   /** Services — src/app/uslugi. */
   services: "/uslugi",
-  /** Portfolio — "Наши работы" (planned). */
+  /** Portfolio — "Наши работы", src/app/nashi-raboty. */
   portfolio: "/nashi-raboty",
+  /** One portfolio project — src/app/nashi-raboty/[project]. */
+  project: (slug: string) => `/nashi-raboty/${slug}`,
   /** About the company — src/app/o-kompanii. */
   about: "/o-kompanii",
   /** Contacts — src/app/kontakty. */
   contacts: "/kontakty",
-  /** Privacy policy (planned). */
-  privacyPolicy: "/politika-konfidencialnosti",
+  /** Full order form with file upload — src/app/zayavka. Target of the header CTA. */
+  order: "/zayavka",
+  /**
+   * Legal information — src/app/pravovaya-informaciya: one page with the privacy policy,
+   * personal-data consent, terms and cookie policy as anchored sections (design mockup
+   * "Правовая информация"). The anchors are the section ids in src/content/legal.ts.
+   */
+  legal: "/pravovaya-informaciya",
+  privacyPolicy: "/pravovaya-informaciya#privacy",
+  cookiePolicy: "/pravovaya-informaciya#cookies",
   /** Lead form on the homepage — target of every "Оставить заявку" button. */
   leadForm: "/#form",
   /** Lead form on the current page, for pages that place their own `LeadFormSection`. */

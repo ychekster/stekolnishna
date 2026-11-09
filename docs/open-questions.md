@@ -37,6 +37,11 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
       for each work (cutting, shaped cutting, grinding, polishing, drilling, bevel, tempering,
       mirrors, installation, delivery), cutting tolerance, drill diameters, bevel widths, Telegram
       reply time; photos for each of the 9 services.
+- [ ] **Portfolio** (`src/content/portfolio.ts`): real completed projects with photos (title,
+      place, year, category, materials, works, area/term), which one is "Проект месяца", a real
+      review with permission; the numbers "[3000+] заказов" and "[400+] объектов за год" (the
+      company is new: drop them if they are not true).
+- [ ] **Response times** promised in the forms: callback "[10 минут]", order "[30 минут]".
 - [ ] **Legal details** for the Contacts page and the privacy policy: BIN, bank, IIK, legal
       address (director: Абылгазиев Сакен Берикович, from the spec).
 - [ ] Photos for the About page: workshop areas (cutting, edge processing, tempering furnace,
@@ -54,7 +59,7 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
 - [ ] **Hosting** — preference / budget? Must it be in Kazakhstan (personal data localisation)?
 - [ ] **New-lead notification channel** — email or the Telegram bot? To whom?
 - [ ] Admin users — how many people, which roles?
-- [ ] Max upload file size for drawings/photos.
+- [ ] Max upload file size for drawings/photos (draft today: 5 files × 10 MB, src/lib/leads/uploads.ts).
 - [ ] Email for transactional mail (domain mailbox?).
 
 ## Legal

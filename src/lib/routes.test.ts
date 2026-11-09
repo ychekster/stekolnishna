@@ -18,3 +18,11 @@ describe("isActiveRoute", () => {
     expect(isActiveRoute(routes.services, "/katalog")).toBe(false);
   });
 });
+
+describe("routes", () => {
+  it("builds project URLs and links legal anchors to one page", () => {
+    expect(routes.project("ofis")).toBe("/nashi-raboty/ofis");
+    expect(routes.privacyPolicy.startsWith(`${routes.legal}#`)).toBe(true);
+    expect(routes.cookiePolicy.startsWith(`${routes.legal}#`)).toBe(true);
+  });
+});

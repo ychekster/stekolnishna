@@ -3,13 +3,17 @@
 /**
  * Site header (design: Header), sticky at the top of every page.
  *
- * Desktop (≥ xl): logo · page navigation · phone with hours · Telegram · "Оставить заявку".
- * Below xl: logo · call button · burger. Phone, Telegram and the CTA move into the burger
- * panel — a sticky header must stay one compact row, or it eats half a phone screen.
+ * Desktop (≥ xl): logo, page navigation, phone with "Заказать звонок" under it, Telegram,
+ * "Оставить заявку" (→ the full order page). Below xl: logo, call button, burger. Phone,
+ * hours, callback, Telegram and the CTA move into the burger panel: a sticky header must
+ * stay one compact row, or it eats half a phone screen.
  *
- * Deviations from the mockup: Telegram replaces WhatsApp (docs/decisions/0003), and the
+ * Deviations from the mockup: Telegram replaces WhatsApp (docs/decisions/0003); the
  * burger is used up to xl (1280px) instead of md (768px) because page links plus contacts
- * do not fit in one row on tablets.
+ * do not fit in one row on tablets; on desktop the line under the phone is the
+ * "Заказать звонок" trigger instead of the working hours (spec §4.4 wants the button in the
+ * header, and a third button does not fit the row at 1280px; the hours stay in the burger
+ * panel and on the Contacts page).
  *
  * The bottom divider is hidden while the page is at the very top and appears once it is
  * scrolled, so the header blends into the first screen.
@@ -27,6 +31,8 @@ import { Container } from "@/components/ui/Container";
 import { ICON_STROKE } from "@/components/ui/Icon";
 import { TelegramIcon } from "@/components/ui/TelegramIcon";
 import { cn } from "@/lib/cn";
+
+import { CallbackButton } from "./CallbackButton";
 import { telegramHref, telHref } from "@/lib/contact-links";
 import type { SiteSettings } from "@/lib/content/types";
 import { isActiveRoute, routes } from "@/lib/routes";
@@ -105,14 +111,17 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
 
         {/* Desktop contacts and actions */}
         <div className="hidden items-center gap-3 xl:flex">
-          <a href={telHref(settings.phoneE164)} className="mr-1 flex flex-col text-ink">
-            <span className="text-label font-semibold whitespace-nowrap">
+          <div className="mr-1 flex flex-col">
+            <a
+              href={telHref(settings.phoneE164)}
+              className="text-label font-semibold whitespace-nowrap text-ink hover:text-accent-strong"
+            >
               {settings.phoneDisplay}
-            </span>
-            <span className="text-small text-ink-muted">{settings.workingHours}</span>
-          </a>
+            </a>
+            <CallbackButton as="text" label={settings.callback.triggerLabel} />
+          </div>
           {telegramButton}
-          <Button href={routes.leadForm} size="sm">
+          <Button href={routes.order} size="sm">
             Оставить заявку
           </Button>
         </div>
@@ -160,8 +169,9 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
               <span className="text-caption text-ink-muted">{settings.workingHours}</span>
             </a>
             <div className="flex flex-wrap gap-3">
+              <CallbackButton label={settings.callback.triggerLabel} onOpen={closeMenu} />
               {telegramButton}
-              <Button href={routes.leadForm} size="sm" onClick={closeMenu}>
+              <Button href={routes.order} size="sm" onClick={closeMenu}>
                 Оставить заявку
               </Button>
             </div>

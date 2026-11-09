@@ -1,9 +1,11 @@
 /**
  * Row of four contact tiles: phones, Telegram bot (dark), email, address.
  * Contact values come from site settings; the page content adds labels and notes.
+ * The phone tile also opens the "Заказать звонок" dialog.
  */
 import { ArrowRight } from "lucide-react";
 
+import { CallbackButton } from "@/components/layout/CallbackButton";
 import { Button } from "@/components/ui/Button";
 import { ICON_STROKE } from "@/components/ui/Icon";
 import { mailtoHref, telegramHref, telHref } from "@/lib/contact-links";
@@ -43,6 +45,7 @@ export function ContactCards({ cards, settings }: ContactCardsProps) {
             <div className={label}>{phone.note}</div>
           </div>
         ))}
+        <CallbackButton label={settings.callback.triggerLabel} className="mt-4" />
       </ContactCard>
 
       <ContactCard icon="telegram" tone="dark">

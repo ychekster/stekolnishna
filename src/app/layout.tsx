@@ -1,16 +1,20 @@
 /**
  * Root layout shared by every page: Russian document, Manrope font (Latin + Cyrillic,
  * self-hosted by next/font), default metadata, sticky header, footer, the floating
- * Telegram button and site-wide smooth scrolling. Pages render only their own content inside <main>.
+ * Telegram button, the "Заказать звонок" dialog and the cookie banner. Pages render only
+ * their own content inside <main>.
  */
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 
+import { CallbackDialogProvider } from "@/components/layout/CallbackDialogProvider";
+import { CookieBanner } from "@/components/layout/CookieBanner";
 import { FloatingTelegram } from "@/components/layout/FloatingTelegram";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Container } from "@/components/ui/Container";
 import { getSiteSettings } from "@/lib/content";
+import { routes } from "@/lib/routes";
 
 import "./globals.css";
 
@@ -40,12 +44,18 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="ru" className={manrope.variable}>
       <body>
-        <SiteHeader settings={settings} />
-        <Container>
-          <main>{children}</main>
-        </Container>
-        <SiteFooter settings={settings} />
-        <FloatingTelegram botUsername={settings.telegramBot} />
+        <CallbackDialogProvider
+          content={settings.callback}
+          privacyPolicyHref={settings.privacyPolicyHref}
+        >
+          <SiteHeader settings={settings} />
+          <Container>
+            <main>{children}</main>
+          </Container>
+          <SiteFooter settings={settings} />
+          <FloatingTelegram botUsername={settings.telegramBot} />
+          <CookieBanner content={settings.cookieBanner} policyHref={routes.cookiePolicy} />
+        </CallbackDialogProvider>
       </body>
     </html>
   );

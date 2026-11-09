@@ -74,6 +74,29 @@ export interface SiteSettings {
     embedUrl: string | null;
     label: string;
   };
+  /** "Заказать звонок" dialog (spec §4.4), opened from the header and the Contacts page. */
+  callback: CallbackContent;
+  /** Cookie banner shown until the visitor chooses (spec §9). */
+  cookieBanner: {
+    title: string;
+    text: string;
+    moreLabel: string;
+    acceptLabel: string;
+    necessaryLabel: string;
+  };
+}
+
+export interface CallbackContent {
+  /** Text of the buttons that open the dialog. */
+  triggerLabel: string;
+  title: string;
+  lead: string;
+  timeLabel: string;
+  /** Options of the "convenient time" select; the first one is preselected. */
+  timeOptions: string[];
+  submitLabel: string;
+  successTitle: string;
+  successText: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -485,4 +508,147 @@ export interface CatalogPage {
   productCard: { orderLabel: string; askLabel: string };
   more: { title: string; subtitle: string };
   leadForm: LeadFormContent;
+}
+
+// ---------------------------------------------------------------------------
+// Portfolio (spec §3.4)
+// ---------------------------------------------------------------------------
+
+/** Portfolio filter categories from the spec. Keys, so editors pick them in the CMS. */
+export type ProjectCategory =
+  "shower" | "mirror" | "partition" | "door" | "railing" | "furniture" | "custom";
+
+/** A completed order shown in "Наши работы" and on its own page. */
+export interface PortfolioProject {
+  slug: string;
+  category: ProjectCategory;
+  title: string;
+  /** District or town, e.g. "ЖК «Название», Медеуский район". */
+  place: string;
+  year: string;
+  /** One line of key materials under the card title. */
+  summary: string;
+  /** Short story for the featured block on the portfolio page. */
+  excerpt: string;
+  /** Card photo; the gallery holds the rest. */
+  cover: ImageAsset | null;
+  gallery: ImageAsset[];
+  /** "О проекте" paragraphs on the project page. */
+  description: string[];
+  materials: string[];
+  works: string[];
+  /** Key numbers on the dark plate: "Площадь / 420 м²", "Срок / 18 дней". */
+  facts: DetailItem[];
+  testimonial: { quote: string; author: string } | null;
+  /** Search metadata of the project page; null → built from the title. */
+  seo: PageSeo | null;
+}
+
+export interface PortfolioPage {
+  seo: PageSeo;
+  /** Short page name for breadcrumbs. */
+  name: string;
+  hero: {
+    title: string;
+    /** Muted continuation of the H1. */
+    subtitle: string;
+    stats: Stat[];
+  };
+  featured: {
+    projectSlug: string;
+    label: string;
+    viewLabel: string;
+    wantLabel: string;
+  };
+  categories: { category: ProjectCategory; label: string }[];
+  list: {
+    title: string;
+    allLabel: string;
+    /** "Показано: {shown} из {total}". */
+    shownLabel: string;
+    moreLabel: string;
+    /** Projects shown before "Показать ещё". */
+    pageSize: number;
+    /** "{count} фото" pill on a card. */
+    photosLabel: string;
+  };
+  testimonial: Testimonial & { image: ImageAsset | null };
+  leadForm: LeadFormContent;
+  /** Copy of the project pages (/nashi-raboty/[project]). */
+  project: {
+    backLabel: string;
+    wantLabel: string;
+    aboutTitle: string;
+    materialsTitle: string;
+    worksTitle: string;
+    previousLabel: string;
+    nextLabel: string;
+    /** "+{count} фото" over the last gallery tile. */
+    morePhotosLabel: string;
+    leadForm: LeadFormContent;
+  };
+}
+
+// ---------------------------------------------------------------------------
+// Order form page /zayavka (spec §4.2, §4.5)
+// ---------------------------------------------------------------------------
+
+export interface OrderPage {
+  seo: PageSeo;
+  name: string;
+  backLabel: string;
+  hero: { title: string; subtitle: string };
+  form: {
+    productTypeLabel: string;
+    productTypePlaceholder: string;
+    /** Last option after the catalog sections. */
+    productTypeOther: string;
+    sizeLabel: string;
+    sizePlaceholder: string;
+    quantityLabel: string;
+    detailsLabel: string;
+    detailsPlaceholder: string;
+    dropTitle: string;
+    dropHint: string;
+    removeFileLabel: string;
+    submitLabel: string;
+  };
+  success: { title: string; text: string; catalogLabel: string; againLabel: string };
+  telegram: { title: string; text: string; buttonLabel: string };
+  nextSteps: { title: string; steps: string[] };
+}
+
+// ---------------------------------------------------------------------------
+// Legal information (spec §9)
+// ---------------------------------------------------------------------------
+
+export interface LegalSection {
+  /** Anchor; routes.privacyPolicy and routes.cookiePolicy point at "privacy" and "cookies". */
+  id: string;
+  title: string;
+  paragraphs: string[];
+}
+
+export interface LegalPage {
+  seo: PageSeo;
+  name: string;
+  title: string;
+  /** "Редакция от …" line under the title. */
+  revision: string;
+  navLabel: string;
+  sections: LegalSection[];
+}
+
+// ---------------------------------------------------------------------------
+// 404
+// ---------------------------------------------------------------------------
+
+export interface NotFoundPage {
+  title: string;
+  /** Muted second half of the heading. */
+  titleMuted: string;
+  text: string;
+  homeLabel: string;
+  catalogLabel: string;
+  image: ImageAsset;
 }

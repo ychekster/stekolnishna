@@ -10,6 +10,10 @@ import { aboutPageContent } from "@/content/about";
 import { catalogCategories, catalogPageContent, catalogProducts } from "@/content/catalog";
 import { contactsPageContent } from "@/content/contacts";
 import { homePageContent } from "@/content/home";
+import { legalPageContent } from "@/content/legal";
+import { notFoundPageContent } from "@/content/not-found";
+import { orderPageContent } from "@/content/order";
+import { portfolioPageContent, portfolioProjects } from "@/content/portfolio";
 import { servicesPageContent } from "@/content/services";
 import { siteSettingsContent } from "@/content/site-settings";
 
@@ -20,6 +24,11 @@ import type {
   CatalogProduct,
   ContactsPage,
   HomePage,
+  LegalPage,
+  NotFoundPage,
+  OrderPage,
+  PortfolioPage,
+  PortfolioProject,
   ServicesPage,
   SiteSettings,
 } from "./types";
@@ -62,6 +71,36 @@ export async function getCatalogCategories(): Promise<CatalogCategory[]> {
 /** All published products, in "popular" order. */
 export async function getCatalogProducts(): Promise<CatalogProduct[]> {
   return catalogProducts;
+}
+
+/** Copy of the portfolio page (/nashi-raboty) and of the project pages. */
+export async function getPortfolioPage(): Promise<PortfolioPage> {
+  return portfolioPageContent;
+}
+
+/** All published projects, in display order (newest first, as the owner sorts them). */
+export async function getPortfolioProjects(): Promise<PortfolioProject[]> {
+  return portfolioProjects;
+}
+
+/** One project by slug, or null (→ 404). */
+export async function getPortfolioProject(slug: string): Promise<PortfolioProject | null> {
+  return portfolioProjects.find((project) => project.slug === slug) ?? null;
+}
+
+/** Copy of the order page (/zayavka). */
+export async function getOrderPage(): Promise<OrderPage> {
+  return orderPageContent;
+}
+
+/** Legal texts (/pravovaya-informaciya). */
+export async function getLegalPage(): Promise<LegalPage> {
+  return legalPageContent;
+}
+
+/** Copy of the 404 page. */
+export async function getNotFoundPage(): Promise<NotFoundPage> {
+  return notFoundPageContent;
 }
 
 export type * from "./types";

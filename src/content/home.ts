@@ -143,11 +143,27 @@ export const homePageContent: HomePage = {
     lead: "Несколько работ последних месяцев",
     allProjectsLink: { label: "Смотреть все проекты", href: routes.portfolio },
     items: [
-      { caption: "Офисные перегородки в БЦ, [район]", href: null, image: null },
-      { caption: "Душевая в квартире", href: null, image: null },
-      { caption: "Зеркальная стена в фитнес-клубе", href: null, image: null },
-      { caption: "Ограждение лестницы в частном доме", href: null, image: null },
-      { caption: "Витрина магазина", href: null, image: null },
+      {
+        caption: "Офисные перегородки в БЦ, [район]",
+        href: routes.project("ofis-it-kompanii"),
+        image: null,
+      },
+      { caption: "Душевая в квартире", href: routes.project("walk-in-dushevaya"), image: null },
+      {
+        caption: "Зеркальная стена в фитнес-клубе",
+        href: routes.project("zerkalnaya-stena-v-fitnes-zale"),
+        image: null,
+      },
+      {
+        caption: "Ограждение лестницы в частном доме",
+        href: routes.project("ograzhdenie-lestnicy-v-dome"),
+        image: null,
+      },
+      {
+        caption: "Витрина магазина",
+        href: routes.project("vitriny-yuvelirnogo-butika"),
+        image: null,
+      },
     ],
   },
 

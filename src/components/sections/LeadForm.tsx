@@ -16,10 +16,12 @@ import { CircleCheck } from "lucide-react";
 import { useActionState } from "react";
 
 import { Button } from "@/components/ui/Button";
+import { ConsentCheckbox } from "@/components/ui/ConsentCheckbox";
+import { Honeypot } from "@/components/ui/Honeypot";
 import { ICON_STROKE } from "@/components/ui/Icon";
 import { TextField } from "@/components/ui/TextField";
 import { submitLead, type LeadFormState } from "@/lib/leads/actions";
-import { HONEYPOT_FIELD, type LeadSource } from "@/lib/leads/schema";
+import type { LeadSource } from "@/lib/leads/schema";
 
 const initialState: LeadFormState = { status: "idle" };
 
@@ -84,38 +86,8 @@ export function LeadForm({
         error={errors.details}
       />
 
-      {/* Honeypot: hidden from people and screen readers, filled only by bots. */}
-      <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-        <label>
-          Не заполняйте это поле
-          <input type="text" name={HONEYPOT_FIELD} tabIndex={-1} autoComplete="off" />
-        </label>
-      </div>
-
-      <div>
-        <label className="flex cursor-pointer items-start gap-2 text-small text-ink-inverse-muted">
-          <input
-            type="checkbox"
-            name="consent"
-            required
-            aria-invalid={Boolean(errors.consent)}
-            aria-describedby={errors.consent ? "consent-error" : undefined}
-            className="mt-0.5 size-4 shrink-0 accent-accent"
-          />
-          <span>
-            Я согласен(на) на обработку персональных данных в соответствии с{" "}
-            <a href={privacyPolicyHref} className="text-ink-inverse underline underline-offset-2">
-              политикой конфиденциальности
-            </a>
-          </span>
-        </label>
-        {errors.consent && (
-          <p id="consent-error" className="m-0 mt-1 text-caption font-medium text-ink-inverse">
-            <span aria-hidden="true">⚠ </span>
-            {errors.consent}
-          </p>
-        )}
-      </div>
+      <Honeypot />
+      <ConsentCheckbox tone="dark" privacyPolicyHref={privacyPolicyHref} error={errors.consent} />
 
       {state.status === "error" && state.formError && (
         <p role="alert" className="m-0 text-caption font-medium text-ink-inverse">

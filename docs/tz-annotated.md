@@ -134,7 +134,7 @@
 
 ### 3.4. Страница «Наши работы»
 
-> 📝 **Status: not started.**
+> 📝 **Status: built (2026-11-09)**: `/nashi-raboty` and `/nashi-raboty/[project]` from the mockups "Наши работы — десктоп" and "Проект — страница кейса" (mobile layout ours). Hero with numbers, "Проект месяца", category filter with counters (the spec's 7 categories), grid with "Показать ещё", client quote, lead form (`source: portfolio`). Project page: tags, photo mosaic, description, materials, works, key numbers, previous/next project. **All 13 projects are the designer's draft in [brackets] with placeholder photos** until the customer sends real completed orders. Homepage project tiles link to these pages. Gallery lightbox: later, when photos exist (backlog).
 
 Создать портфолио с фотографиями реально выполненных заказов. Предусмотреть фильтрацию по категориям: душевые кабины, зеркала, перегородки, стеклянные двери, ограждения, стеклянная мебель и индивидуальные проекты.
 
@@ -154,7 +154,7 @@
 > 📝 **Status: built** — `/kontakty`, from the mockup "Контакты — десктоп" (mobile layout ours). Contact cards (phones, Telegram bot instead of WhatsApp, email, address), map with "Как добраться" panel and route buttons to 2GIS / Yandex Maps (search by address), schedule table, lead form (`source: contacts`), legal details (реквизиты).
 >
 > - Phone, email, address, hours, bot come from site settings (one place for the whole site). Page facts from the mockup (second phone, response time, department hours, showroom, driving directions, BIN/bank/IIK) are in `[brackets]` — list in open-questions.md. Director's name is from the spec.
-> - The mockup's full order form (product type, sizes, quantity, file upload) and the "Заказать звонок" mini-form are **not** built — same decision as §4.2/§4.4 (backlog: "only if the customer asks"); the shared short lead form is used.
+> - The mockup's full order form and callback mini-form are not on this page; since 2026-11-09 they exist site-wide: `/zayavka` and the "Заказать звонок" dialog (§4.2, §4.4). The phone card has a "Заказать звонок" button.
 
 Разместить адрес мастерской, телефоны, WhatsApp, электронную почту, график работы, карту Google или Яндекс и форму обратной связи.
 
@@ -179,7 +179,7 @@
 
 ### 4.2. Форма оформления заказа
 
-> 📝 Homepage form is **short on purpose** (name, phone, "что изготовить") — user's decision 2026-11-07: fewer fields → more leads. Full form only if the customer asks (backlog).
+> 📝 **Status: built (2026-11-09)**: the user brought the mockup "Оформление заявки" and asked to build it (reverses the 2026-11-07 "only if asked"). Full form at `/zayavka`: name, phone (required), product type (catalog sections + "Другое"), sizes, quantity, comment, photos/drawings, consent. The header's "Оставить заявку" leads here; the short forms stay on each page (fewer fields, more leads). Mockup changes: Telegram instead of WhatsApp, no calculator link, no lead number until leads are stored.
 > Saving + notification: **at the end**, notifications by **email** (backlog).
 
 Форма заявки должна включать следующие поля:
@@ -202,13 +202,13 @@
 
 ### 4.4. Обратный звонок
 
-> 📝 **Considered covered by the lead form** (user's decision 2026-11-07: leaving a request = asking for a call). Build a separate button/form only if the customer insists (backlog).
+> 📝 **Status: built (2026-11-09)** from the mockup "Заказать звонок — окно": a modal dialog (name, phone, convenient time, consent), opened from the header (under the phone number on desktop, burger panel on phones) and the Contacts page phone card. Saved like other leads (today: server log).
 
 Реализовать кнопку «Заказать звонок». После заполнения формы заявка должна сохраняться в административной панели.
 
 ### 4.5. Загрузка фотографий и чертежей
 
-> 📝 Deferred together with the full order form — only if the customer asks (backlog).
+> 📝 **Status: built (2026-11-09)** in the order form: drag & drop or pick, up to 5 files, JPG/JPEG/PNG/PDF, 10 MB each (our draft, open question). Safety: extension + real content check by file signature on the server. Files are checked but **not stored** until Payload (backlog).
 
 Предусмотреть прикрепление изображений и документов к заявкам. Поддерживаемые форматы: JPG, JPEG, PNG, PDF. Установить ограничения размера файлов и проверку безопасности загрузки.
 
@@ -273,7 +273,7 @@
 
 ## 9. ЮРИДИЧЕСКАЯ ИНФОРМАЦИЯ
 
-> 📝 Consent checkbox on the lead form — **done**. Privacy policy page and cookie banner — **at the end** (policy text to be agreed with the customer; cookie banner together with analytics).
+> 📝 Consent checkbox on every form: **done**. **Built 2026-11-09** from the mockup "Правовая информация + cookie": one page `/pravovaya-informaciya` with four anchored sections (privacy, consent, terms, cookies), template text to be agreed with the customer's lawyer; and the site-wide cookie banner (choice stored in the `cookie-consent` cookie; analytics must load only after "Принять").
 
 Предусмотреть отдельные страницы или блоки:
 

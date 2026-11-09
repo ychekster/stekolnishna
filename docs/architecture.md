@@ -1,6 +1,6 @@
 # Architecture
 
-Current state: **homepage, Catalog index, Services, About and Contacts pages implemented, frontend only.** No database or CMS yet — see [decisions/0002-frontend-first.md](decisions/0002-frontend-first.md).
+Current state: **all mockup pages implemented, frontend only**: homepage, Catalog index, Services, Portfolio + project pages, About, Contacts, order form, legal information, 404; plus the "Заказать звонок" dialog and the cookie banner. Not built yet (no mockups): catalog category pages and product cards. No database or CMS yet — see [decisions/0002-frontend-first.md](decisions/0002-frontend-first.md).
 
 ## Overview
 
@@ -14,11 +14,15 @@ Next.js 16 app (App Router, React Server Components, Cache Components)
   ├─ src/app/kontakty/page.tsx ... Contacts page: composes sections
   ├─ src/app/uslugi/page.tsx ..... Services page: composes sections
   ├─ src/app/katalog/page.tsx .... Catalog index: sections + client-side filter/search/sort
+  ├─ src/app/nashi-raboty/ ....... Portfolio (client-side category filter) + [project] pages
+  ├─ src/app/zayavka/page.tsx .... Full order form with file upload
+  ├─ src/app/pravovaya-informaciya Legal texts (privacy, consent, terms, cookies)
   │     └─ getHomePage() / getAboutPage() / getContactsPage() / getServicesPage() / getCatalogPage() / getCatalogCategories() / getCatalogProducts() / getSiteSettings()  ← src/lib/content (single swap point)
   │            └─ today: src/content/*.ts placeholders
   │            └─ later: Payload CMS (Postgres)
-  └─ Lead form (same component on several pages, each with its own `source`)
-        └─ Server Action submitLead (src/lib/leads/actions.ts)
+  └─ Forms: short lead form (several pages, own `source`), "Заказать звонок" dialog (root
+     layout), full order form (/zayavka)
+        └─ Server Actions submitLead / submitCallback / submitOrder (src/lib/leads/actions.ts)
                     honeypot → rate limit → zod validation → saveLead()
                                                               └─ today: server log
                                                               └─ later: Payload "leads" + owner notification
@@ -38,7 +42,10 @@ src/
     kontakty/page.tsx     Contacts page (/kontakty) — breadcrumbs + sections; SEO from content
     uslugi/page.tsx       Services page (/uslugi) — breadcrumbs + sections; SEO from content
     katalog/page.tsx      Catalog index (/katalog) — breadcrumbs + sections; SEO from content
-    not-found.tsx         404 — "Раздел скоро появится" while sitemap pages are planned
+    nashi-raboty/         Portfolio (/nashi-raboty) and [project]/page.tsx (generateStaticParams)
+    zayavka/page.tsx      Full order form (/zayavka), target of the header CTA
+    pravovaya-informaciya/ Legal page; routes.privacyPolicy / cookiePolicy are its anchors
+    not-found.tsx         404 from the mockup ("Страница разбилась")
     globals.css           Design tokens (@theme) + base styles
   components/
     ui/                   Generic building blocks from the design system
@@ -46,8 +53,12 @@ src/
       MediaFrame (image or placeholder), AccentBadge, Brand, TextField, Carousel,
       Stat (big number + caption), PhotoTile (photo + pill caption), Breadcrumbs,
       MapEmbed (map embed or placeholder; size set by the caller),
-      TelegramIcon (brand glyph; also behind the `telegram` icon key)
-    layout/               SiteHeader (sticky, burger below xl), SiteFooter, FloatingTelegram
+      TelegramIcon (brand glyph; also behind the `telegram` icon key),
+      BoxedField (boxed input/select/textarea for light forms), ConsentCheckbox, Honeypot,
+      FilterChip, BackLink
+    layout/               SiteHeader (sticky, burger below xl), SiteFooter, FloatingTelegram,
+                          CallbackDialogProvider+CallbackForm+CallbackButton (native <dialog>,
+                          opened via context from anywhere), CookieBanner
     sections/             Sections reused on several pages
       LeadFormSection+LeadForm (dark lead-form block, copy and `source` via props)
     home/                 Homepage sections and their cards
@@ -67,15 +78,25 @@ src/
       CatalogBrowser (client: toolbar state, curated sections ↔ flat results), CatalogToolbar,
       ProductSection+ProductGrid+ProductCard (reused by future category pages),
       MoreCategoriesSection+CategoryTile
+    portfolio/            PortfolioHero, FeaturedProject+FeaturedList, ProjectsBrowser (client)+ProjectCard,
+      PortfolioTestimonial
+    project/              ProjectHero, ProjectGallery, ProjectDetails+ProjectListCard, ProjectPager
+    order/                OrderFormCard (remount holder)+OrderForm+FileDrop (client), OrderAside
+    legal/                LegalNav (sticky TOC), LegalSection
     services/             Services page sections (spec §3.3)
       ServicesHero (H1 + anchor chips), ServiceList+ServiceCard, PhotoOrderSection+PhotoOrderStep,
       PriceListSection
   content/                TEMPORARY placeholder data (removed when CMS arrives)
-    site-settings.ts, home.ts, about.ts, contacts.ts, services.ts, catalog.ts (page copy),
+    site-settings.ts (incl. callback dialog + cookie banner copy), home.ts, about.ts,
+    contacts.ts, services.ts, catalog.ts, portfolio.ts (page copy + projects), order.ts,
+    legal.ts, not-found.ts,
     catalog-items.ts (categories + products imported from the customer's catalog export)
   lib/                    Pure logic, no JSX. Unit tests next to the code (*.test.ts)
     content/              Content types + getters (the only content entry point)
-    leads/                Lead form: schema, rate limit, repository, server action
+    leads/                Forms: schemas (short, callback, order), uploads.ts (file rules +
+                          signature sniffing), rate limit, repository, server actions
+    portfolio/            projects.ts: category filter, counts, previous/next project
+    cookie-consent.ts     cookie banner choice (cookie `cookie-consent` = all | necessary)
     catalog/              filter.ts: filter by tag, search (case/ё-insensitive), sort by price
     format/               price.ts (₸ labels, [draft] amounts), phone.ts (KZ normalization)
     routes.ts             All internal URLs (sitemap slugs) + active-link matching
@@ -122,10 +143,15 @@ Deviations from the mockup, intentional:
 - **Contacts page** (mockup "Контакты — десктоп", desktop only): mobile layout ours (the "Как добраться" panel moves under the map). WhatsApp card → Telegram bot. The mockup's full order form with file upload and the callback mini-form are replaced by the shared short lead form (backlog: only if the customer asks). Route buttons search the address in 2GIS / Yandex Maps (`mapRouteHrefs`, `[placeholder]` parts dropped), so they work before exact map links exist.
 - **Catalog index** (mockup "Каталог — десктоп", desktop only): mobile layout ours (category strip and filter chips scroll sideways, products in 2 columns). The **calculator promo card is replaced** by "Пришлите фото или чертёж" → Telegram bot (`catalog_photo`), and the **"Рассчитать" button on product cards is dropped** (ADR 0003). WhatsApp icon button → Telegram with the product slug as deep-link parameter (spec §3.2). Filters, search and sort work in the browser: untouched toolbar shows the curated sections; any filter shows one flat result list across the catalog. Mockup's "Все 14" counts replaced by "Весь раздел" (counts were invented). Products and prices are the customer's real catalog (imported 2026-11-09); the category strip shares one desktop row among however many sections exist (14 today). Product and category links point to planned pages (`routes.product`, `routes.catalogCategory`).
 - **Services page** (mockup "Услуги — десктоп", desktop only): mobile layout ours (anchor chips scroll sideways in one row). The mockup's **price calculator is dropped** (ADR 0003). "Заказ по фото": files go to the Telegram bot (deep link `services_photo`), since the short lead form has no upload. "Заказать" on a card goes to this page's own form (`routes.pageLeadForm`). Services are anchors on one page (`/uslugi#rezka`); the slugs are ready for separate `/uslugi/[service]` pages later. All facts and prices in `[brackets]`.
+- **Portfolio and project pages** (mockups "Наши работы", "Проект — страница кейса", desktop only): mobile layout ours (chips scroll sideways, 1 column of cards, mosaic in 2 columns). All projects, numbers and the quote are the designer's draft in `[brackets]`; photos are placeholders. "Хочу так же" goes to the page's own lead form. Photo-count pills show only when photos exist.
+- **Order page** (mockup "Оформление заявки"): WhatsApp card → Telegram (`order` deep link); calculator link and lead number dropped; product types = catalog sections + "Другое"; the header's "Оставить заявку" leads here (was `/#form`).
+- **"Заказать звонок" dialog** (mockup "Заказать звонок — окно"): required consent checkbox added. On desktop the trigger replaces the working-hours line under the header phone (no room for a third button at 1280px).
+- **Legal page** (mockup "Правовая информация + cookie"): one page with anchors instead of four URLs; calculator paragraph dropped. The cookie banner leaves room for the floating Telegram button on phones.
 - **About page** (mockup "О компании — десктоп", desktop only): the mobile layout is ours, following the homepage patterns. Facts from the mockup are a designer's draft — shown in `[brackets]` until the customer confirms them. The mockup's history and team sections are dropped (the company is new, customer decision 2026-11-09). The mockup's own header/footer are not used (root layout). Added token `text-intro` (17/26, intro next to the H1).
 
 ## Lead form flow
 
+0. Three forms share fields (`nameField`, `phoneField`, `consentField` in schema.ts), the honeypot, the rate-limit bucket and `saveLead(LeadInput)` (kinds `request` / `callback` / `order`). The order form sends files from React state by hand (no form reset, files can be added in several goes); without JS the browser posts them. The server checks count, extension, size and the real file signature (uploads.ts); the Server Action body limit is 52 MB (next.config.ts).
 1. `LeadForm` (client) submits via `useActionState(submitLead)` — works without JS too. The same form is placed on several pages: each placement passes its copy (`LeadFormContent`, incl. the label of the free-text `details` field) and a `source` (`homepage`, `about-visit`, `contacts`, `services`, `catalog`), sent as a hidden field.
 2. `submitLead` (server):
    - honeypot field `website` filled → fake success (bots get no signal);
@@ -149,5 +175,5 @@ Deviations from the mockup, intentional:
 ## Next steps
 
 1. Install PostgreSQL (or Docker) → add Payload CMS; move `src/content/*` into CMS globals/collections; implement `getHomePage()`/`getSiteSettings()` via Payload; `saveLead()` → `leads` collection + notification.
-2. Remaining pages from [sitemap.md](sitemap.md): category page, product card, portfolio, legal.
+2. Remaining pages from [sitemap.md](sitemap.md): catalog category page, product card (no mockups yet), news/articles, SEO landing pages.
 3. Telegram bot — separate project; the site only links to it.

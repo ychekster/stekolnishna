@@ -4,8 +4,8 @@
  */
 import { Search } from "lucide-react";
 
+import { FilterChip } from "@/components/ui/FilterChip";
 import { ICON_STROKE } from "@/components/ui/Icon";
-import { cn } from "@/lib/cn";
 import type { CatalogQuery } from "@/lib/catalog/filter";
 import type { CatalogPage, CatalogSort, ProductTag } from "@/lib/content/types";
 
@@ -14,13 +14,6 @@ interface CatalogToolbarProps {
   value: CatalogQuery;
   onChange: (value: CatalogQuery) => void;
 }
-
-const chip =
-  "shrink-0 cursor-pointer rounded-full border px-4 py-2 text-nav whitespace-nowrap transition-colors duration-150";
-const chipStates = {
-  active: "border-ink bg-ink text-surface",
-  idle: "border-line-strong bg-transparent text-ink hover:border-ink",
-};
 
 export function CatalogToolbar({ filters, value, onChange }: CatalogToolbarProps) {
   const chips: { tag: ProductTag | null; label: string }[] = [
@@ -32,17 +25,13 @@ export function CatalogToolbar({ filters, value, onChange }: CatalogToolbarProps
     <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-y border-line py-4 md:mt-10">
       <div className="-mx-4 scrollbar-none flex max-w-[calc(100%+2rem)] gap-2 overflow-x-auto px-4 md:mx-0 md:max-w-none md:flex-wrap md:overflow-visible md:px-0">
         {chips.map(({ tag, label }) => {
-          const active = value.tag === tag;
           return (
-            <button
+            <FilterChip
               key={label}
-              type="button"
-              aria-pressed={active}
+              label={label}
+              pressed={value.tag === tag}
               onClick={() => onChange({ ...value, tag })}
-              className={cn(chip, active ? chipStates.active : chipStates.idle)}
-            >
-              {label}
-            </button>
+            />
           );
         })}
       </div>

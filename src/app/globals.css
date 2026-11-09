@@ -90,6 +90,21 @@
   --text-brand--font-weight: 700;
   --text-micro: 11px; /* logo tagline */
   --text-micro--line-height: 14px;
+  --text-code: 160px; /* "404" on the error page, desktop */
+  --text-code--line-height: 150px;
+  --text-code--letter-spacing: -0.05em;
+  --text-code--font-weight: 700;
+  --text-code-sm: 96px; /* "404", mobile */
+  --text-code-sm--line-height: 96px;
+  --text-code-sm--letter-spacing: -0.05em;
+  --text-code-sm--font-weight: 700;
+  --text-quote: 28px; /* big pull quote (portfolio review), desktop */
+  --text-quote--line-height: 38px;
+  --text-quote--letter-spacing: -0.015em;
+  --text-quote--font-weight: 500;
+  --text-quote-sm: 20px; /* pull quote, mobile and project page */
+  --text-quote-sm--line-height: 30px;
+  --text-quote-sm--font-weight: 500;
   --text-quote-mark: 56px; /* decorative quotation mark in reviews */
   --text-quote-mark--line-height: 32px;
   --text-quote-mark--font-weight: 700;
@@ -115,6 +130,11 @@
     @variant xl {
       --header-height: 76px;
     }
+  }
+
+  /* A modal dialog (Заказать звонок) is open: keep the page behind it still. */
+  html:has(dialog[open]) {
+    overflow: hidden;
   }
 
   html {

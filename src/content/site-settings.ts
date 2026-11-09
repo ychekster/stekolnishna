@@ -5,6 +5,7 @@
  * TEMPLATE values — not real, replace with the customer's data (docs/open-questions.md):
  *   phone +7 (700) 000-00-00, Telegram bot @steklo_center_bot, email, street address,
  *   working hours. The bot itself is a separate project with its own spec.
+ * The callback dialog's promise ("[10 минут]") is the designer's draft until confirmed.
  * This file disappears once Payload CMS serves these settings; read it only through
  * src/lib/content.
  */
@@ -33,5 +34,22 @@ export const siteSettingsContent: SiteSettings = {
   map: {
     embedUrl: null,
     label: "Стекло&Центр, г. Алматы",
+  },
+  callback: {
+    triggerLabel: "Заказать звонок",
+    title: "Заказать звонок",
+    lead: "Перезвоним в течение [10 минут] в рабочее время.",
+    timeLabel: "Удобное время",
+    timeOptions: ["Как можно скорее", "Сегодня до 13:00", "Сегодня после 13:00", "Завтра"],
+    submitLabel: "Перезвоните мне",
+    successTitle: "Спасибо!",
+    successText: "Заявка на звонок принята. Менеджер скоро перезвонит.",
+  },
+  cookieBanner: {
+    title: "Мы используем cookie",
+    text: "Чтобы сайт работал удобнее и мы понимали, какие разделы полезны.",
+    moreLabel: "Подробнее",
+    acceptLabel: "Принять",
+    necessaryLabel: "Только необходимые",
   },
 };

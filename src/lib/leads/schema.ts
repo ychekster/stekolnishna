@@ -13,26 +13,42 @@ import { z } from "zod";
 import { normalizeKzPhone } from "@/lib/format/phone";
 
 /** Where a lead came from. Add a value when the form is placed on a new page. */
-export const LEAD_SOURCES = ["homepage", "about-visit", "contacts", "services", "catalog"] as const;
+export const LEAD_SOURCES = [
+  "homepage",
+  "about-visit",
+  "contacts",
+  "services",
+  "catalog",
+  "portfolio",
+] as const;
 export type LeadSource = (typeof LEAD_SOURCES)[number];
 
+// Fields shared by every lead form (short form, callback, full order).
+export const nameField = z.string().trim().max(100, "Слишком длинное имя");
+
+export const phoneField = z
+  .string()
+  .trim()
+  .min(1, "Укажите телефон")
+  .transform((value, ctx) => {
+    const normalized = normalizeKzPhone(value);
+    if (!normalized) {
+      ctx.addIssue({ code: "custom", message: "Введите номер в формате +7 ___ ___-__-__" });
+      return z.NEVER;
+    }
+    return normalized;
+  });
+
+export const consentField = z.literal(true, {
+  error: "Нужно согласие на обработку персональных данных",
+});
+
 export const leadFormSchema = z.object({
-  name: z.string().trim().max(100, "Слишком длинное имя"),
-  phone: z
-    .string()
-    .trim()
-    .min(1, "Укажите телефон")
-    .transform((value, ctx) => {
-      const normalized = normalizeKzPhone(value);
-      if (!normalized) {
-        ctx.addIssue({ code: "custom", message: "Введите номер в формате +7 ___ ___-__-__" });
-        return z.NEVER;
-      }
-      return normalized;
-    }),
+  name: nameField,
+  phone: phoneField,
   /** Free text; its meaning depends on the form (what to make, convenient visit time…). */
   details: z.string().trim().max(1000, "Слишком длинный текст"),
-  consent: z.literal(true, { error: "Нужно согласие на обработку персональных данных" }),
+  consent: consentField,
   // A hidden field, so the value is client-controlled: an unknown value must not block a
   // real person's lead — it is stored as "not reported" instead.
   source: z.enum(LEAD_SOURCES).optional().catch(undefined),
@@ -50,12 +66,15 @@ export type LeadFormField = keyof z.input<typeof leadFormSchema>;
  */
 export const HONEYPOT_FIELD = "website";
 
+/** A text field of a submitted form; missing or non-text (file) values read as "". */
+export function readText(formData: FormData, key: string): string {
+  const value = formData.get(key);
+  return typeof value === "string" ? value : "";
+}
+
 /** Reads raw form values into the shape the schema expects. */
 export function readLeadForm(formData: FormData) {
-  const text = (key: string) => {
-    const value = formData.get(key);
-    return typeof value === "string" ? value : "";
-  };
+  const text = (key: string) => readText(formData, key);
   return {
     name: text("name"),
     phone: text("phone"),

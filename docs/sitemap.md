@@ -6,24 +6,22 @@
 
 No price calculator page — removed by the customer ([decisions/0003](decisions/0003-telegram-instead-of-whatsapp-no-calculator.md)).
 
-| Page                    | Proposed URL                                         | Content source        | Spec |
-| ----------------------- | ---------------------------------------------------- | --------------------- | ---- |
-| Home                    | `/`                                                  | CMS (homepage global) | §3.1 |
-| Catalog index           | `/katalog`                                           | CMS (categories)      | §3.2 |
-| Category page           | `/katalog/[category]` _(CMS)_                        | CMS                   | §3.2 |
-| Product card            | `/katalog/[category]/[product]` _(CMS)_              | CMS                   | §3.2 |
-| Services index          | `/uslugi`                                            | CMS (services)        | §3.3 |
-| Service page            | `/uslugi/[service]` _(CMS)_                          | CMS                   | §3.3 |
-| Portfolio               | `/nashi-raboty` (filter by category via query param) | CMS (projects)        | §3.4 |
-| Project page            | `/nashi-raboty/[project]` _(CMS)_                    | CMS                   | §3.4 |
-| About                   | `/o-kompanii`                                        | CMS                   | §3.5 |
-| Contacts                | `/kontakty`                                          | CMS (site settings)   | §3.6 |
-| News / articles         | `/stati`, `/stati/[slug]`                            | CMS                   | §5   |
-| SEO landing pages       | `/[slug]` _(CMS)_ e.g. `/izgotovlenie-stekla-almaty` | CMS                   | §6   |
-| Privacy policy          | `/politika-konfidencialnosti`                        | CMS                   | §9   |
-| Personal data consent   | `/soglasie-na-obrabotku-dannyh`                      | CMS                   | §9   |
-| Terms of use (optional) | `/polzovatelskoe-soglashenie`                        | CMS                   | §9   |
-| Cookie policy           | `/cookies` + cookie banner                           | CMS                   | §9   |
+| Page              | Proposed URL                                                    | Content source        | Spec |
+| ----------------- | --------------------------------------------------------------- | --------------------- | ---- |
+| Home              | `/`                                                             | CMS (homepage global) | §3.1 |
+| Catalog index     | `/katalog`                                                      | CMS (categories)      | §3.2 |
+| Category page     | `/katalog/[category]` _(CMS)_                                   | CMS                   | §3.2 |
+| Product card      | `/katalog/[category]/[product]` _(CMS)_                         | CMS                   | §3.2 |
+| Services index    | `/uslugi`                                                       | CMS (services)        | §3.3 |
+| Service page      | `/uslugi/[service]` _(CMS)_                                     | CMS                   | §3.3 |
+| Portfolio         | `/nashi-raboty` (filter by category via query param)            | CMS (projects)        | §3.4 |
+| Project page      | `/nashi-raboty/[project]` _(CMS)_                               | CMS                   | §3.4 |
+| About             | `/o-kompanii`                                                   | CMS                   | §3.5 |
+| Contacts          | `/kontakty`                                                     | CMS (site settings)   | §3.6 |
+| News / articles   | `/stati`, `/stati/[slug]`                                       | CMS                   | §5   |
+| SEO landing pages | `/[slug]` _(CMS)_ e.g. `/izgotovlenie-stekla-almaty`            | CMS                   | §6   |
+| Order form (full) | `/zayavka`                                                      | CMS                   | §4.2 |
+| Legal information | `/pravovaya-informaciya` (#privacy, #consent, #terms, #cookies) | CMS                   | §9   |
 
 ### Homepage blocks (in order, spec §3.1)
 
