@@ -28,6 +28,8 @@ describe("lead form validation", () => {
       details: "Душевая",
       consent: true,
       source: "homepage",
+      product: undefined,
+      sample: undefined,
     });
   });
 

@@ -13,7 +13,7 @@ import { FloatingTelegram } from "@/components/layout/FloatingTelegram";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { Container } from "@/components/ui/Container";
-import { getSiteSettings } from "@/lib/content";
+import { getSeoLandings, getSiteSettings } from "@/lib/content";
 import { routes } from "@/lib/routes";
 
 import "./globals.css";
@@ -39,7 +39,7 @@ export const viewport: Viewport = {
 };
 
 export default async function RootLayout({ children }: LayoutProps<"/">) {
-  const settings = await getSiteSettings();
+  const [settings, landings] = await Promise.all([getSiteSettings(), getSeoLandings()]);
 
   return (
     <html lang="ru" className={manrope.variable}>
@@ -52,7 +52,10 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
           <Container>
             <main>{children}</main>
           </Container>
-          <SiteFooter settings={settings} />
+          <SiteFooter
+            settings={settings}
+            landings={landings.map(({ slug, navLabel }) => ({ slug, navLabel }))}
+          />
           <FloatingTelegram botUsername={settings.telegramBot} />
           <CookieBanner content={settings.cookieBanner} policyHref={routes.cookiePolicy} />
         </CallbackDialogProvider>

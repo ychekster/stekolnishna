@@ -36,7 +36,7 @@ export type FormState<Field extends string, Values> =
 
 export type LeadFormState = FormState<
   LeadFormField,
-  { name: string; phone: string; details: string }
+  { name: string; phone: string; details: string; sample: string }
 >;
 export type CallbackFormState = FormState<
   CallbackFormField,
@@ -63,7 +63,12 @@ export async function submitLead(_prev: LeadFormState, formData: FormData): Prom
   if (formData.get(HONEYPOT_FIELD)) return { status: "success" };
 
   const raw = readLeadForm(formData);
-  const values = { name: raw.name, phone: raw.phone, details: raw.details };
+  const values = {
+    name: raw.name,
+    phone: raw.phone,
+    details: raw.details,
+    sample: raw.sample ?? "",
+  };
   if (!(await allowSubmission())) return formError(values, TOO_MANY);
 
   const parsed = leadFormSchema.safeParse(raw);

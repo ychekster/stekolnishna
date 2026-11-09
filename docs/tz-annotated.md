@@ -74,7 +74,7 @@
 
 ### 3.2. Каталог продукции
 
-> 📝 **Status: catalog index built** — `/katalog`, from the mockup "Каталог — десктоп" (mobile layout ours): all 12 categories (strip + "Ещё в каталоге"), filters (для дома, для офиса, с монтажом, закалённое), search, sort by price, 4 featured category sections with product cards, lead form (`source: catalog`). **Category pages and the product card: not started.**
+> 📝 **Status: catalog index built** — `/katalog`, from the mockup "Каталог — десктоп" (mobile layout ours): all 12 categories (strip + "Ещё в каталоге"), filters (для дома, для офиса, с монтажом, закалённое), search, sort by price, 4 featured category sections with product cards, lead form (`source: catalog`). **Category pages and product cards: built 2026-11-09** from the design handoff ("Страница категории", "Карточка товара"): `/katalog/[category]` in three states (with products: tag checkboxes, sort, grid, SEO text, "Полезно:" link to the SEO landing; without products: price card, "Что входит в работу", projects, steps; "Рисунки на стекле": all 726 samples in 16 sets, numbered, lightbox, set in `?nabor=`, "Номер образца" field in the form). `/katalog/[category]/[product]`: gallery, price, variants (none filled yet → "подберём под ваш проект"), description, specs table (none filled yet), similar products, steps, form with the product pre-filled. The product page's "Рассчитать стоимость" = "Заказать" to the page's form (ADR 0003).
 >
 > - "Запрос через WhatsApp" → Telegram button on every product card, deep link = product slug.
 > - "Рассчитать стоимость": no calculator (ADR 0003). On catalog cards the button is dropped ("Заказать" + Telegram are enough); on the future product card it should lead to the lead form.
@@ -236,6 +236,8 @@
 Предусмотреть статусы заявок: «Новая», «В обработке», «Ожидает расчёта», «Клиенту отправлено предложение», «Заказ оформлен», «Заказ завершён», «Отказ».
 
 ## 6. ПОИСКОВАЯ ОПТИМИЗАЦИЯ (SEO)
+
+> 📝 **SEO landing pages built 2026-11-09** (design handoff "SEO-лендинг"): 7 separate pages at the site root (`/steklyannye-dushevye-almaty` etc., src/content/landings.ts), linked from the new footer column "Популярные услуги" and from catalog sections. Offer prices come from the catalog. FAQPage markup added. **"Закалённое стекло" is not published** until the customer confirms tempering. SEO texts beyond the first paragraph are placeholders for a copywriter.
 
 > 📝 **At the end** (needs final domain and company data): sitemap.xml, robots.txt, Schema.org, OG, Search Console/Webmaster. ЧПУ already follow docs/sitemap.md. ⚠️ Site is deliberately **noindex** now — open on launch (backlog).
 

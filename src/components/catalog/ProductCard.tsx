@@ -1,6 +1,7 @@
 /**
  * Product in a catalog grid: square photo with an optional badge, name, one line of facts,
- * price, then "Заказать" (lead form of this page) and a Telegram button that opens the bot
+ * optional filter tags, price, then the main button ("Заказать" → lead form of this page on
+ * the catalog index; "Подробнее" → product page on category pages and shelves) and a Telegram button that opens the bot
  * with this product (spec §3.2: start parameter = product slug). The mockup's "Рассчитать"
  * button is dropped together with the calculator (docs/decisions/0003).
  */
@@ -10,7 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { TelegramIcon } from "@/components/ui/TelegramIcon";
 import { telegramHref } from "@/lib/contact-links";
-import type { CatalogPage, CatalogProduct, SiteSettings } from "@/lib/content/types";
+import type { CatalogPage, CatalogProduct, ProductTag, SiteSettings } from "@/lib/content/types";
 import { formatPrice } from "@/lib/format/price";
 import { routes } from "@/lib/routes";
 
@@ -18,9 +19,19 @@ interface ProductCardProps {
   product: CatalogProduct;
   labels: CatalogPage["productCard"];
   telegramBot: SiteSettings["telegramBot"];
+  /** Replace "Заказать" with another main button, e.g. "Подробнее" to the product page. */
+  details?: { label: string };
+  /** Show the product's filter tags as small pills (category pages). */
+  tagLabels?: Partial<Record<ProductTag, string>>;
 }
 
-export function ProductCard({ product, labels, telegramBot }: ProductCardProps) {
+export function ProductCard({
+  product,
+  labels,
+  telegramBot,
+  details,
+  tagLabels,
+}: ProductCardProps) {
   const href = routes.product(product.categorySlug, product.slug);
   return (
     <article className="flex flex-col">
@@ -48,13 +59,31 @@ export function ProductCard({ product, labels, telegramBot }: ProductCardProps) 
         </Link>
       </h3>
       <p className="m-0 mt-1 text-small text-ink-muted md:text-caption">{product.summary}</p>
+      {tagLabels && product.tags.length > 0 && (
+        <ul className="m-0 mt-2 flex list-none flex-wrap gap-1 p-0">
+          {product.tags.map((tag) => (
+            <li
+              key={tag}
+              className="rounded-full border border-line px-2 py-0.5 text-small text-ink-muted"
+            >
+              {tagLabels[tag]}
+            </li>
+          ))}
+        </ul>
+      )}
       <div className="mt-2 text-nav font-semibold md:mt-3 md:text-title">
         {formatPrice(product.price)}
       </div>
       <div className="mt-auto flex items-center gap-2 pt-3 md:pt-4">
-        <Button href={routes.pageLeadForm} size="sm">
-          {labels.orderLabel}
-        </Button>
+        {details ? (
+          <Button href={href} size="sm">
+            {details.label}
+          </Button>
+        ) : (
+          <Button href={routes.pageLeadForm} size="sm">
+            {labels.orderLabel}
+          </Button>
+        )}
         {/* Link styled like IconButton (which renders only <button>). */}
         <a
           href={telegramHref(telegramBot, product.slug)}

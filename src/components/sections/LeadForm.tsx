@@ -27,6 +27,10 @@ const initialState: LeadFormState = { status: "idle" };
 
 interface LeadFormProps {
   source: LeadSource;
+  /** Read-only "Товар" field on a product page: the manager sees what was ordered. */
+  product?: { label: string; value: string };
+  /** Extra "Номер образца" field ("Рисунки на стекле"); the lightbox fills it in. */
+  sample?: { label: string; placeholder: string };
   /** Label of the free-text field: "Что нужно изготовить", "Удобный день и время"… */
   detailsLabel: string;
   submitLabel: string;
@@ -36,6 +40,8 @@ interface LeadFormProps {
 
 export function LeadForm({
   source,
+  product,
+  sample,
   detailsLabel,
   submitLabel,
   successMessage,
@@ -58,6 +64,15 @@ export function LeadForm({
   return (
     <form action={formAction} noValidate className="flex flex-col gap-4">
       <input type="hidden" name="source" value={source} />
+      {product && (
+        <TextField
+          tone="dark"
+          label={product.label}
+          name="product"
+          value={product.value}
+          readOnly
+        />
+      )}
       <TextField
         tone="dark"
         label="Имя"
@@ -78,6 +93,16 @@ export function LeadForm({
         defaultValue={values?.phone}
         error={errors.phone}
       />
+      {sample && (
+        <TextField
+          tone="dark"
+          label={sample.label}
+          name="sample"
+          placeholder={sample.placeholder}
+          defaultValue={values?.sample}
+          error={errors.sample}
+        />
+      )}
       <TextField
         tone="dark"
         label={detailsLabel}

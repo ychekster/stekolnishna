@@ -9,9 +9,15 @@
  * This file disappears once Payload CMS serves the catalog; read it only through
  * src/lib/content.
  */
-import type { CatalogPage } from "@/lib/content/types";
+import type {
+  CatalogPage,
+  CategoryPageCopy,
+  DrawingsPageCopy,
+  ProductPageCopy,
+} from "@/lib/content/types";
 
 export { catalogCategories, catalogProducts } from "./catalog-items";
+export { drawingSets } from "./drawings";
 
 export const catalogPageContent: CatalogPage = {
   seo: {
@@ -96,5 +102,126 @@ export const catalogPageContent: CatalogPage = {
     detailsLabel: "Изделие и размеры",
     submitLabel: "Оставить заявку",
     successMessage: "Спасибо! Менеджер перезвонит вам в течение рабочего дня.",
+  },
+};
+
+/**
+ * Copy shared by every category page (design handoff "Страница категории"). Facts the
+ * customer has not confirmed are in [brackets].
+ */
+export const categoryPageCopy: CategoryPageCopy = {
+  productForms: ["товар", "товара", "товаров"],
+  leadTimeLabel: "Срок изготовления",
+  filtersTitle: "Фильтры",
+  filtersButton: "Фильтры",
+  filtersApply: "Показать",
+  resetFilters: "Сбросить фильтры",
+  sectionsTitle: "Разделы каталога",
+  foundLabel: "Найдено: {count}",
+  sortLabel: "Сортировка",
+  sorts: [
+    { value: "popular", label: "Популярные" },
+    { value: "price-asc", label: "Сначала дешевле" },
+    { value: "price-desc", label: "Сначала дороже" },
+  ],
+  emptyResults: "С такими фильтрами товаров нет. Сбросьте фильтры или опишите задачу в форме ниже.",
+  detailsLabel: "Подробнее",
+  seoTitle: "{name} на заказ в Алматы",
+  seoMoreLabel: "Развернуть",
+  usefulLabel: "Полезно:",
+  otherSectionsTitle: "Другие разделы каталога",
+  noProducts: {
+    priceLabel: "Цена",
+    orderLabel: "Оставить заявку",
+    telegramLabel: "Написать в Telegram",
+    note: "Цену назовёт менеджер после заявки и замера.",
+    scopeTitle: "Что входит в работу",
+    scope: [
+      {
+        icon: "pin",
+        title: "Замер",
+        description: "Мастер приезжает на объект и снимает точные размеры",
+      },
+      {
+        icon: "sliders",
+        title: "Изготовление",
+        description: "Режем и обрабатываем стекло на своём производстве",
+      },
+      {
+        icon: "shield",
+        title: "Фурнитура",
+        description: "Подбираем крепления и фурнитуру под конструкцию",
+      },
+      {
+        icon: "check",
+        title: "Монтаж",
+        description: "Устанавливаем, регулируем и убираем после работ",
+      },
+    ],
+    projectsTitle: "Наши работы",
+    allProjectsLabel: "Все проекты",
+  },
+  telegramLabel: "Написать в Telegram",
+  leadForm: {
+    title: "Подберём решение под ваш проект",
+    lead: "Опишите задачу или пришлите фото места: менеджер уточнит детали и назовёт цену.",
+    detailsLabel: "Комментарий: размеры, количество, пожелания",
+    submitLabel: "Отправить заявку",
+    successMessage: "Спасибо! Заявка отправлена, мы перезвоним в течение рабочего дня.",
+  },
+};
+
+/** Copy of "Рисунки на стекле" (design handoff, state "Рисунки"). */
+export const drawingsPageCopy: DrawingsPageCopy = {
+  categorySlug: "risunki",
+  howTitle: "Как выбрать рисунок",
+  howSteps: [
+    "Откройте набор и найдите образец",
+    "Запомните номер в углу картинки",
+    "Укажите номер в заявке или в Telegram",
+  ],
+  howButton: "Отправить номер в Telegram",
+  countLabel: "{sets} наборов, {count} образцов",
+  setsTitle: "Наборы",
+  shownLabel: "Показано {shown} из {total}",
+  pageSize: 24,
+  moreLabel: "Показать ещё {count}",
+  zoomHint: "Нажмите на образец, чтобы увеличить",
+  chooseLabel: "Выбрать этот рисунок",
+  noMatch: {
+    title: "Нет подходящего рисунка?",
+    text: "Нанесём узор по вашему эскизу, фото или логотипу.",
+    buttonLabel: "Прислать эскиз",
+  },
+  sampleLabel: "Номер образца",
+  samplePlaceholder: "Например: Цветы, № 12",
+  leadForm: {
+    title: "Закажите рисунок на стекле",
+    lead: "Укажите номер образца и размеры изделия: менеджер уточнит детали и назовёт цену.",
+    detailsLabel: "Комментарий: размеры, количество, пожелания",
+    submitLabel: "Отправить заявку",
+    successMessage: "Спасибо! Заявка отправлена, мы перезвоним в течение рабочего дня.",
+  },
+};
+
+/** Copy shared by every product page (design handoff "Карточка товара"). */
+export const productPageCopy: ProductPageCopy = {
+  measureChip: "Замер [бесплатно по Алматы]",
+  noOptions: "Размер, толщину и обработку подберём под ваш проект.",
+  orderLabel: "Заказать",
+  telegramLabel: "Написать в Telegram",
+  priceNote: "Цену назовёт менеджер по заявке. В Telegram бот сразу передаст название товара.",
+  descriptionTitle: "Описание",
+  specsTitle: "Характеристики",
+  similarTitle: "Похожие товары",
+  allLabel: "Весь раздел",
+  leadFormTitle: "Заказать: {name}",
+  productFieldLabel: "Товар",
+  leadForm: {
+    title: "Заказать",
+    lead: "Оставьте телефон: менеджер уточнит размеры и детали и назовёт цену.",
+    detailsLabel: "Комментарий: размеры, количество, пожелания",
+    submitLabel: "Отправить заявку",
+    successMessage: "Спасибо! Заявка отправлена, мы перезвоним в течение рабочего дня.",
   },
 };

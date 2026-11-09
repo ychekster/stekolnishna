@@ -76,6 +76,14 @@ export interface SiteSettings {
   };
   /** "Заказать звонок" dialog (spec §4.4), opened from the header and the Contacts page. */
   callback: CallbackContent;
+  /** Footer column titles and the "Покупателям" links. */
+  footer: {
+    menuTitle: string;
+    landingsTitle: string;
+    buyersTitle: string;
+    buyersLinks: LinkItem[];
+    telegramLabel: string;
+  };
   /** Cookie banner shown until the visitor chooses (spec §9). */
   cookieBanner: {
     title: string;
@@ -434,10 +442,25 @@ export interface CatalogCategory {
   price: Price;
   /** "Изготовление от 7 дней", or null when unknown. */
   leadTime: string | null;
-  /** Text of the future category page. */
+  /** Long text of the category page (SEO block, collapsed after the first paragraph). */
   intro: DescriptionBlock[];
-  /** Search metadata of the future category page; null → built from the name. */
+  /** Search metadata of the category page; null → built from the name. */
   seo: PageSeo | null;
+  /** Portfolio projects shown on the category page (sections without products). */
+  portfolioCategory?: ProjectCategory;
+}
+
+/** A group of product variants shown as labels ("Толщина стекла: 4 мм, 5 мм"). */
+export interface ProductOption {
+  label: string;
+  values: string[];
+}
+
+/** A set of glass-drawing samples ("Рисунки на стекле"): pictures without captions. */
+export interface DrawingSet {
+  slug: string;
+  name: string;
+  images: ImageAsset[];
 }
 
 /** A product inside a category; gallery and description feed the future product page. */
@@ -457,8 +480,12 @@ export interface CatalogProduct {
   /** "Изготовление от 7 дней", or null when unknown. */
   leadTime: string | null;
   description: DescriptionBlock[];
-  /** Search metadata of the future product page; null → built from the name. */
+  /** Search metadata of the product page; null → built from the name. */
   seo: PageSeo | null;
+  /** Variant groups (thickness, sizes, colour, processing): information, not a choice. */
+  options?: ProductOption[];
+  /** Specification table rows; only filled rows are shown. */
+  specs?: DetailItem[];
 }
 
 export type CatalogSort = "popular" | "price-asc" | "price-desc";
@@ -651,4 +678,133 @@ export interface NotFoundPage {
   homeLabel: string;
   catalogLabel: string;
   image: ImageAsset;
+}
+
+// ---------------------------------------------------------------------------
+// Catalog category and product pages (design handoff "Страница категории", "Карточка товара")
+// ---------------------------------------------------------------------------
+
+/** Russian plural forms for counters: ["товар", "товара", "товаров"]. */
+export type PluralForms = [one: string, few: string, many: string];
+
+/** Copy shared by every category page (/katalog/[category]). */
+export interface CategoryPageCopy {
+  /** Counter chip: "6 товаров". */
+  productForms: PluralForms;
+  leadTimeLabel: string;
+  filtersTitle: string;
+  filtersButton: string;
+  /** Button that closes the mobile filter sheet. */
+  filtersApply: string;
+  resetFilters: string;
+  sectionsTitle: string;
+  /** "Найдено: {count}". */
+  foundLabel: string;
+  sortLabel: string;
+  sorts: { value: CatalogSort; label: string }[];
+  emptyResults: string;
+  detailsLabel: string;
+  /** Heading of the long text: "{name} на заказ в Алматы". */
+  seoTitle: string;
+  seoMoreLabel: string;
+  usefulLabel: string;
+  otherSectionsTitle: string;
+  /** A section without products: a card with price and buttons instead of the grid. */
+  noProducts: {
+    priceLabel: string;
+    orderLabel: string;
+    telegramLabel: string;
+    note: string;
+    scopeTitle: string;
+    scope: EquipmentItem[];
+    projectsTitle: string;
+    allProjectsLabel: string;
+  };
+  telegramLabel: string;
+  leadForm: LeadFormContent;
+}
+
+/** Copy of the "Рисунки на стекле" category page. */
+export interface DrawingsPageCopy {
+  categorySlug: string;
+  howTitle: string;
+  howSteps: string[];
+  howButton: string;
+  /** "{sets} наборов, {count} образцов". */
+  countLabel: string;
+  setsTitle: string;
+  /** "Показано {shown} из {total}". */
+  shownLabel: string;
+  pageSize: number;
+  /** "Показать ещё {count}". */
+  moreLabel: string;
+  zoomHint: string;
+  /** Lightbox button that copies the sample number into the form. */
+  chooseLabel: string;
+  noMatch: { title: string; text: string; buttonLabel: string };
+  sampleLabel: string;
+  samplePlaceholder: string;
+  leadForm: LeadFormContent;
+}
+
+/** Copy shared by every product page (/katalog/[category]/[product]). */
+export interface ProductPageCopy {
+  measureChip: string;
+  noOptions: string;
+  orderLabel: string;
+  telegramLabel: string;
+  priceNote: string;
+  descriptionTitle: string;
+  specsTitle: string;
+  similarTitle: string;
+  allLabel: string;
+  /** "Заказать: {name}". */
+  leadFormTitle: string;
+  productFieldLabel: string;
+  leadForm: LeadFormContent;
+}
+
+// ---------------------------------------------------------------------------
+// SEO landing pages (spec §6, design handoff "SEO-лендинг")
+// ---------------------------------------------------------------------------
+
+/** A card of "Что мы делаем. Цены от.": points at a catalog item or a service. */
+export type OfferRef =
+  | { kind: "category"; slug: string; description?: string }
+  | { kind: "product"; slug: string; description?: string }
+  | { kind: "service"; slug: string };
+
+/** An offer card resolved from the catalog / services (src/lib/catalog/offers.ts). */
+export interface OfferCard {
+  title: string;
+  description: string;
+  priceLabel: string;
+  href: string;
+  image: ImageAsset | null;
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+/** One SEO landing page, its own URL `/<slug>`. Not in the main menu. */
+export interface SeoLanding {
+  slug: string;
+  /** Short name for the footer and breadcrumbs: "Стеклянные душевые". */
+  navLabel: string;
+  seo: PageSeo;
+  /** Main catalog section of the topic: its page links back with "Полезно:". */
+  categorySlug: string | null;
+  hero: { title: string; lead: string; image: ImageAsset };
+  facts: Stat[];
+  offers: { title: string; subtitle: string; note: string; items: OfferRef[]; linkLabel: string };
+  catalog: { title: string; categorySlugs: string[]; linkLabel: string } | null;
+  projects: { title: string; category: ProjectCategory } | null;
+  advantages: { title: string; items: AdvantageItem[] };
+  process: { title: string; lead: string };
+  faq: { title: string; lead: string; askLabel: string; items: FaqItem[] };
+  leadForm: LeadFormContent;
+  contactsTitle: string;
+  seoText: { title: string; blocks: DescriptionBlock[] };
 }

@@ -20,6 +20,9 @@ export const LEAD_SOURCES = [
   "services",
   "catalog",
   "portfolio",
+  "category",
+  "product",
+  "landing",
 ] as const;
 export type LeadSource = (typeof LEAD_SOURCES)[number];
 
@@ -48,6 +51,10 @@ export const leadFormSchema = z.object({
   phone: phoneField,
   /** Free text; its meaning depends on the form (what to make, convenient visit time…). */
   details: z.string().trim().max(1000, "Слишком длинный текст"),
+  /** Product the visitor orders from its page (read-only field), if any. */
+  product: z.string().trim().max(200).optional(),
+  /** Glass-drawing sample number ("Цветы, № 12"), only on "Рисунки на стекле". */
+  sample: z.string().trim().max(100, "Слишком длинный текст").optional(),
   consent: consentField,
   // A hidden field, so the value is client-controlled: an unknown value must not block a
   // real person's lead — it is stored as "not reported" instead.
@@ -79,6 +86,8 @@ export function readLeadForm(formData: FormData) {
     name: text("name"),
     phone: text("phone"),
     details: text("details"),
+    product: text("product") || undefined,
+    sample: text("sample") || undefined,
     consent: formData.get("consent") === "on",
     source: text("source") || undefined,
   };

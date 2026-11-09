@@ -60,7 +60,33 @@ export function filterProducts(
     return words.every((word) => haystack.includes(word));
   });
 
-  if (sort === "popular") return matched;
+  return sortProducts(matched, sort);
+}
+
+/** Products in the given order: "popular" keeps the owner's order, the rest sort by price. */
+export function sortProducts(
+  products: readonly CatalogProduct[],
+  sort: CatalogSort,
+): CatalogProduct[] {
+  if (sort === "popular") return [...products];
   // Array.prototype.sort is stable, so equal prices keep the popular order.
-  return matched.sort((a, b) => compareByPrice(a, b, sort === "price-asc" ? 1 : -1));
+  return [...products].sort((a, b) => compareByPrice(a, b, sort === "price-asc" ? 1 : -1));
+}
+
+/**
+ * Category page filter: products that have ALL ticked tags ("для дома" + "с монтажом"
+ * narrows the list). No tags ticked = every product.
+ */
+export function filterByTags(
+  products: readonly CatalogProduct[],
+  tags: readonly ProductTag[],
+): CatalogProduct[] {
+  return products.filter((product) => tags.every((tag) => product.tags.includes(tag)));
+}
+
+/** How many products carry each tag, for the counters next to the filter checkboxes. */
+export function countTags(products: readonly CatalogProduct[]): Record<ProductTag, number> {
+  const counts: Record<ProductTag, number> = { home: 0, office: 0, installation: 0, tempered: 0 };
+  for (const product of products) for (const tag of product.tags) counts[tag] += 1;
+  return counts;
 }

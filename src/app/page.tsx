@@ -6,9 +6,9 @@
 import { AboutSection } from "@/components/home/AboutSection";
 import { AdvantagesSection } from "@/components/home/AdvantagesSection";
 import { CatalogSection } from "@/components/home/CatalogSection";
-import { ContactsSection } from "@/components/home/ContactsSection";
+import { ContactsSection } from "@/components/sections/ContactsSection";
 import { HeroSection } from "@/components/home/HeroSection";
-import { ProcessSection } from "@/components/home/ProcessSection";
+import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ProjectsSection } from "@/components/home/ProjectsSection";
 import { ServicesSection } from "@/components/home/ServicesSection";
 import { TestimonialsSection } from "@/components/home/TestimonialsSection";

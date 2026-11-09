@@ -41,6 +41,12 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
       place, year, category, materials, works, area/term), which one is "Проект месяца", a real
       review with permission; the numbers "[3000+] заказов" and "[400+] объектов за год" (the
       company is new: drop them if they are not true).
+- [ ] **Catalog section taglines** (second half of the H1 on category pages) are imported
+      lead times ("Изготовление от 5–7 дней"); the design wants a description like
+      "Настенные, интерьерные, фигурные". Write them or confirm.
+- [ ] **Landing facts** (`src/content/landings.ts`, everything in [brackets]): glass thickness,
+      free measurement, cutting precision, sheet size, drill diameters, facet widths; delivery area
+      for the footer line "Доставка по всему Казахстану" (left out until confirmed).
 - [ ] **Response times** promised in the forms: callback "[10 минут]", order "[30 минут]".
 - [ ] **Legal details** for the Contacts page and the privacy policy: BIN, bank, IIK, legal
       address (director: Абылгазиев Сакен Берикович, from the spec).

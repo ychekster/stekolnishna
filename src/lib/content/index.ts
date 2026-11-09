@@ -7,13 +7,22 @@
  * components must not import from src/content directly.
  */
 import { aboutPageContent } from "@/content/about";
-import { catalogCategories, catalogPageContent, catalogProducts } from "@/content/catalog";
+import {
+  catalogCategories,
+  catalogPageContent,
+  catalogProducts,
+  categoryPageCopy,
+  drawingSets,
+  drawingsPageCopy,
+  productPageCopy,
+} from "@/content/catalog";
 import { contactsPageContent } from "@/content/contacts";
 import { homePageContent } from "@/content/home";
 import { legalPageContent } from "@/content/legal";
 import { notFoundPageContent } from "@/content/not-found";
 import { orderPageContent } from "@/content/order";
 import { portfolioPageContent, portfolioProjects } from "@/content/portfolio";
+import { seoLandings } from "@/content/landings";
 import { servicesPageContent } from "@/content/services";
 import { siteSettingsContent } from "@/content/site-settings";
 
@@ -22,6 +31,11 @@ import type {
   CatalogCategory,
   CatalogPage,
   CatalogProduct,
+  CategoryPageCopy,
+  DrawingSet,
+  DrawingsPageCopy,
+  ProductPageCopy,
+  SeoLanding,
   ContactsPage,
   HomePage,
   LegalPage,
@@ -101,6 +115,53 @@ export async function getLegalPage(): Promise<LegalPage> {
 /** Copy of the 404 page. */
 export async function getNotFoundPage(): Promise<NotFoundPage> {
   return notFoundPageContent;
+}
+
+/** One category by slug, or null (→ 404). */
+export async function getCatalogCategory(slug: string): Promise<CatalogCategory | null> {
+  return catalogCategories.find((category) => category.slug === slug) ?? null;
+}
+
+/** One product of a category, or null (→ 404, also when the category does not match). */
+export async function getCatalogProduct(
+  categorySlug: string,
+  slug: string,
+): Promise<CatalogProduct | null> {
+  return (
+    catalogProducts.find(
+      (product) => product.slug === slug && product.categorySlug === categorySlug,
+    ) ?? null
+  );
+}
+
+/** Copy shared by the category pages. */
+export async function getCategoryPageCopy(): Promise<CategoryPageCopy> {
+  return categoryPageCopy;
+}
+
+/** Copy of the "Рисунки на стекле" page. */
+export async function getDrawingsPageCopy(): Promise<DrawingsPageCopy> {
+  return drawingsPageCopy;
+}
+
+/** Glass-drawing sample sets, in display order. */
+export async function getDrawingSets(): Promise<DrawingSet[]> {
+  return drawingSets;
+}
+
+/** Copy shared by the product pages. */
+export async function getProductPageCopy(): Promise<ProductPageCopy> {
+  return productPageCopy;
+}
+
+/** Published SEO landing pages, in footer order. */
+export async function getSeoLandings(): Promise<SeoLanding[]> {
+  return seoLandings;
+}
+
+/** One SEO landing by slug, or null (→ 404). */
+export async function getSeoLanding(slug: string): Promise<SeoLanding | null> {
+  return seoLandings.find((landing) => landing.slug === slug) ?? null;
 }
 
 export type * from "./types";

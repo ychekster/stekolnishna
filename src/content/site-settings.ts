@@ -45,6 +45,18 @@ export const siteSettingsContent: SiteSettings = {
     successTitle: "Спасибо!",
     successText: "Заявка на звонок принята. Менеджер скоро перезвонит.",
   },
+  footer: {
+    menuTitle: "Меню",
+    landingsTitle: "Популярные услуги",
+    buyersTitle: "Покупателям",
+    buyersLinks: [
+      { label: "Оставить заявку", href: routes.order },
+      { label: "Политика конфиденциальности", href: routes.privacyPolicy },
+      { label: "Согласие на обработку данных", href: routes.consent },
+      { label: "Файлы cookie", href: routes.cookiePolicy },
+    ],
+    telegramLabel: "Написать в Telegram",
+  },
   cookieBanner: {
     title: "Мы используем cookie",
     text: "Чтобы сайт работал удобнее и мы понимали, какие разделы полезны.",

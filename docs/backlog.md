@@ -57,9 +57,18 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 
 - [ ] Domain, hosting, HTTPS, database backups, handover docs and accesses.
 
-- [ ] **Glass-drawing samples** ("Рисунки на стекле", 16 sets, 726 pictures without captions) from
-      the catalog export (`Downloads/stekolni-master-catalog/images/<set>/drawings`): import together with
-      the category page that shows them. 3 sets stop at exactly 99 pictures, the source site may cut them.
+- [ ] Glass-drawing samples imported 2026-11-09 (726, `public/images/catalog/risunki/<set>/NN.jpg`).
+      3 sets stop at exactly 99 pictures: ask the customer if the source site cut them.
+- [ ] **Product variants and specs** (`options`, `specs` on products): the design shows thickness,
+      sizes, colour, processing and a spec table; the imported catalog has none. Fill in the CMS.
+- [ ] **Real 404 status for unknown slugs.** Unknown `/katalog/x`, `/nashi-raboty/x` and root
+      paths (the SEO landing segment `/[landing]`) show the 404 page with status 200 + `noindex`
+      (Next 16 streaming, documented). For a real 404 check slugs in `proxy.ts`; do it with Payload,
+      when slugs come from the DB.
+- [ ] Schema.org `LocalBusiness` and `BreadcrumbList` on landings (need real company data and
+      the final domain for absolute URLs); `FAQPage` is done.
+- [ ] SEO texts of the landings beyond the first paragraph: copywriter (marked in [brackets]).
+- [ ] Landing "Закалённое стекло": add to src/content/landings.ts once tempering is confirmed.
 - [ ] **Order attachments are not stored**: `/zayavka` checks files and logs their names; keep
       them in a Payload upload collection and attach them to the lead email.
 - [ ] Show the lead number in the order confirmation once leads are stored (mockup "Заявка № …").
@@ -89,6 +98,8 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 - Contacts page `/kontakty` (2026-11-07).
 - Services page `/uslugi` (2026-11-08), without the mockup's calculator (ADR 0003).
 - Catalog index `/katalog` (2026-11-08): filters, search, sort; calculator promo → Telegram photo order.
+- Catalog category pages (3 states incl. drawing gallery), product cards, 7 SEO landing pages,
+  footer with "Популярные услуги" (2026-11-09).
 - Portfolio `/nashi-raboty` + project pages, order page `/zayavka` with uploads, "Заказать
   звонок" dialog, legal page `/pravovaya-informaciya`, cookie banner, 404 from the mockup
   (2026-11-09).

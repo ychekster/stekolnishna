@@ -13,6 +13,7 @@ import type { CatalogCategory, CatalogProduct } from "@/lib/content/types";
 export const catalogCategories: CatalogCategory[] = [
   {
     slug: "dushevye-kabiny",
+    portfolioCategory: "shower",
     name: "Душевые кабины",
     description: "Двери, уголки, раздвижные, перегородки",
     tagline: "Изготовление от 5–7 дней.",
@@ -77,6 +78,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "steklyannye-peregorodki",
+    portfolioCategory: "partition",
     name: "Стеклянные перегородки",
     description: "Офисные, межкомнатные, раздвижные, лофт",
     tagline: "Изготовление от 7–10 дней.",
@@ -151,6 +153,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "zerkala",
+    portfolioCategory: "mirror",
     name: "Зеркала и панно",
     description: "На стену и потолок, плитка, панно, фацет",
     tagline: "Изготовление от 5–7 дней.",
@@ -238,6 +241,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "ograzhdeniya-i-peregorodki",
+    portfolioCategory: "railing",
     name: "Стеклянные ограждения",
     description: "Лестницы, балконы, террасы, крыши",
     tagline: "Изготовление от 7–10 дней.",
@@ -277,6 +281,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "dveri-na-zakaz",
+    portfolioCategory: "door",
     name: "Стеклянные двери",
     description: "Раздвижные и маятниковые",
     tagline: "Изготовление от 7–10 дней.",
@@ -335,6 +340,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "steklo",
+    portfolioCategory: "custom",
     name: "Стекло",
     description: "Листовое стекло и триплекс",
     tagline: "Изготовление от 1–2 дней.",
@@ -386,6 +392,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "steklyannaya-mebel",
+    portfolioCategory: "furniture",
     name: "Стеклянная мебель",
     description: "Столы, полки, столешницы, фартуки",
     tagline: "По вашим размерам.",
@@ -443,6 +450,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "steklyannye-poly",
+    portfolioCategory: "custom",
     name: "Стеклянные полы",
     description: "Подиумы, перекрытия, полы с подсветкой",
     tagline: "Изготовление от 10 дней.",
@@ -498,6 +506,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "bezramnoe-osteklenie",
+    portfolioCategory: "custom",
     name: "Безрамное остекление",
     description: "Остекление без рам",
     tagline: "Изготовление от 10 дней.",
@@ -582,6 +591,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "interernoe-osteklenie",
+    portfolioCategory: "partition",
     name: "Интерьерное остекление",
     description: "Стекло в интерьере",
     tagline: "Изготовление от 5 дней.",
@@ -662,6 +672,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "osteklenie-saun-i-hamamov",
+    portfolioCategory: "custom",
     name: "Остекление саун и хамамов",
     description: "Стекло для саун и хамамов",
     tagline: "Изготовление от 10 дней.",
@@ -724,6 +735,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "steklyannye-konstrukcii",
+    portfolioCategory: "custom",
     name: "Стеклянные конструкции",
     description: "Павильоны и конструкции по проекту",
     tagline: "Изготовление от 10 дней.",
@@ -780,6 +792,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "risunki",
+    portfolioCategory: "custom",
     name: "Рисунки на стекле",
     description: "Пескоструйные, цветные, матированные",
     tagline: "По вашим размерам.",
@@ -806,6 +819,7 @@ export const catalogCategories: CatalogCategory[] = [
   },
   {
     slug: "furnitura",
+    portfolioCategory: "custom",
     name: "Фурнитура",
     description: "Для стеклянных конструкций",
     tagline: "По вашим размерам.",

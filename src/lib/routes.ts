@@ -3,15 +3,14 @@
  *
  * Paths follow docs/sitemap.md (transliterated Russian slugs, spec §6 "ЧПУ"). Link to pages
  * only through these constants, so renaming a route is a one-line change.
- * Pages marked "planned" do not exist yet and currently render the not-found page.
  */
 export const routes = {
   home: "/",
   /** Catalog index — src/app/katalog. */
   catalog: "/katalog",
-  /** Catalog category page (planned). */
+  /** Catalog category page — src/app/katalog/[category]. */
   catalogCategory: (slug: string) => `/katalog/${slug}`,
-  /** Product card (planned). */
+  /** Product card — src/app/katalog/[category]/[product]. */
   product: (categorySlug: string, productSlug: string) => `/katalog/${categorySlug}/${productSlug}`,
   /** Services — src/app/uslugi. */
   services: "/uslugi",
@@ -32,7 +31,13 @@ export const routes = {
    */
   legal: "/pravovaya-informaciya",
   privacyPolicy: "/pravovaya-informaciya#privacy",
+  consent: "/pravovaya-informaciya#consent",
   cookiePolicy: "/pravovaya-informaciya#cookies",
+  /**
+   * SEO landing page — src/app/[landing]: one page per search topic at the site root
+   * (`/steklyannye-dushevye-almaty`), not in the main menu; linked from the footer.
+   */
+  landing: (slug: string) => `/${slug}`,
   /** Lead form on the homepage — target of every "Оставить заявку" button. */
   leadForm: "/#form",
   /** Lead form on the current page, for pages that place their own `LeadFormSection`. */

@@ -1,6 +1,6 @@
 # Architecture
 
-Current state: **all mockup pages implemented, frontend only**: homepage, Catalog index, Services, Portfolio + project pages, About, Contacts, order form, legal information, 404; plus the "Заказать звонок" dialog and the cookie banner. Not built yet (no mockups): catalog category pages and product cards. No database or CMS yet — see [decisions/0002-frontend-first.md](decisions/0002-frontend-first.md).
+Current state: **all mockup pages implemented, frontend only**: homepage, Catalog index, Services, Portfolio + project pages, About, Contacts, order form, legal information, 404; plus the "Заказать звонок" dialog and the cookie banner. Plus catalog category pages, product cards and SEO landing pages (design handoff 2026-11-09). No database or CMS yet — see [decisions/0002-frontend-first.md](decisions/0002-frontend-first.md).
 
 ## Overview
 
@@ -14,6 +14,9 @@ Next.js 16 app (App Router, React Server Components, Cache Components)
   ├─ src/app/kontakty/page.tsx ... Contacts page: composes sections
   ├─ src/app/uslugi/page.tsx ..... Services page: composes sections
   ├─ src/app/katalog/page.tsx .... Catalog index: sections + client-side filter/search/sort
+  ├─ src/app/katalog/[category]/ .. Category page: products+filters | no products | drawing gallery
+  │     └─ [product]/ .............. Product card
+  ├─ src/app/[landing]/ ........... SEO landing pages at the site root (/steklyannye-dushevye-almaty)
   ├─ src/app/nashi-raboty/ ....... Portfolio (client-side category filter) + [project] pages
   ├─ src/app/zayavka/page.tsx .... Full order form with file upload
   ├─ src/app/pravovaya-informaciya Legal texts (privacy, consent, terms, cookies)
@@ -42,6 +45,8 @@ src/
     kontakty/page.tsx     Contacts page (/kontakty) — breadcrumbs + sections; SEO from content
     uslugi/page.tsx       Services page (/uslugi) — breadcrumbs + sections; SEO from content
     katalog/page.tsx      Catalog index (/katalog) — breadcrumbs + sections; SEO from content
+    katalog/[category]/   Category page, three states chosen from data; [product]/page.tsx product card
+    [landing]/page.tsx    SEO landing (static routes win over this root segment); FAQPage JSON-LD
     nashi-raboty/         Portfolio (/nashi-raboty) and [project]/page.tsx (generateStaticParams)
     zayavka/page.tsx      Full order form (/zayavka), target of the header CTA
     pravovaya-informaciya/ Legal page; routes.privacyPolicy / cookiePolicy are its anchors
@@ -78,8 +83,14 @@ src/
       CatalogBrowser (client: toolbar state, curated sections ↔ flat results), CatalogToolbar,
       ProductSection+ProductGrid+ProductCard (reused by future category pages),
       MoreCategoriesSection+CategoryTile
+    category/             CategoryHero, InfoChips, CategoryBrowser (client)+TagFilters+FilterSheet+SectionsNav,
+      ServiceCategoryHero, ScopeSection (category without products)
+    drawings/             DrawingsHero, DrawingsBrowser+DrawingSetGallery+DrawingLightbox (client),
+      DrawingsUrlBrowser (set in ?nabor= via History API, inside Suspense), NoMatchCard
+    product/              ProductGallery (client), ProductSummary, ProductDetails
+    landing/              LandingHero, OfferGrid, LandingAdvantages, FaqSection
     portfolio/            PortfolioHero, FeaturedProject+FeaturedList, ProjectsBrowser (client)+ProjectCard,
-      PortfolioTestimonial
+      PortfolioTestimonial, ProjectShelf (a few projects, used on landings and categories)
     project/              ProjectHero, ProjectGallery, ProjectDetails+ProjectListCard, ProjectPager
     order/                OrderFormCard (remount holder)+OrderForm+FileDrop (client), OrderAside
     legal/                LegalNav (sticky TOC), LegalSection
@@ -96,6 +107,10 @@ src/
     leads/                Forms: schemas (short, callback, order), uploads.ts (file rules +
                           signature sniffing), rate limit, repository, server actions
     portfolio/            projects.ts: category filter, counts, previous/next project
+    catalog/              + filterByTags/countTags/sortProducts (category page), offers.ts (landing
+                          offer cards from catalog/services), drawings.ts (sample numbers)
+    seo/json-ld.ts        Schema.org FAQPage + safe serialization
+    format/plural.ts      Russian plural forms ("6 товаров")
     cookie-consent.ts     cookie banner choice (cookie `cookie-consent` = all | necessary)
     catalog/              filter.ts: filter by tag, search (case/ё-insensitive), sort by price
     format/               price.ts (₸ labels, [draft] amounts), phone.ts (KZ normalization)
@@ -143,6 +158,7 @@ Deviations from the mockup, intentional:
 - **Contacts page** (mockup "Контакты — десктоп", desktop only): mobile layout ours (the "Как добраться" panel moves under the map). WhatsApp card → Telegram bot. The mockup's full order form with file upload and the callback mini-form are replaced by the shared short lead form (backlog: only if the customer asks). Route buttons search the address in 2GIS / Yandex Maps (`mapRouteHrefs`, `[placeholder]` parts dropped), so they work before exact map links exist.
 - **Catalog index** (mockup "Каталог — десктоп", desktop only): mobile layout ours (category strip and filter chips scroll sideways, products in 2 columns). The **calculator promo card is replaced** by "Пришлите фото или чертёж" → Telegram bot (`catalog_photo`), and the **"Рассчитать" button on product cards is dropped** (ADR 0003). WhatsApp icon button → Telegram with the product slug as deep-link parameter (spec §3.2). Filters, search and sort work in the browser: untouched toolbar shows the curated sections; any filter shows one flat result list across the catalog. Mockup's "Все 14" counts replaced by "Весь раздел" (counts were invented). Products and prices are the customer's real catalog (imported 2026-11-09); the category strip shares one desktop row among however many sections exist (14 today). Product and category links point to planned pages (`routes.product`, `routes.catalogCategory`).
 - **Services page** (mockup "Услуги — десктоп", desktop only): mobile layout ours (anchor chips scroll sideways in one row). The mockup's **price calculator is dropped** (ADR 0003). "Заказ по фото": files go to the Telegram bot (deep link `services_photo`), since the short lead form has no upload. "Заказать" on a card goes to this page's own form (`routes.pageLeadForm`). Services are anchors on one page (`/uslugi#rezka`); the slugs are ready for separate `/uslugi/[service]` pages later. All facts and prices in `[brackets]`.
+- **Category, product and SEO landing pages** (design handoff 2026-11-09, desktop + mobile): header kept as ours (handoff shows "Написать в Telegram" + hours). Footer rebuilt to the handoff (4 columns, "Популярные услуги"), without its unconfirmed "Доставка по всему Казахстану". Category cards show "Подробнее" + filter tags; the catalog index keeps "Заказать". The H1 second half is the section `tagline` (imported lead times today). Landing offer cards resolve from the catalog/services, so prices cannot diverge. Mobile filters: bottom sheet (native dialog). Drawing samples: "Выбрать этот рисунок" in the lightbox writes the sample number into the form.
 - **Portfolio and project pages** (mockups "Наши работы", "Проект — страница кейса", desktop only): mobile layout ours (chips scroll sideways, 1 column of cards, mosaic in 2 columns). All projects, numbers and the quote are the designer's draft in `[brackets]`; photos are placeholders. "Хочу так же" goes to the page's own lead form. Photo-count pills show only when photos exist.
 - **Order page** (mockup "Оформление заявки"): WhatsApp card → Telegram (`order` deep link); calculator link and lead number dropped; product types = catalog sections + "Другое"; the header's "Оставить заявку" leads here (was `/#form`).
 - **"Заказать звонок" dialog** (mockup "Заказать звонок — окно"): required consent checkbox added. On desktop the trigger replaces the working-hours line under the header phone (no room for a third button at 1280px).

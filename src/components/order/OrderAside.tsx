@@ -34,7 +34,7 @@ export function OrderAside({ telegram, nextSteps, telegramBot }: OrderAsideProps
       </div>
       <div className="rounded-lg border border-line p-6 md:p-7">
         <h2 className="m-0 text-title">{nextSteps.title}</h2>
-        <ol className="m-0 mt-3 pl-4.5 text-nav font-normal text-ink-muted">
+        <ol className="m-0 mt-3 list-decimal pl-4.5 text-nav font-normal text-ink-muted">
           {nextSteps.steps.map((step) => (
             <li key={step} className="py-0.5">
               {step}

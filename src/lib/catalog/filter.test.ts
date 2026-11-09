@@ -3,7 +3,15 @@ import { describe, expect, it } from "vitest";
 
 import type { CatalogProduct } from "@/lib/content/types";
 
-import { DEFAULT_CATALOG_QUERY, filterProducts, isDefaultQuery, normalizeSearch } from "./filter";
+import {
+  countTags,
+  DEFAULT_CATALOG_QUERY,
+  filterByTags,
+  filterProducts,
+  isDefaultQuery,
+  normalizeSearch,
+  sortProducts,
+} from "./filter";
 
 function product(slug: string, overrides: Partial<CatalogProduct> = {}): CatalogProduct {
   return {
@@ -110,5 +118,27 @@ describe("isDefaultQuery", () => {
 describe("normalizeSearch", () => {
   it("lowercases, replaces ё and collapses spaces", () => {
     expect(normalizeSearch("  Ёлочное   СТЕКЛО ")).toBe("елочное стекло");
+  });
+});
+
+describe("category page filter", () => {
+  const item = (slug: string, tags: CatalogProduct["tags"], amount: number) =>
+    ({ slug, tags, price: { kind: "from", amount, unit: "m2" } }) as CatalogProduct;
+  const list = [
+    item("a", ["home"], 30),
+    item("b", ["home", "installation"], 10),
+    item("c", [], 20),
+  ];
+
+  it("keeps products that have every ticked tag", () => {
+    expect(filterByTags(list, []).map((p) => p.slug)).toEqual(["a", "b", "c"]);
+    expect(filterByTags(list, ["home"]).map((p) => p.slug)).toEqual(["a", "b"]);
+    expect(filterByTags(list, ["home", "installation"]).map((p) => p.slug)).toEqual(["b"]);
+  });
+
+  it("counts tags and sorts without changing the input", () => {
+    expect(countTags(list)).toEqual({ home: 2, office: 0, installation: 1, tempered: 0 });
+    expect(sortProducts(list, "price-asc").map((p) => p.slug)).toEqual(["b", "c", "a"]);
+    expect(list.map((p) => p.slug)).toEqual(["a", "b", "c"]);
   });
 });

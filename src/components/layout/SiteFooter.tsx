@@ -1,43 +1,68 @@
 /**
- * Site footer (design: Footer): logo, contacts, menu, privacy policy link and copyright.
+ * Site footer (design handoff, all pages): logo with contacts, hours and Telegram; the menu;
+ * "Популярные услуги" with the SEO landing pages; "Покупателям" (order form, legal pages);
+ * copyright. Four columns on desktop, two on tablets, stacked on phones.
+ *
+ * Deviation from the handoff: its "Доставка по всему Казахстану" line is left out until the
+ * customer confirms the delivery area (docs/open-questions.md).
  */
-import Link from "next/link";
-
 import { Brand } from "@/components/ui/Brand";
 import { Container } from "@/components/ui/Container";
-import { mailtoHref, telHref } from "@/lib/contact-links";
-import type { SiteSettings } from "@/lib/content/types";
+import { TelegramIcon } from "@/components/ui/TelegramIcon";
+import { mailtoHref, telegramHref, telHref } from "@/lib/contact-links";
+import type { SeoLanding, SiteSettings } from "@/lib/content/types";
+import { routes } from "@/lib/routes";
 
-export function SiteFooter({ settings }: { settings: SiteSettings }) {
+import { FooterColumn } from "./FooterColumn";
+
+interface SiteFooterProps {
+  settings: SiteSettings;
+  landings: Pick<SeoLanding, "slug" | "navLabel">[];
+}
+
+export function SiteFooter({ settings, landings }: SiteFooterProps) {
+  const { footer } = settings;
   return (
     <Container>
       <footer className="mt-12 border-t border-line pt-8 pb-6 md:mt-24">
-        <div className="flex flex-wrap justify-between gap-8">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1.3fr_1.3fr]">
           <div>
             <Brand name={settings.companyName} tagline={settings.tagline} />
             <address className="mt-4 flex flex-col gap-1 text-caption text-ink-muted not-italic">
-              <a href={telHref(settings.phoneE164)} className="hover:text-accent-strong">
+              <a
+                href={telHref(settings.phoneE164)}
+                className="text-label font-semibold text-ink hover:text-accent-strong"
+              >
                 {settings.phoneDisplay}
               </a>
               <span>{settings.address}</span>
+              <span>{settings.workingHours}</span>
               <a href={mailtoHref(settings.email)} className="hover:text-accent-strong">
                 {settings.email}
               </a>
+              <a
+                href={telegramHref(settings.telegramBot)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-1 inline-flex items-center gap-1.5 font-medium text-accent-strong hover:text-ink"
+              >
+                <TelegramIcon size={14} />
+                {footer.telegramLabel}
+              </a>
             </address>
           </div>
-          <nav aria-label="Меню в подвале" className="flex flex-col gap-2 text-nav text-ink">
-            {settings.navigation.map((item) => (
-              <Link key={item.href} href={item.href} className="hover:text-accent-strong">
-                {item.label}
-              </Link>
-            ))}
-          </nav>
+          <FooterColumn title={footer.menuTitle} links={settings.navigation} />
+          <FooterColumn
+            title={footer.landingsTitle}
+            links={landings.map((landing) => ({
+              label: landing.navLabel,
+              href: routes.landing(landing.slug),
+            }))}
+          />
+          <FooterColumn title={footer.buyersTitle} links={footer.buyersLinks} />
         </div>
-        <div className="mt-8 flex flex-wrap justify-between gap-4 border-t border-line pt-4 text-small text-ink-muted">
-          <Link href={settings.privacyPolicyHref} className="hover:text-accent-strong">
-            Политика конфиденциальности
-          </Link>
-          <span>{settings.copyright}</span>
+        <div className="mt-8 border-t border-line pt-4 text-small text-ink-muted">
+          {settings.copyright}
         </div>
       </footer>
     </Container>
