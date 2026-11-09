@@ -32,8 +32,7 @@ Pages are prerendered as static HTML at build time; only the lead form, the burg
 src/
   app/
     layout.tsx            Root layout for every page: <html lang="ru">, font, metadata,
-                          sticky SiteHeader, <main> container, SiteFooter, FloatingTelegram,
-                          SmoothScroll
+                          sticky SiteHeader, <main> container, SiteFooter, FloatingTelegram
     page.tsx              Homepage — only composition of sections, no content
     o-kompanii/page.tsx   About page (/o-kompanii) — breadcrumbs + sections; SEO from content
     kontakty/page.tsx     Contacts page (/kontakty) — breadcrumbs + sections; SEO from content
@@ -48,8 +47,7 @@ src/
       Stat (big number + caption), PhotoTile (photo + pill caption), Breadcrumbs,
       MapEmbed (map embed or placeholder; size set by the caller),
       TelegramIcon (brand glyph; also behind the `telegram` icon key)
-    layout/               SiteHeader (sticky, burger below xl), SiteFooter, FloatingTelegram,
-                          SmoothScroll (Lenis, site-wide inertial scrolling)
+    layout/               SiteHeader (sticky, burger below xl), SiteFooter, FloatingTelegram
     sections/             Sections reused on several pages
       LeadFormSection+LeadForm (dark lead-form block, copy and `source` via props)
     home/                 Homepage sections and their cards
@@ -95,7 +93,7 @@ docs/design/              Design handoff: HANDOFF.md, tokens.json, screenshots, 
 - **Where components live:** used by one page → `components/<page>/`; a whole section used by several pages → `components/sections/`; a small generic building block → `components/ui/`. When a page component becomes shared, move it (as done with `Stat`, `PhotoTile`, `LeadFormSection`).
 - **Inner pages** start with `Breadcrumbs`, then an H1 block. Per-page `<title>`/description come from the page content (`seo` field) via `generateMetadata`, so they become editable in the CMS.
 - **Internal links only via `routes`** (`src/lib/routes.ts`), never string literals. Navigation points to the sitemap pages (Каталог, Услуги, Наши работы, О компании, Контакты); until a page exists its link renders `not-found.tsx`. "Оставить заявку" everywhere → `routes.leadForm` (`/#form`).
-- **Smooth scrolling**: Lenis (`components/layout/SmoothScroll.tsx`) drives the native window scroll on desktop; touch devices keep native scrolling, `prefers-reduced-motion` turns it off. It honours `scroll-padding-top`, so same-page anchors glide and land below the header. Elements with their own vertical scroll need `data-lenis-prevent` (the mobile menu has it).
+- **Scrolling**: native browser scrolling. Inertial smooth scrolling (Lenis) was removed on the user's decision (2026-11-09), don't re-add it. Only same-page anchor jumps glide (CSS `scroll-behavior: smooth`, off with `prefers-reduced-motion`) and land below the header via `scroll-padding-top`.
 - **Header divider** is transparent at the very top of the page and appears once the page is scrolled (`SiteHeader` scroll state).
 - **Divided lists**: the `dividers-between` utility (globals.css) draws lines only between items, also in multi-column grids. Items themselves have no borders.
 - **Telegram icon**: `TelegramIcon` (Font Awesome Free brand glyph, CC BY 4.0), not Lucide's generic "send" arrow.

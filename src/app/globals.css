@@ -118,7 +118,6 @@
   }
 
   html {
-    /* Fallback until Lenis (components/layout/SmoothScroll) takes over the scrolling. */
     scroll-behavior: smooth;
     /* Anchor jumps must land below the sticky header, with a little air. */
     scroll-padding-top: calc(var(--header-height) + --spacing(4));
@@ -126,11 +125,6 @@
 
   body {
     @apply bg-surface font-sans text-ink antialiased;
-  }
-
-  /* Lenis animates the scroll itself; native smooth scrolling on top would fight it. */
-  html.lenis {
-    scroll-behavior: auto;
   }
 
   /* Keyboard focus: solid 2px ring with 2px offset (design spec). */

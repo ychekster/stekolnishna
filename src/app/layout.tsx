@@ -9,7 +9,6 @@ import { Manrope } from "next/font/google";
 import { FloatingTelegram } from "@/components/layout/FloatingTelegram";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
-import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Container } from "@/components/ui/Container";
 import { getSiteSettings } from "@/lib/content";
 
@@ -47,7 +46,6 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
         </Container>
         <SiteFooter settings={settings} />
         <FloatingTelegram botUsername={settings.telegramBot} />
-        <SmoothScroll />
       </body>
     </html>
   );

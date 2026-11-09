@@ -148,7 +148,6 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
         id={menuId}
         hidden={!isMenuOpen}
         // Own vertical scroll: keep the site-wide smooth scrolling out of it.
-        data-lenis-prevent
         className="absolute inset-x-0 top-full max-h-[calc(100dvh-var(--header-height))] overflow-y-auto border-b border-line bg-surface shadow-pop xl:hidden"
       >
         <Container className="flex flex-col pt-2 pb-6">

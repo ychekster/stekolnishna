@@ -23,7 +23,7 @@ Website for a glass & mirror workshop in Almaty, Kazakhstan: catalog, portfolio,
 
 ## Stack
 
-Next.js 16 (App Router, Cache Components) · TypeScript strict · Tailwind CSS v4 · zod · lucide-react · Lenis (smooth scroll) · Vitest.
+Next.js 16 (App Router, Cache Components) · TypeScript strict · Tailwind CSS v4 · zod · lucide-react · Vitest.
 Planned, not yet installed: Payload CMS + PostgreSQL (docs/decisions/0001, 0002). Until then content comes from `src/content/` via `src/lib/content/`.
 
 ## Commands
