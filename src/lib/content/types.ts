@@ -176,13 +176,6 @@ export interface HomePage {
 // About page (spec §3.5)
 // ---------------------------------------------------------------------------
 
-export interface Milestone {
-  /** Shown as text, so a placeholder like "[2010]" works. */
-  year: string;
-  title: string;
-  description: string;
-}
-
 export interface WorkshopPhoto {
   caption: string;
   image: ImageAsset | null;
@@ -199,12 +192,6 @@ export interface EquipmentItem {
   icon: IconName;
   title: string;
   description: string;
-}
-
-export interface TeamMember {
-  name: string;
-  role: string;
-  photo: ImageAsset | null;
 }
 
 export interface Region {
@@ -234,11 +221,6 @@ export interface AboutPage {
     image: ImageAsset;
     stats: Stat[];
   };
-  history: {
-    title: string;
-    lead: string;
-    milestones: Milestone[];
-  };
   production: {
     title: string;
     lead: string;
@@ -249,11 +231,6 @@ export interface AboutPage {
     title: string;
     lead: string;
     items: EquipmentItem[];
-  };
-  team: {
-    title: string;
-    lead: string;
-    members: TeamMember[];
   };
   /** Dark block "Почему своё производство — это выгодно вам". */
   ownProduction: {

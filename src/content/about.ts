@@ -3,11 +3,12 @@
  * "О компании — десктоп".
  *
  * The mockup's copy is a designer's draft, not the customer's facts. Every concrete fact —
- * years, areas, headcount, machine specs, prices, distances, staff names — is wrapped in
- * [square brackets] so it stays visibly unconfirmed until the customer checks it
- * (docs/open-questions.md). The owner's name comes from the spec; the other team members
- * in the mockup were invented, so they are placeholders here. Never "unbracket" a value
- * without the customer's confirmation.
+ * areas, headcount, machine specs, prices, distances — is wrapped in [square brackets] so it
+ * stays visibly unconfirmed until the customer checks it (docs/open-questions.md). Never
+ * "unbracket" a value without the customer's confirmation.
+ *
+ * The company is new (customer, 2026-11-09): no history, no team section, no claims tied to
+ * years on the market, no in-house tempering furnace; warranty is 1 year (confirmed).
  *
  * This file disappears once Payload CMS serves the page; read it only through
  * src/lib/content.
@@ -18,59 +19,22 @@ export const aboutPageContent: AboutPage = {
   seo: {
     title: "О компании Стекло&Центр: стекольная мастерская в Алматы",
     description:
-      "Стекольная мастерская полного цикла в Алматы: собственный цех, резка, закалка и обработка стекла, своё оборудование и монтажные бригады. Доставка и монтаж по городу и области.",
+      "Стекольная мастерская полного цикла в Алматы: собственный цех, резка и обработка стекла, своё оборудование и монтажные бригады. Доставка и монтаж по городу и области.",
   },
   name: "О компании",
 
   hero: {
     title: "Стекольная мастерская полного цикла в Алматы",
-    lead: "С [2010] года режем, обрабатываем, закаляем и монтируем стекло и зеркала на своём производстве и своими бригадами.",
+    lead: "Режем, обрабатываем и монтируем стекло и зеркала на своём производстве и своими бригадами.",
     image: {
       src: "/images/hero-glass.jpg",
       alt: "Листы закалённого стекла и стеклянный фасад",
     },
     stats: [
-      { value: "[15]+", label: "лет на рынке Алматы" },
-      { value: "[3000]+", label: "выполненных заказов" },
       { value: "[1 200] м²", label: "собственный цех" },
-      { value: "[24]", label: "специалиста в команде" },
-    ],
-  },
-
-  history: {
-    title: "Наша история",
-    lead: "От небольшой мастерской по резке зеркал до производства полного цикла",
-    milestones: [
-      {
-        year: "[2010]",
-        title: "Начало",
-        description:
-          "Открыли мастерскую на [60] м²: резка стекла по размерам и изготовление зеркал для соседей, мебельщиков и небольших магазинов.",
-      },
-      {
-        year: "[2014]",
-        title: "Первые душевые и перегородки",
-        description:
-          "Купили кромкообрабатывающий станок, собрали первую монтажную бригаду и начали делать душевые ограждения под ключ.",
-      },
-      {
-        year: "[2018]",
-        title: "Свой цех и закалка",
-        description:
-          "Переехали в цех на [1 200] м² и запустили печь закалки. Теперь не зависим от сторонних заводов по срокам и качеству.",
-      },
-      {
-        year: "[2021]",
-        title: "Работа с бизнесом",
-        description:
-          "Начали остеклять офисы, бизнес-центры, рестораны и шоурумы; сейчас это почти половина наших заказов.",
-      },
-      {
-        year: "[2025]",
-        title: "ЧПУ и фигурная резка",
-        description:
-          "Установили раскройный стол с ЧПУ и фацетный станок: теперь делаем зеркала и столешницы любой формы по чертежу заказчика.",
-      },
+      { value: "от [3] дней", label: "срок изготовления" },
+      { value: "[1] день", label: "до бесплатного замера" },
+      { value: "1 год", label: "гарантии на монтаж" },
     ],
   },
 
@@ -81,7 +45,7 @@ export const aboutPageContent: AboutPage = {
     photos: [
       { caption: "Участок раскроя", image: null },
       { caption: "Обработка кромки", image: null },
-      { caption: "Печь закалки", image: null },
+      { caption: "Сверление и фацет", image: null },
       { caption: "Склад листового стекла", image: null },
     ],
     capabilities: [
@@ -96,14 +60,14 @@ export const aboutPageContent: AboutPage = {
         note: "Прозрачное, осветлённое, матовое, тонированное",
       },
       {
-        label: "Закалка",
-        value: "до [2400 × 3600] мм",
-        note: "Стекло в 5 раз прочнее обычного",
+        label: "Отверстия",
+        value: "от [6] до [100] мм",
+        note: "Под петли, ручки и крепления фурнитуры",
       },
       {
         label: "Срок изготовления",
         value: "от [3] рабочих дней",
-        note: "Резку и зеркала без закалки делаем в день заказа",
+        note: "Простую резку и зеркала делаем в день заказа",
       },
     ],
   },
@@ -133,26 +97,10 @@ export const aboutPageContent: AboutPage = {
         description: "Отверстия от [6] до [100] мм под петли, ручки и крепления",
       },
       {
-        icon: "shield",
-        title: "Печь закалки",
-        description: "Горизонтальная закалка листов толщиной [4–19] мм",
-      },
-      {
         icon: "sliders",
         title: "Пескоструйная камера",
         description: "Матирование и рисунки на стекле по трафарету",
       },
-    ],
-  },
-
-  team: {
-    title: "Команда",
-    lead: "[24] человека: технологи, мастера цеха, замерщики и монтажники. Ниже ключевые люди команды",
-    members: [
-      { name: "Сакен Абылгазиев", role: "[Основатель и директор]", photo: null },
-      { name: "[Имя Фамилия]", role: "[Начальник производства]", photo: null },
-      { name: "[Имя Фамилия]", role: "[Технолог: закалка и ЧПУ]", photo: null },
-      { name: "[Имя Фамилия]", role: "[Руководитель отдела замеров и расчётов]", photo: null },
     ],
   },
 
@@ -229,7 +177,7 @@ export const aboutPageContent: AboutPage = {
           { text: "Установка душевой или перегородки обычно занимает [1] день" },
           { text: "Штатные монтажники с опытом от [5] лет, не субподряд" },
           { text: "Убираем за собой и вывозим упаковку" },
-          { highlight: "Гарантия [2 года]", text: "на монтаж и фурнитуру" },
+          { highlight: "Гарантия 1 год", text: "на монтаж и фурнитуру" },
         ],
       },
     ],

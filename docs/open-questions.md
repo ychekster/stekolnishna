@@ -22,14 +22,13 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
       "from" price; texts still say the old site's things like "онлайн-магазин"; photos for the 3
       items without one.
 - [ ] Real customer reviews (with permission to publish).
-- [ ] Is glass **tempering** offered in-house? (Spec §3.3 says "if the service is provided".)
-      The About page currently assumes yes (milestone 2018, "Печь закалки", tempering size).
-- [ ] **About page facts** (`src/content/about.ts`, everything in `[brackets]`): founding year and
-      history milestones; years on market, orders count, workshop area, headcount; sheet size,
-      thickness range, tempering size, lead time; machine list and their specs/origin; team —
-      names, roles and portraits of 3–4 key people (and consent to publish them), the owner's
-      role title; delivery prices (free-delivery threshold, city fee, ₸/km in the region),
-      installation radius and towns, warranty period, installers' experience.
+- [ ] Glass **tempering**: no in-house furnace (customer, 2026-11-09). Is tempering offered at
+      all (through a partner)? Services page and catalog still list it; drop it there if not.
+- [ ] **About page facts** (`src/content/about.ts`, everything in `[brackets]`): workshop area;
+      sheet size, thickness range, drill diameters, lead time; machine list and their
+      specs/origin; delivery prices (free-delivery threshold, city fee, ₸/km in the region),
+      installation radius and towns, installers' experience. (Company is new: no history or
+      team section; warranty 1 year, confirmed 2026-11-09.)
 - [ ] **Contacts page facts** (`src/content/contacts.ts`, everything in `[brackets]`): second
       phone (production / pickup) or drop it; Telegram response time; hours per department
       (office/showroom, production/pickup, measurer) and Sunday; is there a showroom; how to

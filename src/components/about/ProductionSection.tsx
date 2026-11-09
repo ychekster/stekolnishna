@@ -1,6 +1,6 @@
 /**
  * "Производство": mosaic of workshop photos, then cards with production capabilities
- * (sheet size, thickness, tempering, lead time).
+ * (sheet size, thickness, drilling, lead time).
  */
 import { PhotoTile } from "@/components/ui/PhotoTile";
 import { Section } from "@/components/ui/Section";

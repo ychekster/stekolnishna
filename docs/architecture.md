@@ -56,8 +56,7 @@ src/
       ProjectsSection, ProcessSection+ProcessStep,
       TestimonialsSection+TestimonialCard, ContactsSection+ContactItem
     about/                About page sections (spec §3.5)
-      AboutHero, HistorySection+HistoryMilestone, ProductionSection+CapabilityCard,
-      EquipmentSection+EquipmentItem, TeamSection+TeamMember,
+      AboutHero, ProductionSection+CapabilityCard, EquipmentSection+EquipmentItem,
       OwnProductionSection+BenefitItem, GeographySection+CoverageMap,
       DeliverySection+TermsCard
     contacts/             Contacts page sections (spec §3.6)
@@ -123,7 +122,7 @@ Deviations from the mockup, intentional:
 - **Contacts page** (mockup "Контакты — десктоп", desktop only): mobile layout ours (the "Как добраться" panel moves under the map). WhatsApp card → Telegram bot. The mockup's full order form with file upload and the callback mini-form are replaced by the shared short lead form (backlog: only if the customer asks). Route buttons search the address in 2GIS / Yandex Maps (`mapRouteHrefs`, `[placeholder]` parts dropped), so they work before exact map links exist.
 - **Catalog index** (mockup "Каталог — десктоп", desktop only): mobile layout ours (category strip and filter chips scroll sideways, products in 2 columns). The **calculator promo card is replaced** by "Пришлите фото или чертёж" → Telegram bot (`catalog_photo`), and the **"Рассчитать" button on product cards is dropped** (ADR 0003). WhatsApp icon button → Telegram with the product slug as deep-link parameter (spec §3.2). Filters, search and sort work in the browser: untouched toolbar shows the curated sections; any filter shows one flat result list across the catalog. Mockup's "Все 14" counts replaced by "Весь раздел" (counts were invented). Products and prices are the customer's real catalog (imported 2026-11-09); the category strip shares one desktop row among however many sections exist (14 today). Product and category links point to planned pages (`routes.product`, `routes.catalogCategory`).
 - **Services page** (mockup "Услуги — десктоп", desktop only): mobile layout ours (anchor chips scroll sideways in one row). The mockup's **price calculator is dropped** (ADR 0003). "Заказ по фото": files go to the Telegram bot (deep link `services_photo`), since the short lead form has no upload. "Заказать" on a card goes to this page's own form (`routes.pageLeadForm`). Services are anchors on one page (`/uslugi#rezka`); the slugs are ready for separate `/uslugi/[service]` pages later. All facts and prices in `[brackets]`.
-- **About page** (mockup "О компании — десктоп", desktop only): the mobile layout is ours, following the homepage patterns. Facts from the mockup are a designer's draft — shown in `[brackets]` until the customer confirms them; invented team members replaced with placeholders. The mockup's own header/footer are not used (root layout). Added token `text-intro` (17/26, intro next to the H1).
+- **About page** (mockup "О компании — десктоп", desktop only): the mobile layout is ours, following the homepage patterns. Facts from the mockup are a designer's draft — shown in `[brackets]` until the customer confirms them. The mockup's history and team sections are dropped (the company is new, customer decision 2026-11-09). The mockup's own header/footer are not used (root layout). Added token `text-intro` (17/26, intro next to the H1).
 
 ## Lead form flow
 
