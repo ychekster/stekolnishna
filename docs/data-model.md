@@ -72,3 +72,12 @@ search by name and phone, status change, notes. **On a new lead:** save, then em
 - `[text in brackets]` anywhere in content = a placeholder waiting for the customer.
   `npm run placeholders` lists them; the count must be zero (or agreed exceptions) before launch.
 - `image: null` = no photo yet → the turquoise placeholder pattern.
+- `{slot}` inside copy (`"Показано {shown} из {total}"`, `"{name} на заказ в Алматы"`) is filled
+  in code by `fillTemplate`; the admin field help should list the slots (they are in the
+  comments in `types.ts`).
+
+## Changes after the freeze
+
+- 2026-11-10: `seoFallback` (title + description templates) added to `CategoryPageCopy`,
+  `ProductPageCopy` and `PortfolioPage.project`. The fallback titles of record pages were
+  hard-coded in the pages; now they are editable copy like everything else.

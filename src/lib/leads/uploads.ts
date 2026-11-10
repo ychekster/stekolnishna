@@ -8,7 +8,8 @@
  * so a renamed executable or HTML file is rejected.
  *
  * Limits are our draft (max upload size is an open question, docs/open-questions.md).
- * Keep `MAX_TOTAL_BYTES` in sync with `serverActions.bodySizeLimit` in next.config.ts.
+ * `serverActions.bodySizeLimit` in next.config.ts must stay above maxFiles × maxFileBytes plus
+ * room for the text fields.
  */
 
 export const UPLOAD_LIMITS = {
@@ -16,9 +17,6 @@ export const UPLOAD_LIMITS = {
   maxFileBytes: 10 * 1024 * 1024,
   extensions: ["jpg", "jpeg", "png", "pdf"],
 } as const;
-
-/** All files together, plus headroom for the text fields of the form. */
-export const MAX_TOTAL_BYTES = UPLOAD_LIMITS.maxFiles * UPLOAD_LIMITS.maxFileBytes;
 
 /** `accept` attribute of the file input. */
 export const UPLOAD_ACCEPT = UPLOAD_LIMITS.extensions.map((ext) => `.${ext}`).join(",");
@@ -43,7 +41,7 @@ function extensionOf(name: string): string {
 }
 
 /** What the browser and the server both know about a file before reading its content. */
-export interface UploadMeta {
+interface UploadMeta {
   name: string;
   size: number;
 }

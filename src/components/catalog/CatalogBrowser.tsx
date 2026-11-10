@@ -24,6 +24,7 @@ import type {
   CatalogProduct,
   SiteSettings,
 } from "@/lib/content/types";
+import { fillTemplate } from "@/lib/format/template";
 import { routes } from "@/lib/routes";
 
 import { CatalogToolbar } from "./CatalogToolbar";
@@ -91,7 +92,7 @@ export function CatalogBrowser({
         <section aria-labelledby="catalog-results-title" className="mt-6 md:mt-10">
           <div className="flex flex-wrap items-center justify-between gap-3">
             <h2 id="catalog-results-title" aria-live="polite" className="m-0 text-title text-ink">
-              {page.filters.resultsLabel.replace("{count}", String(results.length))}
+              {fillTemplate(page.filters.resultsLabel, { count: results.length })}
             </h2>
             <Button variant="ghost" onClick={() => setQuery(DEFAULT_CATALOG_QUERY)}>
               {page.filters.resetLabel}

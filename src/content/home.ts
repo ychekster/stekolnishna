@@ -23,7 +23,7 @@ export const homePageContent: HomePage = {
     title: "Стеклянные конструкции под ключ",
     lead: "Производство и монтаж: перегородки, душевые, зеркала, ограждения и фасадное остекление",
     image: {
-      src: "/images/hero-glass.jpg",
+      src: "/images/hero-glass.webp",
       alt: "Стеклянный фасад и стопка листов закалённого стекла на фоне неба",
     },
     cta: { label: "Оставить заявку", href: routes.leadForm },
@@ -73,28 +73,28 @@ export const homePageContent: HomePage = {
       {
         slug: "dushevye-kabiny",
         image: {
-          src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.jpg",
+          src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.webp",
           alt: "Душевой уголок из стекла",
         },
       },
       {
         slug: "steklyannye-peregorodki",
         image: {
-          src: "/images/catalog/steklyannye-ofisnye-peregorodki/cover.jpg",
+          src: "/images/catalog/steklyannye-ofisnye-peregorodki/cover.webp",
           alt: "Стеклянные офисные перегородки",
         },
       },
       {
         slug: "zerkala",
         image: {
-          src: "/images/catalog/zerkalnye-steny/gallery-01.jpg",
+          src: "/images/catalog/zerkalnye-steny/gallery-01.webp",
           alt: "Зеркальная стена из фацетных зеркал",
         },
       },
       {
         slug: "ograzhdeniya-i-peregorodki",
         image: {
-          src: "/images/catalog/ograzhdeniya-iz-nerzhavejki/gallery-01.jpg",
+          src: "/images/catalog/ograzhdeniya-iz-nerzhavejki/gallery-01.webp",
           alt: "Стеклянное ограждение балкона с поручнем из нержавейки",
         },
       },
@@ -148,7 +148,7 @@ export const homePageContent: HomePage = {
   process: {
     title: "Как мы работаем",
     lead: "Пять шагов от звонка до готовой конструкции",
-    image: { src: "/images/home/process.jpg", alt: "Рука в перчатке на стекле душевой" },
+    image: { src: "/images/home/process.webp", alt: "Рука в перчатке на стекле душевой" },
     badge: "Бесплатный замер",
     steps: [
       {

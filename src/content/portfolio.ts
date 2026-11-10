@@ -60,7 +60,7 @@ export const portfolioPageContent: PortfolioPage = {
   testimonial: {
     ...portfolioReview,
     image: {
-      src: "/images/portfolio/testimonial.jpg",
+      src: "/images/portfolio/testimonial.webp",
       alt: "Терраса со стеклянным ограждением на закате",
     },
   },
@@ -80,6 +80,7 @@ export const portfolioPageContent: PortfolioPage = {
     previousLabel: "Предыдущий проект",
     nextLabel: "Следующий проект",
     morePhotosLabel: "+{count} фото",
+    seoFallback: { title: "{name}: наши работы | {company}", description: "{excerpt}" },
     leadForm: {
       title: LEAD_FORM_TITLE,
       lead: "Пришлите фото помещения или проект дизайнера: подберём решение и рассчитаем стоимость.",

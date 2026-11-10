@@ -6,7 +6,7 @@
  * "necessary" = the visitor declined analytics; the banner stays hidden either way.
  */
 
-export const COOKIE_CONSENT_NAME = "cookie-consent";
+const COOKIE_CONSENT_NAME = "cookie-consent";
 
 export type CookieConsent = "all" | "necessary";
 

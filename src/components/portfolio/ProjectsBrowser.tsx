@@ -11,6 +11,7 @@ import { useMemo, useState } from "react";
 import { Button } from "@/components/ui/Button";
 import { FilterChip } from "@/components/ui/FilterChip";
 import type { PortfolioPage, PortfolioProject, ProjectCategory } from "@/lib/content/types";
+import { fillTemplate } from "@/lib/format/template";
 import { countByCategory, filterProjects } from "@/lib/portfolio/projects";
 
 import { ProjectCard } from "./ProjectCard";
@@ -44,9 +45,10 @@ export function ProjectsBrowser({ projects, categories, list }: ProjectsBrowserP
           {list.title}
         </h2>
         <span className="text-caption text-ink-muted" aria-live="polite">
-          {list.shownLabel
-            .replace("{shown}", String(Math.min(visible, shown.length)))
-            .replace("{total}", String(shown.length))}
+          {fillTemplate(list.shownLabel, {
+            shown: Math.min(visible, shown.length),
+            total: shown.length,
+          })}
         </span>
       </div>
 

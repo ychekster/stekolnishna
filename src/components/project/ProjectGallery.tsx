@@ -10,6 +10,7 @@
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { cn } from "@/lib/cn";
 import type { ImageAsset } from "@/lib/content/types";
+import { fillTemplate } from "@/lib/format/template";
 import { mosaicTiles } from "@/lib/portfolio/projects";
 
 /** Span of each tile, in mosaic order. */
@@ -53,7 +54,7 @@ export function ProjectGallery({ photos, morePhotosLabel }: ProjectGalleryProps)
           />
           {index === TILE_CLASSES.length - 1 && morePhotos > 0 && (
             <span className="absolute inset-0 grid place-items-center bg-scrim text-title text-ink-inverse">
-              {morePhotosLabel.replace("{count}", String(morePhotos))}
+              {fillTemplate(morePhotosLabel, { count: morePhotos })}
             </span>
           )}
         </div>

@@ -45,10 +45,7 @@ export default async function CatalogPage() {
 
   return (
     <>
-      <Breadcrumbs
-        items={[{ label: "Главная", href: routes.home }, { label: catalog.name }]}
-        className="mt-4 md:mt-8"
-      />
+      <Breadcrumbs items={[{ label: catalog.name }]} />
       <CatalogHero hero={catalog.hero} telegramBot={settings.telegramBot} />
       <CategoryStrip
         label={catalog.categoriesNavLabel}

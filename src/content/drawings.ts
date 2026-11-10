@@ -1,6 +1,6 @@
 /**
  * GENERATED from the customer's catalog export (stekolni-master.kz): glass-drawing sample
- * sets of the "Рисунки на стекле" section. Images: public/images/catalog/risunki/<set>/NN.jpg,
+ * sets of the "Рисунки на стекле" section. Images: public/images/catalog/risunki/<set>/NN.webp,
  * numbered in the source order; the number is what the client tells the manager.
  * The source site may cut long sets at 99 pictures (docs/backlog.md).
  * This file disappears once Payload CMS serves the catalog; read it only through src/lib/content.
@@ -32,7 +32,7 @@ export const drawingSets: DrawingSet[] = sets.map(([slug, name, count]) => ({
   images: Array.from({ length: count }, (_, index) => {
     const number = String(index + 1).padStart(2, "0");
     return {
-      src: `/images/catalog/risunki/${slug}/${number}.jpg`,
+      src: `/images/catalog/risunki/${slug}/${number}.webp`,
       alt: `Рисунок на стекле, набор «${name}», № ${number}`,
     };
   }),

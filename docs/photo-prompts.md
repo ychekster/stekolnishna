@@ -13,8 +13,9 @@ specific real order.
 
 - Prompts are in English: image models follow English better.
 - Add the **style suffix** to the end of every prompt.
-- Format: JPG, at least 1600 px on the long side (2400 px for the wide ones), aspect ratio as
-  given. Name files exactly as in the path column.
+- Format: JPG or PNG from the generator, at least 1600 px on the long side (2400 px for the
+  wide ones), aspect ratio as given. Name files as in the path column, then run
+  `npm run images`: it converts them to the `.webp` files the site uses.
 - Reject images with text, logos, watermarks, distorted hardware, warped glass edges or
   extra fingers. No visible faces (people only from behind or hands).
 
@@ -29,39 +30,39 @@ specific real order.
 
 ## 1. Homepage, About, 404, link preview
 
-| #   | Path                                                                                                         | Ratio    | Prompt                                                                                                                                                                                                                                     |
-| --- | ------------------------------------------------------------------------------------------------------------ | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1.1 | `public/images/home/process.jpg`                                                                             | 4:5      | A glass installer's hands in work gloves fitting a stainless steel hinge to a frameless tempered glass shower door in a modern bathroom, a level and suction lifter on the floor nearby, focus on the hands and the hardware               |
-| 1.2 | `public/images/about/hero.jpg`                                                                               | 21:9     | Wide view of a clean small glass processing workshop: large glass sheets standing on an A-frame rack, a horizontal cutting table with a sheet on it, edge grinding machine in the background, bright industrial daylight from high windows |
-| 1.3 | `public/images/og.jpg`                                                                                       | 1200×630 | Frameless glass shower enclosure and a large backlit mirror in a bright modern bathroom, calm composition with empty light wall space on the left third for a future caption                                                               |
-| 1.4 | `public/images/home/hero.jpg` (optional; a stock replacement was tried and rejected by the user, 2026-11-10) | 16:9     | Modern apartment interior in Almaty with a floor-to-ceiling glass partition separating the living room and a study, mountains faintly visible through the window, the glass catching soft light, darker right side for white headline text |
+| #   | Path                                                                                                          | Ratio    | Prompt                                                                                                                                                                                                                                     |
+| --- | ------------------------------------------------------------------------------------------------------------- | -------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 1.1 | `public/images/home/process.webp`                                                                             | 4:5      | A glass installer's hands in work gloves fitting a stainless steel hinge to a frameless tempered glass shower door in a modern bathroom, a level and suction lifter on the floor nearby, focus on the hands and the hardware               |
+| 1.2 | `public/images/about/hero.webp`                                                                               | 21:9     | Wide view of a clean small glass processing workshop: large glass sheets standing on an A-frame rack, a horizontal cutting table with a sheet on it, edge grinding machine in the background, bright industrial daylight from high windows |
+| 1.3 | `public/images/og.jpg`                                                                                        | 1200×630 | Frameless glass shower enclosure and a large backlit mirror in a bright modern bathroom, calm composition with empty light wall space on the left third for a future caption                                                               |
+| 1.4 | `public/images/home/hero.webp` (optional; a stock replacement was tried and rejected by the user, 2026-11-10) | 16:9     | Modern apartment interior in Almaty with a floor-to-ceiling glass partition separating the living room and a study, mountains faintly visible through the window, the glass catching soft light, darker right side for white headline text |
 
 ## 2. About page: workshop
 
-| #   | Path                                        | Ratio | Prompt                                                                                                                                                                      |
-| --- | ------------------------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2.1 | `public/images/about/workshop-cutting.jpg`  | 4:3   | Large sheet of clear glass on a felt-covered cutting table, a worker's hands guiding a glass cutter along a straight edge, scored line visible, workshop background blurred |
-| 2.2 | `public/images/about/workshop-edge.jpg`     | 4:3   | Close-up of a glass edge grinding machine polishing the edge of a thick glass panel, water spray, glossy polished edge in the foreground                                    |
-| 2.3 | `public/images/about/workshop-drilling.jpg` | 4:3   | Glass drilling machine making a round hole in a mirror panel, diamond drill bit with water cooling, a finished bevelled mirror leaning nearby                               |
-| 2.4 | `public/images/about/workshop-storage.jpg`  | 4:3   | Rows of glass and mirror sheets stored vertically on steel A-frame racks in a tidy warehouse, edges with a green tint, soft daylight                                        |
+| #   | Path                                         | Ratio | Prompt                                                                                                                                                                      |
+| --- | -------------------------------------------- | ----- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2.1 | `public/images/about/workshop-cutting.webp`  | 4:3   | Large sheet of clear glass on a felt-covered cutting table, a worker's hands guiding a glass cutter along a straight edge, scored line visible, workshop background blurred |
+| 2.2 | `public/images/about/workshop-edge.webp`     | 4:3   | Close-up of a glass edge grinding machine polishing the edge of a thick glass panel, water spray, glossy polished edge in the foreground                                    |
+| 2.3 | `public/images/about/workshop-drilling.webp` | 4:3   | Glass drilling machine making a round hole in a mirror panel, diamond drill bit with water cooling, a finished bevelled mirror leaning nearby                               |
+| 2.4 | `public/images/about/workshop-storage.webp`  | 4:3   | Rows of glass and mirror sheets stored vertically on steel A-frame racks in a tidy warehouse, edges with a green tint, soft daylight                                        |
 
 ## 3. Services page
 
-| #   | Path                                          | Ratio | Prompt                                                                                                                                                       |
-| --- | --------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 3.1 | `public/images/services/obrabotka-kromki.jpg` | 4:3   | Stack of glass panels with perfectly polished transparent edges, macro view of the edge profile, one panel with matte ground edge for contrast               |
-| 3.2 | `public/images/services/sverlenie.jpg`        | 4:3   | Tempered glass panel with neatly drilled round holes and a rectangular cut-out for a door handle, lying on a workbench                                       |
-| 3.3 | `public/images/services/zakalka.jpg`          | 4:3   | Glass panels on rollers coming out of an industrial glass tempering furnace, warm glow inside the furnace opening, factory setting                           |
-| 3.4 | `public/images/services/montazh.jpg`          | 4:3   | Two installers seen from behind mounting a large frameless glass partition in a modern office, suction lifters on the glass, protective film on the floor    |
-| 3.5 | `public/images/services/dostavka.jpg`         | 4:3   | Small white delivery truck with a steel A-frame rack on its side carrying large glass sheets secured with straps, city street with mountains in the distance |
+| #   | Path                                           | Ratio | Prompt                                                                                                                                                       |
+| --- | ---------------------------------------------- | ----- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 3.1 | `public/images/services/obrabotka-kromki.webp` | 4:3   | Stack of glass panels with perfectly polished transparent edges, macro view of the edge profile, one panel with matte ground edge for contrast               |
+| 3.2 | `public/images/services/sverlenie.webp`        | 4:3   | Tempered glass panel with neatly drilled round holes and a rectangular cut-out for a door handle, lying on a workbench                                       |
+| 3.3 | `public/images/services/zakalka.webp`          | 4:3   | Glass panels on rollers coming out of an industrial glass tempering furnace, warm glow inside the furnace opening, factory setting                           |
+| 3.4 | `public/images/services/montazh.webp`          | 4:3   | Two installers seen from behind mounting a large frameless glass partition in a modern office, suction lifters on the glass, protective film on the floor    |
+| 3.5 | `public/images/services/dostavka.webp`         | 4:3   | Small white delivery truck with a steel A-frame rack on its side carrying large glass sheets secured with straps, city street with mountains in the distance |
 
 ## 4. Catalog products without a photo
 
-| #   | Path                                                            | Ratio | Prompt                                                                                                                           |
-| --- | --------------------------------------------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------- |
-| 4.1 | `public/images/catalog/steklyannye-razdvizhnye-dveri/cover.jpg` | 1:1   | Frameless sliding glass door on a top-mounted stainless steel track between a living room and a kitchen, door half open          |
-| 4.2 | `public/images/catalog/mayatnikovye-dveri/cover.jpg`            | 1:1   | Pair of frameless tempered glass pendulum (double-acting) doors on floor pivots at an office entrance, long vertical bar handles |
-| 4.3 | `public/images/catalog/steklyannye-pavilony/cover.jpg`          | 1:1   | Small all-glass garden pavilion with thin black frame on a stone terrace of a private house, trees and mountains behind          |
+| #   | Path                                                             | Ratio | Prompt                                                                                                                           |
+| --- | ---------------------------------------------------------------- | ----- | -------------------------------------------------------------------------------------------------------------------------------- |
+| 4.1 | `public/images/catalog/steklyannye-razdvizhnye-dveri/cover.webp` | 1:1   | Frameless sliding glass door on a top-mounted stainless steel track between a living room and a kitchen, door half open          |
+| 4.2 | `public/images/catalog/mayatnikovye-dveri/cover.webp`            | 1:1   | Pair of frameless tempered glass pendulum (double-acting) doors on floor pivots at an office entrance, long vertical bar handles |
+| 4.3 | `public/images/catalog/steklyannye-pavilony/cover.webp`          | 1:1   | Small all-glass garden pavilion with thin black frame on a stone terrace of a private house, trees and mountains behind          |
 
 ## 5. Portfolio (demo, replace with real photos before launch)
 
@@ -152,6 +153,6 @@ Each project: **01 = cover (4:3)**, then 02–04 for the gallery. The featured p
 - 02 (3:4): Close-up of a glass shelf edge and a hidden bracket
 - 03 (4:3): Wider view of the living room with the bar niche
 
-### 5.14 `public/images/portfolio/testimonial.jpg`
+### 5.14 `public/images/portfolio/testimonial.webp`
 
 - (1:1): Terrace of a house with a frameless glass railing at sunset, two cups of tea on a small table, mountains behind, no people

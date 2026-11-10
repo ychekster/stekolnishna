@@ -14,7 +14,6 @@ import { ProductionSection } from "@/components/about/ProductionSection";
 import { LeadFormSection } from "@/components/sections/LeadFormSection";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { getAboutPage, getSiteSettings } from "@/lib/content";
-import { routes } from "@/lib/routes";
 
 export async function generateMetadata(): Promise<Metadata> {
   const about = await getAboutPage();
@@ -26,10 +25,7 @@ export default async function AboutCompanyPage() {
 
   return (
     <>
-      <Breadcrumbs
-        items={[{ label: "Главная", href: routes.home }, { label: about.name }]}
-        className="mt-4 md:mt-8"
-      />
+      <Breadcrumbs items={[{ label: about.name }]} />
       <AboutHero hero={about.hero} stats={settings.companyStats} />
       <ProductionSection production={about.production} />
       <EquipmentSection equipment={about.equipment} />

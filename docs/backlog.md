@@ -71,7 +71,7 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
       404 page with status 200 (adapter + PPR; `next start` returns 404); the in-memory rate
       limit is per isolate; leads only reach the Worker logs; KZ personal-data localisation.
 
-- [ ] Glass-drawing samples imported 2026-11-09 (726, `public/images/catalog/risunki/<set>/NN.jpg`).
+- [ ] Glass-drawing samples imported 2026-11-09 (726, `public/images/catalog/risunki/<set>/NN.webp`).
       3 sets stop at exactly 99 pictures: ask the customer if the source site cut them.
 - [ ] **Product variants and specs** (`options`, `specs` on products): the design shows thickness,
       sizes, colour, processing and a spec table; the imported catalog has none. Fill in the CMS.
@@ -118,3 +118,7 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
   звонок" dialog, legal page `/pravovaya-informaciya`, cookie banner, 404 from the mockup
   (2026-11-09).
 - Real catalog imported (2026-11-09): 14 sections, 72 products, photos on catalog, homepage and Services.
+- Project cleanup before the admin stage (2026-11-10): photos converted to WebP (42 → 18 MB,
+  `npm run images` for new ones), content image paths checked by a test, copy templates via
+  `fillTemplate`, record-page SEO fallbacks moved to content, docs refreshed, admin-stage plan
+  in docs/architecture.md.

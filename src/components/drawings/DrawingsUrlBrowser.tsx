@@ -12,7 +12,7 @@ import type { ComponentProps } from "react";
 
 import { DrawingsBrowser } from "./DrawingsBrowser";
 
-export const DRAWING_SET_PARAM = "nabor";
+const DRAWING_SET_PARAM = "nabor";
 
 type DrawingsUrlBrowserProps = Omit<ComponentProps<typeof DrawingsBrowser>, "slug" | "onSelect">;
 

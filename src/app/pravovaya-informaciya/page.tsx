@@ -10,7 +10,6 @@ import { LegalNav } from "@/components/legal/LegalNav";
 import { LegalSection } from "@/components/legal/LegalSection";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { getLegalPage } from "@/lib/content";
-import { routes } from "@/lib/routes";
 
 export async function generateMetadata(): Promise<Metadata> {
   const legal = await getLegalPage();
@@ -22,10 +21,7 @@ export default async function LegalPage() {
 
   return (
     <>
-      <Breadcrumbs
-        items={[{ label: "Главная", href: routes.home }, { label: legal.name }]}
-        className="mt-4 md:mt-8"
-      />
+      <Breadcrumbs items={[{ label: legal.name }]} />
       <h1 className="m-0 mt-4 text-display-sm md:mt-6 md:text-display">{legal.title}</h1>
       <p className="m-0 mt-3 text-nav font-normal text-ink-muted">{legal.revision}</p>
       <div className="mt-8 flex flex-wrap items-start gap-6 md:mt-12 md:gap-12">

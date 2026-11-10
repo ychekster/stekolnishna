@@ -106,10 +106,7 @@ export default async function LandingPage({ params }: PageProps<"/[landing]">) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: serializeJsonLd(faqPageJsonLd(landing.faq.items)) }}
       />
-      <Breadcrumbs
-        items={[{ label: "Главная", href: routes.home }, { label: landing.hero.title }]}
-        className="mt-4 md:mt-8"
-      />
+      <Breadcrumbs items={[{ label: landing.hero.title }]} />
       <LandingHero
         hero={landing.hero}
         facts={landing.facts}

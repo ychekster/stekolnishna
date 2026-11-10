@@ -7,6 +7,7 @@ import Link from "next/link";
 
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import type { PortfolioProject } from "@/lib/content/types";
+import { fillTemplate } from "@/lib/format/template";
 import { routes } from "@/lib/routes";
 
 interface ProjectCardProps {
@@ -38,7 +39,7 @@ export function ProjectCard({ project, categoryLabel, photosLabel }: ProjectCard
         </span>
         {photoCount > 0 && (
           <span className="absolute right-3 bottom-3 rounded-full bg-surface px-2.5 py-1 text-small text-ink-muted">
-            {photosLabel.replace("{count}", String(photoCount))}
+            {fillTemplate(photosLabel, { count: photoCount })}
           </span>
         )}
       </Link>

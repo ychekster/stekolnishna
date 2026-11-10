@@ -24,7 +24,7 @@ import { HONEYPOT_FIELD, leadFormSchema, readLeadForm, type LeadFormField } from
 import { checkUploadList, extensionMatches, sniffFileType } from "./uploads";
 
 /** Result of a form submission; `values` echoes the input so the form is not wiped. */
-export type FormState<Field extends string, Values> =
+type FormState<Field extends string, Values> =
   | { status: "idle" }
   | { status: "success" }
   | {

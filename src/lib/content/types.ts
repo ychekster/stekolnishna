@@ -650,6 +650,8 @@ export interface PortfolioPage {
     /** "+{count} фото" over the last gallery tile. */
     morePhotosLabel: string;
     leadForm: LeadFormContent;
+    /** Title and description of a project without its own `seo`; slots {name}, {excerpt}, {company}. */
+    seoFallback: PageSeo;
   };
 }
 
@@ -759,6 +761,8 @@ export interface CategoryPageCopy {
   };
   telegramLabel: string;
   leadForm: LeadFormContent;
+  /** Title and description of a category without its own `seo`; slots {name}, {description}, {company}. */
+  seoFallback: PageSeo;
 }
 
 /** Copy of the "Рисунки на стекле" category page. */
@@ -798,6 +802,8 @@ export interface ProductPageCopy {
   /** "Заказать: {name}". */
   leadFormTitle: string;
   productFieldLabel: string;
+  /** Title and description of a product without its own `seo`; slots {name}, {summary}, {company}. */
+  seoFallback: PageSeo;
   leadForm: LeadFormContent;
 }
 

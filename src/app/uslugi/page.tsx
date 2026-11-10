@@ -25,10 +25,7 @@ export default async function ServicesPage() {
 
   return (
     <>
-      <Breadcrumbs
-        items={[{ label: "Главная", href: routes.home }, { label: services.name }]}
-        className="mt-4 md:mt-8"
-      />
+      <Breadcrumbs items={[{ label: services.name }]} />
       <ServicesHero hero={services.hero} />
       {/* "Заказать" opens the lead form of this page, not the homepage one. */}
       <ServicesBrowser offers={services.offers} orderHref={routes.pageLeadForm} />

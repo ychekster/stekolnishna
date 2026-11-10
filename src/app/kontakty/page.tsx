@@ -14,7 +14,6 @@ import { ScheduleSection } from "@/components/contacts/ScheduleSection";
 import { LeadFormSection } from "@/components/sections/LeadFormSection";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { getContactsPage, getSiteSettings } from "@/lib/content";
-import { routes } from "@/lib/routes";
 
 export async function generateMetadata(): Promise<Metadata> {
   const contacts = await getContactsPage();
@@ -26,10 +25,7 @@ export default async function ContactsPage() {
 
   return (
     <>
-      <Breadcrumbs
-        items={[{ label: "Главная", href: routes.home }, { label: contacts.name }]}
-        className="mt-4 md:mt-8"
-      />
+      <Breadcrumbs items={[{ label: contacts.name }]} />
       <ContactsHero hero={contacts.hero} />
       <ContactCards cards={contacts.cards} settings={settings} />
       <LocationSection directions={contacts.directions} settings={settings} />

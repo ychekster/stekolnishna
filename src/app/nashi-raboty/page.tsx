@@ -13,7 +13,6 @@ import { ProjectsBrowser } from "@/components/portfolio/ProjectsBrowser";
 import { LeadFormSection } from "@/components/sections/LeadFormSection";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { getPortfolioPage, getPortfolioProjects, getSiteSettings } from "@/lib/content";
-import { routes } from "@/lib/routes";
 
 export async function generateMetadata(): Promise<Metadata> {
   const portfolio = await getPortfolioPage();
@@ -33,10 +32,7 @@ export default async function PortfolioPage() {
 
   return (
     <>
-      <Breadcrumbs
-        items={[{ label: "Главная", href: routes.home }, { label: portfolio.name }]}
-        className="mt-4 md:mt-8"
-      />
+      <Breadcrumbs items={[{ label: portfolio.name }]} />
       <PortfolioHero hero={portfolio.hero} />
       {featured && (
         <FeaturedProject

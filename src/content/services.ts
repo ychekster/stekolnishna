@@ -39,7 +39,7 @@ export const servicesPageContent: ServicesPage = {
           "Прямая и фигурная резка по вашим размерам или чертежу. Простую резку делаем в день обращения.",
         specs: ["точность 0,5 мм", "лист до 3210 × 2250 мм", "толщина 4–19 мм"],
         price: "от 300 ₸/м.п.",
-        image: { src: "/images/catalog/steklo/cover.jpg", alt: "Листы стекла, вид на кромку" },
+        image: { src: "/images/catalog/steklo/cover.webp", alt: "Листы стекла, вид на кромку" },
       },
       {
         slug: "obrabotka-kromki",
@@ -49,7 +49,7 @@ export const servicesPageContent: ServicesPage = {
         specs: ["шлифовка", "полировка", "прямая и криволинейная"],
         price: "от 600 ₸/м.п.",
         image: {
-          src: "/images/services/obrabotka-kromki.jpg",
+          src: "/images/services/obrabotka-kromki.webp",
           alt: "Стопка стекла с обработанной кромкой",
         },
       },
@@ -70,7 +70,7 @@ export const servicesPageContent: ServicesPage = {
         specs: ["ширина 5–40 мм", "зеркала и стекло", "прямой контур"],
         price: "от 1 500 ₸/м.п.",
         image: {
-          src: "/images/catalog/facetnoe-zerkalo/gallery-04.jpg",
+          src: "/images/catalog/facetnoe-zerkalo/gallery-04.webp",
           alt: "Фацетное зеркало из ромбов на стене",
         },
       },
@@ -91,7 +91,7 @@ export const servicesPageContent: ServicesPage = {
         specs: ["серебро, графит, бронза", "подсветка", "любая форма"],
         price: "от 9 000 ₸/м²",
         image: {
-          src: "/images/catalog/zerkala-dlya-vannoj/gallery-01.jpeg",
+          src: "/images/catalog/zerkala-dlya-vannoj/gallery-01.webp",
           alt: "Зеркало во всю стену в ванной",
         },
       },
@@ -103,7 +103,7 @@ export const servicesPageContent: ServicesPage = {
         specs: ["душевые", "перегородки и двери", "ограждения"],
         price: "индивидуально",
         image: {
-          src: "/images/catalog/steklyannye-konstrukcii/gallery-01.jpg",
+          src: "/images/catalog/steklyannye-konstrukcii/gallery-01.webp",
           alt: "Стеклянная винтовая лестница",
         },
       },
@@ -115,7 +115,7 @@ export const servicesPageContent: ServicesPage = {
         specs: ["бесплатный замер", "1 день", "гарантия 1 год"],
         price: "от 15 000 ₸",
         image: {
-          src: "/images/services/montazh.jpg",
+          src: "/images/services/montazh.webp",
           alt: "Монтажник устанавливает конструкцию в проём",
         },
       },
@@ -126,7 +126,7 @@ export const servicesPageContent: ServicesPage = {
           "Своя машина с пирамидой для крупных листов. По Алматы бесплатно при заказе от 50 000 ₸, по Казахстану отправляем в обрешётке.",
         specs: ["Алматы и область", "по Казахстану", "самовывоз"],
         price: "от 5 000 ₸",
-        image: { src: "/images/services/dostavka.jpg", alt: "Грузовик с упакованным грузом" },
+        image: { src: "/images/services/dostavka.webp", alt: "Грузовик с упакованным грузом" },
       },
     ],
   },

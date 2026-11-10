@@ -4,7 +4,7 @@ import type { CatalogCategory, PortfolioProject } from "@/lib/content/types";
 
 import { resolveHomeCategories, resolveHomeProjects } from "./featured";
 
-const cover = { src: "/cover.jpg", alt: "Обложка" };
+const cover = { src: "/cover.webp", alt: "Обложка" };
 const category = {
   slug: "zerkala",
   name: "Зеркала и панно",
@@ -30,7 +30,7 @@ describe("resolveHomeCategories", () => {
   });
 
   it("uses the homepage photo when one is set", () => {
-    const image = { src: "/home.jpg", alt: "Зеркальная стена" };
+    const image = { src: "/home.webp", alt: "Зеркальная стена" };
     expect(resolveHomeCategories([{ slug: "zerkala", image }], [category])[0].image).toBe(image);
   });
 

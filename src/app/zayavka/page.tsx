@@ -27,10 +27,7 @@ export default async function OrderPage() {
 
   return (
     <>
-      <Breadcrumbs
-        items={[{ label: "Главная", href: routes.home }, { label: order.name }]}
-        className="mt-4 md:mt-8"
-      />
+      <Breadcrumbs items={[{ label: order.name }]} />
       <BackLink href={routes.catalog} label={order.backLabel} />
       <h1 className="m-0 mt-3 max-w-215 text-display-sm md:mt-4 md:text-display">
         {order.hero.title} <span className="text-ink-muted">{order.hero.subtitle}</span>

@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { sampleNumber } from "@/lib/catalog/drawings";
 import type { DrawingSet, DrawingsPageCopy } from "@/lib/content/types";
+import { fillTemplate } from "@/lib/format/template";
 
 import { DrawingLightbox } from "./DrawingLightbox";
 
@@ -25,9 +26,7 @@ export function DrawingSetGallery({ set, copy }: { set: DrawingSet; copy: Drawin
       <div className="flex items-end justify-between gap-4 border-b border-line pb-3">
         <h2 className="m-0 text-h2">{set.name}</h2>
         <span className="text-caption text-ink-muted" aria-live="polite">
-          {copy.shownLabel
-            .replace("{shown}", String(shown.length))
-            .replace("{total}", String(set.images.length))}
+          {fillTemplate(copy.shownLabel, { shown: shown.length, total: set.images.length })}
         </span>
       </div>
       <ul className="m-0 mt-4 grid list-none grid-cols-3 gap-2 p-0 sm:grid-cols-5 md:gap-3 xl:grid-cols-7">
@@ -54,7 +53,7 @@ export function DrawingSetGallery({ set, copy }: { set: DrawingSet; copy: Drawin
       <div className="mt-5 flex flex-wrap items-center gap-4">
         {rest > 0 && (
           <Button variant="outline" onClick={() => setVisible((count) => count + copy.pageSize)}>
-            {copy.moreLabel.replace("{count}", String(Math.min(rest, copy.pageSize)))}
+            {fillTemplate(copy.moreLabel, { count: Math.min(rest, copy.pageSize) })}
           </Button>
         )}
         <span className="text-caption text-ink-muted">{copy.zoomHint}</span>

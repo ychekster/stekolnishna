@@ -33,6 +33,8 @@ npm run dev          # dev server, http://localhost:3000
 npm run check        # lint + typecheck + unit tests — must pass before a task is done
 npm run build && npm run start   # production build/serve
 npm run format       # Prettier
+npm run placeholders # content still missing ([brackets], photos, demo files)
+npm run images       # convert new photos in public/images to WebP (then update paths in src/content)
 npm run cf:deploy    # build + deploy the preview to Cloudflare Workers (steklo-center.ychekster.workers.dev)
 ```
 
@@ -41,6 +43,8 @@ npm run cf:deploy    # build + deploy the preview to Cloudflare Workers (steklo-
 - **No hard-coded content.** Texts, prices, contacts, photos come from the content layer (`getHomePage()`, `getAboutPage()`, `getContactsPage()`, `getSiteSettings()` in `src/lib/content`); per-page SEO title/description too (`seo` field + `generateMetadata`). Pages/components never import `src/content/*` directly.
 - Placeholders in `[square brackets]` stay visible until the customer provides data. Never invent data. Exceptions agreed with the user: contacts use neat template values (`+7 (700) 000-00-00`, listed in docs/open-questions.md); **demo** portfolio projects and reviews for the customer review live only in `src/content/demo-*.ts` and must be replaced with real ones before launch (`npm run placeholders` lists them). Never present invented reviews or someone else's projects as real on the live site.
 - Internal URLs only from `src/lib/routes.ts`. Header/footer live in the root layout — pages render only their content.
+- Copy with numbers or names is a template with `{slots}`, filled by `fillTemplate` (`src/lib/format/template.ts`); never glue phrases in code.
+- Photos: WebP in `public/images` (`npm run images`), except `og.jpg`. Every image is an `ImageAsset` with alt text; `npm test` checks that content paths exist.
 - **Do not hand-roll** auth, admin UI or file uploads — they come with Payload.
 - No `any`. Business logic in `src/lib/` (pure, unit-tested), not in components.
 - Components: `src/components/ui/` (generic), `layout/` (header/footer), `sections/` (sections reused on several pages, e.g. the lead form), `<page>/` (sections of one page). One component per file, PascalCase.

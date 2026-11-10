@@ -9,6 +9,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import type { PortfolioPage, PortfolioProject } from "@/lib/content/types";
+import { fillTemplate } from "@/lib/format/template";
 import { mosaicTiles } from "@/lib/portfolio/projects";
 import { routes } from "@/lib/routes";
 
@@ -70,7 +71,7 @@ export function FeaturedProject({
             )}
             {index === TILES - 1 && morePhotos > 0 && (
               <span className="absolute inset-0 grid place-items-center bg-scrim text-title text-ink-inverse">
-                {labels.morePhotosLabel.replace("{count}", String(morePhotos))}
+                {fillTemplate(labels.morePhotosLabel, { count: morePhotos })}
               </span>
             )}
           </div>

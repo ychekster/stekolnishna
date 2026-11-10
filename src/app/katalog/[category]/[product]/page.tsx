@@ -26,7 +26,9 @@ import {
   getProductPageCopy,
   getSiteSettings,
 } from "@/lib/content";
+import { fillTemplate } from "@/lib/format/template";
 import { routes } from "@/lib/routes";
+import { recordSeo } from "@/lib/seo/metadata";
 
 const SIMILAR_COUNT = 4;
 
@@ -39,14 +41,17 @@ export async function generateMetadata({
   params,
 }: PageProps<"/katalog/[category]/[product]">): Promise<Metadata> {
   const { category, product: slug } = await params;
-  const product = await getCatalogProduct(category, slug);
+  const [product, copy, settings] = await Promise.all([
+    getCatalogProduct(category, slug),
+    getProductPageCopy(),
+    getSiteSettings(),
+  ]);
   if (!product) return {};
-  return {
-    title: product.seo?.title ?? `${product.name} на заказ в Алматы | Стекло&Центр`,
-    description:
-      product.seo?.description ||
-      `${product.name} по вашим размерам в Алматы. ${product.summary}. Замер, изготовление и монтаж.`,
-  };
+  return recordSeo(product.seo, copy.seoFallback, {
+    name: product.name,
+    summary: product.summary,
+    company: settings.companyName,
+  });
 }
 
 export default async function ProductPage({ params }: PageProps<"/katalog/[category]/[product]">) {
@@ -76,12 +81,10 @@ export default async function ProductPage({ params }: PageProps<"/katalog/[categ
     <>
       <Breadcrumbs
         items={[
-          { label: "Главная", href: routes.home },
           { label: catalog.name, href: routes.catalog },
           { label: category.name, href: routes.catalogCategory(category.slug) },
           { label: product.name },
         ]}
-        className="mt-4 md:mt-8"
       />
       <BackLink href={routes.catalogCategory(category.slug)} label={category.name} />
       <section
@@ -105,7 +108,10 @@ export default async function ProductPage({ params }: PageProps<"/katalog/[categ
       )}
       <ProcessSection process={home.process} />
       <LeadFormSection
-        leadForm={{ ...copy.leadForm, title: copy.leadFormTitle.replace("{name}", product.name) }}
+        leadForm={{
+          ...copy.leadForm,
+          title: fillTemplate(copy.leadFormTitle, { name: product.name }),
+        }}
         source="product"
         privacyPolicyHref={settings.privacyPolicyHref}
         telegram={{ href: telegram, label: copy.telegramLabel }}

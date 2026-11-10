@@ -63,7 +63,7 @@ export const seoLandings: SeoLanding[] = [
     hero: {
       title: "Изготовление стекла в Алматы",
       lead: "Режем, обрабатываем и устанавливаем стекло по вашим размерам: от одной полки до остекления этажа.",
-      image: { src: "/images/catalog/steklo/cover.jpg", alt: "Листы стекла на производстве" },
+      image: { src: "/images/catalog/steklo/cover.webp", alt: "Листы стекла на производстве" },
     },
     facts: [
       { value: "от 1–2 дней", label: "изготовление простых изделий" },
@@ -153,7 +153,7 @@ export const seoLandings: SeoLanding[] = [
     hero: {
       title: "Резка стекла на заказ в Алматы",
       lead: "Прямая и фигурная резка стекла и зеркал по вашим размерам или чертежу, с обработкой кромки.",
-      image: { src: "/images/catalog/steklo/cover.jpg", alt: "Листы стекла, вид на кромку" },
+      image: { src: "/images/catalog/steklo/cover.webp", alt: "Листы стекла, вид на кромку" },
     },
     facts: [
       { value: "в день обращения", label: "простая резка" },
@@ -238,7 +238,7 @@ export const seoLandings: SeoLanding[] = [
     hero: {
       title: "Изготовление зеркал в Алматы",
       lead: "Зеркала по вашим размерам: на стену и потолок, с фацетом, для ванной, зеркальные стены и панно.",
-      image: { src: "/images/catalog/zerkala/cover.jpeg", alt: "Зеркала и панно" },
+      image: { src: "/images/catalog/zerkala/cover.webp", alt: "Зеркала и панно" },
     },
     facts: [
       { value: "от 3 дней", label: "изготовление" },
@@ -330,7 +330,7 @@ export const seoLandings: SeoLanding[] = [
       title: "Стеклянные перегородки в Алматы",
       lead: "Офисные и межкомнатные перегородки из закалённого стекла: стационарные, раздвижные, с дверями и в стиле лофт.",
       image: {
-        src: "/images/catalog/steklyannye-ofisnye-peregorodki/cover.jpg",
+        src: "/images/catalog/steklyannye-ofisnye-peregorodki/cover.webp",
         alt: "Стеклянные офисные перегородки",
       },
     },
@@ -418,7 +418,7 @@ export const seoLandings: SeoLanding[] = [
       title: "Стеклянные душевые в Алматы",
       lead: "Изготовим и установим душевую из закалённого стекла по вашим размерам: перегородки, уголки, двери и шторки.",
       image: {
-        src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.jpg",
+        src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.webp",
         alt: "Душевой уголок из закалённого стекла",
       },
     },
@@ -558,7 +558,7 @@ export const seoLandings: SeoLanding[] = [
       title: "Закалённое стекло в Алматы",
       lead: "Режем и обрабатываем стекло по вашим размерам, затем закаляем: оно в 5 раз прочнее обычного и безопасно при разрушении.",
       image: {
-        src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.jpg",
+        src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.webp",
         alt: "Душевой уголок из закалённого стекла",
       },
     },
@@ -648,7 +648,7 @@ export const seoLandings: SeoLanding[] = [
     hero: {
       title: "Стеклянные двери в Алматы",
       lead: "Распашные, раздвижные и маятниковые двери из закалённого стекла для квартир, офисов и магазинов.",
-      image: { src: "/images/catalog/dveri-na-zakaz/cover.jpg", alt: "Стеклянные двери" },
+      image: { src: "/images/catalog/dveri-na-zakaz/cover.webp", alt: "Стеклянные двери" },
     },
     facts: [
       { value: "от 7–10 дней", label: "изготовление" },
@@ -739,7 +739,7 @@ export const seoLandings: SeoLanding[] = [
     hero: {
       title: "Обработка стекла в Алматы",
       lead: "Шлифуем и полируем кромку, сверлим отверстия, делаем фацет и режем стекло по вашим размерам.",
-      image: { src: "/images/catalog/facetnoe-zerkalo/gallery-01.jpg", alt: "Зеркало с фацетом" },
+      image: { src: "/images/catalog/facetnoe-zerkalo/gallery-01.webp", alt: "Зеркало с фацетом" },
     },
     facts: [
       { value: "в день обращения", label: "простые работы" },

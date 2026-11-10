@@ -22,6 +22,7 @@ import type {
   ProductTag,
   SiteSettings,
 } from "@/lib/content/types";
+import { fillTemplate } from "@/lib/format/template";
 
 import { FilterSheet } from "./FilterSheet";
 import { SectionsNav } from "./SectionsNav";
@@ -136,7 +137,7 @@ export function CategoryBrowser({
 
         <div className="mt-4 flex items-center justify-between gap-4 border-b border-line pb-3 lg:mt-0">
           <span className="text-caption text-ink-muted" aria-live="polite">
-            {copy.foundLabel.replace("{count}", String(shown.length))}
+            {fillTemplate(copy.foundLabel, { count: shown.length })}
           </span>
           <div className="hidden lg:block">{sortSelect}</div>
         </div>

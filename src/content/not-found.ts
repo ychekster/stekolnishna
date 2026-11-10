@@ -11,7 +11,7 @@ export const notFoundPageContent: NotFoundPage = {
   homeLabel: "На главную",
   catalogLabel: "В каталог",
   image: {
-    src: "/images/hero-glass.jpg",
+    src: "/images/hero-glass.webp",
     alt: "Стеклянный фасад и стопка листов закалённого стекла",
   },
 };

@@ -43,7 +43,9 @@ import {
 } from "@/lib/content";
 import { formatPrice } from "@/lib/format/price";
 import { formatCount } from "@/lib/format/plural";
+import { fillTemplate } from "@/lib/format/template";
 import { routes } from "@/lib/routes";
+import { recordSeo } from "@/lib/seo/metadata";
 
 export async function generateStaticParams() {
   const categories = await getCatalogCategories();
@@ -53,12 +55,17 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps<"/katalog/[category]">): Promise<Metadata> {
-  const category = await getCatalogCategory((await params).category);
+  const [category, copy, settings] = await Promise.all([
+    getCatalogCategory((await params).category),
+    getCategoryPageCopy(),
+    getSiteSettings(),
+  ]);
   if (!category) return {};
-  return {
-    title: category.seo?.title ?? `${category.name} на заказ в Алматы | Стекло&Центр`,
-    description: category.seo?.description || category.description,
-  };
+  return recordSeo(category.seo, copy.seoFallback, {
+    name: category.name,
+    description: category.description,
+    company: settings.companyName,
+  });
 }
 
 export default async function CategoryPage({ params }: PageProps<"/katalog/[category]">) {
@@ -87,12 +94,10 @@ export default async function CategoryPage({ params }: PageProps<"/katalog/[cate
   const landing = landings.find((item) => item.categorySlug === category.slug);
   const isDrawings = category.slug === drawingsCopy.categorySlug;
   const priceChip = formatPrice(category.price);
-  // Lead times are stored as whole phrases ("Изготовление от 5–7 дней"), shown as they are.
-  const leadTimeChip = category.leadTime;
 
   const seoText = category.intro.length > 0 && (
     <SeoText
-      title={copy.seoTitle.replace("{name}", category.name)}
+      title={fillTemplate(copy.seoTitle, { name: category.name })}
       blocks={category.intro}
       moreLabel={copy.seoMoreLabel}
       size={isDrawings || products.length > 0 ? "section" : "compact"}
@@ -127,9 +132,7 @@ export default async function CategoryPage({ params }: PageProps<"/katalog/[cate
           telegramHref={telegram}
           chips={[
             priceChip,
-            drawingsCopy.countLabel
-              .replace("{sets}", String(drawingSets.length))
-              .replace("{count}", String(total)),
+            fillTemplate(drawingsCopy.countLabel, { sets: drawingSets.length, count: total }),
           ]}
         />
         <Suspense
@@ -162,7 +165,8 @@ export default async function CategoryPage({ params }: PageProps<"/katalog/[cate
       </>
     );
   } else {
-    const chips = [priceChip, leadTimeChip, formatCount(products.length, copy.productForms)];
+    // Lead times are stored as whole phrases ("Изготовление от 5–7 дней"), shown as they are.
+    const chips = [priceChip, category.leadTime, formatCount(products.length, copy.productForms)];
     body = (
       <>
         <CategoryHero category={category} chips={chips.filter((chip) => chip !== null)} />
@@ -183,12 +187,7 @@ export default async function CategoryPage({ params }: PageProps<"/katalog/[cate
   return (
     <>
       <Breadcrumbs
-        items={[
-          { label: "Главная", href: routes.home },
-          { label: catalog.name, href: routes.catalog },
-          { label: category.name },
-        ]}
-        className="mt-4 md:mt-8"
+        items={[{ label: catalog.name, href: routes.catalog }, { label: category.name }]}
       />
       {body}
       <OtherSectionsStrip

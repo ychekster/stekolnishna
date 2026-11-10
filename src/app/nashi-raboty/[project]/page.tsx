@@ -22,6 +22,7 @@ import {
 } from "@/lib/content";
 import { adjacentProjects } from "@/lib/portfolio/projects";
 import { routes } from "@/lib/routes";
+import { recordSeo } from "@/lib/seo/metadata";
 
 export async function generateStaticParams() {
   const projects = await getPortfolioProjects();
@@ -31,12 +32,17 @@ export async function generateStaticParams() {
 export async function generateMetadata({
   params,
 }: PageProps<"/nashi-raboty/[project]">): Promise<Metadata> {
-  const project = await getPortfolioProject((await params).project);
+  const [project, portfolio, settings] = await Promise.all([
+    getPortfolioProject((await params).project),
+    getPortfolioPage(),
+    getSiteSettings(),
+  ]);
   if (!project) return {};
-  return {
-    title: project.seo?.title ?? `${project.title}: наши работы | Стекло&Центр`,
-    description: project.seo?.description ?? project.excerpt,
-  };
+  return recordSeo(project.seo, portfolio.project.seoFallback, {
+    name: project.title,
+    excerpt: project.excerpt,
+    company: settings.companyName,
+  });
 }
 
 export default async function ProjectPage({ params }: PageProps<"/nashi-raboty/[project]">) {
@@ -58,12 +64,7 @@ export default async function ProjectPage({ params }: PageProps<"/nashi-raboty/[
   return (
     <>
       <Breadcrumbs
-        items={[
-          { label: "Главная", href: routes.home },
-          { label: portfolio.name, href: routes.portfolio },
-          { label: project.title },
-        ]}
-        className="mt-4 md:mt-8"
+        items={[{ label: portfolio.name, href: routes.portfolio }, { label: project.title }]}
       />
       <BackLink href={routes.portfolio} label={labels.backLabel} />
       <ProjectHero project={project} categoryLabel={categoryLabel} wantLabel={labels.wantLabel} />

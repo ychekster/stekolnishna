@@ -4,7 +4,7 @@
 import type { Price, PriceUnit } from "@/lib/content/types";
 
 /** Shown instead of a number until the owner sets real prices. Visible on purpose. */
-export const PRICE_PLACEHOLDER = "[цена]";
+const PRICE_PLACEHOLDER = "[цена]";
 
 const UNIT_SUFFIX: Record<PriceUnit, string> = {
   piece: "",

@@ -13,7 +13,7 @@ import { z } from "zod";
 import { normalizeKzPhone } from "@/lib/format/phone";
 
 /** Where a lead came from. Add a value when the form is placed on a new page. */
-export const LEAD_SOURCES = [
+const LEAD_SOURCES = [
   "homepage",
   "about-visit",
   "contacts",

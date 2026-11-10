@@ -18,7 +18,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Двери, уголки, раздвижные, перегородки",
     tagline: "Изготовление от 5–7 дней.",
     image: {
-      src: "/images/catalog/dushevye-kabiny/cover.jpg",
+      src: "/images/catalog/dushevye-kabiny/cover.webp",
       alt: "Душевые кабины",
     },
     price: {
@@ -83,7 +83,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Офисные, межкомнатные, раздвижные, лофт",
     tagline: "Изготовление от 7–10 дней.",
     image: {
-      src: "/images/catalog/steklyannye-peregorodki/cover.jpg",
+      src: "/images/catalog/steklyannye-peregorodki/cover.webp",
       alt: "Стеклянные перегородки",
     },
     price: {
@@ -158,7 +158,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "На стену и потолок, плитка, панно, фацет",
     tagline: "Изготовление от 5–7 дней.",
     image: {
-      src: "/images/catalog/zerkala/cover.jpeg",
+      src: "/images/catalog/zerkala/cover.webp",
       alt: "Зеркала и панно",
     },
     price: {
@@ -246,7 +246,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Лестницы, балконы, террасы, крыши",
     tagline: "Изготовление от 7–10 дней.",
     image: {
-      src: "/images/catalog/ograzhdeniya-i-peregorodki/cover.jpg",
+      src: "/images/catalog/ograzhdeniya-i-peregorodki/cover.webp",
       alt: "Стеклянные ограждения",
     },
     price: {
@@ -286,7 +286,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Раздвижные и маятниковые",
     tagline: "Изготовление от 7–10 дней.",
     image: {
-      src: "/images/catalog/dveri-na-zakaz/cover.jpg",
+      src: "/images/catalog/dveri-na-zakaz/cover.webp",
       alt: "Стеклянные двери",
     },
     price: {
@@ -345,7 +345,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Листовое стекло и триплекс",
     tagline: "Изготовление от 1–2 дней.",
     image: {
-      src: "/images/catalog/steklo/cover.jpg",
+      src: "/images/catalog/steklo/cover.webp",
       alt: "Стекло",
     },
     price: {
@@ -397,7 +397,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Столы, полки, столешницы, фартуки",
     tagline: "По вашим размерам.",
     image: {
-      src: "/images/catalog/steklyannaya-mebel/cover.jpg",
+      src: "/images/catalog/steklyannaya-mebel/cover.webp",
       alt: "Стеклянная мебель",
     },
     price: {
@@ -455,7 +455,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Подиумы, перекрытия, полы с подсветкой",
     tagline: "Изготовление от 10 дней.",
     image: {
-      src: "/images/catalog/steklyannye-poly/cover.jpg",
+      src: "/images/catalog/steklyannye-poly/cover.webp",
       alt: "Стеклянные полы",
     },
     price: {
@@ -511,7 +511,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Остекление без рам",
     tagline: "Изготовление от 10 дней.",
     image: {
-      src: "/images/catalog/bezramnoe-osteklenie/cover.jpg",
+      src: "/images/catalog/bezramnoe-osteklenie/cover.webp",
       alt: "Безрамное остекление",
     },
     price: {
@@ -596,7 +596,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Стекло в интерьере",
     tagline: "Изготовление от 5 дней.",
     image: {
-      src: "/images/catalog/interernoe-osteklenie/cover.jpg",
+      src: "/images/catalog/interernoe-osteklenie/cover.webp",
       alt: "Интерьерное остекление",
     },
     price: {
@@ -677,7 +677,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Стекло для саун и хамамов",
     tagline: "Изготовление от 10 дней.",
     image: {
-      src: "/images/catalog/osteklenie-saun-i-hamamov/cover.jpg",
+      src: "/images/catalog/osteklenie-saun-i-hamamov/cover.webp",
       alt: "Остекление саун и хамамов",
     },
     price: {
@@ -740,7 +740,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Павильоны и конструкции по проекту",
     tagline: "Изготовление от 10 дней.",
     image: {
-      src: "/images/catalog/steklyannye-konstrukcii/cover.jpg",
+      src: "/images/catalog/steklyannye-konstrukcii/cover.webp",
       alt: "Стеклянные конструкции",
     },
     price: {
@@ -797,7 +797,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Пескоструйные, цветные, матированные",
     tagline: "По вашим размерам.",
     image: {
-      src: "/images/catalog/risunki/cover.jpg",
+      src: "/images/catalog/risunki/cover.webp",
       alt: "Рисунки на стекле",
     },
     price: {
@@ -824,7 +824,7 @@ export const catalogCategories: CatalogCategory[] = [
     description: "Для стеклянных конструкций",
     tagline: "По вашим размерам.",
     image: {
-      src: "/images/catalog/furnitura/cover.jpg",
+      src: "/images/catalog/furnitura/cover.webp",
       alt: "Фурнитура",
     },
     price: {
@@ -884,12 +884,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/raspashnye-dushevye-dveri/gallery-01.jpg",
+      src: "/images/catalog/raspashnye-dushevye-dveri/gallery-01.webp",
       alt: "Распашные душевые двери",
     },
     gallery: [
       {
-        src: "/images/catalog/raspashnye-dushevye-dveri/gallery-01.jpg",
+        src: "/images/catalog/raspashnye-dushevye-dveri/gallery-01.webp",
         alt: "Распашные душевые двери, фото 1",
       },
     ],
@@ -934,12 +934,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dvustvorchatye-dushevye-dveri/cover.jpg",
+      src: "/images/catalog/dvustvorchatye-dushevye-dveri/cover.webp",
       alt: "Двустворчатые душевые двери",
     },
     gallery: [
       {
-        src: "/images/catalog/dvustvorchatye-dushevye-dveri/gallery-01.jpg",
+        src: "/images/catalog/dvustvorchatye-dushevye-dveri/gallery-01.webp",
         alt: "Двустворчатые душевые двери, фото 1",
       },
     ],
@@ -1008,12 +1008,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/steklyannye-dveri-dlya-dushevoj/gallery-01.jpg",
+      src: "/images/catalog/steklyannye-dveri-dlya-dushevoj/gallery-01.webp",
       alt: "Стеклянные двери для душевой",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-dveri-dlya-dushevoj/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-dveri-dlya-dushevoj/gallery-01.webp",
         alt: "Стеклянные двери для душевой, фото 1",
       },
     ],
@@ -1059,12 +1059,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dveri-dlya-dushevoj-nishi/gallery-01.jpg",
+      src: "/images/catalog/dveri-dlya-dushevoj-nishi/gallery-01.webp",
       alt: "Двери для душевой ниши",
     },
     gallery: [
       {
-        src: "/images/catalog/dveri-dlya-dushevoj-nishi/gallery-01.jpg",
+        src: "/images/catalog/dveri-dlya-dushevoj-nishi/gallery-01.webp",
         alt: "Двери для душевой ниши, фото 1",
       },
     ],
@@ -1114,12 +1114,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dveri-dlya-dushevyh-kabin/gallery-01.jpg",
+      src: "/images/catalog/dveri-dlya-dushevyh-kabin/gallery-01.webp",
       alt: "Двери для душевых кабин",
     },
     gallery: [
       {
-        src: "/images/catalog/dveri-dlya-dushevyh-kabin/gallery-01.jpg",
+        src: "/images/catalog/dveri-dlya-dushevyh-kabin/gallery-01.webp",
         alt: "Двери для душевых кабин, фото 1",
       },
     ],
@@ -1165,12 +1165,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/skladnye-dushevye-dveri/gallery-01.jpg",
+      src: "/images/catalog/skladnye-dushevye-dveri/gallery-01.webp",
       alt: "Складные душевые двери",
     },
     gallery: [
       {
-        src: "/images/catalog/skladnye-dushevye-dveri/gallery-01.jpg",
+        src: "/images/catalog/skladnye-dushevye-dveri/gallery-01.webp",
         alt: "Складные душевые двери, фото 1",
       },
     ],
@@ -1208,12 +1208,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/malenkie-dushevye-ugolki/gallery-01.jpg",
+      src: "/images/catalog/malenkie-dushevye-ugolki/gallery-01.webp",
       alt: "Маленькие душевые уголки",
     },
     gallery: [
       {
-        src: "/images/catalog/malenkie-dushevye-ugolki/gallery-01.jpg",
+        src: "/images/catalog/malenkie-dushevye-ugolki/gallery-01.webp",
         alt: "Маленькие душевые уголки, фото 1",
       },
     ],
@@ -1263,12 +1263,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.jpg",
+      src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.webp",
       alt: "Душевые уголки из стекла",
     },
     gallery: [
       {
-        src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.jpg",
+        src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.webp",
         alt: "Душевые уголки из стекла, фото 1",
       },
     ],
@@ -1310,12 +1310,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/raspashnye-dushevye-ugolki/gallery-01.jpg",
+      src: "/images/catalog/raspashnye-dushevye-ugolki/gallery-01.webp",
       alt: "Распашные душевые уголки",
     },
     gallery: [
       {
-        src: "/images/catalog/raspashnye-dushevye-ugolki/gallery-01.jpg",
+        src: "/images/catalog/raspashnye-dushevye-ugolki/gallery-01.webp",
         alt: "Распашные душевые уголки, фото 1",
       },
     ],
@@ -1357,12 +1357,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dushevye-ugolki-bez-poddona/gallery-01.jpg",
+      src: "/images/catalog/dushevye-ugolki-bez-poddona/gallery-01.webp",
       alt: "Душевые уголки без поддона",
     },
     gallery: [
       {
-        src: "/images/catalog/dushevye-ugolki-bez-poddona/gallery-01.jpg",
+        src: "/images/catalog/dushevye-ugolki-bez-poddona/gallery-01.webp",
         alt: "Душевые уголки без поддона, фото 1",
       },
     ],
@@ -1407,12 +1407,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dushevoj-ugolok-kvadratnyj/gallery-01.jpg",
+      src: "/images/catalog/dushevoj-ugolok-kvadratnyj/gallery-01.webp",
       alt: "Душевой уголок квадратный",
     },
     gallery: [
       {
-        src: "/images/catalog/dushevoj-ugolok-kvadratnyj/gallery-01.jpg",
+        src: "/images/catalog/dushevoj-ugolok-kvadratnyj/gallery-01.webp",
         alt: "Душевой уголок квадратный, фото 1",
       },
     ],
@@ -1466,12 +1466,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/skladnye-dushevye-kabiny/gallery-01.jpg",
+      src: "/images/catalog/skladnye-dushevye-kabiny/gallery-01.webp",
       alt: "Складные душевые кабины",
     },
     gallery: [
       {
-        src: "/images/catalog/skladnye-dushevye-kabiny/gallery-01.jpg",
+        src: "/images/catalog/skladnye-dushevye-kabiny/gallery-01.webp",
         alt: "Складные душевые кабины, фото 1",
       },
     ],
@@ -1521,12 +1521,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/razdvizhnye-dushevye-dveri/gallery-01.jpg",
+      src: "/images/catalog/razdvizhnye-dushevye-dveri/gallery-01.webp",
       alt: "Раздвижные душевые двери",
     },
     gallery: [
       {
-        src: "/images/catalog/razdvizhnye-dushevye-dveri/gallery-01.jpg",
+        src: "/images/catalog/razdvizhnye-dushevye-dveri/gallery-01.webp",
         alt: "Раздвижные душевые двери, фото 1",
       },
     ],
@@ -1576,12 +1576,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/uglovye-dushevye-ograzhdeniya-s-razdvizhnoj-dveryu/gallery-01.jpg",
+      src: "/images/catalog/uglovye-dushevye-ograzhdeniya-s-razdvizhnoj-dveryu/gallery-01.webp",
       alt: "Угловые душевые ограждения с раздвижной дверью",
     },
     gallery: [
       {
-        src: "/images/catalog/uglovye-dushevye-ograzhdeniya-s-razdvizhnoj-dveryu/gallery-01.jpg",
+        src: "/images/catalog/uglovye-dushevye-ograzhdeniya-s-razdvizhnoj-dveryu/gallery-01.webp",
         alt: "Угловые душевые ограждения с раздвижной дверью, фото 1",
       },
     ],
@@ -1623,12 +1623,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dushevaya-peregorodka-s-krepleniem-k-stene/gallery-01.jpg",
+      src: "/images/catalog/dushevaya-peregorodka-s-krepleniem-k-stene/gallery-01.webp",
       alt: "Душевая перегородка с креплением к стене",
     },
     gallery: [
       {
-        src: "/images/catalog/dushevaya-peregorodka-s-krepleniem-k-stene/gallery-01.jpg",
+        src: "/images/catalog/dushevaya-peregorodka-s-krepleniem-k-stene/gallery-01.webp",
         alt: "Душевая перегородка с креплением к стене, фото 1",
       },
     ],
@@ -1666,12 +1666,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dushevaya-peregorodka-walk-in-bez-krepleniya-k-stene/gallery-01.jpg",
+      src: "/images/catalog/dushevaya-peregorodka-walk-in-bez-krepleniya-k-stene/gallery-01.webp",
       alt: "Душевая перегородка Walk-In без крепления к стене",
     },
     gallery: [
       {
-        src: "/images/catalog/dushevaya-peregorodka-walk-in-bez-krepleniya-k-stene/gallery-01.jpg",
+        src: "/images/catalog/dushevaya-peregorodka-walk-in-bez-krepleniya-k-stene/gallery-01.webp",
         alt: "Душевая перегородка Walk-In без крепления к стене, фото 1",
       },
     ],
@@ -1721,12 +1721,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dushevaya-peregorodka-s-dopolnitelnym-ekranom/gallery-01.jpg",
+      src: "/images/catalog/dushevaya-peregorodka-s-dopolnitelnym-ekranom/gallery-01.webp",
       alt: "Душевая перегородка с дополнительным экраном",
     },
     gallery: [
       {
-        src: "/images/catalog/dushevaya-peregorodka-s-dopolnitelnym-ekranom/gallery-01.jpg",
+        src: "/images/catalog/dushevaya-peregorodka-s-dopolnitelnym-ekranom/gallery-01.webp",
         alt: "Душевая перегородка с дополнительным экраном, фото 1",
       },
     ],
@@ -1776,12 +1776,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dushevaya-peregorodka-s-dvumya-bokovymi-ekranami/gallery-01.jpg",
+      src: "/images/catalog/dushevaya-peregorodka-s-dvumya-bokovymi-ekranami/gallery-01.webp",
       alt: "Душевая перегородка с двумя боковыми экранами",
     },
     gallery: [
       {
-        src: "/images/catalog/dushevaya-peregorodka-s-dvumya-bokovymi-ekranami/gallery-01.jpg",
+        src: "/images/catalog/dushevaya-peregorodka-s-dvumya-bokovymi-ekranami/gallery-01.webp",
         alt: "Душевая перегородка с двумя боковыми экранами, фото 1",
       },
     ],
@@ -1823,12 +1823,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/dushevaya-peregorodka-s-nesushhej-stojkoj-pol-potolok/gallery-01.jpg",
+      src: "/images/catalog/dushevaya-peregorodka-s-nesushhej-stojkoj-pol-potolok/gallery-01.webp",
       alt: "Душевая перегородка с несущей стойкой пол-потолок",
     },
     gallery: [
       {
-        src: "/images/catalog/dushevaya-peregorodka-s-nesushhej-stojkoj-pol-potolok/gallery-01.jpg",
+        src: "/images/catalog/dushevaya-peregorodka-s-nesushhej-stojkoj-pol-potolok/gallery-01.webp",
         alt: "Душевая перегородка с несущей стойкой пол-потолок, фото 1",
       },
     ],
@@ -1876,12 +1876,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/p-obraznaya-dushevaya-peregorodka/gallery-01.jpg",
+      src: "/images/catalog/p-obraznaya-dushevaya-peregorodka/gallery-01.webp",
       alt: "П-образная душевая перегородка",
     },
     gallery: [
       {
-        src: "/images/catalog/p-obraznaya-dushevaya-peregorodka/gallery-01.jpg",
+        src: "/images/catalog/p-obraznaya-dushevaya-peregorodka/gallery-01.webp",
         alt: "П-образная душевая перегородка, фото 1",
       },
     ],
@@ -1953,12 +1953,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/uglovaya-razdvizhnaya-peregorodka-s-dvumya-dveryami/gallery-01.jpg",
+      src: "/images/catalog/uglovaya-razdvizhnaya-peregorodka-s-dvumya-dveryami/gallery-01.webp",
       alt: "Угловая раздвижная перегородка с двумя дверями",
     },
     gallery: [
       {
-        src: "/images/catalog/uglovaya-razdvizhnaya-peregorodka-s-dvumya-dveryami/gallery-01.jpg",
+        src: "/images/catalog/uglovaya-razdvizhnaya-peregorodka-s-dvumya-dveryami/gallery-01.webp",
         alt: "Угловая раздвижная перегородка с двумя дверями, фото 1",
       },
     ],
@@ -2018,12 +2018,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/eksklyuzivnye-dushevye/cover.jpg",
+      src: "/images/catalog/eksklyuzivnye-dushevye/cover.webp",
       alt: "Эксклюзивные душевые",
     },
     gallery: [
       {
-        src: "/images/catalog/eksklyuzivnye-dushevye/gallery-01.jpg",
+        src: "/images/catalog/eksklyuzivnye-dushevye/gallery-01.webp",
         alt: "Эксклюзивные душевые, фото 1",
       },
     ],
@@ -2084,7 +2084,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/steklo-dlya-dushevyh-kabin/cover.jpg",
+      src: "/images/catalog/steklo-dlya-dushevyh-kabin/cover.webp",
       alt: "Стекло для душевых кабин",
     },
     gallery: [],
@@ -2153,7 +2153,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/celnosteklyannye-peregorodki-s-mayatnikovymi-dveryami/cover.jpg",
+      src: "/images/catalog/celnosteklyannye-peregorodki-s-mayatnikovymi-dveryami/cover.webp",
       alt: "Цельностеклянные перегородки с маятниковыми дверями",
     },
     gallery: [],
@@ -2205,7 +2205,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/celnosteklyannye-peregorodki-s-razdvizhnymi-dveryami/cover.jpg",
+      src: "/images/catalog/celnosteklyannye-peregorodki-s-razdvizhnymi-dveryami/cover.webp",
       alt: "Цельностеклянные перегородки с раздвижными дверями",
     },
     gallery: [],
@@ -2254,7 +2254,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/celnosteklyannye-peregorodki-s-raspashnymi-dveryami/cover.jpg",
+      src: "/images/catalog/celnosteklyannye-peregorodki-s-raspashnymi-dveryami/cover.webp",
       alt: "Цельностеклянные перегородки с распашными дверями",
     },
     gallery: [],
@@ -2307,7 +2307,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/celnosteklyannye-stacionarnye-peregorodki/cover.jpg",
+      src: "/images/catalog/celnosteklyannye-stacionarnye-peregorodki/cover.webp",
       alt: "Цельностеклянные стационарные перегородки",
     },
     gallery: [],
@@ -2352,7 +2352,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/mezhkomnatnye-peregorodki/cover.jpg",
+      src: "/images/catalog/mezhkomnatnye-peregorodki/cover.webp",
       alt: "Межкомнатные перегородки",
     },
     gallery: [],
@@ -2401,7 +2401,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/steklyannye-ofisnye-peregorodki/cover.jpg",
+      src: "/images/catalog/steklyannye-ofisnye-peregorodki/cover.webp",
       alt: "Стеклянные офисные перегородки",
     },
     gallery: [],
@@ -2455,7 +2455,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/ustanovka-steklyannyh-peregorodok/cover.jpg",
+      src: "/images/catalog/ustanovka-steklyannyh-peregorodok/cover.webp",
       alt: "Установка стеклянных перегородок",
     },
     gallery: [],
@@ -2488,7 +2488,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/razdvizhnye-steklyannye-peregorodki/cover.jpg",
+      src: "/images/catalog/razdvizhnye-steklyannye-peregorodki/cover.webp",
       alt: "Раздвижные стеклянные перегородки",
     },
     gallery: [],
@@ -2577,7 +2577,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/transformiruemye-peregorodki/cover.jpg",
+      src: "/images/catalog/transformiruemye-peregorodki/cover.webp",
       alt: "Трансформируемые перегородки",
     },
     gallery: [],
@@ -2684,7 +2684,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/alyuminievye-peregorodki/cover.jpg",
+      src: "/images/catalog/alyuminievye-peregorodki/cover.webp",
       alt: "Алюминиевые перегородки",
     },
     gallery: [],
@@ -2773,7 +2773,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/peregorodki-v-stile-loft/cover.jpg",
+      src: "/images/catalog/peregorodki-v-stile-loft/cover.webp",
       alt: "Перегородки в стиле Loft",
     },
     gallery: [],
@@ -2854,7 +2854,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/peregorodki-umnoe-steklo/cover.jpg",
+      src: "/images/catalog/peregorodki-umnoe-steklo/cover.webp",
       alt: "Перегородки «Умное стекло»",
     },
     gallery: [],
@@ -2955,48 +2955,48 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/zerkalnaya-plitka/gallery-01.jpeg",
+      src: "/images/catalog/zerkalnaya-plitka/gallery-01.webp",
       alt: "Зеркальная плитка",
     },
     gallery: [
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-01.jpeg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-01.webp",
         alt: "Зеркальная плитка, фото 1",
       },
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-02.jpeg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-02.webp",
         alt: "Зеркальная плитка, фото 2",
       },
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-03.jpeg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-03.webp",
         alt: "Зеркальная плитка, фото 3",
       },
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-04.jpeg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-04.webp",
         alt: "Зеркальная плитка, фото 4",
       },
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-05.jpeg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-05.webp",
         alt: "Зеркальная плитка, фото 5",
       },
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-06.jpeg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-06.webp",
         alt: "Зеркальная плитка, фото 6",
       },
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-07.jpg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-07.webp",
         alt: "Зеркальная плитка, фото 7",
       },
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-08.jpg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-08.webp",
         alt: "Зеркальная плитка, фото 8",
       },
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-09.jpeg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-09.webp",
         alt: "Зеркальная плитка, фото 9",
       },
       {
-        src: "/images/catalog/zerkalnaya-plitka/gallery-10.jpeg",
+        src: "/images/catalog/zerkalnaya-plitka/gallery-10.webp",
         alt: "Зеркальная плитка, фото 10",
       },
     ],
@@ -3042,12 +3042,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/zerkalnoe-panno-na-stenu/gallery-01.jpg",
+      src: "/images/catalog/zerkalnoe-panno-na-stenu/gallery-01.webp",
       alt: "Зеркальное панно на стену",
     },
     gallery: [
       {
-        src: "/images/catalog/zerkalnoe-panno-na-stenu/gallery-01.jpg",
+        src: "/images/catalog/zerkalnoe-panno-na-stenu/gallery-01.webp",
         alt: "Зеркальное панно на стену, фото 1",
       },
     ],
@@ -3109,176 +3109,176 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/facetnoe-zerkalo/gallery-01.jpg",
+      src: "/images/catalog/facetnoe-zerkalo/gallery-01.webp",
       alt: "Фацетное зеркало",
     },
     gallery: [
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-01.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-01.webp",
         alt: "Фацетное зеркало, фото 1",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-02.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-02.webp",
         alt: "Фацетное зеркало, фото 2",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-03.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-03.webp",
         alt: "Фацетное зеркало, фото 3",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-04.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-04.webp",
         alt: "Фацетное зеркало, фото 4",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-05.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-05.webp",
         alt: "Фацетное зеркало, фото 5",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-06.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-06.webp",
         alt: "Фацетное зеркало, фото 6",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-07.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-07.webp",
         alt: "Фацетное зеркало, фото 7",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-08.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-08.webp",
         alt: "Фацетное зеркало, фото 8",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-09.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-09.webp",
         alt: "Фацетное зеркало, фото 9",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-10.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-10.webp",
         alt: "Фацетное зеркало, фото 10",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-11.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-11.webp",
         alt: "Фацетное зеркало, фото 11",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-12.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-12.webp",
         alt: "Фацетное зеркало, фото 12",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-13.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-13.webp",
         alt: "Фацетное зеркало, фото 13",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-14.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-14.webp",
         alt: "Фацетное зеркало, фото 14",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-15.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-15.webp",
         alt: "Фацетное зеркало, фото 15",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-16.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-16.webp",
         alt: "Фацетное зеркало, фото 16",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-17.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-17.webp",
         alt: "Фацетное зеркало, фото 17",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-18.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-18.webp",
         alt: "Фацетное зеркало, фото 18",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-19.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-19.webp",
         alt: "Фацетное зеркало, фото 19",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-20.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-20.webp",
         alt: "Фацетное зеркало, фото 20",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-21.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-21.webp",
         alt: "Фацетное зеркало, фото 21",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-22.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-22.webp",
         alt: "Фацетное зеркало, фото 22",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-23.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-23.webp",
         alt: "Фацетное зеркало, фото 23",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-24.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-24.webp",
         alt: "Фацетное зеркало, фото 24",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-25.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-25.webp",
         alt: "Фацетное зеркало, фото 25",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-26.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-26.webp",
         alt: "Фацетное зеркало, фото 26",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-27.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-27.webp",
         alt: "Фацетное зеркало, фото 27",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-28.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-28.webp",
         alt: "Фацетное зеркало, фото 28",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-29.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-29.webp",
         alt: "Фацетное зеркало, фото 29",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-30.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-30.webp",
         alt: "Фацетное зеркало, фото 30",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-31.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-31.webp",
         alt: "Фацетное зеркало, фото 31",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-32.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-32.webp",
         alt: "Фацетное зеркало, фото 32",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-33.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-33.webp",
         alt: "Фацетное зеркало, фото 33",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-34.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-34.webp",
         alt: "Фацетное зеркало, фото 34",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-35.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-35.webp",
         alt: "Фацетное зеркало, фото 35",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-36.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-36.webp",
         alt: "Фацетное зеркало, фото 36",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-37.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-37.webp",
         alt: "Фацетное зеркало, фото 37",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-38.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-38.webp",
         alt: "Фацетное зеркало, фото 38",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-39.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-39.webp",
         alt: "Фацетное зеркало, фото 39",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-40.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-40.webp",
         alt: "Фацетное зеркало, фото 40",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-41.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-41.webp",
         alt: "Фацетное зеркало, фото 41",
       },
       {
-        src: "/images/catalog/facetnoe-zerkalo/gallery-42.jpg",
+        src: "/images/catalog/facetnoe-zerkalo/gallery-42.webp",
         alt: "Фацетное зеркало, фото 42",
       },
     ],
@@ -3336,36 +3336,36 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/zerkala-na-stenu/gallery-01.jpeg",
+      src: "/images/catalog/zerkala-na-stenu/gallery-01.webp",
       alt: "Зеркала на стену",
     },
     gallery: [
       {
-        src: "/images/catalog/zerkala-na-stenu/gallery-01.jpeg",
+        src: "/images/catalog/zerkala-na-stenu/gallery-01.webp",
         alt: "Зеркала на стену, фото 1",
       },
       {
-        src: "/images/catalog/zerkala-na-stenu/gallery-02.jpeg",
+        src: "/images/catalog/zerkala-na-stenu/gallery-02.webp",
         alt: "Зеркала на стену, фото 2",
       },
       {
-        src: "/images/catalog/zerkala-na-stenu/gallery-03.jpeg",
+        src: "/images/catalog/zerkala-na-stenu/gallery-03.webp",
         alt: "Зеркала на стену, фото 3",
       },
       {
-        src: "/images/catalog/zerkala-na-stenu/gallery-04.jpeg",
+        src: "/images/catalog/zerkala-na-stenu/gallery-04.webp",
         alt: "Зеркала на стену, фото 4",
       },
       {
-        src: "/images/catalog/zerkala-na-stenu/gallery-05.jpeg",
+        src: "/images/catalog/zerkala-na-stenu/gallery-05.webp",
         alt: "Зеркала на стену, фото 5",
       },
       {
-        src: "/images/catalog/zerkala-na-stenu/gallery-06.jpeg",
+        src: "/images/catalog/zerkala-na-stenu/gallery-06.webp",
         alt: "Зеркала на стену, фото 6",
       },
       {
-        src: "/images/catalog/zerkala-na-stenu/gallery-07.jpg",
+        src: "/images/catalog/zerkala-na-stenu/gallery-07.webp",
         alt: "Зеркала на стену, фото 7",
       },
     ],
@@ -3414,32 +3414,32 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/zerkala-na-potolok/gallery-01.jpg",
+      src: "/images/catalog/zerkala-na-potolok/gallery-01.webp",
       alt: "Зеркала на потолок",
     },
     gallery: [
       {
-        src: "/images/catalog/zerkala-na-potolok/gallery-01.jpg",
+        src: "/images/catalog/zerkala-na-potolok/gallery-01.webp",
         alt: "Зеркала на потолок, фото 1",
       },
       {
-        src: "/images/catalog/zerkala-na-potolok/gallery-02.jpg",
+        src: "/images/catalog/zerkala-na-potolok/gallery-02.webp",
         alt: "Зеркала на потолок, фото 2",
       },
       {
-        src: "/images/catalog/zerkala-na-potolok/gallery-03.jpg",
+        src: "/images/catalog/zerkala-na-potolok/gallery-03.webp",
         alt: "Зеркала на потолок, фото 3",
       },
       {
-        src: "/images/catalog/zerkala-na-potolok/gallery-04.jpg",
+        src: "/images/catalog/zerkala-na-potolok/gallery-04.webp",
         alt: "Зеркала на потолок, фото 4",
       },
       {
-        src: "/images/catalog/zerkala-na-potolok/gallery-05.jpg",
+        src: "/images/catalog/zerkala-na-potolok/gallery-05.webp",
         alt: "Зеркала на потолок, фото 5",
       },
       {
-        src: "/images/catalog/zerkala-na-potolok/gallery-06.jpg",
+        src: "/images/catalog/zerkala-na-potolok/gallery-06.webp",
         alt: "Зеркала на потолок, фото 6",
       },
     ],
@@ -3512,12 +3512,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office"],
     image: {
-      src: "/images/catalog/zerkalnye-steny/gallery-01.jpg",
+      src: "/images/catalog/zerkalnye-steny/gallery-01.webp",
       alt: "Зеркальные стены",
     },
     gallery: [
       {
-        src: "/images/catalog/zerkalnye-steny/gallery-01.jpg",
+        src: "/images/catalog/zerkalnye-steny/gallery-01.webp",
         alt: "Зеркальные стены, фото 1",
       },
     ],
@@ -3571,12 +3571,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/sostarennye-zerkala/gallery-01.jpg",
+      src: "/images/catalog/sostarennye-zerkala/gallery-01.webp",
       alt: "Состаренные зеркала",
     },
     gallery: [
       {
-        src: "/images/catalog/sostarennye-zerkala/gallery-01.jpg",
+        src: "/images/catalog/sostarennye-zerkala/gallery-01.webp",
         alt: "Состаренные зеркала, фото 1",
       },
     ],
@@ -3638,12 +3638,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office"],
     image: {
-      src: "/images/catalog/grimernye-zerkala/gallery-01.jpg",
+      src: "/images/catalog/grimernye-zerkala/gallery-01.webp",
       alt: "Гримерные зеркала",
     },
     gallery: [
       {
-        src: "/images/catalog/grimernye-zerkala/gallery-01.jpg",
+        src: "/images/catalog/grimernye-zerkala/gallery-01.webp",
         alt: "Гримерные зеркала, фото 1",
       },
     ],
@@ -3725,12 +3725,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/zerkala-dlya-vannoj/gallery-01.jpeg",
+      src: "/images/catalog/zerkala-dlya-vannoj/gallery-01.webp",
       alt: "Зеркала для ванной",
     },
     gallery: [
       {
-        src: "/images/catalog/zerkala-dlya-vannoj/gallery-01.jpeg",
+        src: "/images/catalog/zerkala-dlya-vannoj/gallery-01.webp",
         alt: "Зеркала для ванной, фото 1",
       },
     ],
@@ -3808,12 +3808,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/zerkala-s-peskostrujnym-risunkom/gallery-01.jpg",
+      src: "/images/catalog/zerkala-s-peskostrujnym-risunkom/gallery-01.webp",
       alt: "Зеркала с пескоструйным рисунком",
     },
     gallery: [
       {
-        src: "/images/catalog/zerkala-s-peskostrujnym-risunkom/gallery-01.jpg",
+        src: "/images/catalog/zerkala-s-peskostrujnym-risunkom/gallery-01.webp",
         alt: "Зеркала с пескоструйным рисунком, фото 1",
       },
     ],
@@ -3867,12 +3867,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/ograzhdeniya-lestnic/gallery-01.jpg",
+      src: "/images/catalog/ograzhdeniya-lestnic/gallery-01.webp",
       alt: "Ограждения лестниц",
     },
     gallery: [
       {
-        src: "/images/catalog/ograzhdeniya-lestnic/gallery-01.jpg",
+        src: "/images/catalog/ograzhdeniya-lestnic/gallery-01.webp",
         alt: "Ограждения лестниц, фото 1",
       },
     ],
@@ -3938,12 +3938,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/ograzhdeniya-balkonov/gallery-01.jpg",
+      src: "/images/catalog/ograzhdeniya-balkonov/gallery-01.webp",
       alt: "Ограждения балконов",
     },
     gallery: [
       {
-        src: "/images/catalog/ograzhdeniya-balkonov/gallery-01.jpg",
+        src: "/images/catalog/ograzhdeniya-balkonov/gallery-01.webp",
         alt: "Ограждения балконов, фото 1",
       },
     ],
@@ -4001,12 +4001,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/ograzhdeniya-krysh/gallery-01.jpg",
+      src: "/images/catalog/ograzhdeniya-krysh/gallery-01.webp",
       alt: "Ограждения крыш",
     },
     gallery: [
       {
-        src: "/images/catalog/ograzhdeniya-krysh/gallery-01.jpg",
+        src: "/images/catalog/ograzhdeniya-krysh/gallery-01.webp",
         alt: "Ограждения крыш, фото 1",
       },
     ],
@@ -4080,12 +4080,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/ograzhdenie-terrasy/gallery-01.jpg",
+      src: "/images/catalog/ograzhdenie-terrasy/gallery-01.webp",
       alt: "Ограждение террасы",
     },
     gallery: [
       {
-        src: "/images/catalog/ograzhdenie-terrasy/gallery-01.jpg",
+        src: "/images/catalog/ograzhdenie-terrasy/gallery-01.webp",
         alt: "Ограждение террасы, фото 1",
       },
     ],
@@ -4155,12 +4155,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation", "tempered"],
     image: {
-      src: "/images/catalog/ograzhdeniya-iz-nerzhavejki/gallery-01.jpg",
+      src: "/images/catalog/ograzhdeniya-iz-nerzhavejki/gallery-01.webp",
       alt: "Ограждения из нержавейки",
     },
     gallery: [
       {
-        src: "/images/catalog/ograzhdeniya-iz-nerzhavejki/gallery-01.jpg",
+        src: "/images/catalog/ograzhdeniya-iz-nerzhavejki/gallery-01.webp",
         alt: "Ограждения из нержавейки, фото 1",
       },
     ],
@@ -4230,7 +4230,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/steklyannye-razdvizhnye-dveri/cover.jpg",
+      src: "/images/catalog/steklyannye-razdvizhnye-dveri/cover.webp",
       alt: "Раздвижная стеклянная дверь",
     },
     gallery: [],
@@ -4275,7 +4275,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/mayatnikovye-dveri/cover.jpg",
+      src: "/images/catalog/mayatnikovye-dveri/cover.webp",
       alt: "Стеклянные двери на входе",
     },
     gallery: [],
@@ -4299,12 +4299,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office"],
     image: {
-      src: "/images/catalog/steklo-tripleks/gallery-01.jpg",
+      src: "/images/catalog/steklo-tripleks/gallery-01.webp",
       alt: "Стекло Триплекс",
     },
     gallery: [
       {
-        src: "/images/catalog/steklo-tripleks/gallery-01.jpg",
+        src: "/images/catalog/steklo-tripleks/gallery-01.webp",
         alt: "Стекло Триплекс, фото 1",
       },
     ],
@@ -4347,12 +4347,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/steklyannye-zhurnalnye-stoliki/gallery-01.jpg",
+      src: "/images/catalog/steklyannye-zhurnalnye-stoliki/gallery-01.webp",
       alt: "Стеклянные журнальные столики",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-zhurnalnye-stoliki/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-zhurnalnye-stoliki/gallery-01.webp",
         alt: "Стеклянные журнальные столики, фото 1",
       },
     ],
@@ -4408,80 +4408,80 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/steklyannye-polki/cover.jpg",
+      src: "/images/catalog/steklyannye-polki/cover.webp",
       alt: "Стеклянные полки",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-polki/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-01.webp",
         alt: "Стеклянные полки, фото 1",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-02.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-02.webp",
         alt: "Стеклянные полки, фото 2",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-03.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-03.webp",
         alt: "Стеклянные полки, фото 3",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-04.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-04.webp",
         alt: "Стеклянные полки, фото 4",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-05.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-05.webp",
         alt: "Стеклянные полки, фото 5",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-06.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-06.webp",
         alt: "Стеклянные полки, фото 6",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-07.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-07.webp",
         alt: "Стеклянные полки, фото 7",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-08.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-08.webp",
         alt: "Стеклянные полки, фото 8",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-09.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-09.webp",
         alt: "Стеклянные полки, фото 9",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-10.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-10.webp",
         alt: "Стеклянные полки, фото 10",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-11.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-11.webp",
         alt: "Стеклянные полки, фото 11",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-12.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-12.webp",
         alt: "Стеклянные полки, фото 12",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-13.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-13.webp",
         alt: "Стеклянные полки, фото 13",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-14.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-14.webp",
         alt: "Стеклянные полки, фото 14",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-15.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-15.webp",
         alt: "Стеклянные полки, фото 15",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-16.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-16.webp",
         alt: "Стеклянные полки, фото 16",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-17.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-17.webp",
         alt: "Стеклянные полки, фото 17",
       },
       {
-        src: "/images/catalog/steklyannye-polki/gallery-18.jpg",
+        src: "/images/catalog/steklyannye-polki/gallery-18.webp",
         alt: "Стеклянные полки, фото 18",
       },
     ],
@@ -4537,12 +4537,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office"],
     image: {
-      src: "/images/catalog/steklyannye-stoleshnicy/gallery-01.jpg",
+      src: "/images/catalog/steklyannye-stoleshnicy/gallery-01.webp",
       alt: "Стеклянные столешницы",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-stoleshnicy/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-stoleshnicy/gallery-01.webp",
         alt: "Стеклянные столешницы, фото 1",
       },
     ],
@@ -4598,12 +4598,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/celnosteklyannye-shkafy/gallery-01.jpg",
+      src: "/images/catalog/celnosteklyannye-shkafy/gallery-01.webp",
       alt: "Цельностеклянные шкафы",
     },
     gallery: [
       {
-        src: "/images/catalog/celnosteklyannye-shkafy/gallery-01.jpg",
+        src: "/images/catalog/celnosteklyannye-shkafy/gallery-01.webp",
         alt: "Цельностеклянные шкафы, фото 1",
       },
     ],
@@ -4675,12 +4675,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office"],
     image: {
-      src: "/images/catalog/steklyannye-stoly/cover.jpg",
+      src: "/images/catalog/steklyannye-stoly/cover.webp",
       alt: "Стеклянные столы",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-stoly/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-stoly/gallery-01.webp",
         alt: "Стеклянные столы, фото 1",
       },
     ],
@@ -4738,12 +4738,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home"],
     image: {
-      src: "/images/catalog/steklyannye-kuhonnye-fartuki/gallery-01.jpg",
+      src: "/images/catalog/steklyannye-kuhonnye-fartuki/gallery-01.webp",
       alt: "Стеклянные кухонные фартуки",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-kuhonnye-fartuki/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-kuhonnye-fartuki/gallery-01.webp",
         alt: "Стеклянные кухонные фартуки, фото 1",
       },
     ],
@@ -4817,12 +4817,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannyj-podium/gallery-01.jpg",
+      src: "/images/catalog/steklyannyj-podium/gallery-01.webp",
       alt: "Стеклянный подиум",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannyj-podium/gallery-01.jpg",
+        src: "/images/catalog/steklyannyj-podium/gallery-01.webp",
         alt: "Стеклянный подиум, фото 1",
       },
     ],
@@ -4892,12 +4892,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "office", "installation"],
     image: {
-      src: "/images/catalog/steklyannoe-mezhetazhnoe-perekrytie/gallery-01.jpg",
+      src: "/images/catalog/steklyannoe-mezhetazhnoe-perekrytie/gallery-01.webp",
       alt: "Стеклянное межэтажное перекрытие",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannoe-mezhetazhnoe-perekrytie/gallery-01.jpg",
+        src: "/images/catalog/steklyannoe-mezhetazhnoe-perekrytie/gallery-01.webp",
         alt: "Стеклянное межэтажное перекрытие, фото 1",
       },
     ],
@@ -4967,12 +4967,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannye-pol-s-dekorativnoj-kompoziciej/gallery-01.jpg",
+      src: "/images/catalog/steklyannye-pol-s-dekorativnoj-kompoziciej/gallery-01.webp",
       alt: "Стеклянный пол с декоративной композицией",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-pol-s-dekorativnoj-kompoziciej/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-pol-s-dekorativnoj-kompoziciej/gallery-01.webp",
         alt: "Стеклянный пол с декоративной композицией, фото 1",
       },
     ],
@@ -5030,12 +5030,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/lentochnyj-steklyannyj-pol/gallery-01.jpg",
+      src: "/images/catalog/lentochnyj-steklyannyj-pol/gallery-01.webp",
       alt: "Ленточный стеклянный пол",
     },
     gallery: [
       {
-        src: "/images/catalog/lentochnyj-steklyannyj-pol/gallery-01.jpg",
+        src: "/images/catalog/lentochnyj-steklyannyj-pol/gallery-01.webp",
         alt: "Ленточный стеклянный пол, фото 1",
       },
     ],
@@ -5097,12 +5097,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannyj-pol-potolok/gallery-01.jpg",
+      src: "/images/catalog/steklyannyj-pol-potolok/gallery-01.webp",
       alt: "Стеклянный пол-потолок",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannyj-pol-potolok/gallery-01.jpg",
+        src: "/images/catalog/steklyannyj-pol-potolok/gallery-01.webp",
         alt: "Стеклянный пол-потолок, фото 1",
       },
     ],
@@ -5160,12 +5160,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannoe-okno-v-polu/gallery-01.jpg",
+      src: "/images/catalog/steklyannoe-okno-v-polu/gallery-01.webp",
       alt: "Стеклянное окно в полу",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannoe-okno-v-polu/gallery-01.jpg",
+        src: "/images/catalog/steklyannoe-okno-v-polu/gallery-01.webp",
         alt: "Стеклянное окно в полу, фото 1",
       },
     ],
@@ -5227,12 +5227,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannyj-pol-na-balkone/gallery-01.jpg",
+      src: "/images/catalog/steklyannyj-pol-na-balkone/gallery-01.webp",
       alt: "Стеклянный пол на балконе",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannyj-pol-na-balkone/gallery-01.jpg",
+        src: "/images/catalog/steklyannyj-pol-na-balkone/gallery-01.webp",
         alt: "Стеклянный пол на балконе, фото 1",
       },
     ],
@@ -5294,12 +5294,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannye-poly-v-vannoj/gallery-01.jpg",
+      src: "/images/catalog/steklyannye-poly-v-vannoj/gallery-01.webp",
       alt: "Стеклянные полы в ванной",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-poly-v-vannoj/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-poly-v-vannoj/gallery-01.webp",
         alt: "Стеклянные полы в ванной, фото 1",
       },
     ],
@@ -5365,12 +5365,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannye-poly-s-podsvetkoj/gallery-01.jpg",
+      src: "/images/catalog/steklyannye-poly-s-podsvetkoj/gallery-01.webp",
       alt: "Стеклянные полы с подсветкой",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-poly-s-podsvetkoj/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-poly-s-podsvetkoj/gallery-01.webp",
         alt: "Стеклянные полы с подсветкой, фото 1",
       },
     ],
@@ -5432,12 +5432,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannye-poly-s-risunkom/gallery-01.jpg",
+      src: "/images/catalog/steklyannye-poly-s-risunkom/gallery-01.webp",
       alt: "Стеклянные полы с рисунком",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-poly-s-risunkom/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-poly-s-risunkom/gallery-01.webp",
         alt: "Стеклянные полы с рисунком, фото 1",
       },
     ],
@@ -5495,12 +5495,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannye-poly-v-kvartire/gallery-01.jpg",
+      src: "/images/catalog/steklyannye-poly-v-kvartire/gallery-01.webp",
       alt: "Стеклянные полы в квартире",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannye-poly-v-kvartire/gallery-01.jpg",
+        src: "/images/catalog/steklyannye-poly-v-kvartire/gallery-01.webp",
         alt: "Стеклянные полы в квартире, фото 1",
       },
     ],
@@ -5558,12 +5558,12 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["home", "installation"],
     image: {
-      src: "/images/catalog/steklyannyj-pol-s-matovym-steklom/gallery-01.jpg",
+      src: "/images/catalog/steklyannyj-pol-s-matovym-steklom/gallery-01.webp",
       alt: "Стеклянный пол с матовым стеклом",
     },
     gallery: [
       {
-        src: "/images/catalog/steklyannyj-pol-s-matovym-steklom/gallery-01.jpg",
+        src: "/images/catalog/steklyannyj-pol-s-matovym-steklom/gallery-01.webp",
         alt: "Стеклянный пол с матовым стеклом, фото 1",
       },
     ],
@@ -5623,7 +5623,7 @@ export const catalogProducts: CatalogProduct[] = [
     badge: null,
     tags: ["office", "installation", "tempered"],
     image: {
-      src: "/images/catalog/steklyannye-pavilony/cover.jpg",
+      src: "/images/catalog/steklyannye-pavilony/cover.webp",
       alt: "Стеклянный павильон в саду",
     },
     gallery: [],

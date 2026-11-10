@@ -23,7 +23,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Отделили переговорную от общего зала, не потеряв ни метра дневного света. Встречи с клиентами теперь проходят за закрытой дверью.",
     cover: {
-      src: "/images/portfolio/steklyannaya-peregovornaya-v-ofise/01.jpg",
+      src: "/images/portfolio/steklyannaya-peregovornaya-v-ofise/01.webp",
       alt: "Переговорная за стеклянной стеной в офисе",
     },
     gallery: [],
@@ -56,7 +56,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Длинный проём почти в 3 метра закрыли безрамным стеклом. Верхняя перемычка держит конструкцию жёстко и почти не заметна.",
     cover: {
-      src: "/images/portfolio/dushevaya-na-tri-metra/01.jpg",
+      src: "/images/portfolio/dushevaya-na-tri-metra/01.webp",
       alt: "Широкая безрамная душевая с мраморными стенами",
     },
     gallery: [],
@@ -83,7 +83,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Безрамное ограждение с фурнитурой в цвет смесителей. Стекло почти не видно, а бронзовые петли стали частью интерьера.",
     cover: {
-      src: "/images/portfolio/dushevaya-s-bronzovoj-furnituroj/01.jpg",
+      src: "/images/portfolio/dushevaya-s-bronzovoj-furnituroj/01.webp",
       alt: "Душевая со стеклянной перегородкой и латунной фурнитурой",
     },
     gallery: [],
@@ -128,7 +128,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Отделили унитаз от остальной ванной матовым стеклом: зона стала приватной, а комната осталась светлой.",
     cover: {
-      src: "/images/portfolio/matovaya-peregorodka-v-vannoj/01.jpg",
+      src: "/images/portfolio/matovaya-peregorodka-v-vannoj/01.webp",
       alt: "Ванная с матовыми стеклянными перегородками",
     },
     gallery: [],
@@ -152,7 +152,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Зеркальная стена во весь зал с вырезами под два телевизора. На обратную сторону наклеили плёнку, чтобы осколки не разлетались.",
     cover: {
-      src: "/images/portfolio/zerkalnaya-stena-v-fitnes-klube/01.jpg",
+      src: "/images/portfolio/zerkalnaya-stena-v-fitnes-klube/01.webp",
       alt: "Тренажёрный зал с зеркальной стеной",
     },
     gallery: [],
@@ -179,7 +179,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Одно большое зеркало без стыков на всю ширину ванной. Подсветка по контуру делает стену парящей.",
     cover: {
-      src: "/images/portfolio/zerkalo-s-podsvetkoj-3-metra/01.jpg",
+      src: "/images/portfolio/zerkalo-s-podsvetkoj-3-metra/01.webp",
       alt: "Ванная с двойной раковиной и подсветкой",
     },
     gallery: [],
@@ -203,7 +203,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Стеклянное ограждение внутренней лестницы на точечных опорах. Если стекло поцарапают, панель легко снять и заменить.",
     cover: {
-      src: "/images/portfolio/ograzhdenie-lestnicy-na-spigotah/01.jpg",
+      src: "/images/portfolio/ograzhdenie-lestnicy-na-spigotah/01.webp",
       alt: "Лестница со стеклянным ограждением",
     },
     gallery: [],
@@ -230,7 +230,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Безрамное ограждение террасы с видом на горы. Триплекс держит ветер, а стыки между панелями почти не видны.",
     cover: {
-      src: "/images/portfolio/ograzhdenie-terrasy-iz-tripleksa/01.jpg",
+      src: "/images/portfolio/ograzhdenie-terrasy-iz-tripleksa/01.webp",
       alt: "Стеклянное ограждение террасы с видом на горы",
     },
     gallery: [],
@@ -257,7 +257,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Внутреннее ограждение галереи над гостиной: стекло в профиле и низкий поручень из шлифованной нержавейки.",
     cover: {
-      src: "/images/portfolio/ograzhdenie-vtorogo-sveta/01.jpg",
+      src: "/images/portfolio/ograzhdenie-vtorogo-sveta/01.webp",
       alt: "Гостиная со вторым светом и стеклянным ограждением лестницы",
     },
     gallery: [],
@@ -281,7 +281,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Дверь в стиле лофт между кухней и гостиной: едет вдоль стены и не занимает места при открывании.",
     cover: {
-      src: "/images/portfolio/razdvizhnaya-dver-iz-matovogo-stekla/01.jpg",
+      src: "/images/portfolio/razdvizhnaya-dver-iz-matovogo-stekla/01.webp",
       alt: "Матовые стеклянные двери",
     },
     gallery: [],
@@ -309,7 +309,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Стеклянная стена с двустворчатыми дверями превратила кладовую в винную комнату, которую видно из гостиной.",
     cover: {
-      src: "/images/portfolio/vinnaya-komnata-so-steklyannymi-dveryami/01.jpg",
+      src: "/images/portfolio/vinnaya-komnata-so-steklyannymi-dveryami/01.webp",
       alt: "Стеклянные витрины с вином",
     },
     gallery: [],
@@ -336,7 +336,7 @@ export const demoPortfolioProjects: PortfolioProject[] = [
     excerpt:
       "Стеклянные полки на скрытых держателях и зеркало за ними: ниша в гостиной стала домашним баром.",
     cover: {
-      src: "/images/portfolio/domashnij-bar-polki-i-zerkalo/01.jpg",
+      src: "/images/portfolio/domashnij-bar-polki-i-zerkalo/01.webp",
       alt: "Бар со стеклянными полками и подсветкой",
     },
     gallery: [],

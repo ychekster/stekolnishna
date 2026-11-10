@@ -68,7 +68,7 @@ export const catalogPageContent: CatalogPage = {
       text: "Замер, изготовление и монтаж. Изготовление от 5–7 дней.",
       linkLabel: "Смотреть",
       image: {
-        src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.jpg",
+        src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.webp",
         alt: "Душевой уголок из закалённого стекла",
       },
     },
@@ -168,6 +168,7 @@ export const categoryPageCopy: CategoryPageCopy = {
     submitLabel: "Отправить заявку",
     successMessage: "Спасибо! Заявка отправлена, мы перезвоним в течение рабочего дня.",
   },
+  seoFallback: { title: "{name} на заказ в Алматы | {company}", description: "{description}" },
 };
 
 /** Copy of "Рисунки на стекле" (design handoff, state "Рисунки"). */
@@ -216,6 +217,10 @@ export const productPageCopy: ProductPageCopy = {
   allLabel: "Весь раздел",
   leadFormTitle: "Заказать: {name}",
   productFieldLabel: "Товар",
+  seoFallback: {
+    title: "{name} на заказ в Алматы | {company}",
+    description: "{name} по вашим размерам в Алматы. {summary}. Замер, изготовление и монтаж.",
+  },
   leadForm: {
     title: "Заказать",
     lead: "Оставьте телефон: менеджер уточнит размеры и детали и назовёт цену.",
