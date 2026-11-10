@@ -2,13 +2,11 @@
  * PLACEHOLDER content of the About page (/o-kompanii), taken from the design mockup
  * "О компании — десктоп".
  *
- * The mockup's copy is a designer's draft, not the customer's facts. Every concrete fact —
- * areas, headcount, machine specs, prices, distances — is wrapped in [square brackets] so it
- * stays visibly unconfirmed until the customer checks it (docs/open-questions.md). Never
- * "unbracket" a value without the customer's confirmation.
+ * Based on the designer's draft; the customer confirmed its facts (sizes, machines, delivery
+ * prices, distances) on 2026-11-10. Anything new and unconfirmed goes in [square brackets].
  *
  * The company is new (customer, 2026-11-09): no history, no team section, no claims tied to
- * years on the market, no in-house tempering furnace; warranty is 1 year (confirmed).
+ * years on the market, no in-house tempering furnace (tempering through a partner, 2026-11-10); warranty is 1 year (confirmed).
  *
  * This file disappears once Payload CMS serves the page; read it only through
  * src/lib/content.
@@ -45,22 +43,22 @@ export const aboutPageContent: AboutPage = {
     capabilities: [
       {
         label: "Размер листа",
-        value: "до [3210 × 2250] мм",
+        value: "до 3210 × 2250 мм",
         note: "Цельные перегородки и витрины без стыков",
       },
       {
         label: "Толщина стекла",
-        value: "от [4] до [19] мм",
+        value: "от 4 до 19 мм",
         note: "Прозрачное, осветлённое, матовое, тонированное",
       },
       {
         label: "Отверстия",
-        value: "от [6] до [100] мм",
+        value: "от 6 до 100 мм",
         note: "Под петли, ручки и крепления фурнитуры",
       },
       {
         label: "Срок изготовления",
-        value: "от [3] рабочих дней",
+        value: "от 3 рабочих дней",
         note: "Простую резку и зеркала делаем в день заказа",
       },
     ],
@@ -68,12 +66,12 @@ export const aboutPageContent: AboutPage = {
 
   equipment: {
     title: "Оборудование",
-    lead: "[Европейские и турецкие] станки, которые обслуживаем сами. Поэтому кромка ровная, отверстия точные, а сроки не срываются из-за поломок.",
+    lead: "Европейские и турецкие станки, которые обслуживаем сами. Поэтому кромка ровная, отверстия точные, а сроки не срываются из-за поломок.",
     items: [
       {
         icon: "sliders",
         title: "Раскройный стол с ЧПУ",
-        description: "Прямая и фигурная резка по чертежу с точностью до [0,5] мм",
+        description: "Прямая и фигурная резка по чертежу с точностью до 0,5 мм",
       },
       {
         icon: "sliders",
@@ -83,12 +81,12 @@ export const aboutPageContent: AboutPage = {
       {
         icon: "sliders",
         title: "Фацетный станок",
-        description: "Декоративная фаска шириной от [5] до [40] мм на зеркалах и стекле",
+        description: "Декоративная фаска шириной от 5 до 40 мм на зеркалах и стекле",
       },
       {
         icon: "sliders",
         title: "Сверлильный станок",
-        description: "Отверстия от [6] до [100] мм под петли, ручки и крепления",
+        description: "Отверстия от 6 до 100 мм под петли, ручки и крепления",
       },
       {
         icon: "sliders",
@@ -104,7 +102,7 @@ export const aboutPageContent: AboutPage = {
       {
         title: "Цена без наценки посредника",
         description:
-          "Покупаем стекло листами у производителей и обрабатываем сами, поэтому в среднем на [15–25]% дешевле перепродавцов.",
+          "Покупаем стекло листами у производителей и обрабатываем сами, поэтому в среднем на 15–25% дешевле перепродавцов.",
       },
       {
         title: "Сроки под нашим контролем",
@@ -130,7 +128,7 @@ export const aboutPageContent: AboutPage = {
       { name: "Алматы", description: "Замер, доставка и монтаж во всех районах города" },
       {
         name: "Алматинская область",
-        description: "[Каскелен, Талгар, Есик, Конаев, Отеген-Батыр] и посёлки до [80] км",
+        description: "Каскелен, Талгар, Есик, Конаев, Отеген-Батыр и посёлки до 80 км",
       },
       {
         name: "Казахстан",
@@ -141,7 +139,7 @@ export const aboutPageContent: AboutPage = {
     map: {
       image: null,
       label: "Производство в Алматы",
-      note: "Зона монтажа до [80] км от Алматы",
+      note: "Зона монтажа до 80 км от Алматы",
     },
   },
 
@@ -155,10 +153,10 @@ export const aboutPageContent: AboutPage = {
         items: [
           {
             highlight: "По Алматы бесплатно",
-            text: "при заказе от [50 000] ₸, иначе [5 000] ₸",
+            text: "при заказе от 50 000 ₸, иначе 5 000 ₸",
           },
-          { text: "Своя машина с пирамидой для перевозки крупных листов до [3] м" },
-          { text: "По области: [150] ₸ за километр от городской черты" },
+          { text: "Своя машина с пирамидой для перевозки крупных листов до 3 м" },
+          { text: "По области: 150 ₸ за километр от городской черты" },
           { text: "По Казахстану: в деревянной обрешётке, транспортной компанией на выбор" },
           { text: "Самовывоз с производства в удобное время по договорённости" },
         ],
@@ -167,9 +165,9 @@ export const aboutPageContent: AboutPage = {
         icon: "shield",
         title: "Монтаж",
         items: [
-          { highlight: "Бесплатный замер", text: "по Алматы в течение [1] дня после заявки" },
-          { text: "Установка душевой или перегородки обычно занимает [1] день" },
-          { text: "Штатные монтажники с опытом от [5] лет, не субподряд" },
+          { highlight: "Бесплатный замер", text: "по Алматы в течение 1 дня после заявки" },
+          { text: "Установка душевой или перегородки обычно занимает 1 день" },
+          { text: "Штатные монтажники с опытом от 5 лет, не субподряд" },
           { text: "Убираем за собой и вывозим упаковку" },
           { highlight: "Гарантия 1 год", text: "на монтаж и фурнитуру" },
         ],

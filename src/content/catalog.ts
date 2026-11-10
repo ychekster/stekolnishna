@@ -205,7 +205,7 @@ export const drawingsPageCopy: DrawingsPageCopy = {
 
 /** Copy shared by every product page (design handoff "Карточка товара"). */
 export const productPageCopy: ProductPageCopy = {
-  measureChip: "Замер [бесплатно по Алматы]",
+  measureChip: "Замер бесплатно по Алматы",
   noOptions: "Размер, толщину и обработку подберём под ваш проект.",
   orderLabel: "Заказать",
   telegramLabel: "Написать в Telegram",

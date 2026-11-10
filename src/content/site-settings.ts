@@ -26,9 +26,9 @@ export const siteSettingsContent: SiteSettings = {
   ogImage: null,
   // Shown on the homepage ("О компании") and the About page hero.
   companyStats: [
-    { value: "[1 200] м²", label: "собственный цех" },
-    { value: "от [3] дней", label: "срок изготовления" },
-    { value: "[1] день", label: "до бесплатного замера" },
+    { value: "1 200 м²", label: "собственный цех" },
+    { value: "от 3 дней", label: "срок изготовления" },
+    { value: "1 день", label: "до бесплатного замера" },
     { value: "1 год", label: "гарантии на монтаж" },
   ],
   // Main sections from the spec (§3.2–3.6). No calculator — docs/decisions/0003.

@@ -1,17 +1,16 @@
 /**
  * PLACEHOLDER homepage content, taken from the design handoff (docs/design/reference.html).
  *
- * Values in [square brackets] are intentionally visible placeholders for the customer to
- * fill in. Images set to `null` render as grey-turquoise placeholders until real photos
- * exist. Testimonials must be real — never replace the placeholders with made-up reviews.
+ * Images set to `null` render as grey-turquoise placeholders until the photos exist
+ * (docs/photo-prompts.md). Testimonials are DEMO (demo-reviews.ts): replace with real ones
+ * before launch.
  * This file disappears once Payload CMS serves the homepage; read it only through
  * src/lib/content.
  */
 import type { HomePage } from "@/lib/content/types";
 import { routes } from "@/lib/routes";
 
-const REVIEW_PLACEHOLDER =
-  "[Настоящий отзыв клиента: что заказывали, как прошли замер и монтаж, что понравилось. 2–4 предложения.]";
+import { demoHomeReviews } from "./demo-reviews";
 
 export const homePageContent: HomePage = {
   seo: {
@@ -119,7 +118,7 @@ export const homePageContent: HomePage = {
       },
       {
         title: "Сроки в договоре",
-        description: "Изготовление от [N] рабочих дней, дату монтажа фиксируем письменно",
+        description: "Изготовление от 3 рабочих дней, дату монтажа фиксируем письменно",
       },
       {
         title: "Гарантия на работы",
@@ -138,11 +137,11 @@ export const homePageContent: HomePage = {
     allProjectsLink: { label: "Смотреть все проекты", href: routes.portfolio },
     // Photo and link come from the portfolio project; `caption` is a shorter tile label.
     projects: [
-      { slug: "ofis-it-kompanii", caption: "Офисные перегородки в БЦ, [район]" },
-      { slug: "walk-in-dushevaya", caption: "Душевая в квартире" },
-      { slug: "zerkalnaya-stena-v-fitnes-zale", caption: "Зеркальная стена в фитнес-клубе" },
-      { slug: "ograzhdenie-lestnicy-v-dome", caption: "Ограждение лестницы в частном доме" },
-      { slug: "vitriny-yuvelirnogo-butika", caption: "Витрина магазина" },
+      { slug: "steklyannaya-peregovornaya-v-ofise", caption: "Переговорная в офисе" },
+      { slug: "dushevaya-na-tri-metra", caption: "Душевая на 3 метра" },
+      { slug: "zerkalnaya-stena-v-fitnes-klube", caption: "Зеркальная стена в фитнес-клубе" },
+      { slug: "ograzhdenie-lestnicy-na-spigotah", caption: "Ограждение лестницы в доме" },
+      { slug: "vinnaya-komnata-so-steklyannymi-dveryami", caption: "Винная комната" },
     ],
   },
 
@@ -184,26 +183,8 @@ export const homePageContent: HomePage = {
 
   testimonials: {
     title: "Отзывы клиентов",
-    items: [
-      {
-        quote: REVIEW_PLACEHOLDER,
-        author: "[Имя Фамилия]",
-        subject: "[Душевое ограждение]",
-        avatar: null,
-      },
-      {
-        quote: REVIEW_PLACEHOLDER,
-        author: "[Имя Фамилия]",
-        subject: "[Перегородки в офис]",
-        avatar: null,
-      },
-      {
-        quote: REVIEW_PLACEHOLDER,
-        author: "[Имя Фамилия]",
-        subject: "[Зеркала с подсветкой]",
-        avatar: null,
-      },
-    ],
+    // DEMO reviews for the customer review: replace with real ones before launch.
+    items: demoHomeReviews,
   },
 
   leadForm: {

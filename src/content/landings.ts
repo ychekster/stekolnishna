@@ -4,10 +4,9 @@
  *
  * Offer cards point at catalog sections, products or services: their prices and photos come
  * from there (src/lib/catalog/offers.ts), so a landing cannot contradict the catalog. Facts
- * the customer has not confirmed are in [brackets]; the 1-year warranty is confirmed
- * (2026-11-09). "Закалённое стекло" is not published until the customer confirms tempering
- * (no own furnace, docs/open-questions.md). SEO texts beyond the first paragraphs are for a
- * copywriter.
+ * were confirmed by the customer on 2026-11-10; FAQ items that needed an unknown policy
+ * (customer's own glass, evening installs) were dropped. Tempering is done at a partner's
+ * plant. SEO texts beyond the first paragraphs are for a copywriter ([brackets]).
  *
  * This file disappears once Payload CMS serves the landings; read it only through src/lib/content.
  */
@@ -45,7 +44,7 @@ function leadForm(title: string, lead: string): LeadFormContent {
   };
 }
 
-const MEASURE_FACT = { value: "[Бесплатно]", label: "замер по Алматы" };
+const MEASURE_FACT = { value: "Бесплатно", label: "замер по Алматы" };
 const WARRANTY_FACT = { value: "1 год", label: "гарантия на монтаж" };
 const OFFERS_NOTE = "Точную цену менеджер назовёт по заявке после замера.";
 const OFFER_LINK = "В каталог";
@@ -68,7 +67,7 @@ export const seoLandings: SeoLanding[] = [
     },
     facts: [
       { value: "от 1–2 дней", label: "изготовление простых изделий" },
-      { value: "[4–19 мм]", label: "толщина стекла" },
+      { value: "4–19 мм", label: "толщина стекла" },
       MEASURE_FACT,
       WARRANTY_FACT,
     ],
@@ -106,7 +105,7 @@ export const seoLandings: SeoLanding[] = [
         },
         {
           question: "Какой толщины бывает стекло?",
-          answer: "Работаем со стеклом толщиной [от 4 до 19 мм]. Толщину подберём под задачу.",
+          answer: "Работаем со стеклом толщиной от 4 до 19 мм. Толщину подберём под задачу.",
         },
         {
           question: "Сколько времени занимает изготовление?",
@@ -115,7 +114,7 @@ export const seoLandings: SeoLanding[] = [
         },
         {
           question: "Вы устанавливаете изделия?",
-          answer: "Да, привозим и монтируем по Алматы [и области], убираем после работ.",
+          answer: "Да, привозим и монтируем по Алматы и области, убираем после работ.",
         },
         {
           question: "Даёте ли гарантию?",
@@ -157,10 +156,10 @@ export const seoLandings: SeoLanding[] = [
       image: { src: "/images/catalog/steklo/cover.jpg", alt: "Листы стекла, вид на кромку" },
     },
     facts: [
-      { value: "[в день обращения]", label: "простая резка" },
-      { value: "[0,5 мм]", label: "точность реза" },
-      { value: "[4–19 мм]", label: "толщина стекла" },
-      { value: "[до 3210 × 2250 мм]", label: "размер листа" },
+      { value: "в день обращения", label: "простая резка" },
+      { value: "0,5 мм", label: "точность реза" },
+      { value: "4–19 мм", label: "толщина стекла" },
+      { value: "до 3210 × 2250 мм", label: "размер листа" },
     ],
     offers: {
       title: "Что мы делаем.",
@@ -192,19 +191,15 @@ export const seoLandings: SeoLanding[] = [
         {
           question: "Сколько стоит резка стекла?",
           answer:
-            "Цена зависит от толщины и длины реза: [от 300 ₸ за погонный метр]. Точную стоимость назовёт менеджер.",
+            "Цена зависит от толщины и длины реза: от 300 ₸ за погонный метр. Точную стоимость назовёт менеджер.",
         },
         {
           question: "Можно ли вырезать фигуру по шаблону?",
           answer: "Да, делаем фигурную резку по шаблону, чертежу или эскизу.",
         },
         {
-          question: "Режете ли вы стекло заказчика?",
-          answer: "[Уточняется: принимаем ли стекло заказчика и на каких условиях.]",
-        },
-        {
           question: "Как быстро будет готово?",
-          answer: "Простую резку делаем [в день обращения], сложные заказы дольше.",
+          answer: "Простую резку делаем в день обращения, сложные заказы дольше.",
         },
         {
           question: "Можно ли сразу обработать кромку?",
@@ -247,7 +242,7 @@ export const seoLandings: SeoLanding[] = [
     },
     facts: [
       { value: "от 3 дней", label: "изготовление" },
-      { value: "[4–6 мм]", label: "толщина зеркала" },
+      { value: "4–6 мм", label: "толщина зеркала" },
       MEASURE_FACT,
       WARRANTY_FACT,
     ],
@@ -290,7 +285,7 @@ export const seoLandings: SeoLanding[] = [
         {
           question: "Что такое фацет?",
           answer:
-            "Это скошенная по краю кромка шириной [10–40 мм]: она красиво преломляет свет и делает зеркало дороже на вид.",
+            "Это скошенная по краю кромка шириной 5–40 мм: она красиво преломляет свет и делает зеркало дороже на вид.",
         },
         {
           question: "Подойдёт ли зеркало для ванной?",
@@ -341,7 +336,7 @@ export const seoLandings: SeoLanding[] = [
     },
     facts: [
       { value: "от 7–10 дней", label: "изготовление" },
-      { value: "[8–12 мм]", label: "закалённое стекло" },
+      { value: "8–12 мм", label: "закалённое стекло" },
       MEASURE_FACT,
       WARRANTY_FACT,
     ],
@@ -383,16 +378,11 @@ export const seoLandings: SeoLanding[] = [
         },
         {
           question: "Перегородки пропускают звук?",
-          answer:
-            "Стекло снижает шум, а для переговорных подбираем триплекс и уплотнители. [Уточнить у заказчика: шумоизоляция в дБ.]",
+          answer: "Стекло снижает шум, а для переговорных подбираем триплекс и уплотнители.",
         },
         {
           question: "Можно ли сделать стекло матовым?",
           answer: "Да, матовое стекло, плёнка-полоса на уровне глаз или «умное стекло».",
-        },
-        {
-          question: "Монтаж мешает работе офиса?",
-          answer: "Можем монтировать вечером и в выходные. [Уточнить у заказчика.]",
         },
       ],
     },
@@ -434,7 +424,7 @@ export const seoLandings: SeoLanding[] = [
     },
     facts: [
       { value: "от 7 дней", label: "изготовление" },
-      { value: "[8–10 мм]", label: "закалённое стекло" },
+      { value: "8–10 мм", label: "закалённое стекло" },
       MEASURE_FACT,
       WARRANTY_FACT,
     ],
@@ -501,7 +491,7 @@ export const seoLandings: SeoLanding[] = [
         {
           question: "Какое стекло вы используете?",
           answer:
-            "Для душевых используем закалённое стекло толщиной [8 мм или 10 мм]: оно прочнее обычного и безопасно при разрушении.",
+            "Для душевых используем закалённое стекло толщиной 8 мм или 10 мм: оно прочнее обычного и безопасно при разрушении.",
         },
         {
           question: "Можно ли сделать душевую без поддона?",
@@ -511,7 +501,7 @@ export const seoLandings: SeoLanding[] = [
         {
           question: "Выезжаете ли вы на замер?",
           answer:
-            "Да, мастер приезжает на объект [по Алматы бесплатно], снимает размеры и показывает образцы стекла и фурнитуры.",
+            "Да, мастер приезжает на объект по Алматы бесплатно, снимает размеры и показывает образцы стекла и фурнитуры.",
         },
         {
           question: "Даёте ли гарантию?",
@@ -544,12 +534,104 @@ export const seoLandings: SeoLanding[] = [
         { kind: "heading", text: "Как выбрать стекло" },
         {
           kind: "paragraph",
-          text: "Прозрачное стекло подходит для минималистичных ванных, матовое скрывает силуэт, тонированное добавляет глубины. Толщина [8 мм или 10 мм] зависит от размеров полотна.",
+          text: "Прозрачное стекло подходит для минималистичных ванных, матовое скрывает силуэт, тонированное добавляет глубины. Толщина 8 мм или 10 мм зависит от размеров полотна.",
         },
         { kind: "heading", text: "Фурнитура" },
         {
           kind: "paragraph",
-          text: "Петли, ручки, профили и уплотнители подбираем под стиль ванной: [хром, матовый чёрный, золото].",
+          text: "Петли, ручки, профили и уплотнители подбираем под стиль ванной: хром, матовый чёрный, золото.",
+        },
+      ],
+    },
+  },
+  {
+    slug: "zakalennoe-steklo-almaty",
+    navLabel: "Закалённое стекло",
+    seo: {
+      title: "Закалённое стекло на заказ в Алматы по размерам | Стекло&Центр",
+      description:
+        "Закалённое стекло 4–19 мм по вашим размерам в Алматы: для душевых, дверей, перегородок, ограждений и мебели. Резка, обработка и закалка.",
+    },
+    // The "Стекло" section already links to the cutting landing ("Полезно:").
+    categorySlug: null,
+    hero: {
+      title: "Закалённое стекло в Алматы",
+      lead: "Режем и обрабатываем стекло по вашим размерам, затем закаляем: оно в 5 раз прочнее обычного и безопасно при разрушении.",
+      image: {
+        src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.jpg",
+        alt: "Душевой уголок из закалённого стекла",
+      },
+    },
+    facts: [
+      { value: "4–19 мм", label: "толщина стекла" },
+      { value: "до 2400 × 3600 мм", label: "размер детали" },
+      { value: "от 3 рабочих дней", label: "срок изготовления" },
+      WARRANTY_FACT,
+    ],
+    offers: {
+      title: "Что мы делаем.",
+      subtitle: "Цены от.",
+      note: OFFERS_NOTE,
+      linkLabel: "Подробнее",
+      items: [
+        { kind: "service", slug: "zakalka" },
+        { kind: "category", slug: "dushevye-kabiny" },
+        { kind: "category", slug: "dveri-na-zakaz" },
+        { kind: "category", slug: "steklyannye-peregorodki" },
+        { kind: "category", slug: "ograzhdeniya-i-peregorodki" },
+        { kind: "category", slug: "steklyannaya-mebel" },
+      ],
+    },
+    catalog: {
+      title: "Изделия из закалённого стекла",
+      categorySlugs: ["dushevye-kabiny", "steklyannye-peregorodki"],
+      linkLabel: CATALOG_LINK,
+    },
+    projects: { title: "Наши работы", category: "shower" },
+    advantages: { title: "Почему заказывают у нас", items: ADVANTAGES },
+    process: { title: "Как заказать закалённое стекло", lead: "От заявки до готового изделия" },
+    faq: {
+      title: "Вопросы и ответы",
+      lead: FAQ_LEAD,
+      askLabel: ASK_LABEL,
+      items: [
+        {
+          question: "Чем закалённое стекло лучше обычного?",
+          answer:
+            "Оно в 5 раз прочнее и выдерживает перепады температуры. Если его всё же разбить, оно рассыпается на мелкие кубики без острых краёв.",
+        },
+        {
+          question: "Можно ли резать стекло после закалки?",
+          answer:
+            "Нет. Поэтому сначала режем, шлифуем кромку и сверлим отверстия по вашим размерам, а закаляем уже готовую деталь.",
+        },
+        {
+          question: "Сколько стоит закалка?",
+          answer:
+            "От 6 000 ₸ за м², цена зависит от толщины. Точную стоимость менеджер назовёт по размерам.",
+        },
+        {
+          question: "Где закаляете стекло?",
+          answer:
+            "Резку и обработку делаем в своём цехе, закалку на проверенном партнёрском производстве. За сроки и качество отвечаем мы.",
+        },
+      ],
+    },
+    leadForm: leadForm(
+      "Узнайте цену закалённого стекла",
+      "Пришлите размеры или чертёж: менеджер уточнит толщину и обработку и назовёт цену.",
+    ),
+    contactsTitle: "Контакты",
+    seoText: {
+      title: "Закалённое стекло: что важно знать",
+      blocks: [
+        {
+          kind: "paragraph",
+          text: "Закалённое стекло нужно везде, где по стеклу могут ударить или где оно нагревается: в душевых, дверях, перегородках, ограждениях и мебели. Деталь сначала режут и обрабатывают по размерам, а потом закаляют.",
+        },
+        {
+          kind: "paragraph",
+          text: "[SEO-текст для копирайтера: где применяется, какую толщину выбрать, чем отличается от триплекса, как проверить, что стекло закалённое.]",
         },
       ],
     },
@@ -570,7 +652,7 @@ export const seoLandings: SeoLanding[] = [
     },
     facts: [
       { value: "от 7–10 дней", label: "изготовление" },
-      { value: "[8–10 мм]", label: "закалённое стекло" },
+      { value: "8–10 мм", label: "закалённое стекло" },
       MEASURE_FACT,
       WARRANTY_FACT,
     ],
@@ -660,10 +742,10 @@ export const seoLandings: SeoLanding[] = [
       image: { src: "/images/catalog/facetnoe-zerkalo/gallery-01.jpg", alt: "Зеркало с фацетом" },
     },
     facts: [
-      { value: "[в день обращения]", label: "простые работы" },
-      { value: "[4–19 мм]", label: "толщина стекла" },
-      { value: "[до 100 мм]", label: "диаметр отверстий" },
-      { value: "[10–40 мм]", label: "ширина фацета" },
+      { value: "в день обращения", label: "простые работы" },
+      { value: "4–19 мм", label: "толщина стекла" },
+      { value: "до 100 мм", label: "диаметр отверстий" },
+      { value: "5–40 мм", label: "ширина фацета" },
     ],
     offers: {
       title: "Что мы делаем.",
@@ -695,11 +777,7 @@ export const seoLandings: SeoLanding[] = [
         },
         {
           question: "Какие отверстия вы сверлите?",
-          answer: "Сверлим отверстия диаметром [от 5 до 100 мм] под петли, ручки и крепления.",
-        },
-        {
-          question: "Можно ли обработать моё стекло?",
-          answer: "[Уточняется: принимаем ли стекло заказчика и на каких условиях.]",
+          answer: "Сверлим отверстия диаметром от 6 до 100 мм под петли, ручки и крепления.",
         },
         {
           question: "Сколько стоит обработка?",

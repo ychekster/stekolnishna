@@ -40,7 +40,7 @@
 | `landings`     | `SeoLanding`                                | slug (root URL), navLabel (footer), seo, category → categories, hero, facts, offers (`OfferRef`: category / product / service relation + optional description), FAQ, SEO text (rich text), lead-form copy                                 |
 | `leads`        | `LeadInput` (`src/lib/leads/repository.ts`) | kind (request / callback / order), name, phone, source, details, product, sample, size, quantity, preferred time, files → `lead-files`, consent + timestamp, status, manager notes, timestamps                                            |
 | `lead-files`   | uploads of `/zayavka`                       | JPG/JPEG/PNG/PDF, size limit from `src/lib/leads/uploads.ts`, admin-only access                                                                                                                                                           |
-| `users`        | —                                           | admin and manager roles (to confirm). Client accounts are phase 2: keep the collection extensible                                                                                                                                         |
+| `users`        | —                                           | 1–2 people, one admin role, no role split (user's decision 2026-11-10). Client accounts are phase 2: keep the collection extensible                                                                                                       |
 
 **Lead statuses** (spec §5): Новая → В обработке → Ожидает расчёта → Клиенту отправлено
 предложение → Заказ оформлен → Заказ завершён / Отказ. Admin needs: list with status filter,

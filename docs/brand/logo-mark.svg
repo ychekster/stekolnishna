@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Стекло&Центр logo mark: a glass pane with a light glare on a graphite tile.
+       Colours are the design tokens surface-inverse, accent and white. -->
+  <defs>
+    <clipPath id="pane">
+      <rect x="17" y="12" width="30" height="40" rx="3" />
+    </clipPath>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#22302f" />
+  <rect x="17" y="12" width="30" height="40" rx="3" fill="#6fbab7" />
+  <g clip-path="url(#pane)" fill="#ffffff">
+    <polygon points="6,60 40,2 49,2 15,60" opacity="0.55" />
+    <polygon points="25,62 59,4 62,4 28,62" opacity="0.4" />
+  </g>
+</svg>

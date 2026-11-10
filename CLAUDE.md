@@ -38,7 +38,7 @@ npm run format       # Prettier
 ## Rules
 
 - **No hard-coded content.** Texts, prices, contacts, photos come from the content layer (`getHomePage()`, `getAboutPage()`, `getContactsPage()`, `getSiteSettings()` in `src/lib/content`); per-page SEO title/description too (`seo` field + `generateMetadata`). Pages/components never import `src/content/*` directly.
-- Placeholders in `[square brackets]` stay visible until the customer provides data. Never invent data, never write fake reviews. Exception agreed with the user: contacts use neat template values (`+7 (700) 000-00-00`, listed in docs/open-questions.md).
+- Placeholders in `[square brackets]` stay visible until the customer provides data. Never invent data. Exceptions agreed with the user: contacts use neat template values (`+7 (700) 000-00-00`, listed in docs/open-questions.md); **demo** portfolio projects and reviews for the customer review live only in `src/content/demo-*.ts` and must be replaced with real ones before launch (`npm run placeholders` lists them). Never present invented reviews or someone else's projects as real on the live site.
 - Internal URLs only from `src/lib/routes.ts`. Header/footer live in the root layout — pages render only their content.
 - **Do not hand-roll** auth, admin UI or file uploads — they come with Payload.
 - No `any`. Business logic in `src/lib/` (pure, unit-tested), not in components.

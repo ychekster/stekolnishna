@@ -115,7 +115,7 @@
 > 📝 **Status: built** — `/uslugi`, from the mockup "Услуги — десктоп" (mobile layout ours). All nine services from the list: cards with photo (placeholder), description, fact tags, price and a "Заказать" button to the page's lead form (`source: services`); plus "Заказ по фото или чертежу" (to the Telegram bot), a price list and the lead form "Не нашли нужную услугу?".
 >
 > - The mockup's price calculator is **not built** (ADR 0003).
-> - Every fact and price is in `[brackets]` until the customer confirms (open-questions.md). Tempering card assumes in-house tempering (open question).
+> - Facts and prices confirmed 2026-11-10 (brackets removed). Tempering is done at a partner's plant (card text says so).
 > - One page with anchors (`/uslugi#zakalka`), not separate service pages; those are in the backlog if needed for SEO.
 
 Создать отдельный раздел с описанием следующих услуг:
@@ -134,7 +134,7 @@
 
 ### 3.4. Страница «Наши работы»
 
-> 📝 **Status: built (2026-11-09)**: `/nashi-raboty` and `/nashi-raboty/[project]` from the mockups "Наши работы — десктоп" and "Проект — страница кейса" (mobile layout ours). Hero with numbers, "Проект месяца", category filter with counters (the spec's 7 categories), grid with "Показать ещё", client quote, lead form (`source: portfolio`). Project page: tags, photo mosaic, description, materials, works, key numbers, previous/next project. **All 13 projects are the designer's draft in [brackets] with placeholder photos** until the customer sends real completed orders. Homepage project tiles link to these pages. Gallery lightbox: later, when photos exist (backlog).
+> 📝 **Status: built (2026-11-09)**: `/nashi-raboty` and `/nashi-raboty/[project]` from the mockups "Наши работы — десктоп" and "Проект — страница кейса" (mobile layout ours). Hero with numbers, "Проект месяца", category filter with counters (the spec's 7 categories), grid with "Показать ещё", client quote, lead form (`source: portfolio`). Project page: tags, photo mosaic, description, materials, works, key numbers, previous/next project. **Demo projects since 2026-11-10:** 13 projects retold in our words from the public portfolio of a US glass company (Patriot Glass & Mirror) and moved to Almaty (`src/content/demo-portfolio.ts`), plus demo reviews (`demo-reviews.ts`). They exist only for the customer review: **replace with real orders and real reviews before launch** (`npm run placeholders` lists them). Hero numbers "3000+ заказов" / "400+ объектов" replaced with confirmed facts (free measurement, 1-year warranty). Homepage project tiles link to these pages. Gallery lightbox: later, when photos exist (backlog).
 
 Создать портфолио с фотографиями реально выполненных заказов. Предусмотреть фильтрацию по категориям: душевые кабины, зеркала, перегородки, стеклянные двери, ограждения, стеклянная мебель и индивидуальные проекты.
 
@@ -145,7 +145,7 @@
 > 📝 **Status: built** — `/o-kompanii`, from the mockup "О компании — десктоп" (mobile layout ours). Sections: workshop/production capabilities, equipment, benefits of own production, geography, delivery & installation terms, plus a "visit the workshop" lead form (`source: about-visit`).
 >
 > - **Customer decision (2026-11-09): the company is new.** History and team sections removed (deviation from this section's "история" and "специалисты"); stats tied to years on the market or order counts replaced with production facts; no in-house tempering furnace (furnace removed from equipment, photos and capabilities; tempering stays in the services/catalog lists as something that can be ordered); **warranty is 1 year** everywhere (confirmed, not in brackets).
-> - Copy is the designer's draft: every other concrete fact (m², machine specs, delivery prices, radius) is in `[brackets]` until the customer confirms — list in open-questions.md.
+> - Facts of the designer's draft (m², machine specs, delivery prices, radius) **confirmed 2026-11-10**; tempering is done through a partner.
 
 Разместить историю компании, информацию о мастерской, производственных возможностях, оборудовании и специалистах, преимущества собственного производства, географию работы, условия доставки и монтажа.
 
@@ -214,7 +214,7 @@
 
 ## 5. АДМИНИСТРАТИВНАЯ ПАНЕЛЬ
 
-> 📝 **At the end**, after all pages (user's decision). Payload CMS + PostgreSQL; content already goes through one layer (src/lib/content), so pages won't need rework.
+> 📝 **At the end**, after all pages (user's decision). Payload CMS + PostgreSQL; content already goes through one layer (src/lib/content), so pages won't need rework. Content model frozen and mapped to Payload in docs/data-model.md (2026-11-10). Users: 1–2 people, one admin role, no role split (2026-11-10). Hosting and domain later: the admin is built and tested locally first.
 
 Разработать закрытую административную панель, позволяющую заказчику самостоятельно управлять содержимым сайта без привлечения программистов.
 
@@ -237,7 +237,7 @@
 
 ## 6. ПОИСКОВАЯ ОПТИМИЗАЦИЯ (SEO)
 
-> 📝 **SEO landing pages built 2026-11-09** (design handoff "SEO-лендинг"): 7 separate pages at the site root (`/steklyannye-dushevye-almaty` etc., src/content/landings.ts), linked from the new footer column "Популярные услуги" and from catalog sections. Offer prices come from the catalog. FAQPage markup added. **"Закалённое стекло" is not published** until the customer confirms tempering. SEO texts beyond the first paragraph are placeholders for a copywriter.
+> 📝 **SEO landing pages built 2026-11-09** (design handoff "SEO-лендинг"): 7 separate pages at the site root (`/steklyannye-dushevye-almaty` etc., src/content/landings.ts), linked from the new footer column "Популярные услуги" and from catalog sections. Offer prices come from the catalog. FAQPage markup added. **"Закалённое стекло" added 2026-11-10** (`/zakalennoe-steklo-almaty`, tempering through a partner confirmed), so all 8 topics of this section exist. Landing facts confirmed 2026-11-10; FAQ items that needed an unknown policy (customer's own glass, evening installs) dropped. SEO texts beyond the first paragraph are placeholders for a copywriter.
 
 > 📝 **At the end** (needs final domain and company data): sitemap.xml, robots.txt, Schema.org, OG, Search Console/Webmaster. ЧПУ already follow docs/sitemap.md. ⚠️ Site is deliberately **noindex** now — open on launch (backlog).
 

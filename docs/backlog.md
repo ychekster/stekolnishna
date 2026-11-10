@@ -31,10 +31,9 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 
 ### Branding
 
-- [ ] Logo in header/footer: `Brand` already shows `SiteSettings.logo` once it is set
-      (2026-11-10); needs the customer's file.
-- [ ] Favicon / app icons — `src/app/favicon.ico` is still the default Next.js icon; make
-      `icon` / `apple-icon` from the logo mark (Next file conventions).
+- [x] Logo and icons (2026-11-10): our logo mark in docs/brand/, used as `src/app/icon.svg`,
+      `apple-icon.png`, `favicon.ico`. **Not in the header** (user's decision): `SiteSettings.logo`
+      stays `null`, the text logo is shown.
 - [ ] Open Graph image: `SiteSettings.ogImage` + `SITE_URL` are wired (2026-11-10); needs the
       picture and the domain.
 
@@ -56,6 +55,11 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
       service facts and prices (`src/content/services.ts`), catalog categories, products,
       prices and photos (imported from the customer's catalog 2026-11-09; confirm filter tags and that inherited parent prices are fine), map embed. List of what to request: open-questions.md.
 
+- [ ] **Demo content out before launch**: `src/content/demo-portfolio.ts` (projects retold from a
+      US company's portfolio) and `demo-reviews.ts` (written by us) → real orders and real
+      reviews with permission, or hide the reviews block. Generated portfolio photos go too.
+- [ ] Photos from docs/photo-prompts.md: wire each generated file into `src/content/*`.
+
 ### Infrastructure (spec §7, §11)
 
 - [ ] Domain, hosting, HTTPS, database backups, handover docs and accesses.
@@ -71,7 +75,7 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 - [ ] Schema.org `LocalBusiness` and `BreadcrumbList` on landings (need real company data and
       the final domain for absolute URLs); `FAQPage` is done.
 - [ ] SEO texts of the landings beyond the first paragraph: copywriter (marked in [brackets]).
-- [ ] Landing "Закалённое стекло": add to src/content/landings.ts once tempering is confirmed.
+- [x] Landing "Закалённое стекло" (2026-11-10), tempering through a partner.
 - [ ] **Order attachments are not stored**: `/zayavka` checks files and logs their names; keep
       them in a Payload upload collection and attach them to the lead email.
 - [ ] Show the lead number in the order confirmation once leads are stored (mockup "Заявка № …").

@@ -4,10 +4,9 @@
  * WhatsApp replaced by the Telegram bot; files go to the bot because the short lead form
  * has no upload.
  *
- * The services list follows spec §3.3. The mockup's copy is a designer's draft: every
- * concrete fact (sizes, tolerances, terms, prices, warranty) is wrapped in [square
- * brackets] until the customer confirms it (docs/open-questions.md). Tempering assumes the
- * workshop has its own furnace, like the About page (open question).
+ * The services list follows spec §3.3. Facts and prices from the designer's draft were
+ * confirmed by the customer on 2026-11-10; the Telegram reply time stays in [brackets] until
+ * the contacts are final. Tempering is done at a partner's plant (no own furnace).
  *
  * This file disappears once Payload CMS serves the page; read it only through
  * src/lib/content.
@@ -37,8 +36,8 @@ export const servicesPageContent: ServicesPage = {
         title: "Резка стекла по размерам",
         description:
           "Прямая и фигурная резка по вашим размерам или чертежу. Простую резку делаем в день обращения.",
-        specs: ["точность [0,5 мм]", "лист до [3210 × 2250] мм", "толщина [4–19] мм"],
-        price: "от [300] ₸/м.п.",
+        specs: ["точность 0,5 мм", "лист до 3210 × 2250 мм", "толщина 4–19 мм"],
+        price: "от 300 ₸/м.п.",
         image: { src: "/images/catalog/steklo/cover.jpg", alt: "Листы стекла, вид на кромку" },
       },
       {
@@ -47,7 +46,7 @@ export const servicesPageContent: ServicesPage = {
         description:
           "Шлифовка убирает острые края, полировка делает кромку прозрачной и блестящей. Нужна для открытых торцов полок, столешниц и душевых.",
         specs: ["шлифовка", "полировка", "прямая и криволинейная"],
-        price: "от [600] ₸/м.п.",
+        price: "от 600 ₸/м.п.",
         image: null,
       },
       {
@@ -55,8 +54,8 @@ export const servicesPageContent: ServicesPage = {
         title: "Сверление отверстий",
         description:
           "Отверстия под петли, ручки, крепления и розетки по шаблону фурнитуры, без сколов.",
-        specs: ["диаметр [6–100] мм", "вырезы под розетки", "по шаблону"],
-        price: "от [500] ₸ за отверстие",
+        specs: ["диаметр 6–100 мм", "вырезы под розетки", "по шаблону"],
+        price: "от 500 ₸ за отверстие",
         image: null,
       },
       {
@@ -64,8 +63,8 @@ export const servicesPageContent: ServicesPage = {
         title: "Фацетирование",
         description:
           "Декоративная фаска по краю зеркала или стекла: изделие выглядит дороже и играет на свету.",
-        specs: ["ширина [5–40] мм", "зеркала и стекло", "прямой контур"],
-        price: "от [1 500] ₸/м.п.",
+        specs: ["ширина 5–40 мм", "зеркала и стекло", "прямой контур"],
+        price: "от 1 500 ₸/м.п.",
         image: {
           src: "/images/catalog/facetnoe-zerkalo/gallery-04.jpg",
           alt: "Фацетное зеркало из ромбов на стене",
@@ -75,9 +74,9 @@ export const servicesPageContent: ServicesPage = {
         slug: "zakalka",
         title: "Закалка стекла",
         description:
-          "Нагрев и резкое охлаждение в печи: стекло становится в 5 раз прочнее, а при ударе рассыпается на безопасные кубики.",
-        specs: ["до [2400 × 3600] мм", "толщина [4–19] мм", "от [3] рабочих дней"],
-        price: "от [6 000] ₸/м²",
+          "Закаляем на проверенном партнёрском производстве: после нагрева и резкого охлаждения стекло становится в 5 раз прочнее, а при ударе рассыпается на безопасные кубики.",
+        specs: ["до 2400 × 3600 мм", "толщина 4–19 мм", "от 3 рабочих дней"],
+        price: "от 6 000 ₸/м²",
         image: null,
       },
       {
@@ -86,7 +85,7 @@ export const servicesPageContent: ServicesPage = {
         description:
           "Настенные, интерьерные и фигурные зеркала, панно, зеркала с подсветкой и фацетом под размер стены или мебели.",
         specs: ["серебро, графит, бронза", "подсветка", "любая форма"],
-        price: "от [9 000] ₸/м²",
+        price: "от 9 000 ₸/м²",
         image: {
           src: "/images/catalog/zerkala-dlya-vannoj/gallery-01.jpeg",
           alt: "Зеркало во всю стену в ванной",
@@ -108,18 +107,18 @@ export const servicesPageContent: ServicesPage = {
         slug: "montazh",
         title: "Монтаж",
         description:
-          "Устанавливают штатные монтажники с опытом от [5] лет. Обычно справляемся за один день, убираем за собой и даём гарантию.",
-        specs: ["бесплатный замер", "[1 день]", "гарантия 1 год"],
-        price: "от [15 000] ₸",
+          "Устанавливают штатные монтажники с опытом от 5 лет. Обычно справляемся за один день, убираем за собой и даём гарантию.",
+        specs: ["бесплатный замер", "1 день", "гарантия 1 год"],
+        price: "от 15 000 ₸",
         image: null,
       },
       {
         slug: "dostavka",
         title: "Доставка",
         description:
-          "Своя машина с пирамидой для крупных листов. По Алматы бесплатно при заказе от [50 000] ₸, по Казахстану отправляем в обрешётке.",
+          "Своя машина с пирамидой для крупных листов. По Алматы бесплатно при заказе от 50 000 ₸, по Казахстану отправляем в обрешётке.",
         specs: ["Алматы и область", "по Казахстану", "самовывоз"],
-        price: "от [5 000] ₸",
+        price: "от 5 000 ₸",
         image: null,
       },
     ],
@@ -151,15 +150,15 @@ export const servicesPageContent: ServicesPage = {
     lead: "Базовые тарифы. Окончательная цена фиксируется в договоре после замера",
     columns: { name: "Работа", unit: "Единица", price: "Цена" },
     rows: [
-      { name: "Резка прямая", unit: "погонный метр", price: "от [300] ₸" },
-      { name: "Резка фигурная", unit: "погонный метр", price: "от [1 200] ₸" },
-      { name: "Шлифовка кромки", unit: "погонный метр", price: "от [600] ₸" },
-      { name: "Полировка кромки", unit: "погонный метр", price: "от [900] ₸" },
-      { name: "Сверление отверстия", unit: "штука", price: "от [500] ₸" },
-      { name: "Фацет", unit: "погонный метр", price: "от [1 500] ₸" },
-      { name: "Закалка", unit: "м²", price: "от [6 000] ₸" },
-      { name: "Монтаж", unit: "выезд", price: "от [15 000] ₸" },
-      { name: "Доставка по Алматы", unit: "рейс", price: "от [5 000] ₸" },
+      { name: "Резка прямая", unit: "погонный метр", price: "от 300 ₸" },
+      { name: "Резка фигурная", unit: "погонный метр", price: "от 1 200 ₸" },
+      { name: "Шлифовка кромки", unit: "погонный метр", price: "от 600 ₸" },
+      { name: "Полировка кромки", unit: "погонный метр", price: "от 900 ₸" },
+      { name: "Сверление отверстия", unit: "штука", price: "от 500 ₸" },
+      { name: "Фацет", unit: "погонный метр", price: "от 1 500 ₸" },
+      { name: "Закалка", unit: "м²", price: "от 6 000 ₸" },
+      { name: "Монтаж", unit: "выезд", price: "от 15 000 ₸" },
+      { name: "Доставка по Алматы", unit: "рейс", price: "от 5 000 ₸" },
     ],
   },
 

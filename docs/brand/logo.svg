@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 264 64" width="264" height="64">
+  <!-- Стекло&Центр horizontal logo: mark + wordmark. Not used on the site (user's decision
+       2026-11-10: the header keeps the text logo); kept for print, social avatars, documents.
+       The wordmark uses Manrope (the site font); convert text to paths before printing. -->
+  <defs>
+    <clipPath id="pane">
+      <rect x="17" y="12" width="30" height="40" rx="3" />
+    </clipPath>
+  </defs>
+  <rect width="64" height="64" rx="14" fill="#22302f" />
+  <rect x="17" y="12" width="30" height="40" rx="3" fill="#6fbab7" />
+  <g clip-path="url(#pane)" fill="#ffffff">
+    <polygon points="6,60 40,2 49,2 15,60" opacity="0.55" />
+    <polygon points="25,62 59,4 62,4 28,62" opacity="0.4" />
+  </g>
+  <text x="80" y="36" font-family="Manrope, Arial, sans-serif" font-size="26" font-weight="700" fill="#182221" letter-spacing="-0.5">Стекло&amp;Центр</text>
+  <text x="81" y="54" font-family="Manrope, Arial, sans-serif" font-size="12" font-weight="500" fill="#5a6665">стекольная мастерская</text>
+</svg>

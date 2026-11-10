@@ -101,7 +101,8 @@ src/
     site-settings.ts (incl. callback dialog + cookie banner copy), home.ts, about.ts,
     contacts.ts, services.ts, catalog.ts, portfolio.ts (page copy + projects), order.ts,
     legal.ts, not-found.ts,
-    catalog-items.ts (categories + products imported from the customer's catalog export)
+    catalog-items.ts (categories + products imported from the customer's catalog export),
+    demo-portfolio.ts + demo-reviews.ts (DEMO for the customer review, replaced before launch)
   lib/                    Pure logic, no JSX. Unit tests next to the code (*.test.ts)
     content/              Content types + getters (the only content entry point)
     leads/                Forms: schemas (short, callback, order), uploads.ts (file rules +
@@ -120,6 +121,9 @@ src/
     cn.ts                 className joiner
 public/images/            Static images (hero photo; catalog/<slug>/ = catalog photos)
 docs/design/              Design handoff: HANDOFF.md, tokens.json, screenshots, reference.html
+docs/brand/               Our logo (mark + horizontal); the mark is the site icon (src/app/icon.svg,
+                          apple-icon.png, favicon.ico), the header keeps the text logo
+docs/photo-prompts.md     Prompts for the photos the user generates, with target paths
 scripts/find-placeholders.mjs  `npm run placeholders`: [bracket] placeholders and missing photos left in src/content
 ```
 
