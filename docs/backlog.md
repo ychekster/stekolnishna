@@ -64,6 +64,12 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 ### Infrastructure (spec §7, §11)
 
 - [ ] Domain, hosting, HTTPS, database backups, handover docs and accesses.
+- [x] Always-on preview (2026-11-10): Cloudflare Workers via @opennextjs/cloudflare,
+      https://steklo-center.ychekster.workers.dev (user's Cloudflare account), noindex.
+      Redeploy: `npm run cf:deploy`. Not the launch hosting: that choice is still open.
+- [ ] Preview caveats to fix if Cloudflare becomes the real hosting: unknown URLs render the
+      404 page with status 200 (adapter + PPR; `next start` returns 404); the in-memory rate
+      limit is per isolate; leads only reach the Worker logs; KZ personal-data localisation.
 
 - [ ] Glass-drawing samples imported 2026-11-09 (726, `public/images/catalog/risunki/<set>/NN.jpg`).
       3 sets stop at exactly 99 pictures: ask the customer if the source site cut them.

@@ -195,6 +195,14 @@ Deviations from the mockup, intentional:
 | `SITE_URL`        | Public address (`https://…`), base for absolute URLs in link previews. Empty until the domain is known.                                  |
 | `ALLOWED_ORIGINS` | Extra hosts for dev assets and Server Actions (tunnels/proxies), comma-separated. `*.trycloudflare.com` for the Cloudflare quick tunnel. |
 
+## Deployment
+
+Preview (always-on, for looking at the site): Cloudflare Workers, built by `@opennextjs/cloudflare`
+(`open-next.config.ts`, `wrangler.jsonc`) → https://steklo-center.ychekster.workers.dev.
+`npm run cf:deploy` builds and deploys (needs `wrangler login` once). The incremental cache is
+read from static assets (no R2), fine while nothing revalidates; `next/image` uses the Cloudflare
+Images binding. The site stays `noindex` (root layout). Launch hosting is still undecided.
+
 ## Testing
 
 - `npm test` — Vitest unit tests for `src/lib` (price formatting, phone normalization, contact links, lead validation, rate limiter).

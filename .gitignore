@@ -42,3 +42,8 @@ desktop.ini
 # Misc
 *.pem
 .vercel
+
+# Cloudflare (OpenNext / wrangler)
+.open-next/
+.wrangler/
+.dev.vars

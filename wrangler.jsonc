@@ -1,0 +1,20 @@
+// Cloudflare Workers config for the preview deployment (built by @opennextjs/cloudflare).
+// Address: https://steklo-center.<account>.workers.dev
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "main": ".open-next/worker.js",
+  "name": "steklo-center",
+  "compatibility_date": "2026-11-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS",
+  },
+  "services": [
+    // Self-reference the adapter uses for caching; must match "name"
+    { "binding": "WORKER_SELF_REFERENCE", "service": "steklo-center" },
+  ],
+  // next/image optimization via Cloudflare Images
+  "images": { "binding": "IMAGES" },
+  "observability": { "enabled": true },
+}

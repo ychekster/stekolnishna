@@ -19,7 +19,15 @@ const eslintConfig = defineConfig([
     },
   },
   prettier,
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts", "docs/design/**"]),
+  globalIgnores([
+    ".next/**",
+    ".open-next/**",
+    ".wrangler/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    "docs/design/**",
+  ]),
 ]);
 
 export default eslintConfig;

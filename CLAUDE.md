@@ -33,6 +33,7 @@ npm run dev          # dev server, http://localhost:3000
 npm run check        # lint + typecheck + unit tests — must pass before a task is done
 npm run build && npm run start   # production build/serve
 npm run format       # Prettier
+npm run cf:deploy    # build + deploy the preview to Cloudflare Workers (steklo-center.ychekster.workers.dev)
 ```
 
 ## Rules
@@ -66,4 +67,5 @@ npm run format       # Prettier
 - Project lives inside OneDrive: if git or `node_modules` misbehave, suspect OneDrive sync first.
 - No Google Chrome; Playwright uses Edge (`PLAYWRIGHT_MCP_BROWSER=msedge` in .claude/settings.json, `--channel msedge` for the CLI).
 - Preview for phones: `cloudflared tunnel --url http://localhost:3000` (quick tunnel, random `*.trycloudflare.com` URL). `ALLOWED_ORIGINS=*.trycloudflare.com` in `.env.local` is required, otherwise Next.js rejects Server Actions from the tunnel host.
+- `npx` and `opennextjs-cloudflare preview/deploy` also break on the `&` (cmd shims): call `node node_modules/<pkg>/…` directly; `scripts/cf-deploy.mjs` does this for the deploy.
 - Stopping a background `npm run start` may leave the `node` process holding port 3000 — kill it by PID (`netstat -ano | grep :3000`).
