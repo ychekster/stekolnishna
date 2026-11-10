@@ -1,5 +1,5 @@
 /**
- * Resolves the homepage picks ("Популярные категории", "Выполненные проекты") from slugs.
+ * Resolves the homepage picks ("Популярные категории", "Проекты") from slugs.
  * Names, prices, photos and links come from the catalog and the portfolio, so the homepage
  * can never show a price or a photo that differs from those pages, and the admin edits each
  * fact in one place. Unknown slugs are skipped: a removed section must not break the page.

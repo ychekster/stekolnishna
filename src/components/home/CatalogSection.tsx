@@ -1,6 +1,7 @@
 /**
- * "Популярные категории": heading and arrows in a narrow left column, card carousel on
- * the right (4 visible on desktop, swipeable on mobile).
+ * "Популярные категории": heading in a narrow left column, card carousel on the right.
+ * Arrows only on phones: on desktop all four cards are visible at once, so the arrows
+ * would sit there disabled (removed on the user's request).
  */
 import { Carousel, CarouselControls, CarouselTrack } from "@/components/ui/Carousel";
 import { Section } from "@/components/ui/Section";
@@ -21,7 +22,7 @@ export function CatalogSection({ catalog, items }: CatalogSectionProps) {
       <Carousel className="flex flex-col gap-6 md:flex-row md:gap-12">
         <div className="flex flex-col justify-between gap-6 md:max-w-75 md:flex-[1_1_260px]">
           <SectionHeading id="catalog-title" title={catalog.title} lead={catalog.lead} />
-          <CarouselControls labels={{ prev: "Назад", next: "Вперёд" }} />
+          <CarouselControls labels={{ prev: "Назад", next: "Вперёд" }} className="md:hidden" />
         </div>
         <CarouselTrack
           label={catalog.title}

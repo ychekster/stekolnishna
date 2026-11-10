@@ -121,6 +121,7 @@
 
   /* ---- Layout ---- */
   --container-content: 1200px; /* max content width → `max-w-content` */
+  --container-wide: 1440px; /* header row, wider than the content (user's decision) → `max-w-wide` */
 }
 
 @layer base {
@@ -145,6 +146,25 @@
 
   body {
     @apply bg-surface font-sans text-ink antialiased;
+  }
+
+  /*
+   * No lone word on the last line (user's rule): headings get evenly balanced lines,
+   * running text avoids a short last line. Prepositions and conjunctions are kept with
+   * the next word by non-breaking spaces from the content layer (lib/format/typography).
+   */
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-wrap: balance;
+  }
+  p,
+  li,
+  dd,
+  blockquote,
+  figcaption {
+    text-wrap: pretty;
   }
 
   /* Keyboard focus: solid 2px ring with 2px offset (design spec). */
@@ -199,4 +219,26 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+/*
+ * Full-width background for a bar that lives inside the content container (the pinned
+ * catalog toolbar and its divider). A box-shadow paints to the viewport edges without
+ * creating horizontal scroll (unlike a 100vw element); clip-path keeps it to the bar's
+ * own height.
+ */
+@utility bleed-surface {
+  box-shadow: 0 0 0 100vmax var(--color-surface);
+  clip-path: inset(0 -100vmax);
+}
+
+@utility bleed-line {
+  background-color: var(--color-line);
+  box-shadow: 0 0 0 100vmax var(--color-line);
+  clip-path: inset(0 -100vmax);
+}
+
+/* Anchors under the pinned catalog toolbar: its height is set by CatalogToolbar. */
+@utility scroll-mt-catalog-toolbar {
+  scroll-margin-top: var(--catalog-toolbar-height, 0px);
 }

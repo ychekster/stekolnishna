@@ -49,7 +49,13 @@ export default async function RootLayout({ children }: LayoutProps<"/">) {
   const [settings, landings] = await Promise.all([getSiteSettings(), getSeoLandings()]);
 
   return (
-    <html lang="ru" className={manrope.variable}>
+    <html
+      lang="ru"
+      className={manrope.variable}
+      // Next.js turns the CSS smooth scrolling off while it resets the scroll on page
+      // change, so a new page always opens at the top instantly; anchor jumps stay smooth.
+      data-scroll-behavior="smooth"
+    >
       <body>
         <CallbackDialogProvider
           content={settings.callback}

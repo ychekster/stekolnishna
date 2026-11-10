@@ -1,5 +1,5 @@
 /**
- * "Выполненные проекты": heading with "all projects" button, then a mosaic grid —
+ * "Проекты": heading with "all projects" button, then a mosaic grid —
  * 4 columns on desktop with the first tile spanning 2×2, 2 columns on mobile.
  */
 import { Button } from "@/components/ui/Button";

@@ -9,7 +9,7 @@ import type { Metadata } from "next";
 import { LeadFormSection } from "@/components/sections/LeadFormSection";
 import { PhotoOrderSection } from "@/components/services/PhotoOrderSection";
 import { PriceListSection } from "@/components/services/PriceListSection";
-import { ServiceList } from "@/components/services/ServiceList";
+import { ServicesBrowser } from "@/components/services/ServicesBrowser";
 import { ServicesHero } from "@/components/services/ServicesHero";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { getServicesPage, getSiteSettings } from "@/lib/content";
@@ -29,9 +29,9 @@ export default async function ServicesPage() {
         items={[{ label: "Главная", href: routes.home }, { label: services.name }]}
         className="mt-4 md:mt-8"
       />
-      <ServicesHero hero={services.hero} offers={services.offers} />
+      <ServicesHero hero={services.hero} />
       {/* "Заказать" opens the lead form of this page, not the homepage one. */}
-      <ServiceList offers={services.offers} orderHref={routes.pageLeadForm} />
+      <ServicesBrowser offers={services.offers} orderHref={routes.pageLeadForm} />
       <PhotoOrderSection photoOrder={services.photoOrder} telegramBot={settings.telegramBot} />
       <PriceListSection prices={services.prices} />
       <LeadFormSection

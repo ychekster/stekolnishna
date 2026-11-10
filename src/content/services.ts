@@ -28,6 +28,7 @@ export const servicesPageContent: ServicesPage = {
 
   offers: {
     navLabel: "Услуги на странице",
+    allLabel: "Все услуги",
     priceLabel: "Стоимость",
     orderLabel: "Заказать",
     items: [

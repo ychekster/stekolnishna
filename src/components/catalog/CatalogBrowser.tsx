@@ -65,8 +65,10 @@ export function CatalogBrowser({
     .map((slug) => categories.find((category) => category.slug === slug))
     .filter((category) => category !== undefined);
 
+  // The wrapper bounds the sticky toolbar: it unpins once the products end, instead of
+  // riding over the sections below.
   return (
-    <>
+    <div>
       <CatalogToolbar filters={page.filters} value={query} onChange={setQuery} />
 
       {curated ? (
@@ -110,6 +112,6 @@ export function CatalogBrowser({
           )}
         </section>
       )}
-    </>
+    </div>
   );
 }

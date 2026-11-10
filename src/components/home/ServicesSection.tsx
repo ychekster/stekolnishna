@@ -1,5 +1,5 @@
 /**
- * "Направления работы": heading + responsive grid of service cards.
+ * "Направления": heading + responsive grid of service cards.
  */
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";

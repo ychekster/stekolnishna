@@ -137,7 +137,7 @@ export interface HomeCategoryRef {
   image?: ImageAsset;
 }
 
-/** Homepage "Выполненные проекты" tile: a portfolio project picked by slug. Photo and link
+/** Homepage "Проекты" tile: a portfolio project picked by slug. Photo and link
  * come from the project; `caption` replaces the project title when set (shorter on a tile). */
 export interface HomeProjectRef {
   slug: string;
@@ -431,8 +431,10 @@ export interface ServicesPage {
     lead: string;
   };
   offers: {
-    /** Accessible name of the anchor chips above the cards. */
+    /** Accessible name of the filter chips above the cards. */
     navLabel: string;
+    /** Chip that shows every service. */
+    allLabel: string;
     priceLabel: string;
     orderLabel: string;
     items: ServiceOffer[];

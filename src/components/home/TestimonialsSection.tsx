@@ -1,5 +1,5 @@
 /**
- * "Отзывы клиентов": heading with arrows on the right, carousel of review cards
+ * "Отзывы": heading with arrows on the right, carousel of review cards
  * (3 visible on desktop, swipeable on mobile).
  */
 import { Carousel, CarouselControls, CarouselTrack } from "@/components/ui/Carousel";

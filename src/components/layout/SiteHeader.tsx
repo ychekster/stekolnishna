@@ -101,11 +101,14 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
         isScrolled ? "border-line" : "border-transparent",
       )}
     >
-      <Container className="relative flex h-(--header-height) items-center justify-between gap-6">
+      <Container
+        wide
+        className="relative flex h-(--header-height) items-center justify-between gap-6"
+      >
         <Brand name={settings.companyName} tagline={settings.tagline} logo={settings.logo} />
 
         {/* Desktop navigation */}
-        <nav aria-label="Основное меню" className="hidden gap-6 xl:flex">
+        <nav aria-label="Основное меню" className="hidden gap-6 xl:flex 2xl:gap-8">
           {navLinks}
         </nav>
 
@@ -159,7 +162,7 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
         // Own vertical scroll: keep the site-wide smooth scrolling out of it.
         className="absolute inset-x-0 top-full max-h-[calc(100dvh-var(--header-height))] overflow-y-auto border-b border-line bg-surface shadow-pop xl:hidden"
       >
-        <Container className="flex flex-col pt-2 pb-6">
+        <Container wide className="flex flex-col pt-2 pb-6">
           <nav aria-label="Основное меню" className="flex flex-col divide-y divide-line">
             {navLinks}
           </nav>

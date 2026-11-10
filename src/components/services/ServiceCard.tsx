@@ -1,7 +1,8 @@
 /**
  * One service (spec §3.3: description, photo and an order button): photo with the service
  * number, title, text, fact tags, then price and "Заказать" pinned to the bottom so the
- * footers line up across a row of cards. The card id is the anchor of its chip.
+ * footers line up across a row of cards. No id on purpose: `/uslugi#slug` filters the
+ * grid (ServicesBrowser), and an element with that id would make the browser jump to it.
  */
 import { Button } from "@/components/ui/Button";
 import { MediaFrame } from "@/components/ui/MediaFrame";
@@ -26,7 +27,7 @@ export function ServiceCard({
 }: ServiceCardProps) {
   const titleId = `${offer.slug}-title`;
   return (
-    <article id={offer.slug} aria-labelledby={titleId} className="flex flex-col">
+    <article aria-labelledby={titleId} className="flex flex-col">
       <div className="relative aspect-4/3 overflow-hidden rounded-md">
         <MediaFrame
           image={offer.image}

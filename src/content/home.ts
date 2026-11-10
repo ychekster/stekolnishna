@@ -38,7 +38,7 @@ export const homePageContent: HomePage = {
   },
 
   services: {
-    title: "Направления работы",
+    title: "Направления",
     lead: "Берём на себя весь путь стекла: от листа до готовой конструкции",
     items: [
       {
@@ -132,7 +132,7 @@ export const homePageContent: HomePage = {
   },
 
   projects: {
-    title: "Выполненные проекты",
+    title: "Проекты",
     lead: "Несколько работ последних месяцев",
     allProjectsLink: { label: "Смотреть все проекты", href: routes.portfolio },
     // Photo and link come from the portfolio project; `caption` is a shorter tile label.
@@ -182,7 +182,7 @@ export const homePageContent: HomePage = {
   },
 
   testimonials: {
-    title: "Отзывы клиентов",
+    title: "Отзывы",
     // Real reviews of the workshop from 2GIS and Yandex Maps (reviews.ts).
     items: homeReviews,
   },
