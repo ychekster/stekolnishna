@@ -19,8 +19,10 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
 
 ## Blocking for design
 
-- [ ] **Photos** — the user generates them from [photo-prompts.md](photo-prompts.md); then we
-      wire them into `src/content/*`. Real photos of completed projects before launch.
+- [ ] **Photos** — stock photos wired 2026-11-10 (sources and licences: [photo-sources.md](photo-sources.md)).
+      Still missing: services «Сверление», «Закалка», portfolio project «Душевая дверь из
+      рифлёного стекла», project galleries (one cover each), service-area map. Real photos of
+      completed projects before launch.
 
 ## Blocking for content
 
@@ -29,8 +31,12 @@ Things the spec does not answer. Each needs a decision from the customer (or fro
       `+7 (700) 000-00-00`, Telegram bot `@steklo_center_bot`, email `info@steklo-center.kz`, address "г. Алматы", hours "Пн–Сб, 9:00–19:00".
       Company name "Стекло&Центр" / ТОО «Стекло&Центр» is taken from the project — confirm spelling.
 - [x] Real catalog: imported 2026-11-09 from the customer's stekolni-master.kz export (docs/tz-annotated.md §3.2).
-- [ ] Real customer reviews (with permission to publish). Until then: demo reviews in
-      `src/content/demo-reviews.ts` (written by us, 2026-11-10), not for the live site.
+- [ ] **Reviews** (2026-11-10): 6 real reviews from the 2GIS and Yandex Maps cards of
+      «Стекольный мастер» (stekolni-master.kz, пр. Суюнбая 43/1) are on the site, verbatim, with
+      links (`src/content/reviews.ts`). Confirm with the customer: (1) fine to publish them under
+      the new brand «Стекло&Центр»; (2) they date back to 2018, while the site says the company
+      is new: keep them or drop the old ones; (3) is the second 2GIS card «Стекольный мастер» at
+      ул. Е. Брусиловского, 100 (rating 4.9) also theirs (more reviews).
 - [ ] **Contacts page facts** (`src/content/contacts.ts`, everything in `[brackets]`): second
       phone (production / pickup) or drop it; Telegram response time; hours per department
       (office/showroom, production/pickup, measurer) and Sunday; is there a showroom; how to

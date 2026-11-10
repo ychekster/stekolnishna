@@ -23,7 +23,7 @@ export const siteSettingsContent: SiteSettings = {
   workingHours: "Пн–Сб, 9:00–19:00",
   // No logo file yet: the header and footer show the text logo.
   logo: null,
-  ogImage: null,
+  ogImage: { src: "/images/og.jpg", alt: "Ванная со стеклянной душевой и большим зеркалом" },
   // Shown on the homepage ("О компании") and the About page hero.
   companyStats: [
     { value: "1 200 м²", label: "собственный цех" },

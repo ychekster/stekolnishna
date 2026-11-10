@@ -2,7 +2,7 @@ import { describe, expect, it } from "vitest";
 
 import type { PortfolioProject, ProjectCategory } from "@/lib/content/types";
 
-import { adjacentProjects, countByCategory, filterProjects } from "./projects";
+import { adjacentProjects, countByCategory, filterProjects, mosaicTiles } from "./projects";
 
 const project = (slug: string, category: ProjectCategory) =>
   ({ slug, category }) as PortfolioProject;
@@ -31,5 +31,19 @@ describe("portfolio", () => {
     });
     expect(adjacentProjects(projects, "zzz")).toBeNull();
     expect(adjacentProjects([project("a", "door")], "a")).toBeNull();
+  });
+});
+
+describe("mosaicTiles", () => {
+  it("fills every slot with placeholders when there are no photos", () => {
+    expect(mosaicTiles([], 3)).toEqual([null, null, null]);
+  });
+
+  it("shows only real photos when there are fewer than the slots", () => {
+    expect(mosaicTiles(["a"], 6)).toEqual(["a"]);
+  });
+
+  it("cuts extra photos to the number of slots", () => {
+    expect(mosaicTiles(["a", "b", "c", "d"], 3)).toEqual(["a", "b", "c"]);
   });
 });

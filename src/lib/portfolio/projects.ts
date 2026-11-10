@@ -37,3 +37,13 @@ export function adjacentProjects(
   const at = (offset: number) => projects[(index + offset + projects.length) % projects.length]!;
   return { previous: at(-1), next: at(1) };
 }
+
+/**
+ * Tiles of a photo mosaic with `slots` places. Without photos the whole mosaic shows
+ * placeholders (the layout stays recognisable for review); once a project has real photos,
+ * only those are shown: empty placeholder tiles next to real photos look broken.
+ */
+export function mosaicTiles<T>(photos: readonly T[], slots: number): (T | null)[] {
+  if (photos.length === 0) return Array.from({ length: slots }, () => null);
+  return photos.slice(0, slots);
+}

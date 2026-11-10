@@ -1,6 +1,7 @@
 /**
  * "Проект месяца" block of the portfolio page: a photo mosaic (one wide photo over two
- * small ones, "+N фото" on the last when there are more) and a grey card with the story,
+ * small ones, "+N фото" on the last when there are more; a single photo fills the whole
+ * mosaic) and a grey card with the story,
  * materials, works and two buttons. Stacks on phones.
  */
 import Link from "next/link";
@@ -8,6 +9,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import type { PortfolioPage, PortfolioProject } from "@/lib/content/types";
+import { mosaicTiles } from "@/lib/portfolio/projects";
 import { routes } from "@/lib/routes";
 
 import { FeaturedList } from "./FeaturedList";
@@ -29,7 +31,8 @@ export function FeaturedProject({
 }: FeaturedProjectProps) {
   const href = routes.project(project.slug);
   const photos = [project.cover, ...project.gallery].filter((photo) => photo !== null);
-  const tiles = Array.from({ length: TILES }, (_, index) => photos[index] ?? null);
+  const tiles = mosaicTiles(photos, TILES);
+  const single = tiles.length === 1;
   const morePhotos = photos.length - TILES;
 
   return (
@@ -48,7 +51,9 @@ export function FeaturedProject({
             key={index}
             className={
               index === 0
-                ? "relative col-span-2 row-span-2 overflow-hidden rounded-lg md:row-span-1"
+                ? single
+                  ? "relative col-span-2 row-span-2 overflow-hidden rounded-lg"
+                  : "relative col-span-2 row-span-2 overflow-hidden rounded-lg md:row-span-1"
                 : "relative overflow-hidden rounded-md"
             }
           >

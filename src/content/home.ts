@@ -2,15 +2,15 @@
  * PLACEHOLDER homepage content, taken from the design handoff (docs/design/reference.html).
  *
  * Images set to `null` render as grey-turquoise placeholders until the photos exist
- * (docs/photo-prompts.md). Testimonials are DEMO (demo-reviews.ts): replace with real ones
- * before launch.
+ * (docs/photo-prompts.md). Testimonials are real reviews from 2GIS and Yandex Maps
+ * (reviews.ts).
  * This file disappears once Payload CMS serves the homepage; read it only through
  * src/lib/content.
  */
 import type { HomePage } from "@/lib/content/types";
 import { routes } from "@/lib/routes";
 
-import { demoHomeReviews } from "./demo-reviews";
+import { homeReviews } from "./reviews";
 
 export const homePageContent: HomePage = {
   seo: {
@@ -23,8 +23,8 @@ export const homePageContent: HomePage = {
     title: "Стеклянные конструкции под ключ",
     lead: "Производство и монтаж: перегородки, душевые, зеркала, ограждения и фасадное остекление",
     image: {
-      src: "/images/hero-glass.jpg",
-      alt: "Стеклянный фасад и стопка листов закалённого стекла на фоне неба",
+      src: "/images/home/hero.jpg",
+      alt: "Гостиная со стеклянной перегородкой в чёрном профиле и видом на горы",
     },
     cta: { label: "Оставить заявку", href: routes.leadForm },
   },
@@ -148,7 +148,7 @@ export const homePageContent: HomePage = {
   process: {
     title: "Как мы работаем",
     lead: "Пять шагов от звонка до готовой конструкции",
-    image: null,
+    image: { src: "/images/home/process.jpg", alt: "Рука в перчатке на стекле душевой" },
     badge: "Бесплатный замер",
     steps: [
       {
@@ -183,8 +183,8 @@ export const homePageContent: HomePage = {
 
   testimonials: {
     title: "Отзывы клиентов",
-    // DEMO reviews for the customer review: replace with real ones before launch.
-    items: demoHomeReviews,
+    // Real reviews of the workshop from 2GIS and Yandex Maps (reviews.ts).
+    items: homeReviews,
   },
 
   leadForm: {

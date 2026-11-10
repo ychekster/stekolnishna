@@ -56,9 +56,10 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
       prices and photos (imported from the customer's catalog 2026-11-09; confirm filter tags and that inherited parent prices are fine), map embed. List of what to request: open-questions.md.
 
 - [ ] **Demo content out before launch**: `src/content/demo-portfolio.ts` (projects retold from a
-      US company's portfolio) and `demo-reviews.ts` (written by us) → real orders and real
-      reviews with permission, or hide the reviews block. Generated portfolio photos go too.
-- [ ] Photos from docs/photo-prompts.md: wire each generated file into `src/content/*`.
+      US company's portfolio, stock cover photos) → real orders with real photos. Reviews are
+      real since 2026-11-10 (`reviews.ts`, demo reviews deleted).
+- [ ] Missing photos: services «Сверление», «Закалка», project «Душевая дверь из рифлёного
+      стекла», project galleries 02–06 (docs/photo-prompts.md has prompts).
 
 ### Infrastructure (spec §7, §11)
 

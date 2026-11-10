@@ -4229,7 +4229,10 @@ export const catalogProducts: CatalogProduct[] = [
     },
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
-    image: null,
+    image: {
+      src: "/images/catalog/steklyannye-razdvizhnye-dveri/cover.jpg",
+      alt: "Раздвижная стеклянная дверь",
+    },
     gallery: [],
     leadTime: "Изготовление от 7–10 дней",
     description: [
@@ -4271,7 +4274,10 @@ export const catalogProducts: CatalogProduct[] = [
     },
     badge: null,
     tags: ["home", "office", "installation", "tempered"],
-    image: null,
+    image: {
+      src: "/images/catalog/mayatnikovye-dveri/cover.jpg",
+      alt: "Стеклянные двери на входе",
+    },
     gallery: [],
     leadTime: "Изготовление от 7–10 дней",
     description: [],
@@ -5616,7 +5622,10 @@ export const catalogProducts: CatalogProduct[] = [
     },
     badge: null,
     tags: ["office", "installation", "tempered"],
-    image: null,
+    image: {
+      src: "/images/catalog/steklyannye-pavilony/cover.jpg",
+      alt: "Стеклянный павильон в саду",
+    },
     gallery: [],
     leadTime: "Изготовление от 10 дней",
     description: [

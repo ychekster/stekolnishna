@@ -2,8 +2,8 @@
  * Content of the portfolio "Наши работы" (/nashi-raboty) and the project pages, from the
  * design mockups "Наши работы — десктоп" and "Проект — страница кейса".
  *
- * Projects and the client quote are DEMO data (demo-portfolio.ts, demo-reviews.ts) for the
- * customer review: replace them with real completed orders before launch. The hero numbers
+ * Projects are DEMO data (demo-portfolio.ts) for the customer review: replace them with real
+ * completed orders before launch. The client quote is a real review (reviews.ts). The hero numbers
  * are confirmed facts instead of the mockup's order counts (the company is new).
  * Categories are the spec's portfolio filters (§3.4).
  *
@@ -12,7 +12,7 @@
 import type { PortfolioPage, PortfolioProject } from "@/lib/content/types";
 
 import { demoPortfolioProjects } from "./demo-portfolio";
-import { demoPortfolioReview } from "./demo-reviews";
+import { portfolioReview } from "./reviews";
 
 /** Shown in this order: the newest first, as the owner sorts them. */
 export const portfolioProjects: PortfolioProject[] = demoPortfolioProjects;
@@ -57,7 +57,13 @@ export const portfolioPageContent: PortfolioPage = {
     pageSize: 9,
     photosLabel: "{count} фото",
   },
-  testimonial: { ...demoPortfolioReview, image: null },
+  testimonial: {
+    ...portfolioReview,
+    image: {
+      src: "/images/portfolio/testimonial.jpg",
+      alt: "Терраса со стеклянным ограждением на закате",
+    },
+  },
   leadForm: {
     title: LEAD_FORM_TITLE,
     lead: "Пришлите фото помещения или проект дизайнера: подберём решение и рассчитаем стоимость. Замер по Алматы бесплатный.",

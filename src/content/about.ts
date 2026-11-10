@@ -25,8 +25,8 @@ export const aboutPageContent: AboutPage = {
     title: "Стекольная мастерская полного цикла в Алматы",
     lead: "Режем, обрабатываем и монтируем стекло и зеркала на своём производстве и своими бригадами.",
     image: {
-      src: "/images/hero-glass.jpg",
-      alt: "Листы закалённого стекла и стеклянный фасад",
+      src: "/images/about/hero.jpg",
+      alt: "Цех с листовыми материалами на стеллажах",
     },
   },
 
@@ -35,10 +35,28 @@ export const aboutPageContent: AboutPage = {
     lead: "Все операции в одном цехе: от раскроя листа до упаковки готового изделия",
     // Order matters: the 1st photo is the large tile, every 3rd after it is wide.
     photos: [
-      { caption: "Участок раскроя", image: null },
-      { caption: "Обработка кромки", image: null },
-      { caption: "Сверление и фацет", image: null },
-      { caption: "Склад листового стекла", image: null },
+      {
+        caption: "Участок раскроя",
+        image: { src: "/images/about/workshop-cutting.jpg", alt: "Стеклорез на листе стекла" },
+      },
+      {
+        caption: "Обработка кромки",
+        image: { src: "/images/about/workshop-edge.jpg", alt: "Обработка стекла на станке" },
+      },
+      {
+        caption: "Сверление и фацет",
+        image: {
+          src: "/images/about/workshop-drilling.jpg",
+          alt: "Сверление с охлаждающей жидкостью",
+        },
+      },
+      {
+        caption: "Склад листового стекла",
+        image: {
+          src: "/images/about/workshop-storage.jpg",
+          alt: "Стеклянные панели, установленные вертикально",
+        },
+      },
     ],
     capabilities: [
       {

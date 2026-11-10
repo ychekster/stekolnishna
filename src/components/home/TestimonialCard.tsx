@@ -1,9 +1,10 @@
 /**
  * Client review card (design: TestimonialCard): accent quote mark, text, avatar or
- * initials, name and what was ordered.
+ * initials, name, what was ordered, stars, platform and date.
  */
 import Image from "next/image";
 
+import { ReviewMeta } from "@/components/ui/ReviewMeta";
 import type { Testimonial } from "@/lib/content/types";
 
 /** First letters of the first two words: "Айгерим Сапарова" → "АС". */
@@ -41,10 +42,7 @@ export function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
             {initials(testimonial.author)}
           </span>
         )}
-        <span>
-          <span className="block text-label font-semibold text-ink">{testimonial.author}</span>
-          <span className="block text-caption text-ink-muted">{testimonial.subject}</span>
-        </span>
+        <ReviewMeta testimonial={testimonial} />
       </figcaption>
     </figure>
   );

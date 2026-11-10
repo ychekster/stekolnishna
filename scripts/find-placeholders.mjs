@@ -16,7 +16,9 @@ const CONTENT_DIR = join(import.meta.dirname, "..", "src", "content");
 // "[1 200]", "[Имя Фамилия]", "[N]", "[SEO-текст…]"; not TypeScript array literals like
 // "[]", "[item]" or "[...rest]" (content code has no capitalised identifiers in brackets).
 const BRACKET = /\[[0-9A-ZА-Яа-яЁё+][^\]\n]*\]/g;
-const MISSING_MEDIA = /\b(image|cover|avatar|logo|ogImage|embedUrl): null\b/g;
+// Review avatars are optional (initials are shown) and the logo is deliberately not used in
+// the header (user's decision 2026-11-10), so neither counts as missing.
+const MISSING_MEDIA = /\b(image|cover|ogImage|embedUrl): null\b/g;
 // Product galleries may be empty (the card photo is enough), so only `photos` counts.
 const EMPTY_GALLERY = /\bphotos: \[\]/g;
 const DRAFT_PRICE = /draft: true/g;

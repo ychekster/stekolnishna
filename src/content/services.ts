@@ -47,7 +47,10 @@ export const servicesPageContent: ServicesPage = {
           "Шлифовка убирает острые края, полировка делает кромку прозрачной и блестящей. Нужна для открытых торцов полок, столешниц и душевых.",
         specs: ["шлифовка", "полировка", "прямая и криволинейная"],
         price: "от 600 ₸/м.п.",
-        image: null,
+        image: {
+          src: "/images/services/obrabotka-kromki.jpg",
+          alt: "Стопка стекла с обработанной кромкой",
+        },
       },
       {
         slug: "sverlenie",
@@ -110,7 +113,10 @@ export const servicesPageContent: ServicesPage = {
           "Устанавливают штатные монтажники с опытом от 5 лет. Обычно справляемся за один день, убираем за собой и даём гарантию.",
         specs: ["бесплатный замер", "1 день", "гарантия 1 год"],
         price: "от 15 000 ₸",
-        image: null,
+        image: {
+          src: "/images/services/montazh.jpg",
+          alt: "Монтажник устанавливает конструкцию в проём",
+        },
       },
       {
         slug: "dostavka",
@@ -119,7 +125,7 @@ export const servicesPageContent: ServicesPage = {
           "Своя машина с пирамидой для крупных листов. По Алматы бесплатно при заказе от 50 000 ₸, по Казахстану отправляем в обрешётке.",
         specs: ["Алматы и область", "по Казахстану", "самовывоз"],
         price: "от 5 000 ₸",
-        image: null,
+        image: { src: "/images/services/dostavka.jpg", alt: "Грузовик с упакованным грузом" },
       },
     ],
   },

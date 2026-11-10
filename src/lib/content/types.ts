@@ -170,12 +170,24 @@ export interface ProcessStep {
   description: string;
 }
 
+/** Where a published review comes from: platform name and the page with the review. */
+export interface ReviewSource {
+  label: string;
+  url: string;
+}
+
 export interface Testimonial {
+  /** The client's words, verbatim (typos and emoji included). */
   quote: string;
   author: string;
-  /** What the client ordered, shown under the name. */
-  subject: string;
+  /** What the client ordered, shown under the name; null when the text does not say. */
+  subject: string | null;
   avatar: ImageAsset | null;
+  /** Stars out of 5, as on the platform. */
+  rating?: number;
+  /** Date as on the platform, display form: "10 сентября 2026". */
+  date?: string;
+  source?: ReviewSource;
 }
 
 export interface HomePage {

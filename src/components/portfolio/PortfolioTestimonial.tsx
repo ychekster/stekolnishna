@@ -1,8 +1,9 @@
 /**
  * Big client quote on the portfolio page: grey block with an accent quote mark, the quote,
- * name and what was done, and a square photo of the object on the right.
+ * name, what was done, stars and platform, and a square photo of the object on the right.
  */
 import { MediaFrame } from "@/components/ui/MediaFrame";
+import { ReviewMeta } from "@/components/ui/ReviewMeta";
 import type { PortfolioPage } from "@/lib/content/types";
 
 export function PortfolioTestimonial({
@@ -23,8 +24,7 @@ export function PortfolioTestimonial({
           {testimonial.quote}
         </blockquote>
         <figcaption className="mt-6">
-          <span className="block text-label font-semibold">{testimonial.author}</span>
-          <span className="block text-caption text-ink-muted">{testimonial.subject}</span>
+          <ReviewMeta testimonial={testimonial} />
         </figcaption>
       </figure>
       <div className="aspect-square max-w-85 flex-[1_1_280px] overflow-hidden rounded-lg">

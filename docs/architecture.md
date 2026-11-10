@@ -60,7 +60,7 @@ src/
       MapEmbed (map embed or placeholder; size set by the caller),
       TelegramIcon (brand glyph; also behind the `telegram` icon key),
       BoxedField (boxed input/select/textarea for light forms), ConsentCheckbox, Honeypot,
-      FilterChip, BackLink
+      FilterChip, BackLink, ReviewMeta (review author, stars, platform link)
     layout/               SiteHeader (sticky, burger below xl), SiteFooter, FloatingTelegram,
                           CallbackDialogProvider+CallbackForm+CallbackButton (native <dialog>,
                           opened via context from anywhere), CookieBanner
@@ -102,7 +102,8 @@ src/
     contacts.ts, services.ts, catalog.ts, portfolio.ts (page copy + projects), order.ts,
     legal.ts, not-found.ts,
     catalog-items.ts (categories + products imported from the customer's catalog export),
-    demo-portfolio.ts + demo-reviews.ts (DEMO for the customer review, replaced before launch)
+    demo-portfolio.ts (DEMO projects for the customer review, replaced before launch),
+    reviews.ts (real 2GIS / Yandex Maps reviews, verbatim)
   lib/                    Pure logic, no JSX. Unit tests next to the code (*.test.ts)
     content/              Content types + getters (the only content entry point)
     leads/                Forms: schemas (short, callback, order), uploads.ts (file rules +
