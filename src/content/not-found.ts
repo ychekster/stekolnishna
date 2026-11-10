@@ -11,7 +11,7 @@ export const notFoundPageContent: NotFoundPage = {
   homeLabel: "На главную",
   catalogLabel: "В каталог",
   image: {
-    src: "/images/home/hero.jpg",
-    alt: "Гостиная со стеклянной перегородкой в чёрном профиле и видом на горы",
+    src: "/images/hero-glass.jpg",
+    alt: "Стеклянный фасад и стопка листов закалённого стекла",
   },
 };
