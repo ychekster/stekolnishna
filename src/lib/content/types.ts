@@ -65,7 +65,15 @@ export interface SiteSettings {
   telegramBot: string;
   email: string;
   address: string;
+  /** One short line for the header, footer and contact blocks ("Пн–Сб, 9:00–19:00").
+   * The per-department table lives on the Contacts page (`ContactsPage.schedule`). */
   workingHours: string;
+  /** Logo file; `null` → the text logo (company name + tagline). */
+  logo: ImageAsset | null;
+  /** Picture for link previews in messengers and social networks (Open Graph). */
+  ogImage: ImageAsset | null;
+  /** Key company numbers shown on the homepage and the About page (one source for both). */
+  companyStats: Stat[];
   navigation: LinkItem[];
   privacyPolicyHref: string;
   copyright: string;
@@ -122,6 +130,21 @@ export interface ServiceItem {
   description: string;
 }
 
+/** Homepage "Популярные категории" entry: a catalog section picked by slug. Name, price
+ * and link come from the catalog; `image` replaces the section cover when set. */
+export interface HomeCategoryRef {
+  slug: string;
+  image?: ImageAsset;
+}
+
+/** Homepage "Выполненные проекты" tile: a portfolio project picked by slug. Photo and link
+ * come from the project; `caption` replaces the project title when set (shorter on a tile). */
+export interface HomeProjectRef {
+  slug: string;
+  caption?: string;
+}
+
+/** Resolved catalog card for the homepage carousel. */
 export interface CatalogItem {
   title: string;
   href: string;
@@ -134,6 +157,7 @@ export interface AdvantageItem {
   description: string;
 }
 
+/** Resolved project tile for the homepage mosaic. */
 export interface ProjectItem {
   caption: string;
   href: string | null;
@@ -155,16 +179,17 @@ export interface Testimonial {
 }
 
 export interface HomePage {
+  seo: PageSeo;
   hero: {
     title: string;
     lead: string;
     image: ImageAsset;
     cta: LinkItem;
   };
+  /** Numbers on the right come from `SiteSettings.companyStats`. */
   about: {
     title: string;
     paragraphs: string[];
-    stats: Stat[];
   };
   services: {
     title: string;
@@ -174,7 +199,7 @@ export interface HomePage {
   catalog: {
     title: string;
     lead: string;
-    items: CatalogItem[];
+    categories: HomeCategoryRef[];
   };
   advantages: {
     title: string;
@@ -184,7 +209,7 @@ export interface HomePage {
     title: string;
     lead: string;
     allProjectsLink: LinkItem;
-    items: ProjectItem[];
+    projects: HomeProjectRef[];
   };
   process: {
     title: string;
@@ -250,7 +275,6 @@ export interface AboutPage {
     title: string;
     lead: string;
     image: ImageAsset;
-    stats: Stat[];
   };
   production: {
     title: string;
@@ -514,13 +538,12 @@ export interface CatalogPage {
     emptyText: string;
   };
   promos: {
-    /** Light card leading to one category. */
+    /** Light card leading to one category; its price comes from that category. */
     featured: {
       categorySlug: string;
       label: string;
       title: string;
       text: string;
-      price: Price;
       linkLabel: string;
       image: ImageAsset | null;
     };

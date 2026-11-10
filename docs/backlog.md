@@ -26,14 +26,17 @@ Missing data from the customer lives in [open-questions.md](open-questions.md), 
 - [ ] `sitemap.xml` and `robots.txt` (site-wide, generated from `src/lib/routes.ts` + CMS pages;
       needs the final domain).
 - [ ] Schema.org markup (`LocalBusiness`/`Organization`, products) — needs real company data.
-- [ ] Open Graph / social preview image.
 - [ ] Per-page titles and descriptions for every page.
 - [ ] Connect Google Search Console and Yandex Webmaster.
 
 ### Branding
 
-- [ ] Logo in header/footer (`src/components/ui/Brand.tsx` is a text logo now).
-- [ ] Favicon / app icons — `src/app/favicon.ico` is still the default Next.js icon.
+- [ ] Logo in header/footer: `Brand` already shows `SiteSettings.logo` once it is set
+      (2026-11-10); needs the customer's file.
+- [ ] Favicon / app icons — `src/app/favicon.ico` is still the default Next.js icon; make
+      `icon` / `apple-icon` from the logo mark (Next file conventions).
+- [ ] Open Graph image: `SiteSettings.ogImage` + `SITE_URL` are wired (2026-11-10); needs the
+      picture and the domain.
 
 ### Analytics & legal (spec §8, §9)
 

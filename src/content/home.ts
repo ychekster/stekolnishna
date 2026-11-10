@@ -14,6 +14,12 @@ const REVIEW_PLACEHOLDER =
   "[Настоящий отзыв клиента: что заказывали, как прошли замер и монтаж, что понравилось. 2–4 предложения.]";
 
 export const homePageContent: HomePage = {
+  seo: {
+    title: "Стекло&Центр: стеклянные конструкции под ключ в Алматы",
+    description:
+      "Изготовление и монтаж изделий из стекла и зеркал в Алматы: перегородки, душевые, зеркала, ограждения. Собственное производство, бесплатный замер.",
+  },
+
   hero: {
     title: "Стеклянные конструкции под ключ",
     lead: "Производство и монтаж: перегородки, душевые, зеркала, ограждения и фасадное остекление",
@@ -29,12 +35,6 @@ export const homePageContent: HomePage = {
     paragraphs: [
       "Мы стекольная мастерская полного цикла в Алматы. Сами режем и обрабатываем стекло на собственном производстве, а затем монтируем готовые конструкции в квартирах, домах, офисах и торговых помещениях.",
       "Работаем с частными клиентами, дизайнерами и строительными компаниями: от одного зеркала до остекления целого этажа.",
-    ],
-    stats: [
-      { value: "[1 200] м²", label: "собственный цех" },
-      { value: "от [3] дней", label: "срок изготовления" },
-      { value: "[1]", label: "день до замера" },
-      { value: "1 год", label: "гарантии на монтаж" },
     ],
   },
 
@@ -68,42 +68,36 @@ export const homePageContent: HomePage = {
   catalog: {
     title: "Популярные категории",
     lead: "Изготавливаем по вашим размерам, цена зависит от толщины стекла и фурнитуры",
-    items: [
+    // Name, price and link come from the catalog; `image` picks a photo that reads better
+    // on the 3:4 card than the section cover.
+    categories: [
       {
-        title: "Душевые кабины",
-        href: routes.catalogCategory("dushevye-kabiny"),
+        slug: "dushevye-kabiny",
         image: {
           src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.jpg",
           alt: "Душевой уголок из стекла",
         },
-        price: { kind: "from", amount: 100000, unit: "piece" },
       },
       {
-        title: "Стеклянные перегородки",
-        href: routes.catalogCategory("steklyannye-peregorodki"),
+        slug: "steklyannye-peregorodki",
         image: {
           src: "/images/catalog/steklyannye-ofisnye-peregorodki/cover.jpg",
           alt: "Стеклянные офисные перегородки",
         },
-        price: { kind: "from", amount: 25000, unit: "m2" },
       },
       {
-        title: "Зеркала и панно",
-        href: routes.catalogCategory("zerkala"),
+        slug: "zerkala",
         image: {
           src: "/images/catalog/zerkalnye-steny/gallery-01.jpg",
           alt: "Зеркальная стена из фацетных зеркал",
         },
-        price: { kind: "from", amount: 15000, unit: "m2" },
       },
       {
-        title: "Стеклянные ограждения",
-        href: routes.catalogCategory("ograzhdeniya-i-peregorodki"),
+        slug: "ograzhdeniya-i-peregorodki",
         image: {
           src: "/images/catalog/ograzhdeniya-iz-nerzhavejki/gallery-01.jpg",
           alt: "Стеклянное ограждение балкона с поручнем из нержавейки",
         },
-        price: { kind: "from", amount: 30000, unit: "m2" },
       },
     ],
   },
@@ -142,28 +136,13 @@ export const homePageContent: HomePage = {
     title: "Выполненные проекты",
     lead: "Несколько работ последних месяцев",
     allProjectsLink: { label: "Смотреть все проекты", href: routes.portfolio },
-    items: [
-      {
-        caption: "Офисные перегородки в БЦ, [район]",
-        href: routes.project("ofis-it-kompanii"),
-        image: null,
-      },
-      { caption: "Душевая в квартире", href: routes.project("walk-in-dushevaya"), image: null },
-      {
-        caption: "Зеркальная стена в фитнес-клубе",
-        href: routes.project("zerkalnaya-stena-v-fitnes-zale"),
-        image: null,
-      },
-      {
-        caption: "Ограждение лестницы в частном доме",
-        href: routes.project("ograzhdenie-lestnicy-v-dome"),
-        image: null,
-      },
-      {
-        caption: "Витрина магазина",
-        href: routes.project("vitriny-yuvelirnogo-butika"),
-        image: null,
-      },
+    // Photo and link come from the portfolio project; `caption` is a shorter tile label.
+    projects: [
+      { slug: "ofis-it-kompanii", caption: "Офисные перегородки в БЦ, [район]" },
+      { slug: "walk-in-dushevaya", caption: "Душевая в квартире" },
+      { slug: "zerkalnaya-stena-v-fitnes-zale", caption: "Зеркальная стена в фитнес-клубе" },
+      { slug: "ograzhdenie-lestnicy-v-dome", caption: "Ограждение лестницы в частном доме" },
+      { slug: "vitriny-yuvelirnogo-butika", caption: "Витрина магазина" },
     ],
   },
 

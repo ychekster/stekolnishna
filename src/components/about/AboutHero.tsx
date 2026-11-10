@@ -1,13 +1,13 @@
 /**
  * Top of the About page: H1 with an intro paragraph beside it (below it on mobile),
  * a wide photo and a row of key numbers. No divider under the numbers (user's decision;
- * the mockup had one).
+ * the mockup had one). The numbers are the company stats from site settings.
  */
 import { MediaFrame } from "@/components/ui/MediaFrame";
 import { Stat } from "@/components/ui/Stat";
-import type { AboutPage } from "@/lib/content/types";
+import type { AboutPage, Stat as StatData } from "@/lib/content/types";
 
-export function AboutHero({ hero }: { hero: AboutPage["hero"] }) {
+export function AboutHero({ hero, stats }: { hero: AboutPage["hero"]; stats: StatData[] }) {
   return (
     <section aria-labelledby="about-title" className="mt-4 md:mt-6">
       <div className="flex flex-wrap items-end justify-between gap-4 md:gap-12">
@@ -31,7 +31,7 @@ export function AboutHero({ hero }: { hero: AboutPage["hero"] }) {
         />
       </div>
       <div className="mt-6 grid grid-cols-2 gap-6 md:mt-12 md:grid-cols-[repeat(auto-fit,minmax(200px,1fr))] md:gap-8">
-        {hero.stats.map((stat) => (
+        {stats.map((stat) => (
           <Stat key={stat.label} stat={stat} />
         ))}
       </div>

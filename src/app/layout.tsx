@@ -25,14 +25,21 @@ const manrope = Manrope({
   display: "swap",
 });
 
-export const metadata: Metadata = {
-  title: "Стекло&Центр: стеклянные конструкции под ключ в Алматы",
-  description:
-    "Изготовление и монтаж изделий из стекла и зеркал в Алматы: перегородки, душевые, зеркала, ограждения. Собственное производство, бесплатный замер.",
-  // Pre-launch: keep the preview (e.g. via tunnel) out of search engines.
-  // Switch to indexable when the site goes live on its real domain.
-  robots: { index: false, follow: false },
-};
+// Defaults only: every page sets its own title and description from its content (`seo`).
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettings();
+  return {
+    title: settings.companyName,
+    // Absolute URLs for link previews; set SITE_URL once the domain is known.
+    metadataBase: process.env.SITE_URL ? new URL(process.env.SITE_URL) : undefined,
+    openGraph: settings.ogImage
+      ? { siteName: settings.companyName, locale: "ru_RU", images: [settings.ogImage.src] }
+      : undefined,
+    // Pre-launch: keep the preview (e.g. via tunnel) out of search engines.
+    // Switch to indexable when the site goes live on its real domain.
+    robots: { index: false, follow: false },
+  };
+}
 
 export const viewport: Viewport = {
   themeColor: "#ffffff",

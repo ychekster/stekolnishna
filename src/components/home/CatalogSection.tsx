@@ -5,11 +5,17 @@
 import { Carousel, CarouselControls, CarouselTrack } from "@/components/ui/Carousel";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import type { HomePage } from "@/lib/content/types";
+import type { CatalogItem, HomePage } from "@/lib/content/types";
 
 import { CatalogCard } from "./CatalogCard";
 
-export function CatalogSection({ catalog }: { catalog: HomePage["catalog"] }) {
+interface CatalogSectionProps {
+  catalog: HomePage["catalog"];
+  /** Cards resolved from the catalog (src/lib/home/featured.ts). */
+  items: CatalogItem[];
+}
+
+export function CatalogSection({ catalog, items }: CatalogSectionProps) {
   return (
     <Section id="catalog" labelledBy="catalog-title">
       <Carousel className="flex flex-col gap-6 md:flex-row md:gap-12">
@@ -23,7 +29,7 @@ export function CatalogSection({ catalog }: { catalog: HomePage["catalog"] }) {
           // 4 cards per row on desktop (3 gaps of 16px); ~1.4 cards on mobile hints at swiping.
           itemClassName="basis-[70%] md:basis-[calc((100%-48px)/4)]"
         >
-          {catalog.items.map((item) => (
+          {items.map((item) => (
             <CatalogCard key={item.title} item={item} />
           ))}
         </CarouselTrack>

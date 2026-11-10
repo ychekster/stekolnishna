@@ -66,7 +66,6 @@ export const catalogPageContent: CatalogPage = {
       label: "Под ключ",
       title: "Душевые из закалённого стекла",
       text: "Замер, изготовление и монтаж. Изготовление от 5–7 дней.",
-      price: { kind: "from", amount: 100000, unit: "piece" },
       linkLabel: "Смотреть",
       image: {
         src: "/images/catalog/dushevye-ugolki-iz-stekla/gallery-01.jpg",

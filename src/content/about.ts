@@ -30,12 +30,6 @@ export const aboutPageContent: AboutPage = {
       src: "/images/hero-glass.jpg",
       alt: "Листы закалённого стекла и стеклянный фасад",
     },
-    stats: [
-      { value: "[1 200] м²", label: "собственный цех" },
-      { value: "от [3] дней", label: "срок изготовления" },
-      { value: "[1] день", label: "до бесплатного замера" },
-      { value: "1 год", label: "гарантии на монтаж" },
-    ],
   },
 
   production: {

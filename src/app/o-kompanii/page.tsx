@@ -30,7 +30,7 @@ export default async function AboutCompanyPage() {
         items={[{ label: "Главная", href: routes.home }, { label: about.name }]}
         className="mt-4 md:mt-8"
       />
-      <AboutHero hero={about.hero} />
+      <AboutHero hero={about.hero} stats={settings.companyStats} />
       <ProductionSection production={about.production} />
       <EquipmentSection equipment={about.equipment} />
       <OwnProductionSection ownProduction={about.ownProduction} />

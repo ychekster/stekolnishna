@@ -102,7 +102,7 @@ export function SiteHeader({ settings }: { settings: SiteSettings }) {
       )}
     >
       <Container className="relative flex h-(--header-height) items-center justify-between gap-6">
-        <Brand name={settings.companyName} tagline={settings.tagline} />
+        <Brand name={settings.companyName} tagline={settings.tagline} logo={settings.logo} />
 
         {/* Desktop navigation */}
         <nav aria-label="Основное меню" className="hidden gap-6 xl:flex">

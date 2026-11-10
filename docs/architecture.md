@@ -107,6 +107,7 @@ src/
     leads/                Forms: schemas (short, callback, order), uploads.ts (file rules +
                           signature sniffing), rate limit, repository, server actions
     portfolio/            projects.ts: category filter, counts, previous/next project
+    home/                 featured.ts: homepage category cards and project tiles from slugs
     catalog/              + filterByTags/countTags/sortProducts (category page), offers.ts (landing
                           offer cards from catalog/services), drawings.ts (sample numbers)
     seo/json-ld.ts        Schema.org FAQPage + safe serialization
@@ -119,6 +120,7 @@ src/
     cn.ts                 className joiner
 public/images/            Static images (hero photo; catalog/<slug>/ = catalog photos)
 docs/design/              Design handoff: HANDOFF.md, tokens.json, screenshots, reference.html
+scripts/find-placeholders.mjs  `npm run placeholders`: [bracket] placeholders and missing photos left in src/content
 ```
 
 ### Conventions
@@ -135,6 +137,8 @@ docs/design/              Design handoff: HANDOFF.md, tokens.json, screenshots, 
 - **Copy style**: no em dashes and no middle-dot separators in site texts (user's decision); en dashes only in ranges.
 - **Sticky header height** is the CSS variable `--header-height` (64px, 76px from xl) in `globals.css`; it also drives `scroll-padding-top`, so anchor jumps land below the header.
 - **Icons are keys** (`IconName` in content), mapped to Lucide in `components/ui/Icon.tsx`, so editors pick icons by name.
+- **One fact, one place**: a page that shows another record's data stores a reference, not a copy (homepage category cards and project tiles, landing offers, the catalog promo price, company stats in site settings). Mapping to Payload: [data-model.md](data-model.md).
+- **Logo**: `Brand` shows `SiteSettings.logo` when set, the text logo otherwise. Link previews use `SiteSettings.ogImage` with `SITE_URL` as the base.
 - **Images**: `MediaFrame` renders `next/image` when an image exists and the turquoise placeholder pattern otherwise. Every image has alt text.
 
 ## Design system
@@ -180,11 +184,13 @@ Deviations from the mockup, intentional:
 
 | Env var           | Purpose                                                                                                                                  |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `SITE_URL`        | Public address (`https://…`), base for absolute URLs in link previews. Empty until the domain is known.                                  |
 | `ALLOWED_ORIGINS` | Extra hosts for dev assets and Server Actions (tunnels/proxies), comma-separated. `*.trycloudflare.com` for the Cloudflare quick tunnel. |
 
 ## Testing
 
 - `npm test` — Vitest unit tests for `src/lib` (price formatting, phone normalization, contact links, lead validation, rate limiter).
+- `npm run placeholders` — what content is still missing (must be empty or agreed before launch).
 - Visual check — Playwright (Edge) screenshots at 1440px and 390px compared to `docs/design/screenshot-*.png`.
 - Pre-commit — lint-staged (ESLint + Prettier) and typecheck.
 

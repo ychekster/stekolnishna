@@ -27,7 +27,7 @@ export function SiteFooter({ settings, landings }: SiteFooterProps) {
       <footer className="mt-12 border-t border-line pt-8 pb-6 md:mt-24">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1.3fr_1.3fr]">
           <div>
-            <Brand name={settings.companyName} tagline={settings.tagline} />
+            <Brand name={settings.companyName} tagline={settings.tagline} logo={settings.logo} />
             <address className="mt-4 flex flex-col gap-1 text-caption text-ink-muted not-italic">
               <a
                 href={telHref(settings.phoneE164)}

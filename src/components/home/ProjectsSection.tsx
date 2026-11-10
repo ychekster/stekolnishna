@@ -7,9 +7,15 @@ import { PhotoTile } from "@/components/ui/PhotoTile";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cn } from "@/lib/cn";
-import type { HomePage } from "@/lib/content/types";
+import type { HomePage, ProjectItem } from "@/lib/content/types";
 
-export function ProjectsSection({ projects }: { projects: HomePage["projects"] }) {
+interface ProjectsSectionProps {
+  projects: HomePage["projects"];
+  /** Tiles resolved from the portfolio (src/lib/home/featured.ts). */
+  items: ProjectItem[];
+}
+
+export function ProjectsSection({ projects, items }: ProjectsSectionProps) {
   return (
     <Section id="projects" labelledBy="projects-title">
       <div className="flex flex-wrap items-end justify-between gap-6">
@@ -19,7 +25,7 @@ export function ProjectsSection({ projects }: { projects: HomePage["projects"] }
         </Button>
       </div>
       <ul className="m-0 mt-6 grid list-none auto-rows-[160px] grid-cols-2 gap-3 p-0 md:mt-10 md:auto-rows-[220px] md:grid-cols-4 md:gap-4">
-        {projects.items.map((project, index) => (
+        {items.map((project, index) => (
           <li key={project.caption} className={cn(index === 0 && "col-span-2 row-span-2")}>
             <PhotoTile
               image={project.image}

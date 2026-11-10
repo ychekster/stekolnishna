@@ -37,6 +37,7 @@ export default async function CatalogPage() {
 
   const featuredSlugs = catalog.featuredCategorySlugs;
   const promo = catalog.promos.featured;
+  const promoCategory = categories.find((category) => category.slug === promo.categorySlug);
   // The promo jumps to its section when the category is shown on this page.
   const promoHref = featuredSlugs.includes(promo.categorySlug)
     ? `#${promo.categorySlug}`
@@ -61,7 +62,9 @@ export default async function CatalogPage() {
         telegramBot={settings.telegramBot}
         intro={
           <div className="mt-6 grid grid-cols-1 gap-4 md:mt-10 md:grid-cols-2">
-            <FeaturedPromoCard promo={promo} href={promoHref} />
+            {promoCategory && (
+              <FeaturedPromoCard promo={promo} price={promoCategory.price} href={promoHref} />
+            )}
             <PhotoOrderPromoCard
               promo={catalog.promos.photoOrder}
               telegramBot={settings.telegramBot}

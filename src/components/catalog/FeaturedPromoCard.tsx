@@ -8,15 +8,17 @@ import Link from "next/link";
 
 import { ICON_STROKE } from "@/components/ui/Icon";
 import { MediaFrame } from "@/components/ui/MediaFrame";
-import type { CatalogPage } from "@/lib/content/types";
+import type { CatalogPage, Price } from "@/lib/content/types";
 import { formatPrice } from "@/lib/format/price";
 
 interface FeaturedPromoCardProps {
   promo: CatalogPage["promos"]["featured"];
+  /** Price of the promoted category, so the card always matches the catalog. */
+  price: Price;
   href: string;
 }
 
-export function FeaturedPromoCard({ promo, href }: FeaturedPromoCardProps) {
+export function FeaturedPromoCard({ promo, price, href }: FeaturedPromoCardProps) {
   return (
     <Link
       href={href}
@@ -32,7 +34,7 @@ export function FeaturedPromoCard({ promo, href }: FeaturedPromoCardProps) {
           <p className="m-0 mt-2.5 text-body text-ink-muted">{promo.text}</p>
         </div>
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-label font-semibold">
-          <span>{formatPrice(promo.price)}</span>
+          <span>{formatPrice(price)}</span>
           <span className="inline-flex items-center gap-1 font-medium text-accent-strong">
             {promo.linkLabel}
             <ArrowRight

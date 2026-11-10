@@ -21,6 +21,16 @@ export const siteSettingsContent: SiteSettings = {
   email: "info@steklo-center.kz",
   address: "г. Алматы",
   workingHours: "Пн–Сб, 9:00–19:00",
+  // No logo file yet: the header and footer show the text logo.
+  logo: null,
+  ogImage: null,
+  // Shown on the homepage ("О компании") and the About page hero.
+  companyStats: [
+    { value: "[1 200] м²", label: "собственный цех" },
+    { value: "от [3] дней", label: "срок изготовления" },
+    { value: "[1] день", label: "до бесплатного замера" },
+    { value: "1 год", label: "гарантии на монтаж" },
+  ],
   // Main sections from the spec (§3.2–3.6). No calculator — docs/decisions/0003.
   navigation: [
     { label: "Каталог", href: routes.catalog },

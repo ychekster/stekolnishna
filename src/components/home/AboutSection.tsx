@@ -1,11 +1,12 @@
 /**
- * "О компании": text on the left, 2×2 grid of stats on the right.
+ * "О компании": text on the left, 2×2 grid of stats on the right. The numbers are the
+ * company stats from site settings, shared with the About page.
  */
 import { Section } from "@/components/ui/Section";
 import { Stat } from "@/components/ui/Stat";
-import type { HomePage } from "@/lib/content/types";
+import type { HomePage, Stat as StatData } from "@/lib/content/types";
 
-export function AboutSection({ about }: { about: HomePage["about"] }) {
+export function AboutSection({ about, stats }: { about: HomePage["about"]; stats: StatData[] }) {
   return (
     <Section id="about" labelledBy="about-title" className="flex flex-wrap justify-between gap-12">
       <div className="max-w-130 flex-[1_1_420px]">
@@ -22,7 +23,7 @@ export function AboutSection({ about }: { about: HomePage["about"] }) {
         ))}
       </div>
       <div className="grid grid-cols-2 content-start gap-x-16 gap-y-8">
-        {about.stats.map((stat) => (
+        {stats.map((stat) => (
           <Stat key={stat.label} stat={stat} />
         ))}
       </div>
